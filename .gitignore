@@ -1,0 +1,22 @@
+*.pyc
+*.DS_Store
+dist
+zigpy_ota.egg-info
+build
+.vscode/settings.json
+.tox
+.idea
+.coverage
+htmlcov/
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.cache
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
