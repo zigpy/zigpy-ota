@@ -1,0 +1,124 @@
+# serializer version: 1
+# name: test_generate_stub_metadata
+  '''
+  # OTA metadata
+  file_name: test.zigbee
+  source_file_name: test.zigbee
+  
+  '''
+# ---
+# name: test_generate_stub_metadata_all
+  dict({
+    'image1.zigbee.yaml': '''
+      # OTA metadata
+      file_name: image1.zigbee
+      source_file_name: image1.zigbee
+  
+    ''',
+    'image2.ota.yaml': '''
+      # OTA metadata
+      file_name: image2.ota
+      source_file_name: image2.ota
+  
+    ''',
+    'manufacturer/image3.zigbee.yaml': '''
+      # OTA metadata
+      file_name: image3.zigbee
+      source_file_name: image3.zigbee
+  
+    ''',
+  })
+# ---
+# name: test_normalize_yaml
+  '''
+  # OTA metadata
+  file_name: test.zigbee
+  source_file_name: test.zigbee
+  source_url: https://example.com/firmware.ota
+  release_notes: |-
+    Some notes
+  model_names:
+    - Model A
+    - Model B
+  
+  '''
+# ---
+# name: test_normalize_yaml_third_party
+  '''
+  # OTA metadata
+  file_name: third_party.zigbee
+  source_file_name: third_party.zigbee
+  source_url: https://example.com/firmware.ota
+  # OTA image metadata required for third-party hosted images:
+  third_party_download:
+    manufacturer_id: 4107
+    image_type: 268
+    file_version: 16783874
+    file_size: 12345
+    checksum_sha3_256: abc123
+    checksum_sha512: def456
+  release_notes: |-
+    - Bug fixes
+    - Performance improvements
+  
+  '''
+# ---
+# name: test_parse_issue
+  '''
+  {
+    "ota_file": null,
+    "ota_image_url": "https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee",
+    "manufacturer_name": "Hue",
+    "existing_images_handling": "KEEP_ALL",
+    "third_party_download": false,
+    "release_notes": "- Bug fixes\n- Performance improvements",
+    "checklist": {
+      "supported_format": true,
+      "filled_release_notes": false,
+      "tested_on_device": false,
+      "is_official_source": false
+    },
+    "additional_information": null,
+    "optional_metadata": "model_names: [test test, test2]\nmanufacturer_names: SignifyX\nmin_current_file_version: 0x00010002\ninvalid_xx: test"
+  }
+  '''
+# ---
+# name: test_rename_ota_files
+  '''
+  # OTA metadata
+  file_name: 100B-010C-01001A02_879c1b.ota
+  source_file_name: my_firmware.zigbee
+  source_url: https://example.com/firmware.ota
+  release_notes: |-
+    - Bug fixes
+  
+  '''
+# ---
+# name: test_rename_ota_files_preserves_source_file_name
+  '''
+  # OTA metadata
+  file_name: 100B-010C-01001A02_879c1b.ota
+  source_file_name: original_from_manufacturer.zigbee
+  source_url: https://example.com/firmware.ota
+  
+  '''
+# ---
+# name: test_rename_ota_files_third_party_yaml
+  '''
+  # OTA metadata
+  file_name: 100B-010C-01001A02_abc123.ota
+  source_file_name: my-third-party-firmware.zigbee
+  source_url: https://example.com/firmware.ota
+  # OTA image metadata required for third-party hosted images:
+  third_party_download:
+    manufacturer_id: 4107
+    image_type: 268
+    file_version: 16783874
+    file_size: 12345
+    checksum_sha3_256: abc123def456789012345678901234567890123456789012345678901234
+    checksum_sha512: def456abc123
+  release_notes: |-
+    - Bug fixes
+  
+  '''
+# ---

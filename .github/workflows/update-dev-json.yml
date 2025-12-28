@@ -1,0 +1,81 @@
+name: Update dev channel JSON OTA metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - "images/**"
+
+env:
+  PYTHON_VERSION_DEFAULT: "3.13.11"
+  JSON_ZIGPY_OUTPUT_FILE: /tmp/zigpy_v1_ota.json
+  JSON_Z2M_OUTPUT_FILE: /tmp/z2m_v1_ota.json
+  MARKDOWN_OUTPUT_FILE: /tmp/markdown_v1.md
+
+jobs:
+  generate-json-and-commit:
+    name: Update release/files branch with JSON OTA metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install package
+        run: uv sync --group ci
+
+      - name: Generate zigpy JSON metadata (dev channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format zigpy \
+            --channel dev \
+            --output-file "$JSON_ZIGPY_OUTPUT_FILE"
+
+      - name: Generate Z2M JSON metadata (dev channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format z2m \
+            --channel dev \
+            --output-file "$JSON_Z2M_OUTPUT_FILE" \
+
+      - name: Generate markdown index (dev channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format markdown \
+            --channel dev \
+            --output-file "$MARKDOWN_OUTPUT_FILE" \
+
+      - name: Configure git
+        run: |
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      - name: Commit and push changes to release/files
+        run: |
+          # Switch to release/files branch or create it if it doesn't exist
+          git fetch origin release/files:release/files || git checkout -b release/files
+          git checkout release/files
+
+          # Copy the generated files to the repository
+          mkdir -p dev
+          cp "$JSON_ZIGPY_OUTPUT_FILE" dev/zigpy_v1_ota.json
+          cp "$JSON_Z2M_OUTPUT_FILE" dev/z2m_v1_ota.json
+          cp "$MARKDOWN_OUTPUT_FILE" dev/markdown_v1.md
+
+          # Add, commit, and push if there are changes
+          git add dev/zigpy_v1_ota.json dev/z2m_v1_ota.json dev/markdown_v1.md
+          git diff --staged --quiet || git commit -m "Update \`dev\` OTA index files"
+          git push origin release/files

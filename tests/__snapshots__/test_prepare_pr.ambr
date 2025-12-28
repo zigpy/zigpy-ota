@@ -1,0 +1,1945 @@
+# serializer version: 1
+# name: test_prepare_pr_command_with_snapshot[file_replacement_warning]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### ⚠️ File Replacement Warning
+        
+        This upload will **overwrite** the existing file `100B-010C-01001A02_879c1b.ota` (identical OTA image).
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/updated-version/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Critical security fix
+        - Updated firmware for better stability
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Critical security fix\n- Updated firmware for better stability",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/updated-version/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Critical security fix
+          - Updated firmware for better stability
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[hardware_version_override]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Signify
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **File Min Hardware Version**: `0x0005` (5)
+        - **File Max Hardware Version**: `0x000F` (15)
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Replace existing images
+        - **Tested on Device**: Yes
+        
+        ### ⚠️ Hardware Version Override Warning
+        
+        The following hardware version(s) from the YAML metadata override the values from the OTA file:
+        - **Min Hardware Version**: Set to `0x0005` (5) (YAML metadata) (OTA file has no min hardware version)
+        - **Max Hardware Version**: Set to `0x000F` (15) (YAML metadata) (OTA file has no max hardware version)
+        
+        ### Metadata
+        - **Model Names**: Hue Lamp
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Hardware Version**: `0x0005` (5)
+        - **Max Hardware Version**: `0x000F` (15)
+        
+        ### Release Notes
+        - Hardware compatibility restrictions added
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Hardware compatibility restrictions added",
+            "model_names": [
+              "Hue Lamp"
+            ],
+            "min_hardware_version": 5,
+            "max_hardware_version": 15
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Hardware compatibility restrictions added
+        model_names:
+          - Hue Lamp
+        min_hardware_version: 5
+        max_hardware_version: 15
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[middle_manual_override_warning]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002602_75bfb2.ota`
+        - **Original Filename**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002602` (16786946)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/d9a066d2-2cef-4c3c-81b8-cb7cc067c4dd/fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Newest version release
+        - Latest bug fixes and improvements
+  
+      ''',
+      'test_pr_2.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep existing images with version constraint
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+            [would have been used for `min_current_file_version`, but was overridden]
+          - **File Size**: 126 bytes
+        - `100B-010C-01002602_75bfb2.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01002602` (16786946) (**newer** than PR version)
+          - **File Size**: 126 bytes
+        
+        
+        ⚠️ **Warning**: `min_current_file_version` was manually set to `0x01002602` (16786946), but the automatic calculation suggests `0x01001A02` (16783874) (the highest existing version below the new version). Please verify this is intentional. If you want to manually manage version constraints, consider using the "Keep all existing images without automatic version constraints" option instead.
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x01002602` (16786946)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - Manual override test
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+      '100B-010C-01002500_7104c0.ota',
+      '100B-010C-01002602_75bfb2.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Bug fixes\n- Performance improvements\n- Manual override test",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 16786946
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002602_75bfb2.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786946,
+            "file_size": 126,
+            "checksum": "sha3-256:75bfb214a5054e228d55ec2d00296e6753ed848da2584af9335b80b7f76c60ac",
+            "release_notes": "- Newest version release\n- Latest bug fixes and improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+          - Manual override test
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 16786946
+  
+      ''',
+      '100B-010C-01002602_75bfb2.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002602_75bfb2.ota
+        source_file_name: fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/d9a066d2-2cef-4c3c-81b8-cb7cc067c4dd/fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Newest version release
+          - Latest bug fixes and improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[middle_replaces_old_and_newest]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002602_75bfb2.ota`
+        - **Original Filename**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002602` (16786946)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/d9a066d2-2cef-4c3c-81b8-cb7cc067c4dd/fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Newest version release
+        - Latest bug fixes and improvements
+  
+      ''',
+      'test_pr_2.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Replace existing images
+        - **Tested on Device**: No
+        
+        ### Deleted Images
+        
+        The following existing image(s) were deleted:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        - `100B-010C-01002602_75bfb2.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01002602` (16786946) (**newer** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Intermediate version replacing both older and newer versions
+        - Bug fixes and stability improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01002500_7104c0.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Intermediate version replacing both older and newer versions\n- Bug fixes and stability improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Intermediate version replacing both older and newer versions
+          - Bug fixes and stability improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[middle_set_min_version_ignores_higher]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002602_75bfb2.ota`
+        - **Original Filename**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002602` (16786946)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/d9a066d2-2cef-4c3c-81b8-cb7cc067c4dd/fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Newest version release
+        - Latest bug fixes and improvements
+  
+      ''',
+      'test_pr_2.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep existing images with version constraint
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+            [automatically used for `min_current_file_version`]
+          - **File Size**: 126 bytes
+        - `100B-010C-01002602_75bfb2.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01002602` (16786946) (**newer** than PR version)
+          - **File Size**: 126 bytes
+        
+        
+        **Note**: `min_current_file_version` was automatically set to `0x01001A02` (16783874)
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x01001A02` (16783874)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - Multi-step upgrade support
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+      '100B-010C-01002500_7104c0.ota',
+      '100B-010C-01002602_75bfb2.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Bug fixes\n- Performance improvements\n- Multi-step upgrade support",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 16783874
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002602_75bfb2.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786946,
+            "file_size": 126,
+            "checksum": "sha3-256:75bfb214a5054e228d55ec2d00296e6753ed848da2584af9335b80b7f76c60ac",
+            "release_notes": "- Newest version release\n- Latest bug fixes and improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+          - Multi-step upgrade support
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 16783874
+  
+      ''',
+      '100B-010C-01002602_75bfb2.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002602_75bfb2.ota
+        source_file_name: fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/d9a066d2-2cef-4c3c-81b8-cb7cc067c4dd/fake_100B-010C-01002602-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Newest version release
+          - Latest bug fixes and improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[new_plus_old_downgrade]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Replace existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Replace existing images
+        - **Tested on Device**: No
+        
+        ### Deleted Images
+        
+        The following existing image(s) were deleted:
+        - `100B-010C-01002500_7104c0.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01002500` (16786688) (**newer** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[no_metadata_header]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[old_plus_new_auto_min_version]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep existing images with version constraint
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[not stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+            [automatically used for `min_current_file_version`]
+          - **File Size**: 126 bytes
+        
+        
+        **Note**: `min_current_file_version` was automatically set to `0x01001A02` (16783874)
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x01001A02` (16783874)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+      '100B-010C-01002500_7104c0.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 16783874
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 16783874
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[old_plus_new_keep]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Note: Existing Images Found
+        
+        The following existing image(s) with the same manufacturer ID and image type were found:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+      '100B-010C-01002500_7104c0.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          },
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[old_plus_new_replace]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01002500_7104c0.ota`
+        - **Original Filename**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01002500` (16786688)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Replace existing images
+        - **Tested on Device**: No
+        
+        ### Deleted Images
+        
+        The following existing image(s) were deleted:
+        - `100B-010C-01001A02_879c1b.ota` **[stale]**
+          - **Source File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+          - **File Version**: `0x01001A02` (16783874) (**older** than PR version)
+          - **File Size**: 126 bytes
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01002500_7104c0.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01002500_7104c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16786688,
+            "file_size": 126,
+            "checksum": "sha3-256:7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01002500_7104c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01002500_7104c0.ota
+        source_file_name: fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[ota_header_string]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01003000_2410c0.ota`
+        - **Original Filename**: `fake_100B-010C-01003000-WithHeaderString.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01003000` (16789504)
+        - **File Size**: 126 bytes
+        - **Header String**: `EMI 2 - Test Device`
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee
+        
+        ### Release Notes
+        - Test release with header string
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01003000_2410c0.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01003000_2410c0.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16789504,
+            "file_size": 126,
+            "checksum": "sha3-256:2410c0bc275c83410c5039928856b269cc010fdcea37364c8bb72e50c9b19670",
+            "release_notes": "- Test release with header string",
+            "manufacturer_names": [
+              "Signify"
+            ],
+            "model_names": [
+              "Hue Lamp"
+            ]
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01003000_2410c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01003000_2410c0.ota
+        source_file_name: fake_100B-010C-01003000-WithHeaderString.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee
+        release_notes: |-
+          - Test release with header string
+        manufacturer_names:
+          - Signify
+        model_names:
+          - Hue Lamp
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[regular_plus_third_party]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Third-party download (externally hosted)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### ⚠️ File Replacement Warning
+        
+        The existing local file `100B-010C-01001A02_879c1b.ota` will be **deleted** from the repository because it is being replaced by a third-party hosted image.
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp, Hue Bulb
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - External hosting test
+  
+      ''',
+    }),
+    'ota_files': list([
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements\n- External hosting test",
+            "manufacturer_names": [
+              "Signify"
+            ],
+            "model_names": [
+              "Hue Lamp",
+              "Hue Bulb"
+            ]
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        # OTA image metadata required for third-party hosted images:
+        third_party_download:
+          manufacturer_id: 4107
+          image_type: 268
+          file_version: 16783874
+          file_size: 126
+          checksum_sha3_256: 879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a
+          checksum_sha512: 6d5bca46dd740dec64fe6c0493b34dbc3e9b3de5019e7f57d29eb471de6c85e581f96b757f430494c65ff51f1288fda2e3778529db8ad657f6fbc70085f461a5
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+          - External hosting test
+        manufacturer_names:
+          - Signify
+        model_names:
+          - Hue Lamp
+          - Hue Bulb
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[single_old]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[third_party]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Third-party download (externally hosted)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp, Hue Bulb
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - External hosting test
+  
+      ''',
+    }),
+    'ota_files': list([
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements\n- External hosting test",
+            "manufacturer_names": [
+              "Signify"
+            ],
+            "model_names": [
+              "Hue Lamp",
+              "Hue Bulb"
+            ]
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        # OTA image metadata required for third-party hosted images:
+        third_party_download:
+          manufacturer_id: 4107
+          image_type: 268
+          file_version: 16783874
+          file_size: 126
+          checksum_sha3_256: 879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a
+          checksum_sha512: 6d5bca46dd740dec64fe6c0493b34dbc3e9b3de5019e7f57d29eb471de6c85e581f96b757f430494c65ff51f1288fda2e3778529db8ad657f6fbc70085f461a5
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+          - External hosting test
+        manufacturer_names:
+          - Signify
+        model_names:
+          - Hue Lamp
+          - Hue Bulb
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[third_party_header_string]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01003000_2410c0.ota`
+        - **Original Filename**: `fake_100B-010C-01003000-WithHeaderString.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01003000` (16789504)
+        - **File Size**: 126 bytes
+        - **Header String**: `EMI 2 - Test Device`
+        - **Hosting**: Third-party download (externally hosted)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee
+        
+        ### Release Notes
+        - Third-party release with header string
+  
+      ''',
+    }),
+    'ota_files': list([
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16789504,
+            "file_size": 126,
+            "checksum": "sha3-256:2410c0bc275c83410c5039928856b269cc010fdcea37364c8bb72e50c9b19670",
+            "release_notes": "- Third-party release with header string",
+            "manufacturer_names": [
+              "Signify"
+            ],
+            "model_names": [
+              "Hue Lamp"
+            ]
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01003000_2410c0.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01003000_2410c0.ota
+        source_file_name: fake_100B-010C-01003000-WithHeaderString.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee
+        # OTA image metadata required for third-party hosted images:
+        third_party_download:
+          manufacturer_id: 4107
+          image_type: 268
+          file_version: 16789504
+          file_size: 126
+          checksum_sha3_256: 2410c0bc275c83410c5039928856b269cc010fdcea37364c8bb72e50c9b19670
+          checksum_sha512: 908cbe7f6e7909888361c32e840ff2f708f6f4592d8187662b20e9873ec3c2ad178006dd9c131b442b54f497c7d7b51c0ac8b19efc91c24e2786c9c8b0c02885
+          header_string: EMI 2 - Test Device
+        release_notes: |-
+          - Third-party release with header string
+        manufacturer_names:
+          - Signify
+        model_names:
+          - Hue Lamp
+  
+      ''',
+    }),
+  })
+# ---
+# name: test_prepare_pr_command_with_snapshot[third_party_plus_regular]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Third-party download (externally hosted)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp, Hue Bulb
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - External hosting test
+  
+      ''',
+      'test_pr_1.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: Yes
+        
+        ### ⚠️ File Replacement Warning
+        
+        The existing third-party download for `100B-010C-01001A02_879c1b.ota` will be **replaced** by this local file uploaded to the repository.
+        
+        ### Metadata
+        - **Manufacturer Names**: Signify
+        - **Model Names**: Hue Lamp Local, Hue Bulb Local
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Release Notes
+        - Bug fixes
+        - Performance improvements
+        - Replacing third-party with local file
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "- Bug fixes\n- Performance improvements\n- Replacing third-party with local file",
+            "manufacturer_names": [
+              "Signify"
+            ],
+            "model_names": [
+              "Hue Lamp Local",
+              "Hue Bulb Local"
+            ]
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          - Bug fixes
+          - Performance improvements
+          - Replacing third-party with local file
+        manufacturer_names:
+          - Signify
+        model_names:
+          - Hue Lamp Local
+          - Hue Bulb Local
+  
+      ''',
+    }),
+  })
+# ---

@@ -1,0 +1,227 @@
+name: Publish JSON OTA metadata in GitHub release
+
+on:
+  release:
+    types:
+      # `published` is triggered when a new release or pre-release is published, even from a draft
+      - published
+      # `released` is triggered when a pre-release is promoted to a release, but unfortunately also
+      # when a new stable release is created (and not from a draft, according to docs)
+      - released
+  workflow_dispatch:
+    inputs:
+      # When triggered manually without inputs, recalculates and updates version pointers.
+      # When triggered with a tag_name, updates version pointers for that release.
+      tag_name:
+        description: "Release tag name (leave empty to recalculate from latest releases)"
+        required: false
+        type: string
+      is_prerelease:
+        description: "Is this a pre-release?"
+        required: false
+        type: boolean
+        default: false
+
+env:
+  PYTHON_VERSION_DEFAULT: "3.13.11"
+  RELEASE_TAG: ${{ github.event.release.tag_name }}
+  RELEASE_PRERELEASE: ${{ github.event.release.prerelease }}
+  # Stable channel outputs
+  JSON_ZIGPY_STABLE_FILE: /tmp/zigpy_v1_ota.json
+  JSON_Z2M_STABLE_FILE: /tmp/z2m_v1_ota.json
+  MARKDOWN_STABLE_FILE: /tmp/markdown_v1.md
+  # Beta channel outputs (includes stable + beta images)
+  JSON_ZIGPY_BETA_FILE: /tmp/zigpy_v1_ota_beta.json
+  JSON_Z2M_BETA_FILE: /tmp/z2m_v1_ota_beta.json
+  MARKDOWN_BETA_FILE: /tmp/markdown_v1_beta.md
+
+jobs:
+  # For 'released' events (pre-release promoted to stable), re-trigger this workflow
+  # using workflow_dispatch to ensure the latest workflow code is used.
+  #
+  # When a new stable release is created, both 'published' and 'released' events fire.
+  # The 'published' event handles JSON generation and upload. If no JSON assets exist yet,
+  # this is a duplicate trigger - skip and let 'published' handle everything.
+  retrigger-on-released:
+    name: Re-trigger workflow for promoted release
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    if: github.event.action == 'released' && contains(toJSON(github.event.release.assets.*.name), '.json')
+    steps:
+      - name: Trigger workflow_dispatch with release info
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run publish-release-json.yml \
+            --repo ${{ github.repository }} \
+            --ref ${{ github.event.repository.default_branch }} \
+            -f tag_name="$RELEASE_TAG" \
+            -f is_prerelease="$RELEASE_PRERELEASE"
+          echo "::notice::Re-triggered workflow via workflow_dispatch for release $RELEASE_TAG"
+
+  generate-json-and-publish:
+    name: Generate JSON OTA metadata and publish as release asset
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    # Only run JSON generation/upload steps for 'published' events
+    if: github.event.action == 'published'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install package
+        run: uv sync --group ci
+
+      - name: Generate zigpy JSON metadata (stable channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format zigpy \
+            --channel stable \
+            --output-file "$JSON_ZIGPY_STABLE_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      - name: Generate zigpy JSON metadata (beta channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format zigpy \
+            --channel beta \
+            --output-file "$JSON_ZIGPY_BETA_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      - name: Generate Z2M JSON metadata (stable channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format z2m \
+            --channel stable \
+            --output-file "$JSON_Z2M_STABLE_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      - name: Generate Z2M JSON metadata (beta channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format z2m \
+            --channel beta \
+            --output-file "$JSON_Z2M_BETA_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      - name: Generate markdown index (stable channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format markdown \
+            --channel stable \
+            --output-file "$MARKDOWN_STABLE_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      - name: Generate markdown index (beta channel)
+        run: |
+          uv run zigpy-ota generate-index \
+            --format markdown \
+            --channel beta \
+            --output-file "$MARKDOWN_BETA_FILE" \
+            --tag "$RELEASE_TAG" \
+
+      # Likely redundant
+      - name: Validate generated JSON files
+        run: |
+          for file in \
+            "$JSON_ZIGPY_STABLE_FILE" \
+            "$JSON_ZIGPY_BETA_FILE" \
+            "$JSON_Z2M_STABLE_FILE" \
+            "$JSON_Z2M_BETA_FILE"; do
+            if [ ! -f "$file" ]; then
+              echo "::error::JSON file was not generated at $file"
+              exit 1
+            fi
+
+            # Validate JSON syntax
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "::error::Generated JSON is not valid: $file"
+              exit 1
+            fi
+
+            FILE_SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+            echo "::notice::Generated $file ($FILE_SIZE bytes)"
+          done
+
+      - name: Validate generated markdown files
+        run: |
+          for file in \
+            "$MARKDOWN_STABLE_FILE" \
+            "$MARKDOWN_BETA_FILE"; do
+            if [ ! -f "$file" ]; then
+              echo "::error::Markdown file was not generated at $file"
+              exit 1
+            fi
+
+            FILE_SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+            echo "::notice::Generated $file ($FILE_SIZE bytes)"
+          done
+
+      - name: Upload files to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$RELEASE_TAG" \
+            "$JSON_ZIGPY_STABLE_FILE" \
+            "$JSON_ZIGPY_BETA_FILE" \
+            "$JSON_Z2M_STABLE_FILE" \
+            "$JSON_Z2M_BETA_FILE" \
+            "$MARKDOWN_STABLE_FILE" \
+            "$MARKDOWN_BETA_FILE" \
+            --clobber
+
+  update-version-pointers:
+    name: Update version pointers (stable.json, beta.json)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    # Run when:
+    # - JSON generation succeeds (published event)
+    # - JSON generation was skipped (workflow_dispatch)
+    # Don't run if JSON generation failed (would point to missing files)
+    # Don't run for 'released' events (handled by retrigger-on-released job)
+    needs: [generate-json-and-publish]
+    if: |
+      always() &&
+      github.event.action != 'released' &&
+      (needs.generate-json-and-publish.result == 'success' || needs.generate-json-and-publish.result == 'skipped')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      # Make sure the script is executable:
+      # git update-index --chmod=+x .github/scripts/update-version-pointers.sh
+      - name: Update version pointers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          # Use inputs for workflow_dispatch, event data for release events
+          RELEASE_TAG_NAME: ${{ inputs.tag_name || github.event.release.tag_name }}
+          RELEASE_PRERELEASE: ${{ inputs.is_prerelease || github.event.release.prerelease }}
+          RELEASE_CREATED_AT: ${{ github.event.release.created_at }}
+          RELEASE_ASSETS: ${{ toJSON(github.event.release.assets) }}
+        run: .github/scripts/update-version-pointers.sh

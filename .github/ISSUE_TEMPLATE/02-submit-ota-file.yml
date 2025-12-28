@@ -1,0 +1,97 @@
+name: Submit OTA (File Upload)
+description: Submit new or updated OTA files by uploading them directly.
+labels: ["ota-submit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Title:** Please enter a descriptive title above, like: `Add manufacturer smart plug v1.2.3`
+  - type: textarea
+    attributes:
+      label: OTA file
+      description: |
+        Upload **one** OTA file here. **Please ZIP the OTA file first**, then drag-and-drop the ZIP file here.\
+        **Note:** Only upload one OTA image per issue. If you need to submit multiple images, please create a separate issue for each.
+      placeholder: |
+        Drag-and-drop the zipped OTA file here.
+    validations:
+      required: true
+  - type: input
+    id: manufacturer_name
+    attributes:
+      label: Manufacturer name
+      description: |
+        The device manufacturer's name for display purposes only (e.g., in the generated PR).\
+        The actual storage location is determined automatically from the manufacturer ID inside the OTA file.
+      placeholder: "Example: Aeotec"
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Release notes
+      description: |
+        A short description of what's new in this firmware version. Use bullet points to list changes.
+      placeholder: |
+        - Bug fixes
+        - New features
+        - etc.
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: How to handle existing images of the same type
+      description: |
+        Choose how to handle any existing images with the same manufacturer ID and image type.\
+        Note: Older images are always kept for historic purposes. Newer images are always preferred by zigpy, so older images will only be used if they have constraints that make them more specific.
+
+        - **Keep all**: Keep all existing images without setting version constraints (newer images will always be preferred).\
+        Use this when adding a new image or when the new image fully replaces older versions without requiring intermediate upgrade steps.
+        - **Set version constraint**: Keep existing images and automatically set `min_current_file_version` to the highest existing version (that's still older than the new image).\
+        Use this when the new image requires the device to first have the older firmware version already present in the repository (multi-step upgrades).
+      options:
+        - Keep all (standard)
+        - Keep all with version constraint (multi-step)
+        # We're now keeping all images by default. Older ones just aren't used anymore, so we hide the replacement option for now.
+        # - Replace existing images with the same manufacturer ID and image type
+        # - Keep existing images and set min_current_file_version to highest existing version
+        # - Keep all existing images without automatic version constraints
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Optional metadata
+      description: |
+        Optional metadata fields for the OTA image. Provide as YAML key-value pairs.\
+        This can most likely be left empty (GitHub placeholders will still show in text field below).
+
+        Supported fields: `manufacturer_names`, `model_names`, `min_current_file_version`, `max_current_file_version`, `min_hardware_version`, `max_hardware_version`, `specificity`, `channel`, `disabled`
+
+        **Example:** To restrict this firmware to only specific device models, set `model_names` to a list of model names that should match. The image will only be applied to devices that match both the manufacturer/image type AND one of the specified model names. Example: `model_names: [Model A]`
+
+        **Channel:** Set `channel` to `beta` or `dev` to make the image available only in non-stable release channels.
+      placeholder: |
+        manufacturer_names: [Manufacturer 1, Manufacturer 2]
+        model_names: [Model 1, Model 2]
+        min_hardware_version: 2
+        max_hardware_version: 10
+        min_current_file_version: 20
+        max_current_file_version: 100
+        channel: beta
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: |
+        Check the boxes that apply to your submission. Please answer truthfully.
+        **Note:** You do NOT need to check all of these before submitting the image.
+      options:
+        - label: The OTA image provided is in a supported format (e.g., .zigbee, .ota, or a ZIP containing one of these)
+          required: true
+        - label: I have filled out the release notes to the best of my ability
+        - label: The OTA image is tested and verified to work on a physical device
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: |
+        If you have additional information or context about the OTA image, provide it here.

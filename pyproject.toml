@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zigpy-ota"
+version = "0.0.0"
+description = "Scripts for the zigpy-ota repository"
+urls = {repository = "https://github.com/zigpy/zigpy-ota"}
+authors = [
+    {name = "TheJulianJES", email = "julian.tjj@proton.me"},
+]
+readme = "README.md"
+license = {text = "GPL-3.0"}
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.3.1,<9",
+    "ruamel.yaml>=0.18.0,<0.19",
+    "requests>=2.31.0,<3",
+    "zigpy>=0.87.0",
+]
+
+[dependency-groups]
+ci = [
+    "pytest-github-actions-annotate-failures>=0.3.0",
+    "pytest-xdist>=3.8.0",
+]
+dev = [
+    "codecov",
+    "pre-commit",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-sugar",
+    "pytest-timeout",
+    "syrupy",
+    "types-requests",
+]
+
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*"]
+
+[tool.setuptools.package-data]
+zigpy_ota = ["py.typed"]
+
+[project.scripts]
+zigpy-ota = "zigpy_ota.cli:cli"
+
+[tool.ruff]
+src = ["zigpy_ota", "tests"]
+
+[tool.ruff.lint]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001"
+]
+ignore = [
+    # Line too long
+    "E501",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["zigpy_ota", "tests"]

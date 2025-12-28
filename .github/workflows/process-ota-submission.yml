@@ -1,0 +1,191 @@
+name: Process OTA Submission
+
+on:
+  issues:
+    types: [labeled]
+
+env:
+  PYTHON_VERSION_DEFAULT: "3.13.11"
+  ISSUE_FILE: /tmp/issue.md
+  PR_BODY_FILE: /tmp/pr_body.md
+  COMMIT_MSG_FILE: /tmp/commit_msg.txt
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
+  BRANCH_NAME: bot/ota-submission-issue/${{ github.event.issue.number }}
+
+jobs:
+  process-submission:
+    name: Process OTA submission and create PR
+    # Requires ota-create label (added manually by maintainers or auto-added for trusted submitters)
+    if: |
+      contains(github.event.issue.labels.*.name, 'ota-submit') &&
+      contains(github.event.issue.labels.*.name, 'ota-create') &&
+      github.event.action == 'labeled' &&
+      (github.event.label.name == 'ota-create' || github.event.label.name == 'ota-resubmit')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Remove ota-processed label on resubmit
+        if: github.event.label.name == 'ota-resubmit'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue edit "$ISSUE_NUMBER" --remove-label "ota-processed" || true
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Add resubmit warning to PR on resubmit
+        if: github.event.label.name == 'ota-resubmit'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: |
+          # Find PR for this issue branch using pr list
+          PR_NUMBER=$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number' 2>/dev/null || echo "")
+
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Adding resubmit warning to PR #$PR_NUMBER..."
+            # Get current PR body and save to temp file
+            gh pr view "$PR_NUMBER" --json body --jq '.body' > /tmp/current_pr_body.md
+            # Check if warning already present
+            if ! grep -q "This PR is Being Recreated" /tmp/current_pr_body.md; then
+              # Prepend warning to PR body
+              cat > /tmp/new_pr_body.md << 'EOF_HEADER'
+          # ⚠️ This PR is Being Recreated - Please Wait ⚠️
+
+          **This PR is being updated due to a resubmission. The content below may be outdated until the update completes.**
+
+          ---
+
+          EOF_HEADER
+              cat /tmp/current_pr_body.md >> /tmp/new_pr_body.md
+              gh pr edit "$PR_NUMBER" --body-file /tmp/new_pr_body.md
+            fi
+          else
+            echo "No open PR found for branch $BRANCH_NAME"
+          fi
+
+      - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install package
+        run: uv sync --group ci
+
+      - name: Extract issue body to file
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          printf '%s\n' "$ISSUE_BODY" > "$ISSUE_FILE"
+          echo "Issue content saved to $ISSUE_FILE"
+          cat "$ISSUE_FILE"
+
+      - name: Prepare PR changes
+        id: prepare_pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: |
+          uv run zigpy-ota prepare-pr "$ISSUE_FILE" \
+            --output-pr-markdown "$PR_BODY_FILE" \
+            --output-commit-message "$COMMIT_MSG_FILE"
+
+          # Check if there are changes in the images directory (both tracked and untracked)
+          if [[ -z "$(git status --porcelain images/)" ]]; then
+            echo "No changes detected in images directory"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in images directory"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure git
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      # Make sure the script is executable:
+      # git update-index --chmod=+x .github/scripts/create-pr.sh
+      - name: Create Pull Request
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          BRANCH_NAME: ${{ env.BRANCH_NAME }}
+          ISSUE_NUMBER: ${{ env.ISSUE_NUMBER }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_AUTHOR_LOGIN: ${{ github.event.issue.user.login }}
+          ISSUE_AUTHOR_ID: ${{ github.event.issue.user.id }}
+          PR_BODY_FILE: ${{ env.PR_BODY_FILE }}
+          COMMIT_MSG_FILE: ${{ env.COMMIT_MSG_FILE }}
+        run: .github/scripts/create-pr.sh
+
+      - name: Remove ota-resubmit label
+        if: always() && github.event.label.name == 'ota-resubmit'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue edit "$ISSUE_NUMBER" --remove-label "ota-resubmit" || true
+
+      - name: Comment on issue (success or closed PR)
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          # Check if PR is open before posting success message
+          PR_INFO=$(gh pr view "$BRANCH_NAME" --json state,url 2>/dev/null || echo "{}")
+          PR_STATE=$(echo "$PR_INFO" | jq -r '.state // "UNKNOWN"')
+          PR_URL=$(echo "$PR_INFO" | jq -r '.url // ""')
+
+          if [ "$PR_STATE" = "OPEN" ]; then
+            # Hide previous bot comments before posting new success message
+            BOT_LOGIN="zigpy-bot"
+            COMMENT_IDS=$(gh api graphql -f query='
+              query($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  issue(number: $number) {
+                    comments(first: 100) {
+                      nodes {
+                        id
+                        author { login }
+                        isMinimized
+                      }
+                    }
+                  }
+                }
+              }
+            ' -f owner="$REPO_OWNER" -f repo="$REPO_NAME" -F number="$ISSUE_NUMBER" \
+              --jq ".data.repository.issue.comments.nodes[] | select(.author.login == \"$BOT_LOGIN\" and .isMinimized == false) | .id")
+
+            for COMMENT_ID in $COMMENT_IDS; do
+              gh api graphql -f query='
+                mutation($id: ID!) {
+                  minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
+                    minimizedComment { isMinimized }
+                  }
+                }
+              ' -f id="$COMMENT_ID" || true
+            done
+
+            gh issue comment "$ISSUE_NUMBER" --body "✅ Successfully processed your OTA submission! A pull request has been created with your changes:
+          - $PR_URL"
+          else
+            gh issue comment "$ISSUE_NUMBER" --body "❌ Failed to process your OTA submission. The PR was closed unexpectedly. Please check the workflow logs for more details."
+          fi
+
+      - name: Comment on issue (no changes)
+        if: steps.prepare_pr.outputs.has_changes == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "⚠️ No changes were detected in the images directory. Please check your submission and ensure the OTA file URL is valid."
+
+      - name: Comment on issue (failure)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "❌ Failed to process your OTA submission. A maintainer will check on this shortly and let you know if any changes are needed. You can check the workflow logs for more details."

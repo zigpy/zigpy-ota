@@ -1,0 +1,114 @@
+# serializer version: 1
+# name: test_disabled_flag_excludes_from_json
+  '''
+  {
+    "firmwares": [
+      {
+        "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/test_manufacturer/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee",
+        "manufacturer_id": 4107,
+        "image_type": 268,
+        "file_version": 16783874,
+        "file_size": 126,
+        "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+        "release_notes": "Test release notes for enabled image",
+        "release_url": "https://github.com/zigpy/zigpy-ota/pull/123",
+        "manufacturer_names": [
+          "Test Manufacturer"
+        ],
+        "model_names": [
+          "Test Model"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: test_generate_index_markdown_format
+  '''
+  # zigpy-ota Firmware Index
+  
+  This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
+  
+  **Channel:** dev\
+  **Total firmware images:** 1 enabled + 1 disabled
+  
+  ## test_manufacturer
+  
+  ### `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+  
+  - **Original File Name**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+  - **Manufacturer ID**: `0x100B` (4107)
+  - **Image Type**: `0x010C` (268)
+  - **File Version**: `0x01001A02` (16783874)
+  - **File Size**: 126 bytes
+  - **Checksum SHA3-256**: `879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a`
+  - **Checksum SHA512**: `6d5bca46dd740dec64fe6c0493b34dbc3e9b3de5019e7f57d29eb471de6c85e581f96b757f430494c65ff51f1288fda2e3778529db8ad657f6fbc70085f461a5`
+  - **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/test_manufacturer/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+  - **Manufacturer Names**: Test Manufacturer
+  - **Model Names**: Test Model
+  
+  **Release Notes:**
+  
+  > Test release notes for enabled image
+  - **Pull Request**: [#123](https://github.com/zigpy/zigpy-ota/pull/123)
+  
+  ### `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee` **[disabled]**
+  
+  - **Original File Name**: `fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee`
+  - **Manufacturer ID**: `0x100B` (4107)
+  - **Image Type**: `0x010C` (268)
+  - **File Version**: `0x01002500` (16786688)
+  - **File Size**: 126 bytes
+  - **Checksum SHA3-256**: `7104c0da6f0dd13cb212484e46f472216afcbf31f7e3ed40f51c68fc8978e890`
+  - **Checksum SHA512**: `3563f9adbeaa4130252e39b741a7ff37e8e4aebd6e1d4886e2ed97f28f1c4686206782ab02246595313863639f583d9446ca63ad0af699850e1201e2db6dcd83`
+  - **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/test_manufacturer/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
+  - **Manufacturer Names**: Test Manufacturer
+  - **Model Names**: Test Model Disabled
+  
+  **Release Notes:**
+  
+  > Test release notes for disabled image
+  
+  '''
+# ---
+# name: test_index_formats_with_header_string
+  dict({
+    'z2m': list([
+      dict({
+        'fileName': 'fake_100B-010C-01003000-WithHeaderString.zigbee',
+        'fileSize': 126,
+        'fileVersion': 16789504,
+        'imageType': 268,
+        'manufacturerCode': 4107,
+        'manufacturerName': list([
+          'Test Manufacturer',
+        ]),
+        'modelId': 'Test Model',
+        'originalUrl': 'https://example.com/fake_100B-010C-01003000-WithHeaderString.zigbee',
+        'otaHeaderString': 'EMI 2 - Test Device',
+        'releaseNotes': 'Test release with header string',
+        'sha512': '908cbe7f6e7909888361c32e840ff2f708f6f4592d8187662b20e9873ec3c2ad178006dd9c131b442b54f497c7d7b51c0ac8b19efc91c24e2786c9c8b0c02885',
+        'url': 'https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/test_manufacturer/fake_100B-010C-01003000-WithHeaderString.zigbee',
+      }),
+    ]),
+    'zigpy': dict({
+      'firmwares': list([
+        dict({
+          'binary_url': 'https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/test_manufacturer/fake_100B-010C-01003000-WithHeaderString.zigbee',
+          'checksum': 'sha3-256:2410c0bc275c83410c5039928856b269cc010fdcea37364c8bb72e50c9b19670',
+          'file_size': 126,
+          'file_version': 16789504,
+          'image_type': 268,
+          'manufacturer_id': 4107,
+          'manufacturer_names': list([
+            'Test Manufacturer',
+          ]),
+          'model_names': list([
+            'Test Model',
+          ]),
+          'release_notes': 'Test release with header string',
+        }),
+      ]),
+    }),
+  })
+# ---

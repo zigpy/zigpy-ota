@@ -1,0 +1,56 @@
+ci:
+  autofix_commit_msg: "Apply pre-commit auto fixes"
+  autoupdate_commit_msg: "Auto-update pre-commit hooks"
+  skip: [mypy]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-toml
+      - id: check-xml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+        exclude: ^tests/__snapshots__/
+      - id: trailing-whitespace
+        exclude: ^tests/__snapshots__/
+
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.7.4
+    hooks:
+      - id: prettier
+        args: ["--tab-width", "2"]
+        exclude: ^tests/__snapshots__/
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        additional_dependencies: [tomli]
+        args: ["--toml", "pyproject.toml"]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.19.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-requests]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.7
+    hooks:
+      - id: ruff-check
+        args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^tests/__snapshots__/
+      - id: ruff-format
+        exclude: ^tests/__snapshots__/
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.9.15
+    hooks:
+      - id: uv-lock
+        args: ["--check"]

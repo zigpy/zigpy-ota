@@ -1,0 +1,22 @@
+name: Auto-approve trusted OTA submissions
+
+on:
+  issues:
+    types: [opened]
+
+env:
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+jobs:
+  auto-approve:
+    name: Auto-approve trusted submitter
+    if: |
+      contains(github.event.issue.labels.*.name, 'ota-submit') &&
+      contains(fromJSON(format('[{0}]', vars.TRUSTED_SUBMITTERS || '')), github.event.issue.user.login)
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Add ota-create label
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue edit "$ISSUE_NUMBER" --add-label "ota-create" --repo "${{ github.repository }}"

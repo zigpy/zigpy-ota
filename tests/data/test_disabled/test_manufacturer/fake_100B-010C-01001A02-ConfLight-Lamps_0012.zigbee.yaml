@@ -1,0 +1,7 @@
+# OTA metadata for fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+pull_request: 123
+manufacturer_names: Test Manufacturer
+model_names: Test Model
+release_notes: Test release notes for enabled image

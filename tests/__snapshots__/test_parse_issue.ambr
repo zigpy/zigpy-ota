@@ -1,0 +1,85 @@
+# serializer version: 1
+# name: test_parse_issue_file_snapshot[issue.md]
+  dict({
+    'additional_information': 'Test',
+    'checklist': dict({
+      'filled_release_notes': True,
+      'is_official_source': True,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
+    'manufacturer_name': 'Third Reality',
+    'optional_metadata': None,
+    'ota_file': dict({
+      'filename': 'empty_file.ota.zip',
+      'url': 'https://github.com/user-attachments/files/23919175/empty_file.ota.zip',
+    }),
+    'ota_image_url': 'https://example.com/releases/firmware-v1.2.3.ota',
+    'release_notes': '''
+      - Bug fixes
+      - New features
+    ''',
+    'third_party_download': False,
+  })
+# ---
+# name: test_parse_issue_file_snapshot[issue_empty.md]
+  dict({
+    'additional_information': None,
+    'checklist': dict({
+      'filled_release_notes': False,
+      'is_official_source': False,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
+    'manufacturer_name': None,
+    'optional_metadata': None,
+    'ota_file': None,
+    'ota_image_url': None,
+    'release_notes': None,
+    'third_party_download': False,
+  })
+# ---
+# name: test_parse_issue_model_snapshot[issue.md]
+  dict({
+    'additional_information': 'Test',
+    'checklist': dict({
+      'filled_release_notes': True,
+      'is_official_source': True,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': 'KEEP_ALL',
+    'manufacturer_name': 'Third Reality',
+    'optional_metadata': None,
+    'ota_file': dict({
+      'filename': 'empty_file.ota.zip',
+      'url': 'https://github.com/user-attachments/files/23919175/empty_file.ota.zip',
+    }),
+    'ota_image_url': 'https://example.com/releases/firmware-v1.2.3.ota',
+    'release_notes': '''
+      - Bug fixes
+      - New features
+    ''',
+    'third_party_download': False,
+  })
+# ---
+# name: test_parse_issue_model_snapshot[issue_empty.md]
+  dict({
+    'additional_information': None,
+    'checklist': dict({
+      'filled_release_notes': False,
+      'is_official_source': False,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': 'KEEP_ALL',
+    'manufacturer_name': None,
+    'optional_metadata': None,
+    'ota_file': None,
+    'ota_image_url': None,
+    'release_notes': None,
+    'third_party_download': False,
+  })
+# ---
