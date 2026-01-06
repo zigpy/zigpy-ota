@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1310-7C04-00000108_6d687b.ota
+source_file_name: Pico_Shutter_V1.0.8.ota
+source_url: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Shutter_V1.0.8.ota
+pull_request: 6
+release_notes: |-
+  - Changed the Scene ID configuration for external switch S1/S2
