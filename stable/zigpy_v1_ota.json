@@ -1,3 +1,44 @@
 {
-    "firmwares": []
+    "firmwares": [
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.1.0/images/aeotec/1310-0000-00000011_350c16.ota",
+            "manufacturer_id": 4880,
+            "image_type": 0,
+            "file_version": 17,
+            "file_size": 297306,
+            "checksum": "sha3-256:350c16b203fd0b6c8b7dcb64d244332f5070d8aca78cfc118877613fe28d3f0e",
+            "release_notes": "- Modified the LED indicator status: When clicking the Action button 4 times to start finding and binding mode, if the device finding & binding is successful, the LED will flash rapidly for 2 seconds and then return to solid state.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.1.0/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "manufacturer_id": 4880,
+            "image_type": 2050,
+            "file_version": 262,
+            "file_size": 310098,
+            "checksum": "sha3-256:1f346751c3220d076f3938f9db7bff1b88dfbbea88b552ed1aaf93187306eb7a",
+            "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.1.0/images/aeotec/1310-0803-00000106_030d13.ota",
+            "manufacturer_id": 4880,
+            "image_type": 2051,
+            "file_version": 262,
+            "file_size": 311594,
+            "checksum": "sha3-256:030d13f513183567780126df7fc949d5b5f3e42fdc07b980fbedb6088c58a2b3",
+            "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.1.0/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "manufacturer_id": 4880,
+            "image_type": 31748,
+            "file_version": 264,
+            "file_size": 326978,
+            "checksum": "sha3-256:6d687bae31752aa9b96d14c3a3b4075de8332788a6dd20fdd47c551eed372d20",
+            "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
+        }
+    ]
 }
