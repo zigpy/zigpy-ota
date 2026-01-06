@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1310-0803-00000106_030d13.ota
+source_file_name: Pico_Duo_Switch_V1.0.6.ota
+source_url: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Duo_Switch_V1.0.6.ota
+release_notes: |-
+  - Changed the Scene ID configuration for external switch S1/S2
