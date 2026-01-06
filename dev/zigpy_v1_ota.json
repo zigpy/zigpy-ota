@@ -9,6 +9,16 @@
             "checksum": "sha3-256:350c16b203fd0b6c8b7dcb64d244332f5070d8aca78cfc118877613fe28d3f0e",
             "release_notes": "- Modified the LED indicator status: When clicking the Action button 4 times to start finding and binding mode, if the device finding & binding is successful, the LED will flash rapidly for 2 seconds and then return to solid state.",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "manufacturer_id": 4880,
+            "image_type": 2050,
+            "file_version": 262,
+            "file_size": 310098,
+            "checksum": "sha3-256:1f346751c3220d076f3938f9db7bff1b88dfbbea88b552ed1aaf93187306eb7a",
+            "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         }
     ]
 }
