@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 3
+**Total firmware images:** 4
 
 ## aeotec
 
@@ -42,6 +42,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > - Changed the Scene ID configuration for external switch S1/S2
 - **Pull Request**: [#8](https://github.com/zigpy/zigpy-ota/pull/8)
+
+### `1310-0803-00000106_030d13.ota`
+
+- **Original File Name**: `Pico_Duo_Switch_V1.0.6.ota`
+- **Manufacturer ID**: `0x1310` (4880)
+- **Image Type**: `0x0803` (2051)
+- **File Version**: `0x00000106` (262)
+- **File Size**: 311,594 bytes
+- **Checksum SHA3-256**: `030d13f513183567780126df7fc949d5b5f3e42fdc07b980fbedb6088c58a2b3`
+- **Checksum SHA512**: `e60097b31873716ddfab1f3ae8e4ef493216c1535d5f6a1ae207c49daf5b5c6e19ea89fc39bf7e83068253d933c65d472254a11faba4a8066ee3380501615558`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-0803-00000106_030d13.ota
+- **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Duo_Switch_V1.0.6.ota
+- **Header String**: `EBL DualPicoSw`
+
+**Release Notes:**
+
+> - Changed the Scene ID configuration for external switch S1/S2
+- **Pull Request**: [#4](https://github.com/zigpy/zigpy-ota/pull/4)
 
 ### `1310-7C04-00000108_6d687b.ota`
 

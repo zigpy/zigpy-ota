@@ -24,6 +24,18 @@
         "releaseNotes": "- Changed the Scene ID configuration for external switch S1/S2"
     },
     {
+        "fileName": "1310-0803-00000106_030d13.ota",
+        "fileVersion": 262,
+        "fileSize": 311594,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-0803-00000106_030d13.ota",
+        "imageType": 2051,
+        "manufacturerCode": 4880,
+        "sha512": "e60097b31873716ddfab1f3ae8e4ef493216c1535d5f6a1ae207c49daf5b5c6e19ea89fc39bf7e83068253d933c65d472254a11faba4a8066ee3380501615558",
+        "otaHeaderString": "EBL DualPicoSw",
+        "originalUrl": "https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Duo_Switch_V1.0.6.ota",
+        "releaseNotes": "- Changed the Scene ID configuration for external switch S1/S2"
+    },
+    {
         "fileName": "1310-7C04-00000108_6d687b.ota",
         "fileVersion": 264,
         "fileSize": 326978,
