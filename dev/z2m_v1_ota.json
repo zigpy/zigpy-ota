@@ -22,5 +22,17 @@
         "otaHeaderString": "EBL SinglePicoSw",
         "originalUrl": "https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Switch_V1.0.6.ota",
         "releaseNotes": "- Changed the Scene ID configuration for external switch S1/S2"
+    },
+    {
+        "fileName": "1310-7C04-00000108_6d687b.ota",
+        "fileVersion": 264,
+        "fileSize": 326978,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-7C04-00000108_6d687b.ota",
+        "imageType": 31748,
+        "manufacturerCode": 4880,
+        "sha512": "15b3772fa75236fd6e3b8a9b075a7a646903f7a60d202b279a190a025df2c7f6398e7b453c1109e0c9dbfa0f4a441b8b250137ba9f24a45920ede3e0471cf722",
+        "otaHeaderString": "EBL PicoMotor",
+        "originalUrl": "https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Shutter_V1.0.8.ota",
+        "releaseNotes": "- Changed the Scene ID configuration for external switch S1/S2"
     }
 ]

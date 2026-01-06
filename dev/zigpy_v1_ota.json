@@ -19,6 +19,16 @@
             "checksum": "sha3-256:1f346751c3220d076f3938f9db7bff1b88dfbbea88b552ed1aaf93187306eb7a",
             "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "manufacturer_id": 4880,
+            "image_type": 31748,
+            "file_version": 264,
+            "file_size": 326978,
+            "checksum": "sha3-256:6d687bae31752aa9b96d14c3a3b4075de8332788a6dd20fdd47c551eed372d20",
+            "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         }
     ]
 }

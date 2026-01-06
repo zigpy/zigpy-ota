@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 2
+**Total firmware images:** 3
 
 ## aeotec
 
@@ -42,3 +42,21 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > - Changed the Scene ID configuration for external switch S1/S2
 - **Pull Request**: [#8](https://github.com/zigpy/zigpy-ota/pull/8)
+
+### `1310-7C04-00000108_6d687b.ota`
+
+- **Original File Name**: `Pico_Shutter_V1.0.8.ota`
+- **Manufacturer ID**: `0x1310` (4880)
+- **Image Type**: `0x7C04` (31748)
+- **File Version**: `0x00000108` (264)
+- **File Size**: 326,978 bytes
+- **Checksum SHA3-256**: `6d687bae31752aa9b96d14c3a3b4075de8332788a6dd20fdd47c551eed372d20`
+- **Checksum SHA512**: `15b3772fa75236fd6e3b8a9b075a7a646903f7a60d202b279a190a025df2c7f6398e7b453c1109e0c9dbfa0f4a441b8b250137ba9f24a45920ede3e0471cf722`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/aeotec/1310-7C04-00000108_6d687b.ota
+- **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Shutter_V1.0.8.ota
+- **Header String**: `EBL PicoMotor`
+
+**Release Notes:**
+
+> - Changed the Scene ID configuration for external switch S1/S2
+- **Pull Request**: [#6](https://github.com/zigpy/zigpy-ota/pull/6)
