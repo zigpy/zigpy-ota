@@ -2,5 +2,6 @@
 file_name: 1310-0000-00000011_350c16.ota
 source_file_name: Range_Extender_Zi_V1.0.3.ota
 source_url: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Range_Extender_Zi_V1.0.3.ota
+pull_request: 10
 release_notes: |-
   - Modified the LED indicator status: When clicking the Action button 4 times to start finding and binding mode, if the device finding&binding is successful, the LED will flash rapidly for 2 seconds and then return to solid state.
