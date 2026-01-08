@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 9
+**Total firmware images:** 10
 
 ## aeotec
 
@@ -345,3 +345,56 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
 > - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
 - **Pull Request**: [#20](https://github.com/zigpy/zigpy-ota/pull/20)
+
+### `1166-0336-191E3685_8008e8.ota`
+
+- **Original File Name**: `1166-0336-191e3685-sp244v2-1.9.30.ota`
+- **Manufacturer ID**: `0x1166` (4454)
+- **Image Type**: `0x0336` (822)
+- **File Version**: `0x191E3685` (421410437)
+- **File Size**: 285,042 bytes
+- **Checksum SHA3-256**: `8008e845857d9e6e86426367f45e581483412f1d8f94198dbe8874a463723a73`
+- **Checksum SHA512**: `857d8d4b4b179f92120072d8084d1f2b5b3e20a94fca6cf76ccc6afbbc8ba8f9e091a30144ab35e6edc6984fb45427289aaf8def4838a065b98cf9728716109d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/innr/1166-0336-191E3685_8008e8.ota
+- **Source URL**: https://github.com/user-attachments/files/24494598/1166-0336-191e3685-sp244v2-1.9.30.zip
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the Innr SP 244 v2 smart plug to firmware version 1.9.30.
+> 
+> **Note:** Please reload ZHA or restart Home Assistant shortly after this update is fully applied to avoid an incorrectly increased "summation delivered" state.
+> 
+> **Note:** The relay may turn on or off during the upgrade process.
+> 
+> **Changes compared to version 1.7.23 and older**
+> - Fixed attribute reporting failing after power-cycle
+> - Improved default attribute reporting settings
+> - Improved thresholds for the resettable voltage and current overload protection
+> - Added possibility to disable voltage overload protection
+> - kWh in 3 decimals instead of 2
+> - Added Multiplier and Divisor for kWh
+> - Various bug fixes and performance improvements
+> 
+> **Disabling voltage overload protection**
+> 
+> To disable voltage overload protection:
+> 1. Keep the button pressed between 15 and 20 seconds, then release
+> 2. After 5 seconds, the LED will start quick-blinking; keep the button pressed
+> 3. After 10 seconds, blinking stops; keep the button pressed
+> 4. After 15 seconds, the LED will start quick-blinking again
+> 5. Release the button. The LED will slow-blink 3 times to indicate success
+> 
+> Enable again in the same way.
+> 
+> Enabled/disabled state is persisted over power-cycles, even if not connected to a bridge.
+> While voltage overload protection is disabled, every on/off action will double-blink the LED before assuming final state.
+> 
+> Current overload protection cannot be disabled.
+> 
+> **Overload behavior**
+> 
+> - If the voltage or current overload protection triggers, the plug switches off and fast-blinks its LED
+> - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
+> - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
+- **Pull Request**: [#22](https://github.com/zigpy/zigpy-ota/pull/22)
