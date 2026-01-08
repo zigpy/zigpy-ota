@@ -2,6 +2,7 @@
 file_name: 1166-0334-191E3685_0f83d8.ota
 source_file_name: 1166-0334-191e3685-sp240v2-1.9.30.ota
 source_url: https://github.com/user-attachments/files/24494583/1166-0334-191e3685-sp240v2-1.9.30.zip
+pull_request: 18
 release_notes: |-
   This updates the Innr SP 240 v2 smart plug to firmware version 1.9.30.
 
