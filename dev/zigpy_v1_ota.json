@@ -39,6 +39,16 @@
             "checksum": "sha3-256:6d687bae31752aa9b96d14c3a3b4075de8332788a6dd20fdd47c551eed372d20",
             "release_notes": "- Changed the Scene ID configuration for external switch S1/S2",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/innr/1166-0331-191D3685_650309.ota",
+            "manufacturer_id": 4454,
+            "image_type": 817,
+            "file_version": 421344901,
+            "file_size": 285058,
+            "checksum": "sha3-256:650309c57ee3b66c5380baddcbf7638bff6b8bcdc33677545ff383e2bec979a8",
+            "release_notes": "This updates the Innr SP 240 smart plug to firmware version 1.9.29.\n\n**Note:** Please reload ZHA or restart Home Assistant shortly after this update is fully applied to avoid an incorrectly increased \"summation delivered\" state.\n\n**Note:** The relay may turn on or off during the upgrade process.\n\n**Changes compared to version 1.7.23 and older**\n- Fixed attribute reporting failing after power-cycle\n- Improved default attribute reporting settings\n- Improved thresholds for the resettable voltage and current overload protection\n- Added possibility to disable voltage overload protection\n- kWh in 3 decimals instead of 2\n- Added Multiplier and Divisor for kWh\n- Various bug fixes and performance improvements\n\n**Disabling voltage overload protection**\n\nTo disable voltage overload protection:\n1. Keep the button pressed between 15 and 20 seconds, then release\n2. After 5 seconds, the LED will start quick-blinking; keep the button pressed\n3. After 10 seconds, blinking stops; keep the button pressed\n4. After 15 seconds, the LED will start quick-blinking again\n5. Release the button. The LED will slow-blink 3 times to indicate success\n\nEnable again in the same way.\n\nEnabled/disabled state is persisted over power-cycles, even if not connected to a bridge.\nWhile voltage overload protection is disabled, every on/off action will double-blink the LED before assuming final state.\n\nCurrent overload protection cannot be disabled.\n\n**Overload behavior**\n\n- If the voltage or current overload protection triggers, the plug switches off and fast-blinks its LED\n- If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears\n- If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         }
     ]
 }

@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 4
+**Total firmware images:** 5
 
 ## aeotec
 
@@ -78,3 +78,58 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > - Changed the Scene ID configuration for external switch S1/S2
 - **Pull Request**: [#6](https://github.com/zigpy/zigpy-ota/pull/6)
+
+## innr
+
+### `1166-0331-191D3685_650309.ota`
+
+- **Original File Name**: `1166-0331-191d3685-sp240-1.9.29.ota`
+- **Manufacturer ID**: `0x1166` (4454)
+- **Image Type**: `0x0331` (817)
+- **File Version**: `0x191D3685` (421344901)
+- **File Size**: 285,058 bytes
+- **Checksum SHA3-256**: `650309c57ee3b66c5380baddcbf7638bff6b8bcdc33677545ff383e2bec979a8`
+- **Checksum SHA512**: `041ac46c276770f7179aed8222a52813d50d981776208fa4fa76bf432f0fa73dc8a09aabfe61894aa734f18fdc997a6842aaee7ab6a4d3554914a42e3fcdca00`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/innr/1166-0331-191D3685_650309.ota
+- **Source URL**: https://github.com/user-attachments/files/24494190/1166-0331-191d3685-sp240-1.9.29.zip
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the Innr SP 240 smart plug to firmware version 1.9.29.
+> 
+> **Note:** Please reload ZHA or restart Home Assistant shortly after this update is fully applied to avoid an incorrectly increased "summation delivered" state.
+> 
+> **Note:** The relay may turn on or off during the upgrade process.
+> 
+> **Changes compared to version 1.7.23 and older**
+> - Fixed attribute reporting failing after power-cycle
+> - Improved default attribute reporting settings
+> - Improved thresholds for the resettable voltage and current overload protection
+> - Added possibility to disable voltage overload protection
+> - kWh in 3 decimals instead of 2
+> - Added Multiplier and Divisor for kWh
+> - Various bug fixes and performance improvements
+> 
+> **Disabling voltage overload protection**
+> 
+> To disable voltage overload protection:
+> 1. Keep the button pressed between 15 and 20 seconds, then release
+> 2. After 5 seconds, the LED will start quick-blinking; keep the button pressed
+> 3. After 10 seconds, blinking stops; keep the button pressed
+> 4. After 15 seconds, the LED will start quick-blinking again
+> 5. Release the button. The LED will slow-blink 3 times to indicate success
+> 
+> Enable again in the same way.
+> 
+> Enabled/disabled state is persisted over power-cycles, even if not connected to a bridge.
+> While voltage overload protection is disabled, every on/off action will double-blink the LED before assuming final state.
+> 
+> Current overload protection cannot be disabled.
+> 
+> **Overload behavior**
+> 
+> - If the voltage or current overload protection triggers, the plug switches off and fast-blinks its LED
+> - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
+> - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
+- **Pull Request**: [#12](https://github.com/zigpy/zigpy-ota/pull/12)
