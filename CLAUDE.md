@@ -19,13 +19,13 @@ zigpy-ota is a critical component in the Zigbee firmware update pipeline:
 
 - **Manufacturers** submit firmware updates via GitHub issue forms
 - **Automated PRs** are created for each submission
-- Once **approved and merged**, a **GitHub release** must be created to publish the updated `zigpy_v1_ota.json` index
+- Once **approved and merged**, a **GitHub release** must be created to publish the updated `zigpy_v2_ota.json` index
 - **zigpy** consumes this index to provide firmware updates
 - **Home Assistant's ZHA integration** (using zigpy) makes updates available to end users with Zigbee devices
 
 This means changes merged to this repository directly impact Home Assistant users worldwide. Quality, accuracy, and legal compliance are critical.
 
-**Note for End Users**: End users don't interact with this repository directly. OTA updates are automatically available through Home Assistant's ZHA integration and other zigpy-based applications. The firmware index is published at `https://github.com/zigpy/zigpy-ota/releases` for production use, and the dev channel is available at `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v1_ota.json` for testing.
+**Note for End Users**: End users don't interact with this repository directly. OTA updates are automatically available through Home Assistant's ZHA integration and other zigpy-based applications. The firmware index is published at `https://github.com/zigpy/zigpy-ota/releases` for production use, and the dev channel is available at `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v2_ota.json` for testing.
 
 ### Contributing to zigpy-ota
 
@@ -88,10 +88,10 @@ Images are included in channels based on their `channel` YAML field:
 
 **Index file naming (GitHub release assets only):**
 
-- Stable releases: `zigpy_v1_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
-- Beta releases: `zigpy_v1_ota_beta.json`, `z2m_v1_ota_beta.json`, and `markdown_v1_beta.md`
+- Stable releases: `zigpy_v2_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
+- Beta releases: `zigpy_v2_ota_beta.json`, `z2m_v1_ota_beta.json`, and `markdown_v1_beta.md`
 
-Note: Files on the `release/files` branch use the same names (`zigpy_v1_ota.json`, `z2m_v1_ota.json`, `markdown_v1.md`) in all channel folders.
+Note: Files on the `release/files` branch use the same names (`zigpy_v2_ota.json`, `z2m_v1_ota.json`, `markdown_v1.md`) in all channel folders.
 
 **How Releases Work:**
 
@@ -101,9 +101,9 @@ Note: Files on the `release/files` branch use the same names (`zigpy_v1_ota.json
    ```json
    {
      "schemas": {
-       "zigpy_v1": {
+       "zigpy_v2": {
          "version": "0.0.15",
-         "url": "https://github.com/zigpy/zigpy-ota/releases/download/0.0.15/zigpy_v1_ota.json"
+         "url": "https://github.com/zigpy/zigpy-ota/releases/download/0.0.15/zigpy_v2_ota.json"
        },
        "z2m_v1": {
          "version": "0.0.15",
@@ -119,7 +119,7 @@ Note: Files on the `release/files` branch use the same names (`zigpy_v1_ota.json
 
    - `version`: The release version identifier (or `"dev"` for development builds)
    - `url`: Direct URL to the OTA metadata for that release (GitHub release asset for stable/beta, `release/files` branch for dev)
-   - Schema keys (`zigpy_v1`, `z2m_v1`, `markdown_v1`) allow for future schema evolution while maintaining backward compatibility
+   - Schema keys (`zigpy_v2`, `z2m_v1`, `markdown_v1`) allow for future schema evolution while maintaining backward compatibility
 
 **Client Access:**
 
@@ -127,21 +127,21 @@ Note: Files on the `release/files` branch use the same names (`zigpy_v1_ota.json
   - `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/version/stable.json`
   - `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/version/beta.json`
   - `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/version/dev.json`
-- The version file provides the URL to the actual `zigpy_v1_ota.json` index
+- The version file provides the URL to the actual `zigpy_v2_ota.json` index
 - This allows programmatic discovery of the latest release for each channel
 - Libraries should use this approach rather than hardcoding direct URLs
 
 **The `release/files` Branch:**
 
 - Contains index files organized by channel: `dev/`, `beta/`, `stable/`
-- Each channel folder contains `zigpy_v1_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
+- Each channel folder contains `zigpy_v2_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
 - The `dev/` folder is automatically updated whenever a new OTA image is merged to the `dev` branch
 - The `beta/` and `stable/` folders are updated when corresponding releases are made
-- Dev channel accessible at: `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v1_ota.json`
+- Dev channel accessible at: `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v2_ota.json`
 
 **JSON Index Structure:**
 
-The `zigpy_v1_ota.json` is an object containing a `firmwares` array:
+The `zigpy_v2_ota.json` is an object containing a `firmwares` array:
 
 ```json
 {
@@ -368,7 +368,7 @@ model_names:
   - Hue Bulb
 ```
 
-**4. Final OTA Index Entry** (in `zigpy_v1_ota.json`):
+**4. Final OTA Index Entry** (in `zigpy_v2_ota.json`):
 
 ```json
 {
@@ -545,7 +545,7 @@ zigpy-ota generate-index [OPTIONS]
 **Output Format Options:**
 
 - `--format` - Output format: `zigpy` (default), `z2m` (Zigbee2MQTT), or `markdown` (human-readable)
-  - `zigpy`: Generates JSON index for zigpy/Home Assistant ZHA (`zigpy_v1_ota.json`)
+  - `zigpy`: Generates JSON index for zigpy/Home Assistant ZHA (`zigpy_v2_ota.json`)
   - `z2m`: Generates JSON index for Zigbee2MQTT (`z2m_v1_ota.json`)
   - `markdown`: Generates human-readable index (`markdown_v1.md`) - see below
   - To generate multiple formats, run the command multiple times with different `--format` options
@@ -716,7 +716,7 @@ The repository handles two main workflows:
    - Scans `images/` directory for `.ota` and `.yaml` file pairs
    - Parses OTA files using zigpy library to extract metadata
    - Merges OTA metadata with YAML metadata
-   - Generates final `zigpy_v1_ota.json` index file for zigpy consumption
+   - Generates final `zigpy_v2_ota.json` index file for zigpy consumption
 
 ### Key Modules
 
