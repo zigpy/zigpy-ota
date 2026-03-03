@@ -94,7 +94,10 @@ def _parse_text_section(content: str) -> str | None:
     if not content or content.lower() == "_no response_":
         return None
 
-    return content.strip()
+    # Strip trailing whitespace from each line to avoid linter issues in YAML
+    cleaned = "\n".join(line.rstrip() for line in content.strip().splitlines())
+
+    return cleaned if cleaned else None
 
 
 def _parse_checkbox_section(content: str) -> bool:

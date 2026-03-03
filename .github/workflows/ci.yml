@@ -6,6 +6,7 @@ on:
       - dev
       - master
   pull_request: ~
+  merge_group: ~
 
 jobs:
   shared-ci:
@@ -13,9 +14,9 @@ jobs:
     with:
       CODE_FOLDER: zigpy_ota
       CACHE_VERSION: 1
-      PYTHON_VERSION_DEFAULT: 3.13.11
+      PYTHON_VERSION_DEFAULT: "3.14"
       PRE_COMMIT_CACHE_PATH: ~/.cache/pre-commit
       MINIMUM_COVERAGE_PERCENTAGE: 0
-      PYTHON_MATRIX: '"3.13.11"'
+      PYTHON_MATRIX: '"3.14"'
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

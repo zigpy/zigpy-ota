@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from pathlib import Path
 from typing import Any
 
@@ -57,6 +58,11 @@ def parse_optional_metadata(optional_metadata_yaml: str | None) -> dict[str, Any
     """
     if not optional_metadata_yaml or not optional_metadata_yaml.strip():
         return {}
+
+    # Fix missing space after colon (e.g. "model_names:[TEST]" -> "model_names: [TEST]")
+    optional_metadata_yaml = re.sub(
+        r"^(\w+):(\S)", r"\1: \2", optional_metadata_yaml, flags=re.MULTILINE
+    )
 
     try:
         yaml = YAML()

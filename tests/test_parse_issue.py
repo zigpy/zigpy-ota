@@ -93,6 +93,19 @@ def test_parse_issue_model_attributes(issue_path: Path) -> None:
     assert issue_data.optional_metadata is None
 
 
+def test_parse_issue_trailing_whitespace_stripped() -> None:
+    """Test that trailing whitespace on individual lines is stripped."""
+    issue_path = Path("tests/data/gh_issues/issue_hue_old_trailing_whitespace.md")
+    issue_data = parse_issue_file_to_model(issue_path)
+
+    # Release notes should have no trailing whitespace on any line
+    assert issue_data.release_notes is not None
+    for line in issue_data.release_notes.splitlines():
+        assert line == line.rstrip(), f"Trailing whitespace found: {line!r}"
+
+    assert issue_data.release_notes == "- Bug fixes\n\n- Performance improvements"
+
+
 @pytest.mark.parametrize(
     "issue_empty_path",
     (Path("tests/data/gh_issues/issue_empty.md"),),

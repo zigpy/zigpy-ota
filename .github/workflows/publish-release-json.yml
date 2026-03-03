@@ -22,18 +22,14 @@ on:
         type: boolean
         default: false
 
+concurrency:
+  group: push-release-version
+  cancel-in-progress: false
+
 env:
-  PYTHON_VERSION_DEFAULT: "3.13.11"
+  PYTHON_VERSION_DEFAULT: "3.14"
   RELEASE_TAG: ${{ github.event.release.tag_name }}
   RELEASE_PRERELEASE: ${{ github.event.release.prerelease }}
-  # Stable channel outputs
-  JSON_ZIGPY_STABLE_FILE: /tmp/zigpy_v1_ota.json
-  JSON_Z2M_STABLE_FILE: /tmp/z2m_v1_ota.json
-  MARKDOWN_STABLE_FILE: /tmp/markdown_v1.md
-  # Beta channel outputs (includes stable + beta images)
-  JSON_ZIGPY_BETA_FILE: /tmp/zigpy_v1_ota_beta.json
-  JSON_Z2M_BETA_FILE: /tmp/z2m_v1_ota_beta.json
-  MARKDOWN_BETA_FILE: /tmp/markdown_v1_beta.md
 
 jobs:
   # For 'released' events (pre-release promoted to stable), re-trigger this workflow
@@ -75,6 +71,23 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
+      - name: Load schema config
+        run: |
+          {
+            for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
+              value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
+              echo "SCHEMA_${key^^}=$value"
+            done
+
+            # Pre-compute temp output paths
+            echo "TMP_ZIGPY=/tmp/$(jq -r '.zigpy_filename' .github/SCHEMA.json)"
+            echo "TMP_Z2M=/tmp/$(jq -r '.z2m_filename' .github/SCHEMA.json)"
+            echo "TMP_MARKDOWN=/tmp/$(jq -r '.markdown_filename' .github/SCHEMA.json)"
+            echo "TMP_ZIGPY_BETA=/tmp/$(jq -r '.zigpy_beta_filename' .github/SCHEMA.json)"
+            echo "TMP_Z2M_BETA=/tmp/$(jq -r '.z2m_beta_filename' .github/SCHEMA.json)"
+            echo "TMP_MARKDOWN_BETA=/tmp/$(jq -r '.markdown_beta_filename' .github/SCHEMA.json)"
+          } >> "$GITHUB_ENV"
+
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
         uses: actions/setup-python@v6
         with:
@@ -91,7 +104,7 @@ jobs:
           uv run zigpy-ota generate-index \
             --format zigpy \
             --channel stable \
-            --output-file "$JSON_ZIGPY_STABLE_FILE" \
+            --output-file "$TMP_ZIGPY" \
             --tag "$RELEASE_TAG" \
 
       - name: Generate zigpy JSON metadata (beta channel)
@@ -99,7 +112,7 @@ jobs:
           uv run zigpy-ota generate-index \
             --format zigpy \
             --channel beta \
-            --output-file "$JSON_ZIGPY_BETA_FILE" \
+            --output-file "$TMP_ZIGPY_BETA" \
             --tag "$RELEASE_TAG" \
 
       - name: Generate Z2M JSON metadata (stable channel)
@@ -107,7 +120,7 @@ jobs:
           uv run zigpy-ota generate-index \
             --format z2m \
             --channel stable \
-            --output-file "$JSON_Z2M_STABLE_FILE" \
+            --output-file "$TMP_Z2M" \
             --tag "$RELEASE_TAG" \
 
       - name: Generate Z2M JSON metadata (beta channel)
@@ -115,7 +128,7 @@ jobs:
           uv run zigpy-ota generate-index \
             --format z2m \
             --channel beta \
-            --output-file "$JSON_Z2M_BETA_FILE" \
+            --output-file "$TMP_Z2M_BETA" \
             --tag "$RELEASE_TAG" \
 
       - name: Generate markdown index (stable channel)
@@ -123,7 +136,7 @@ jobs:
           uv run zigpy-ota generate-index \
             --format markdown \
             --channel stable \
-            --output-file "$MARKDOWN_STABLE_FILE" \
+            --output-file "$TMP_MARKDOWN" \
             --tag "$RELEASE_TAG" \
 
       - name: Generate markdown index (beta channel)
@@ -131,17 +144,17 @@ jobs:
           uv run zigpy-ota generate-index \
             --format markdown \
             --channel beta \
-            --output-file "$MARKDOWN_BETA_FILE" \
+            --output-file "$TMP_MARKDOWN_BETA" \
             --tag "$RELEASE_TAG" \
 
       # Likely redundant
       - name: Validate generated JSON files
         run: |
           for file in \
-            "$JSON_ZIGPY_STABLE_FILE" \
-            "$JSON_ZIGPY_BETA_FILE" \
-            "$JSON_Z2M_STABLE_FILE" \
-            "$JSON_Z2M_BETA_FILE"; do
+            "$TMP_ZIGPY" \
+            "$TMP_ZIGPY_BETA" \
+            "$TMP_Z2M" \
+            "$TMP_Z2M_BETA"; do
             if [ ! -f "$file" ]; then
               echo "::error::JSON file was not generated at $file"
               exit 1
@@ -160,8 +173,8 @@ jobs:
       - name: Validate generated markdown files
         run: |
           for file in \
-            "$MARKDOWN_STABLE_FILE" \
-            "$MARKDOWN_BETA_FILE"; do
+            "$TMP_MARKDOWN" \
+            "$TMP_MARKDOWN_BETA"; do
             if [ ! -f "$file" ]; then
               echo "::error::Markdown file was not generated at $file"
               exit 1
@@ -176,12 +189,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload "$RELEASE_TAG" \
-            "$JSON_ZIGPY_STABLE_FILE" \
-            "$JSON_ZIGPY_BETA_FILE" \
-            "$JSON_Z2M_STABLE_FILE" \
-            "$JSON_Z2M_BETA_FILE" \
-            "$MARKDOWN_STABLE_FILE" \
-            "$MARKDOWN_BETA_FILE" \
+            "$TMP_ZIGPY" \
+            "$TMP_ZIGPY_BETA" \
+            "$TMP_Z2M" \
+            "$TMP_Z2M_BETA" \
+            "$TMP_MARKDOWN" \
+            "$TMP_MARKDOWN_BETA" \
             --clobber
 
   update-version-pointers:

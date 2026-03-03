@@ -7,12 +7,14 @@ on:
       - dev
     paths:
       - "images/**"
+      - ".github/SCHEMA.json"
+
+concurrency:
+  group: update-dev-json
+  cancel-in-progress: false
 
 env:
-  PYTHON_VERSION_DEFAULT: "3.13.11"
-  JSON_ZIGPY_OUTPUT_FILE: /tmp/zigpy_v1_ota.json
-  JSON_Z2M_OUTPUT_FILE: /tmp/z2m_v1_ota.json
-  MARKDOWN_OUTPUT_FILE: /tmp/markdown_v1.md
+  PYTHON_VERSION_DEFAULT: "3.14"
 
 jobs:
   generate-json-and-commit:
@@ -25,6 +27,20 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Load schema config
+        run: |
+          {
+            for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
+              value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
+              echo "SCHEMA_${key^^}=$value"
+            done
+
+            # Pre-compute temp output paths
+            echo "TMP_ZIGPY=/tmp/$(jq -r '.zigpy_filename' .github/SCHEMA.json)"
+            echo "TMP_Z2M=/tmp/$(jq -r '.z2m_filename' .github/SCHEMA.json)"
+            echo "TMP_MARKDOWN=/tmp/$(jq -r '.markdown_filename' .github/SCHEMA.json)"
+          } >> "$GITHUB_ENV"
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
         uses: actions/setup-python@v6
@@ -42,21 +58,21 @@ jobs:
           uv run zigpy-ota generate-index \
             --format zigpy \
             --channel dev \
-            --output-file "$JSON_ZIGPY_OUTPUT_FILE"
+            --output-file "$TMP_ZIGPY"
 
       - name: Generate Z2M JSON metadata (dev channel)
         run: |
           uv run zigpy-ota generate-index \
             --format z2m \
             --channel dev \
-            --output-file "$JSON_Z2M_OUTPUT_FILE" \
+            --output-file "$TMP_Z2M"
 
       - name: Generate markdown index (dev channel)
         run: |
           uv run zigpy-ota generate-index \
             --format markdown \
             --channel dev \
-            --output-file "$MARKDOWN_OUTPUT_FILE" \
+            --output-file "$TMP_MARKDOWN"
 
       - name: Configure git
         run: |
@@ -71,11 +87,11 @@ jobs:
 
           # Copy the generated files to the repository
           mkdir -p dev
-          cp "$JSON_ZIGPY_OUTPUT_FILE" dev/zigpy_v1_ota.json
-          cp "$JSON_Z2M_OUTPUT_FILE" dev/z2m_v1_ota.json
-          cp "$MARKDOWN_OUTPUT_FILE" dev/markdown_v1.md
+          cp "$TMP_ZIGPY" "dev/$SCHEMA_ZIGPY_FILENAME"
+          cp "$TMP_Z2M" "dev/$SCHEMA_Z2M_FILENAME"
+          cp "$TMP_MARKDOWN" "dev/$SCHEMA_MARKDOWN_FILENAME"
 
           # Add, commit, and push if there are changes
-          git add dev/zigpy_v1_ota.json dev/z2m_v1_ota.json dev/markdown_v1.md
+          git add "dev/$SCHEMA_ZIGPY_FILENAME" "dev/$SCHEMA_Z2M_FILENAME" "dev/$SCHEMA_MARKDOWN_FILENAME"
           git diff --staged --quiet || git commit -m "Update \`dev\` OTA index files"
           git push origin release/files

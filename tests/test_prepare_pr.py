@@ -38,6 +38,18 @@ def issue_hue_new_replace() -> Path:
 
 
 @pytest.fixture
+def issue_hue_old_trailing_whitespace() -> Path:
+    """Issue file for old Hue OTA version with trailing whitespace in release notes."""
+    return Path("tests/data/gh_issues/issue_hue_old_trailing_whitespace.md")
+
+
+@pytest.fixture
+def issue_hue_old_metadata_no_space() -> Path:
+    """Issue file for old Hue OTA version with missing spaces after colons in metadata."""
+    return Path("tests/data/gh_issues/issue_hue_old_metadata_no_space.md")
+
+
+@pytest.fixture
 def issue_hue_old_reupload() -> Path:
     """Issue file for re-uploading old Hue OTA version (same filename)."""
     return Path("tests/data/gh_issues/issue_hue_old_reupload.md")
@@ -293,6 +305,18 @@ def run_prepare_pr(
             ["issue_hue_third_party_header_string"],
             ["ota_hue_header_string"],
             id="third_party_header_string",
+        ),
+        # Test 17: Trailing whitespace in release notes should be stripped
+        pytest.param(
+            ["issue_hue_old_trailing_whitespace"],
+            ["ota_hue_old"],
+            id="trailing_whitespace_stripped",
+        ),
+        # Test 18: Missing space after colon in optional metadata should be fixed
+        pytest.param(
+            ["issue_hue_old_metadata_no_space"],
+            ["ota_hue_old"],
+            id="metadata_missing_space_after_colon",
         ),
     ],
     indirect=["issue_paths", "ota_paths"],

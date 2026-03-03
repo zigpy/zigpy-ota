@@ -1,0 +1,23 @@
+name: Flag edited OTA issue
+
+on:
+  issues:
+    types: [edited]
+
+env:
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+jobs:
+  flag-edited:
+    name: Add ota-edited label
+    # Flag edited OTA submissions so maintainers know to consider adding ota-resubmit.
+    if: |
+      contains(github.event.issue.labels.*.name, 'ota-submit') &&
+      !contains(github.event.issue.labels.*.name, 'ota-edited')
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Add ota-edited label
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: gh issue edit "$ISSUE_NUMBER" --add-label "ota-edited" --repo "${{ github.repository }}"

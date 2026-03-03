@@ -1,0 +1,83 @@
+name: Update dev channel version pointer
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - ".github/SCHEMA.json"
+
+concurrency:
+  group: push-release-version
+  cancel-in-progress: false
+
+env:
+  DEV_BASE_URL: https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev
+
+jobs:
+  update-dev-version-pointer:
+    name: Update dev.json on release/version branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Load schema config
+        run: |
+          for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
+            value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
+            echo "SCHEMA_${key^^}=$value" >> "$GITHUB_ENV"
+          done
+
+      - name: Configure git
+        run: |
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      - name: Update dev.json on release/version
+        run: |
+          # Construct dev channel URLs from schema filenames
+          ZIGPY_URL="${DEV_BASE_URL}/${SCHEMA_ZIGPY_FILENAME}"
+          Z2M_URL="${DEV_BASE_URL}/${SCHEMA_Z2M_FILENAME}"
+          MARKDOWN_URL="${DEV_BASE_URL}/${SCHEMA_MARKDOWN_FILENAME}"
+
+          # Switch to release/version branch
+          if git ls-remote --exit-code --heads origin release/version > /dev/null 2>&1; then
+            git fetch origin release/version:release/version
+            git checkout release/version
+          else
+            git checkout -b release/version
+          fi
+
+          # Update dev.json (preserve existing schema keys, e.g. zigpy_v1 when adding zigpy_v2)
+          if [ -f dev.json ]; then
+            jq --arg zigpy_key "$SCHEMA_ZIGPY_SCHEMA_KEY" \
+               --arg z2m_key "$SCHEMA_Z2M_SCHEMA_KEY" \
+               --arg md_key "$SCHEMA_MARKDOWN_SCHEMA_KEY" \
+               --arg zigpy_url "$ZIGPY_URL" \
+               --arg z2m_url "$Z2M_URL" \
+               --arg md_url "$MARKDOWN_URL" \
+               '.schemas[$zigpy_key] = {version: "dev", url: $zigpy_url} | .schemas[$z2m_key] = {version: "dev", url: $z2m_url} | .schemas[$md_key] = {version: "dev", url: $md_url}' \
+               dev.json > /tmp/dev.json
+            mv /tmp/dev.json dev.json
+          else
+            jq -n \
+              --arg zigpy_key "$SCHEMA_ZIGPY_SCHEMA_KEY" \
+              --arg z2m_key "$SCHEMA_Z2M_SCHEMA_KEY" \
+              --arg md_key "$SCHEMA_MARKDOWN_SCHEMA_KEY" \
+              --arg zigpy_url "$ZIGPY_URL" \
+              --arg z2m_url "$Z2M_URL" \
+              --arg md_url "$MARKDOWN_URL" \
+              '{schemas: {($zigpy_key): {version: "dev", url: $zigpy_url}, ($z2m_key): {version: "dev", url: $z2m_url}, ($md_key): {version: "dev", url: $md_url}}}' \
+              > dev.json
+          fi
+
+          # Commit and push if changed
+          git add dev.json
+          git diff --staged --quiet || git commit -m "Update \`dev\` version pointer"
+          git push origin release/version

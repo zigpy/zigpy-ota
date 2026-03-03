@@ -18,14 +18,18 @@ set -euo pipefail
 #   EVENT_ACTION        - GitHub event action (empty for workflow_dispatch)
 #   RELEASE_ASSETS      - JSON array of release assets (only for release events)
 
-# JSON asset filenames (stable channel)
-ZIGPY_JSON_FILENAME="zigpy_v1_ota.json"
-Z2M_JSON_FILENAME="z2m_v1_ota.json"
-MARKDOWN_FILENAME="markdown_v1.md"
-# JSON asset filenames (beta channel - includes stable + beta images)
-ZIGPY_JSON_BETA_FILENAME="zigpy_v1_ota_beta.json"
-Z2M_JSON_BETA_FILENAME="z2m_v1_ota_beta.json"
-MARKDOWN_BETA_FILENAME="markdown_v1_beta.md"
+# Read schema config from .github/SCHEMA.json (must be done before any branch switches)
+ZIGPY_JSON_FILENAME=$(jq -r '.zigpy_filename' .github/SCHEMA.json)
+Z2M_JSON_FILENAME=$(jq -r '.z2m_filename' .github/SCHEMA.json)
+MARKDOWN_FILENAME=$(jq -r '.markdown_filename' .github/SCHEMA.json)
+
+ZIGPY_JSON_BETA_FILENAME=$(jq -r '.zigpy_beta_filename' .github/SCHEMA.json)
+Z2M_JSON_BETA_FILENAME=$(jq -r '.z2m_beta_filename' .github/SCHEMA.json)
+MARKDOWN_BETA_FILENAME=$(jq -r '.markdown_beta_filename' .github/SCHEMA.json)
+
+ZIGPY_SCHEMA_KEY=$(jq -r '.zigpy_schema_key' .github/SCHEMA.json)
+Z2M_SCHEMA_KEY=$(jq -r '.z2m_schema_key' .github/SCHEMA.json)
+MARKDOWN_SCHEMA_KEY=$(jq -r '.markdown_schema_key' .github/SCHEMA.json)
 
 # ------------------------------------------------------------------------------
 # Functions
@@ -81,7 +85,10 @@ update_json() {
        --arg zigpy_url "$zigpy_url" \
        --arg z2m_url "$z2m_url" \
        --arg markdown_url "$markdown_url" \
-       '.schemas.zigpy_v1.version = $version | .schemas.zigpy_v1.url = $zigpy_url | .schemas.z2m_v1.version = $version | .schemas.z2m_v1.url = $z2m_url | .schemas.markdown_v1.version = $version | .schemas.markdown_v1.url = $markdown_url' \
+       --arg zigpy_key "$ZIGPY_SCHEMA_KEY" \
+       --arg z2m_key "$Z2M_SCHEMA_KEY" \
+       --arg md_key "$MARKDOWN_SCHEMA_KEY" \
+       '.schemas[$zigpy_key].version = $version | .schemas[$zigpy_key].url = $zigpy_url | .schemas[$z2m_key].version = $version | .schemas[$z2m_key].url = $z2m_url | .schemas[$md_key].version = $version | .schemas[$md_key].url = $markdown_url' \
        "$file" > /tmp/"$(basename "$file")"
     mv /tmp/"$(basename "$file")" "$file"
   else
@@ -91,7 +98,10 @@ update_json() {
        --arg zigpy_url "$zigpy_url" \
        --arg z2m_url "$z2m_url" \
        --arg markdown_url "$markdown_url" \
-       '{schemas: {zigpy_v1: {version: $version, url: $zigpy_url}, z2m_v1: {version: $version, url: $z2m_url}, markdown_v1: {version: $version, url: $markdown_url}}}' \
+       --arg zigpy_key "$ZIGPY_SCHEMA_KEY" \
+       --arg z2m_key "$Z2M_SCHEMA_KEY" \
+       --arg md_key "$MARKDOWN_SCHEMA_KEY" \
+       '{schemas: {($zigpy_key): {version: $version, url: $zigpy_url}, ($z2m_key): {version: $version, url: $z2m_url}, ($md_key): {version: $version, url: $markdown_url}}}' \
        > "$file"
   fi
 }

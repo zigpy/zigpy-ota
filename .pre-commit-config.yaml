@@ -17,14 +17,14 @@ repos:
       - id: end-of-file-fixer
         exclude: ^tests/__snapshots__/
       - id: trailing-whitespace
-        exclude: ^tests/__snapshots__/
+        exclude: ^tests/(__snapshots__|data)/
 
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.7.4
     hooks:
       - id: prettier
         args: ["--tab-width", "2"]
-        exclude: ^tests/__snapshots__/
+        exclude: ^tests/(__snapshots__|data)/
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1

@@ -1,11 +1,15 @@
-name: Process OTA Submission
+name: Process OTA submission
 
 on:
   issues:
     types: [labeled]
 
+concurrency:
+  group: ota-submission-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
 env:
-  PYTHON_VERSION_DEFAULT: "3.13.11"
+  PYTHON_VERSION_DEFAULT: "3.14"
   ISSUE_FILE: /tmp/issue.md
   PR_BODY_FILE: /tmp/pr_body.md
   COMMIT_MSG_FILE: /tmp/commit_msg.txt
@@ -97,10 +101,10 @@ jobs:
           # Check if there are changes in the images directory (both tracked and untracked)
           if [[ -z "$(git status --porcelain images/)" ]]; then
             echo "No changes detected in images directory"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             echo "Changes detected in images directory"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Configure git
@@ -124,11 +128,13 @@ jobs:
           COMMIT_MSG_FILE: ${{ env.COMMIT_MSG_FILE }}
         run: .github/scripts/create-pr.sh
 
-      - name: Remove ota-resubmit label
+      - name: Remove ota-resubmit and ota-edited labels
         if: always() && github.event.label.name == 'ota-resubmit'
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
-        run: gh issue edit "$ISSUE_NUMBER" --remove-label "ota-resubmit" || true
+        run: |
+          gh issue edit "$ISSUE_NUMBER" --remove-label "ota-resubmit" || true
+          gh issue edit "$ISSUE_NUMBER" --remove-label "ota-edited" || true
 
       - name: Comment on issue (success or closed PR)
         if: steps.prepare_pr.outputs.has_changes == 'true'
@@ -143,15 +149,17 @@ jobs:
           PR_URL=$(echo "$PR_INFO" | jq -r '.url // ""')
 
           if [ "$PR_STATE" = "OPEN" ]; then
-            # Hide previous bot comments before posting new success message
             BOT_LOGIN="zigpy-bot"
-            COMMENT_IDS=$(gh api graphql -f query='
+
+            # Fetch all non-minimized bot comments
+            BOT_COMMENTS=$(gh api graphql -f query='
               query($owner: String!, $repo: String!, $number: Int!) {
                 repository(owner: $owner, name: $repo) {
                   issue(number: $number) {
                     comments(first: 100) {
                       nodes {
                         id
+                        body
                         author { login }
                         isMinimized
                       }
@@ -160,20 +168,53 @@ jobs:
                 }
               }
             ' -f owner="$REPO_OWNER" -f repo="$REPO_NAME" -F number="$ISSUE_NUMBER" \
-              --jq ".data.repository.issue.comments.nodes[] | select(.author.login == \"$BOT_LOGIN\" and .isMinimized == false) | .id")
+              --jq "[.data.repository.issue.comments.nodes[] | select(.author.login == \"$BOT_LOGIN\" and .isMinimized == false)]")
 
-            for COMMENT_ID in $COMMENT_IDS; do
+            # Check if there's already a success comment for this PR
+            HAS_SUCCESS_COMMENT=$(echo "$BOT_COMMENTS" | jq -r --arg url "$PR_URL" \
+              '[.[] | select(.body | contains("Successfully processed your OTA submission") and contains($url))] | length > 0')
+
+            if [ "$HAS_SUCCESS_COMMENT" = "true" ]; then
+              # Update existing success comment with reprocessing timestamp
+              SUCCESS_COMMENT_ID=$(echo "$BOT_COMMENTS" | jq -r --arg url "$PR_URL" \
+                '[.[] | select(.body | contains("Successfully processed your OTA submission") and contains($url))] | last | .id')
+              SUCCESS_COMMENT_BODY=$(echo "$BOT_COMMENTS" | jq -r --arg url "$PR_URL" \
+                '[.[] | select(.body | contains("Successfully processed your OTA submission") and contains($url))] | last | .body')
+
+              TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+
+              # Remove old timestamp line if present, strip trailing blank lines, append new timestamp
+              printf '%s\n' "$SUCCESS_COMMENT_BODY" > /tmp/success_comment.txt
+              sed -i '/^\*Last reprocessed:/d' /tmp/success_comment.txt
+              sed -i -e :a -e '/^\s*$/{$d;N;ba' -e '}' /tmp/success_comment.txt
+              printf '\n\n*Last reprocessed: %s*' "$TIMESTAMP" >> /tmp/success_comment.txt
+
               gh api graphql -f query='
-                mutation($id: ID!) {
-                  minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
-                    minimizedComment { isMinimized }
+                mutation($id: ID!, $body: String!) {
+                  updateIssueComment(input: {id: $id, body: $body}) {
+                    issueComment { body }
                   }
                 }
-              ' -f id="$COMMENT_ID" || true
-            done
+              ' -f id="$SUCCESS_COMMENT_ID" -f body="$(cat /tmp/success_comment.txt)" || true
 
-            gh issue comment "$ISSUE_NUMBER" --body "✅ Successfully processed your OTA submission! A pull request has been created with your changes:
+              echo "Updated existing success comment with reprocessing timestamp"
+            else
+              # Hide previous bot comments before posting new success message
+              COMMENT_IDS=$(echo "$BOT_COMMENTS" | jq -r '.[].id')
+
+              for COMMENT_ID in $COMMENT_IDS; do
+                gh api graphql -f query='
+                  mutation($id: ID!) {
+                    minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
+                      minimizedComment { isMinimized }
+                    }
+                  }
+                ' -f id="$COMMENT_ID" || true
+              done
+
+              gh issue comment "$ISSUE_NUMBER" --body "✅ Successfully processed your OTA submission! A pull request has been created with your changes:
           - $PR_URL"
+            fi
           else
             gh issue comment "$ISSUE_NUMBER" --body "❌ Failed to process your OTA submission. The PR was closed unexpectedly. Please check the workflow logs for more details."
           fi

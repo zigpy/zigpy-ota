@@ -9,13 +9,13 @@ from pathlib import Path
 IMAGES_PATH = Path("images")
 
 # Output path for the generated zigpy JSON metadata index
-ZIGPY_OTA_METADATA_OUTPUT_PATH = Path("zigpy_v1_ota.json")
+ZIGPY_OTA_METADATA_OUTPUT_PATH = Path("zigpy_ota.json")
 
 # Output path for the generated Zigbee2MQTT JSON metadata index
-Z2M_OTA_METADATA_OUTPUT_PATH = Path("z2m_v1_ota.json")
+Z2M_OTA_METADATA_OUTPUT_PATH = Path("z2m_ota.json")
 
 # Output path for the generated markdown index (human-readable)
-MARKDOWN_OTA_METADATA_OUTPUT_PATH = Path("markdown_v1.md")
+MARKDOWN_OTA_METADATA_OUTPUT_PATH = Path("markdown.md")
 
 # Repository Configuration
 # Default git branch/tag for generating GitHub raw URLs

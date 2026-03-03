@@ -226,6 +226,29 @@ channel: dev
     assert result["channel"] == "dev"
 
 
+@pytest.mark.parametrize(
+    "yaml_string",
+    [
+        pytest.param(
+            "model_names:[TEST]\nmanufacturer_names:[TEST]",
+            id="list_no_space",
+        ),
+        pytest.param(
+            "model_names:TEST\nmanufacturer_names:TEST",
+            id="scalar_no_space",
+        ),
+    ],
+)
+def test_parse_optional_metadata_missing_space_after_colon(
+    yaml_string: str,
+) -> None:
+    """Test that missing space after colon in optional metadata is handled."""
+    result = parse_optional_metadata(yaml_string)
+
+    assert result["model_names"] == ("TEST",)
+    assert result["manufacturer_names"] == ("TEST",)
+
+
 def test_parse_metadata_file_with_channel(tmp_path: Path) -> None:
     """Test that channel field is parsed from YAML metadata file."""
     yaml_path = tmp_path / "test.yaml"

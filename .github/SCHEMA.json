@@ -1,0 +1,14 @@
+{
+  "zigpy_version": "v1",
+  "zigpy_schema_key": "zigpy_v1",
+  "zigpy_filename": "zigpy_v1_ota.json",
+  "zigpy_beta_filename": "zigpy_v1_ota_beta.json",
+  "z2m_version": "v1",
+  "z2m_schema_key": "z2m_v1",
+  "z2m_filename": "z2m_v1_ota.json",
+  "z2m_beta_filename": "z2m_v1_ota_beta.json",
+  "markdown_version": "v1",
+  "markdown_schema_key": "markdown_v1",
+  "markdown_filename": "markdown_v1.md",
+  "markdown_beta_filename": "markdown_v1_beta.md"
+}

@@ -22,6 +22,7 @@ from zigpy_ota.actions.metadata.merging import (
 from zigpy_ota.actions.metadata.stale_validation import compute_stale_images
 from zigpy_ota.actions.metadata.z2m_utils import compute_max_file_versions
 from zigpy_ota.cli import cli
+from zigpy_ota.const import Z2M_OTA_METADATA_OUTPUT_PATH, ZIGPY_OTA_METADATA_OUTPUT_PATH
 from zigpy_ota.models.index_metadata import IndexMetadata
 from zigpy_ota.models.yaml_metadata import Channel
 
@@ -65,7 +66,7 @@ def test_generate_index_z2m_format(tmp_path: Path) -> None:
     Runs against the actual images/ directory to ensure all OTA images
     and YAML metadata can be parsed and indexed correctly.
     """
-    output_file = tmp_path / "z2m_v1_ota.json"
+    output_file = tmp_path / Z2M_OTA_METADATA_OUTPUT_PATH.name
 
     runner = CliRunner()
     result = runner.invoke(
@@ -142,7 +143,7 @@ model_names:
     runner = CliRunner()
 
     # Generate zigpy index
-    zigpy_output = tmp_path / "zigpy_v1_ota.json"
+    zigpy_output = tmp_path / ZIGPY_OTA_METADATA_OUTPUT_PATH.name
     result = runner.invoke(
         cli,
         [
@@ -160,7 +161,7 @@ model_names:
     assert result.exit_code == 0, f"zigpy index failed: {result.output}"
 
     # Generate z2m index
-    z2m_output = tmp_path / "z2m_v1_ota.json"
+    z2m_output = tmp_path / Z2M_OTA_METADATA_OUTPUT_PATH.name
     result = runner.invoke(
         cli,
         [
@@ -564,7 +565,7 @@ min_current_file_version: 0x01002500
         yaml_path = manufacturer_dir / f"{ota_file}.yaml"
         yaml_path.write_text(yaml_content)
 
-    output_file = tmp_path / "z2m_v1_ota.json"
+    output_file = tmp_path / Z2M_OTA_METADATA_OUTPUT_PATH.name
     runner = CliRunner()
     result = runner.invoke(
         cli,
