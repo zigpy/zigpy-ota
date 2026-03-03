@@ -116,21 +116,21 @@ Images are included in channels based on their `channel` YAML field:
 
 **Index file naming (GitHub release assets):**
 
-- Stable releases: `zigpy_v1_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
-- Beta releases: `zigpy_v1_ota_beta.json`, `z2m_v1_ota_beta.json`, and `markdown_v1_beta.md`
+- Stable releases: `zigpy_v2_ota.json`, `z2m_v1_ota.json`, and `markdown_v1.md`
+- Beta releases: `zigpy_v2_ota_beta.json`, `z2m_v1_ota_beta.json`, and `markdown_v1_beta.md`
 
 ### Accessing the index files programmatically
 
 **Recommended**: Discover the URL dynamically via version files on the [`release/version`](https://github.com/zigpy/zigpy-ota/tree/release/version) branch:\
 `https://raw.githubusercontent.com/zigpy/zigpy-ota/release/version/{stable,beta,dev}.json`
 
-Index files are also mirrored to the [`release/files`](https://github.com/zigpy/zigpy-ota/tree/release/files) branch organized by channel (`stable/`, `beta/`, `dev/`), where all folders use the same filenames (`zigpy_v1_ota.json`, `z2m_v1_ota.json`, `markdown_v1.md`).
+Index files are also mirrored to the [`release/files`](https://github.com/zigpy/zigpy-ota/tree/release/files) branch organized by channel (`stable/`, `beta/`, `dev/`), where all folders use the same filenames (`zigpy_v2_ota.json`, `z2m_v1_ota.json`, `markdown_v1.md`).
 
 After an image is merged to the `dev` branch, the updated index is immediately available for testing at:\
-`https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v1_ota.json`
+`https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/dev/zigpy_v2_ota.json`
 
 **Direct access** for all channels (not preferred):\
-`https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/{stable,beta,dev}/zigpy_v1_ota.json`
+`https://raw.githubusercontent.com/zigpy/zigpy-ota/release/files/{stable,beta,dev}/zigpy_v2_ota.json`
 
 <!-- Consider moving the Z2M configuration to the "For End-Users" section at some point --->
 
