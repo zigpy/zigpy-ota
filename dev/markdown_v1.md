@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 11
+**Total firmware images:** 12
 
 ## aeotec
 
@@ -400,6 +400,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#22](https://github.com/zigpy/zigpy-ota/pull/22)
 
 ## sonoff
+
+### `1286-000B-00002002_cb2909.ota`
+
+- **Original File Name**: `SN-TLSR8656-S60-01-v2.0.2.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x000B` (11)
+- **File Version**: `0x00002002` (8194)
+- **File Size**: 147,232 bytes
+- **Checksum SHA3-256**: `cb29092b246dee67d4999106d1570c7c027924b42f97f09a5c782c7d4bed87e2`
+- **Checksum SHA512**: `dfddb274c4d549f0ea0e155592191e19409ef7368072e9bf0f9af4889e23cd3dfeeee849cdfbfc4afcb595301b391e9d66ccef49985f02bc90a8043b4f34989a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota
+- **Source URL**: https://github.com/user-attachments/files/25198053/SN-TLSR8656-S60-01-v2.0.2.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: S60ZBTPF, S60ZBTPG
+
+**Release Notes:**
+
+> This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.2.
+> 
+> **Changes**
+> - Improves on/off state reporting during overload conditions to ensure accurate device state
+- **Pull Request**: [#26](https://github.com/zigpy/zigpy-ota/pull/26)
 
 ### `1286-2007-00001404_fbc68d.ota`
 
