@@ -118,6 +118,22 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "manufacturer_id": 4742,
+            "image_type": 69,
+            "file_version": 4101,
+            "file_size": 236032,
+            "checksum": "sha3-256:ea654a09cdb2779d36b92a09ec227c7f85ececd586b006d99b5ff95d9c3d86d0",
+            "release_notes": "This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.\n\n**Bugfixes**\n- Calibration method set fail\n\n**New features**\n- NTC threshold value update to 115\u00b0C\n- Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level\n- Light dimming is supported when the key type is single touch key",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/28",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "MINI-ZBDIM"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,

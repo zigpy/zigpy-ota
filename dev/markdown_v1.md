@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 12
+**Total firmware images:** 13
 
 ## aeotec
 
@@ -423,6 +423,35 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Improves on/off state reporting during overload conditions to ensure accurate device state
 - **Pull Request**: [#26](https://github.com/zigpy/zigpy-ota/pull/26)
+
+### `1286-0045-00001005_ea654a.ota`
+
+- **Original File Name**: `mini-zbdim_v1.0.5.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0045` (69)
+- **File Version**: `0x00001005` (4101)
+- **File Size**: 236,032 bytes
+- **Checksum SHA3-256**: `ea654a09cdb2779d36b92a09ec227c7f85ececd586b006d99b5ff95d9c3d86d0`
+- **Checksum SHA512**: `88cf2b860f2929c6d0f4b2b3ac44b4b00b391e13938203ac4f9aacf3727ee59afff7080ba54cb41797f130ae93b30c4a16cd726545d7e173c76bcc22d8afc30c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0045-00001005_ea654a.ota
+- **Source URL**: https://github.com/user-attachments/files/25672062/mini-zbdim_v1.0.5.zip
+- **Header String**: `vers:00001005,00001102
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZBDIM
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.
+> 
+> **Bugfixes**
+> - Calibration method set fail
+> 
+> **New features**
+> - NTC threshold value update to 115°C
+> - Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level
+> - Light dimming is supported when the key type is single touch key
+- **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
 
 ### `1286-2007-00001404_fbc68d.ota`
 

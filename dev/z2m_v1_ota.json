@@ -152,6 +152,22 @@
         "modelId": "S60ZBTPG"
     },
     {
+        "fileName": "1286-0045-00001005_ea654a.ota",
+        "fileVersion": 4101,
+        "fileSize": 236032,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0045-00001005_ea654a.ota",
+        "imageType": 69,
+        "manufacturerCode": 4742,
+        "sha512": "88cf2b860f2929c6d0f4b2b3ac44b4b00b391e13938203ac4f9aacf3727ee59afff7080ba54cb41797f130ae93b30c4a16cd726545d7e173c76bcc22d8afc30c",
+        "otaHeaderString": "vers:00001005,00001102\n",
+        "originalUrl": "https://github.com/user-attachments/files/25672062/mini-zbdim_v1.0.5.zip",
+        "releaseNotes": "This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.\n\n**Bugfixes**\n- Calibration method set fail\n\n**New features**\n- NTC threshold value update to 115\u00b0C\n- Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level\n- Light dimming is supported when the key type is single touch key",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "MINI-ZBDIM"
+    },
+    {
         "fileName": "1286-2007-00001404_fbc68d.ota",
         "fileVersion": 5124,
         "fileSize": 332220,
