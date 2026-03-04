@@ -1,0 +1,14 @@
+# OTA metadata
+file_name: 1286-000B-00002002_cb2909.ota
+source_file_name: SN-TLSR8656-S60-01-v2.0.2.ota
+source_url: https://github.com/user-attachments/files/25198053/SN-TLSR8656-S60-01-v2.0.2.zip
+release_notes: |-
+  This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.2.
+
+  **Changes**
+  - Improves on/off state reporting during overload conditions to ensure accurate device state
+manufacturer_names:
+  - SONOFF
+model_names:
+  - S60ZBTPF
+  - S60ZBTPG
