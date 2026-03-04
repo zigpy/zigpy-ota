@@ -2,6 +2,7 @@
 file_name: 1286-0045-00001005_ea654a.ota
 source_file_name: mini-zbdim_v1.0.5.ota
 source_url: https://github.com/user-attachments/files/25672062/mini-zbdim_v1.0.5.zip
+pull_request: 28
 release_notes: |-
   This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.
 
