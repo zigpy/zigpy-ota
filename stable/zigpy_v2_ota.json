@@ -1,7 +1,7 @@
 {
     "firmwares": [
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0000-00000011_350c16.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0000-00000011_350c16.ota",
             "manufacturer_id": 4880,
             "image_type": 0,
             "file_version": 17,
@@ -11,7 +11,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0802-00000106_1f3467.ota",
             "manufacturer_id": 4880,
             "image_type": 2050,
             "file_version": 262,
@@ -21,7 +21,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0803-00000106_030d13.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0803-00000106_030d13.ota",
             "manufacturer_id": 4880,
             "image_type": 2051,
             "file_version": 262,
@@ -31,7 +31,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-7C04-00000108_6d687b.ota",
             "manufacturer_id": 4880,
             "image_type": 31748,
             "file_version": 264,
@@ -41,7 +41,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0331-191D3685_650309.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
             "file_version": 421344901,
@@ -51,7 +51,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0332-191D3685_9f8062.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0332-191D3685_9f8062.ota",
             "manufacturer_id": 4454,
             "image_type": 818,
             "file_version": 421344901,
@@ -61,7 +61,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/14"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0333-191D3685_ac67dc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0333-191D3685_ac67dc.ota",
             "manufacturer_id": 4454,
             "image_type": 819,
             "file_version": 421344901,
@@ -71,7 +71,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/16"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0334-191E3685_0f83d8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0334-191E3685_0f83d8.ota",
             "manufacturer_id": 4454,
             "image_type": 820,
             "file_version": 421410437,
@@ -81,7 +81,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/18"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0335-191E3685_500102.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0335-191E3685_500102.ota",
             "manufacturer_id": 4454,
             "image_type": 821,
             "file_version": 421410437,
@@ -91,7 +91,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/20"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0336-191E3685_8008e8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0336-191E3685_8008e8.ota",
             "manufacturer_id": 4454,
             "image_type": 822,
             "file_version": 421410437,
@@ -99,6 +99,55 @@
             "checksum": "sha3-256:8008e845857d9e6e86426367f45e581483412f1d8f94198dbe8874a463723a73",
             "release_notes": "This updates the Innr SP 244 v2 smart plug to firmware version 1.9.30.\n\n**Note:** Please reload ZHA or restart Home Assistant shortly after this update is fully applied to avoid an incorrectly increased \"summation delivered\" state.\n\n**Note:** The relay may turn on or off during the upgrade process.\n\n**Changes compared to version 1.7.23 and older**\n- Fixed attribute reporting failing after power-cycle\n- Improved default attribute reporting settings\n- Improved thresholds for the resettable voltage and current overload protection\n- Added possibility to disable voltage overload protection\n- kWh in 3 decimals instead of 2\n- Added Multiplier and Divisor for kWh\n- Various bug fixes and performance improvements\n\n**Disabling voltage overload protection**\n\nTo disable voltage overload protection:\n1. Keep the button pressed between 15 and 20 seconds, then release\n2. After 5 seconds, the LED will start quick-blinking; keep the button pressed\n3. After 10 seconds, blinking stops; keep the button pressed\n4. After 15 seconds, the LED will start quick-blinking again\n5. Release the button. The LED will slow-blink 3 times to indicate success\n\nEnable again in the same way.\n\nEnabled/disabled state is persisted over power-cycles, even if not connected to a bridge.\nWhile voltage overload protection is disabled, every on/off action will double-blink the LED before assuming final state.\n\nCurrent overload protection cannot be disabled.\n\n**Overload behavior**\n\n- If the voltage or current overload protection triggers, the plug switches off and fast-blinks its LED\n- If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears\n- If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-000B-00002002_cb2909.ota",
+            "manufacturer_id": 4742,
+            "image_type": 11,
+            "file_version": 8194,
+            "file_size": 147232,
+            "checksum": "sha3-256:cb29092b246dee67d4999106d1570c7c027924b42f97f09a5c782c7d4bed87e2",
+            "release_notes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.2.\n\n**Changes**\n- Improves on/off state reporting during overload conditions to ensure accurate device state",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/26",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "S60ZBTPF",
+                "S60ZBTPG"
+            ]
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "manufacturer_id": 4742,
+            "image_type": 69,
+            "file_version": 4101,
+            "file_size": 236032,
+            "checksum": "sha3-256:ea654a09cdb2779d36b92a09ec227c7f85ececd586b006d99b5ff95d9c3d86d0",
+            "release_notes": "This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.\n\n**Bugfixes**\n- Calibration method set fail\n\n**New features**\n- NTC threshold value update to 115\u00b0C\n- Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level\n- Light dimming is supported when the key type is single touch key",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/28",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "MINI-ZBDIM"
+            ]
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-2007-00001404_fbc68d.ota",
+            "manufacturer_id": 4742,
+            "image_type": 8199,
+            "file_version": 5124,
+            "file_size": 332220,
+            "checksum": "sha3-256:fbc68d9075d8ecf34d5b238396f0ee5dd165bd459e339e3d96878c775419c3f1",
+            "release_notes": "This updates the Sonoff TRVZB to firmware version 1.4.44.\n\n**Changes**\\\nThis release adds Adaptive Mode. It is a feature designed to minimize temperature fluctuations.\nWhen enabled, the device dynamically adjusts the valve opening based on the temperature changes and the target temperature to maintain a more stable environment.\n\n**Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/24",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "TRVZB"
+            ]
         }
     ]
 }
