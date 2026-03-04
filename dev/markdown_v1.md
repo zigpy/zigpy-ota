@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 10
+**Total firmware images:** 11
 
 ## aeotec
 
@@ -398,3 +398,32 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
 > - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
 - **Pull Request**: [#22](https://github.com/zigpy/zigpy-ota/pull/22)
+
+## sonoff
+
+### `1286-2007-00001404_fbc68d.ota`
+
+- **Original File Name**: `trvzb_v1.4.4.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x2007` (8199)
+- **File Version**: `0x00001404` (5124)
+- **File Size**: 332,220 bytes
+- **Checksum SHA3-256**: `fbc68d9075d8ecf34d5b238396f0ee5dd165bd459e339e3d96878c775419c3f1`
+- **Checksum SHA512**: `c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001404_fbc68d.ota
+- **Source URL**: https://github.com/user-attachments/files/25085309/trvzb_v1.4.4.zip
+- **Header String**: `vers:00001404,00001301
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: TRVZB
+
+**Release Notes:**
+
+> This updates the Sonoff TRVZB to firmware version 1.4.44.
+> 
+> **Changes**\
+> This release adds Adaptive Mode. It is a feature designed to minimize temperature fluctuations.
+> When enabled, the device dynamically adjusts the valve opening based on the temperature changes and the target temperature to maintain a more stable environment.
+> 
+> **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
+- **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
