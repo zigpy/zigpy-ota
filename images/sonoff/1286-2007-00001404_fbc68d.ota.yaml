@@ -2,6 +2,7 @@
 file_name: 1286-2007-00001404_fbc68d.ota
 source_file_name: trvzb_v1.4.4.ota
 source_url: https://github.com/user-attachments/files/25085309/trvzb_v1.4.4.zip
+pull_request: 24
 release_notes: |-
   This updates the Sonoff TRVZB to firmware version 1.4.44.
 
