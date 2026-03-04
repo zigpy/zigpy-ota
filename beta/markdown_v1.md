@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** beta\
-**Total firmware images:** 10
+**Total firmware images:** 13
 
 ## aeotec
 
@@ -16,7 +16,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 297,306 bytes
 - **Checksum SHA3-256**: `350c16b203fd0b6c8b7dcb64d244332f5070d8aca78cfc118877613fe28d3f0e`
 - **Checksum SHA512**: `938ddf2b55a72622eb726dfccd01705ff497376d233570b557a4f3bbbe86957d30602669982aef640ce801f016bfe114fc7ebe1a2e29dc401e89de8a9c6fd04b`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0000-00000011_350c16.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0000-00000011_350c16.ota
 - **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Range_Extender_Zi_V1.0.3.ota
 - **Header String**: `EBL Z3RangeExtender`
 
@@ -34,7 +34,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 310,098 bytes
 - **Checksum SHA3-256**: `1f346751c3220d076f3938f9db7bff1b88dfbbea88b552ed1aaf93187306eb7a`
 - **Checksum SHA512**: `5a42d396bacb304f9fd8b838b7405e154b4e1975933a125b41337d249e1272b2b3a9ef7b35ebab3273cd8c093fe91fa3ca9008cd09aab787f6fbe1f23fb37571`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0802-00000106_1f3467.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0802-00000106_1f3467.ota
 - **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Switch_V1.0.6.ota
 - **Header String**: `EBL SinglePicoSw`
 
@@ -52,7 +52,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 311,594 bytes
 - **Checksum SHA3-256**: `030d13f513183567780126df7fc949d5b5f3e42fdc07b980fbedb6088c58a2b3`
 - **Checksum SHA512**: `e60097b31873716ddfab1f3ae8e4ef493216c1535d5f6a1ae207c49daf5b5c6e19ea89fc39bf7e83068253d933c65d472254a11faba4a8066ee3380501615558`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-0803-00000106_030d13.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-0803-00000106_030d13.ota
 - **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Duo_Switch_V1.0.6.ota
 - **Header String**: `EBL DualPicoSw`
 
@@ -70,7 +70,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 326,978 bytes
 - **Checksum SHA3-256**: `6d687bae31752aa9b96d14c3a3b4075de8332788a6dd20fdd47c551eed372d20`
 - **Checksum SHA512**: `15b3772fa75236fd6e3b8a9b075a7a646903f7a60d202b279a190a025df2c7f6398e7b453c1109e0c9dbfa0f4a441b8b250137ba9f24a45920ede3e0471cf722`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/aeotec/1310-7C04-00000108_6d687b.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/aeotec/1310-7C04-00000108_6d687b.ota
 - **Source URL**: https://raw.githubusercontent.com/Aeotec-ccheng/aeotecZigbeeProducts/main/ZigbeeOTAUpdates/Pico_Shutter_V1.0.8.ota
 - **Header String**: `EBL PicoMotor`
 
@@ -90,7 +90,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,058 bytes
 - **Checksum SHA3-256**: `650309c57ee3b66c5380baddcbf7638bff6b8bcdc33677545ff383e2bec979a8`
 - **Checksum SHA512**: `041ac46c276770f7179aed8222a52813d50d981776208fa4fa76bf432f0fa73dc8a09aabfe61894aa734f18fdc997a6842aaee7ab6a4d3554914a42e3fcdca00`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0331-191D3685_650309.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0331-191D3685_650309.ota
 - **Source URL**: https://github.com/user-attachments/files/24494190/1166-0331-191d3685-sp240-1.9.29.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -143,7 +143,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,058 bytes
 - **Checksum SHA3-256**: `9f8062c20b4700c0f7d576b0b46b1b804f4dc14297b056695ca3ec4cddf86bea`
 - **Checksum SHA512**: `d3f1728a8b6e70501b21414cb0bbbd17934a56a64d2249500db36e29821a3b5f0551b42c63abbe837426cf657d25fa497585cf86ba6f41209ce40a56cadb9319`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0332-191D3685_9f8062.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0332-191D3685_9f8062.ota
 - **Source URL**: https://github.com/user-attachments/files/24494551/1166-0332-191d3685-sp242-1.9.29.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -196,7 +196,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,058 bytes
 - **Checksum SHA3-256**: `ac67dcf98b56c9f29c4cc2971928cc137e88fa1ed876250260da28babc23f0bc`
 - **Checksum SHA512**: `447f8b22c7c9ed1b2d0d4266c9d20087f62c73a5e1f677388747d6050044512f884266565097a9dcc37893345e5d39cf79b99a63ef036296174c8054f7f372e6`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0333-191D3685_ac67dc.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0333-191D3685_ac67dc.ota
 - **Source URL**: https://github.com/user-attachments/files/24494572/1166-0333-191d3685-sp244-1.9.29.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -249,7 +249,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,042 bytes
 - **Checksum SHA3-256**: `0f83d838f09bd49e91488194e93e18592e753eef62551d6cbf6ab4628949a9cc`
 - **Checksum SHA512**: `72e94cc57ae49c53e11e98bdd4a24dd08c640e19d3e31b059e1df458aea80b1cc95a8d4edff30ba6b4e173d8d5e70607a833533656e6475bfa51d7c9edb6bc7b`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0334-191E3685_0f83d8.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0334-191E3685_0f83d8.ota
 - **Source URL**: https://github.com/user-attachments/files/24494583/1166-0334-191e3685-sp240v2-1.9.30.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -302,7 +302,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,042 bytes
 - **Checksum SHA3-256**: `500102549550d489130006261c1bbc3a501a54d060fe4293d9f895ba07cc9cd8`
 - **Checksum SHA512**: `b85050cf4f8352967966df3c65cb550fbaac54b4cd987fc8a0ca176acf42f30b38a0fcfe3b28562d670e630191247d2095b732a2230596feb5c7e8c9599a5044`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0335-191E3685_500102.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0335-191E3685_500102.ota
 - **Source URL**: https://github.com/user-attachments/files/24494589/1166-0335-191e3685-sp242v2-1.9.30.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -355,7 +355,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **File Size**: 285,042 bytes
 - **Checksum SHA3-256**: `8008e845857d9e6e86426367f45e581483412f1d8f94198dbe8874a463723a73`
 - **Checksum SHA512**: `857d8d4b4b179f92120072d8084d1f2b5b3e20a94fca6cf76ccc6afbbc8ba8f9e091a30144ab35e6edc6984fb45427289aaf8def4838a065b98cf9728716109d`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.2.0/images/innr/1166-0336-191E3685_8008e8.ota
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/innr/1166-0336-191E3685_8008e8.ota
 - **Source URL**: https://github.com/user-attachments/files/24494598/1166-0336-191e3685-sp244v2-1.9.30.zip
 - **Header String**: `Telink OTA Sample Usage`
 
@@ -398,3 +398,84 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
 > - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
 - **Pull Request**: [#22](https://github.com/zigpy/zigpy-ota/pull/22)
+
+## sonoff
+
+### `1286-000B-00002002_cb2909.ota`
+
+- **Original File Name**: `SN-TLSR8656-S60-01-v2.0.2.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x000B` (11)
+- **File Version**: `0x00002002` (8194)
+- **File Size**: 147,232 bytes
+- **Checksum SHA3-256**: `cb29092b246dee67d4999106d1570c7c027924b42f97f09a5c782c7d4bed87e2`
+- **Checksum SHA512**: `dfddb274c4d549f0ea0e155592191e19409ef7368072e9bf0f9af4889e23cd3dfeeee849cdfbfc4afcb595301b391e9d66ccef49985f02bc90a8043b4f34989a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-000B-00002002_cb2909.ota
+- **Source URL**: https://github.com/user-attachments/files/25198053/SN-TLSR8656-S60-01-v2.0.2.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: S60ZBTPF, S60ZBTPG
+
+**Release Notes:**
+
+> This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.2.
+> 
+> **Changes**
+> - Improves on/off state reporting during overload conditions to ensure accurate device state
+- **Pull Request**: [#26](https://github.com/zigpy/zigpy-ota/pull/26)
+
+### `1286-0045-00001005_ea654a.ota`
+
+- **Original File Name**: `mini-zbdim_v1.0.5.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0045` (69)
+- **File Version**: `0x00001005` (4101)
+- **File Size**: 236,032 bytes
+- **Checksum SHA3-256**: `ea654a09cdb2779d36b92a09ec227c7f85ececd586b006d99b5ff95d9c3d86d0`
+- **Checksum SHA512**: `88cf2b860f2929c6d0f4b2b3ac44b4b00b391e13938203ac4f9aacf3727ee59afff7080ba54cb41797f130ae93b30c4a16cd726545d7e173c76bcc22d8afc30c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-0045-00001005_ea654a.ota
+- **Source URL**: https://github.com/user-attachments/files/25672062/mini-zbdim_v1.0.5.zip
+- **Header String**: `vers:00001005,00001102
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZBDIM
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.
+> 
+> **Bugfixes**
+> - Calibration method set fail
+> 
+> **New features**
+> - NTC threshold value update to 115°C
+> - Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level
+> - Light dimming is supported when the key type is single touch key
+- **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
+
+### `1286-2007-00001404_fbc68d.ota`
+
+- **Original File Name**: `trvzb_v1.4.4.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x2007` (8199)
+- **File Version**: `0x00001404` (5124)
+- **File Size**: 332,220 bytes
+- **Checksum SHA3-256**: `fbc68d9075d8ecf34d5b238396f0ee5dd165bd459e339e3d96878c775419c3f1`
+- **Checksum SHA512**: `c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.0/images/sonoff/1286-2007-00001404_fbc68d.ota
+- **Source URL**: https://github.com/user-attachments/files/25085309/trvzb_v1.4.4.zip
+- **Header String**: `vers:00001404,00001301
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: TRVZB
+
+**Release Notes:**
+
+> This updates the Sonoff TRVZB to firmware version 1.4.44.
+> 
+> **Changes**\
+> This release adds Adaptive Mode. It is a feature designed to minimize temperature fluctuations.
+> When enabled, the device dynamically adjusts the valve opening based on the temperature changes and the target temperature to maintain a more stable environment.
+> 
+> **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
+- **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
