@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 10F2-7B31-02600460_099597.ota
+source_file_name: 10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee
+source_url: https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee
+release_notes: |-
+  This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).
+
+  **Changes**
+  - Bug fixes and improvements
