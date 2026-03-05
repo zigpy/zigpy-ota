@@ -38,6 +38,12 @@ def issue_hue_new_replace() -> Path:
 
 
 @pytest.fixture
+def issue_hue_old_release_notes_headings() -> Path:
+    """Issue file for old Hue OTA version with markdown headings in release notes."""
+    return Path("tests/data/gh_issues/issue_hue_old_release_notes_headings.md")
+
+
+@pytest.fixture
 def issue_hue_old_trailing_whitespace() -> Path:
     """Issue file for old Hue OTA version with trailing whitespace in release notes."""
     return Path("tests/data/gh_issues/issue_hue_old_trailing_whitespace.md")
@@ -317,6 +323,12 @@ def run_prepare_pr(
             ["issue_hue_old_metadata_no_space"],
             ["ota_hue_old"],
             id="metadata_missing_space_after_colon",
+        ),
+        # Test 19: Markdown headings (###) in release notes should be preserved
+        pytest.param(
+            ["issue_hue_old_release_notes_headings"],
+            ["ota_hue_old"],
+            id="release_notes_with_headings",
         ),
     ],
     indirect=["issue_paths", "ota_paths"],

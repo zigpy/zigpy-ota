@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from zigpy_ota.actions.issue.const import KNOWN_SECTION_HEADERS, IssueSection
 from zigpy_ota.models.issue_model import ExistingImagesHandling, IssueData
 
 
@@ -14,46 +15,65 @@ def parse_issue_markdown(markdown_content: str) -> dict[str, Any]:
     sections = _split_into_sections(markdown_content)
 
     parsed_data = {
-        "ota_file": _parse_ota_file_section(sections.get("OTA file", "")),
-        "ota_image_url": _parse_ota_image_url_section(
-            sections.get("OTA image URL", "")
+        "ota_file": _parse_ota_file_section(
+            sections.get(IssueSection.OTA_FILE, ""),
         ),
-        "manufacturer_name": _parse_text_section(sections.get("Manufacturer name", "")),
+        "ota_image_url": _parse_ota_image_url_section(
+            sections.get(IssueSection.OTA_IMAGE_URL, "")
+        ),
+        "manufacturer_name": _parse_text_section(
+            sections.get(IssueSection.MANUFACTURER_NAME, "")
+        ),
         "existing_images_handling": _parse_existing_images_handling(
-            sections.get("How to handle existing images of the same type", "")
+            sections.get(IssueSection.EXISTING_IMAGES, "")
         ),
         "third_party_download": _parse_checkbox_section(
-            sections.get("Third-party download (external hosting)", "")
+            sections.get(IssueSection.THIRD_PARTY_DOWNLOAD, "")
         ),
-        "release_notes": _parse_text_section(sections.get("Release notes", "")),
-        "checklist": _parse_checklist_section(sections.get("Checklist", "")),
+        "release_notes": _parse_text_section(
+            sections.get(IssueSection.RELEASE_NOTES, "")
+        ),
+        "checklist": _parse_checklist_section(
+            sections.get(IssueSection.CHECKLIST, ""),
+        ),
         "additional_information": _parse_text_section(
-            sections.get("Additional information", "")
+            sections.get(IssueSection.ADDITIONAL_INFORMATION, "")
         ),
-        "optional_metadata": _parse_text_section(sections.get("Optional metadata", "")),
+        "optional_metadata": _parse_text_section(
+            sections.get(IssueSection.OPTIONAL_METADATA, "")
+        ),
     }
 
     return parsed_data
 
 
 def _split_into_sections(markdown_content: str) -> dict[str, str]:
-    """Split markdown content into sections based on h3 headers (###)."""
-    sections = {}
+    """Split markdown content into sections based on known h3 headers (###).
+
+    Only lines matching known section headers are treated as section delimiters.
+    This allows content (e.g. release notes) to contain markdown h3 headers
+    without being split into separate sections.
+    """
+    sections: dict[str, str] = {}
     current_section: str | None = None
     current_content: list[str] = []
 
     for line in markdown_content.split("\n"):
         if line.startswith("### "):
-            # Save previous section if it exists
-            if current_section is not None:
-                sections[current_section] = "\n".join(current_content).strip()
+            header = line[4:].strip()
 
-            # Start new section
-            current_section = line[4:].strip()
-            current_content = []
-        else:
-            if current_section is not None:
-                current_content.append(line)
+            if header in KNOWN_SECTION_HEADERS:
+                # Save previous section if it exists
+                if current_section is not None:
+                    sections[current_section] = "\n".join(current_content).strip()
+
+                # Start new section
+                current_section = header
+                current_content = []
+                continue
+
+        if current_section is not None:
+            current_content.append(line)
 
     # Save the last section
     if current_section is not None:

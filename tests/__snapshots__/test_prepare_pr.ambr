@@ -1674,6 +1674,99 @@
     }),
   })
 # ---
+# name: test_prepare_pr_command_with_snapshot[release_notes_with_headings]
+  dict({
+    'markdowns': dict({
+      'test_pr_0.md': '''
+        ## OTA File Submission
+        
+        ### File Information
+        - **Filename**: `100B-010C-01001A02_879c1b.ota`
+        - **Original Filename**: `fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee`
+        - **Manufacturer (user provided)**: Hue
+        - **Manufacturer Directory**: `signify`
+        - **Manufacturer ID**: `0x100B` (4107)
+        - **Image Type**: `0x010C` (268)
+        - **File Version**: `0x01001A02` (16783874)
+        - **File Size**: 126 bytes
+        - **Hosting**: Repository file (hosted in zigpy-ota)
+        - **Existing Images Handling**: Keep all existing images
+        - **Tested on Device**: No
+        
+        ### Metadata
+        - **Manufacturer Names**: SignifyX
+        - **Model Names**: test test, test2
+        - **Source URL**: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        
+        ### Additional Metadata
+        - **Min Current File Version**: `0x00010002` (65538)
+        
+        ### Release Notes
+        ### Bug Fixes
+        
+        - Fixed a crash when updating
+        - Resolved connectivity issues
+        
+        ### New Features
+        
+        - Added support for new device types
+        - Improved energy monitoring
+  
+      ''',
+    }),
+    'ota_files': list([
+      '100B-010C-01001A02_879c1b.ota',
+    ]),
+    'ota_index': '''
+      {
+        "firmwares": [
+          {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/test-tag/images/signify/100B-010C-01001A02_879c1b.ota",
+            "manufacturer_id": 4107,
+            "image_type": 268,
+            "file_version": 16783874,
+            "file_size": 126,
+            "checksum": "sha3-256:879c1b0d3f7d89795ca649622c4b4628651559b088dfdf306bc1c5cd8c573e3a",
+            "release_notes": "### Bug Fixes\n\n- Fixed a crash when updating\n- Resolved connectivity issues\n\n### New Features\n\n- Added support for new device types\n- Improved energy monitoring",
+            "manufacturer_names": [
+              "SignifyX"
+            ],
+            "model_names": [
+              "test test",
+              "test2"
+            ],
+            "min_current_file_version": 65538
+          }
+        ]
+      }
+    ''',
+    'yamls': dict({
+      '100B-010C-01001A02_879c1b.ota.yaml': '''
+        # OTA metadata
+        file_name: 100B-010C-01001A02_879c1b.ota
+        source_file_name: fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        source_url: https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee
+        release_notes: |-
+          ### Bug Fixes
+        
+          - Fixed a crash when updating
+          - Resolved connectivity issues
+        
+          ### New Features
+        
+          - Added support for new device types
+          - Improved energy monitoring
+        manufacturer_names:
+          - SignifyX
+        model_names:
+          - test test
+          - test2
+        min_current_file_version: 65538
+  
+      ''',
+    }),
+  })
+# ---
 # name: test_prepare_pr_command_with_snapshot[single_old]
   dict({
     'markdowns': dict({

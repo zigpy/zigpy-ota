@@ -18,6 +18,7 @@ from zigpy_ota.models.issue_model import ExistingImagesHandling
     params=[
         "issue.md",
         "issue_empty.md",
+        "issue_hue_old_release_notes_headings.md",
     ]
 )
 def issue_markdown_file(request: pytest.FixtureRequest) -> Path:
@@ -104,6 +105,21 @@ def test_parse_issue_trailing_whitespace_stripped() -> None:
         assert line == line.rstrip(), f"Trailing whitespace found: {line!r}"
 
     assert issue_data.release_notes == "- Bug fixes\n\n- Performance improvements"
+
+
+def test_parse_issue_markdown_headings_in_content_preserved() -> None:
+    """Test that ### headings in release notes and additional info are not split."""
+    issue_path = Path("tests/data/gh_issues/issue_hue_old_release_notes_headings.md")
+    issue_data = parse_issue_file_to_model(issue_path)
+
+    assert issue_data.release_notes is not None
+    assert "### Bug Fixes" in issue_data.release_notes
+    assert "### New Features" in issue_data.release_notes
+    assert "- Fixed a crash when updating" in issue_data.release_notes
+
+    assert issue_data.additional_information is not None
+    assert "### Notes" in issue_data.additional_information
+    assert "### Known Issues" in issue_data.additional_information
 
 
 @pytest.mark.parametrize(

@@ -41,6 +41,47 @@
     'third_party_download': False,
   })
 # ---
+# name: test_parse_issue_file_snapshot[issue_hue_old_release_notes_headings.md]
+  dict({
+    'additional_information': '''
+      ### Notes
+      
+      This firmware was tested on multiple devices.
+      
+      ### Known Issues
+      
+      - Some devices may require a manual restart after updating
+    ''',
+    'checklist': dict({
+      'filled_release_notes': False,
+      'is_official_source': False,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
+    'manufacturer_name': 'Hue',
+    'optional_metadata': '''
+      model_names: [test test, test2]
+      manufacturer_names: SignifyX
+      min_current_file_version: 0x00010002
+      invalid_xx: test
+    ''',
+    'ota_file': None,
+    'ota_image_url': 'https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee',
+    'release_notes': '''
+      ### Bug Fixes
+      
+      - Fixed a crash when updating
+      - Resolved connectivity issues
+      
+      ### New Features
+      
+      - Added support for new device types
+      - Improved energy monitoring
+    ''',
+    'third_party_download': False,
+  })
+# ---
 # name: test_parse_issue_model_snapshot[issue.md]
   dict({
     'additional_information': 'Test',
@@ -80,6 +121,47 @@
     'ota_file': None,
     'ota_image_url': None,
     'release_notes': None,
+    'third_party_download': False,
+  })
+# ---
+# name: test_parse_issue_model_snapshot[issue_hue_old_release_notes_headings.md]
+  dict({
+    'additional_information': '''
+      ### Notes
+      
+      This firmware was tested on multiple devices.
+      
+      ### Known Issues
+      
+      - Some devices may require a manual restart after updating
+    ''',
+    'checklist': dict({
+      'filled_release_notes': False,
+      'is_official_source': False,
+      'supported_format': True,
+      'tested_on_device': False,
+    }),
+    'existing_images_handling': 'KEEP_ALL',
+    'manufacturer_name': 'Hue',
+    'optional_metadata': '''
+      model_names: [test test, test2]
+      manufacturer_names: SignifyX
+      min_current_file_version: 0x00010002
+      invalid_xx: test
+    ''',
+    'ota_file': None,
+    'ota_image_url': 'https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee',
+    'release_notes': '''
+      ### Bug Fixes
+      
+      - Fixed a crash when updating
+      - Resolved connectivity issues
+      
+      ### New Features
+      
+      - Added support for new device types
+      - Improved energy monitoring
+    ''',
     'third_party_download': False,
   })
 # ---
