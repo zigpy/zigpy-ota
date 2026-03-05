@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 13
+**Total firmware images:** 14
 
 ## aeotec
 
@@ -479,3 +479,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
+
+## ubisys
+
+### `10F2-7B31-02600460_099597.ota`
+
+- **Original File Name**: `10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B31` (31537)
+- **File Version**: `0x02600460` (39847008)
+- **File Size**: 153,086 bytes
+- **Checksum SHA3-256**: `0995973685c7d0043abf97e298348cee668c1b906c92b4084156f9fcf8570272`
+- **Checksum SHA512**: `07613f4b1fc618069b5bc7a41d93d08c20b51dd586a65559710ea3ce977f1825ed0f14eb7ae218f9ee6a31dc3478a7cc943d75fc4691b9b4f17d73a44200b4bc`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B31-02600460_099597.ota
+- **Source URL**: https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee
+- **Header String**: `ubisys D1 2.6.0`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0x0006` (6)
+
+**Release Notes:**
+
+> This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).
+> 
+> **Changes**
+> - Bug fixes and improvements
+- **Pull Request**: [#31](https://github.com/zigpy/zigpy-ota/pull/31)

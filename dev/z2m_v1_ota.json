@@ -182,5 +182,17 @@
             "SONOFF"
         ],
         "modelId": "TRVZB"
+    },
+    {
+        "fileName": "10F2-7B31-02600460_099597.ota",
+        "fileVersion": 39847008,
+        "fileSize": 153086,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B31-02600460_099597.ota",
+        "imageType": 31537,
+        "manufacturerCode": 4338,
+        "sha512": "07613f4b1fc618069b5bc7a41d93d08c20b51dd586a65559710ea3ce977f1825ed0f14eb7ae218f9ee6a31dc3478a7cc943d75fc4691b9b4f17d73a44200b4bc",
+        "otaHeaderString": "ubisys D1 2.6.0",
+        "originalUrl": "https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
     }
 ]
