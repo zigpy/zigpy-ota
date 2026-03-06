@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 10F2-7B45-02610463_459e97.ota
+source_file_name: 10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee
+source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee
+pull_request: 33
+release_notes: |-
+  This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).
+
+  **Changes**
+  - Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W
+  - Other bug fixes and improvements
