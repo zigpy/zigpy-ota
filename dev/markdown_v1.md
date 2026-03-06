@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 14
+**Total firmware images:** 15
 
 ## aeotec
 
@@ -504,3 +504,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#31](https://github.com/zigpy/zigpy-ota/pull/31)
+
+### `10F2-7B45-02610463_459e97.ota`
+
+- **Original File Name**: `10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B45` (31557)
+- **File Version**: `0x02610463` (39912547)
+- **File Size**: 249,598 bytes
+- **Checksum SHA3-256**: `459e9780cf3aff2bd1a4cb825428fdbb3fb0f7375a65b0db3073ca3347ae5b86`
+- **Checksum SHA512**: `bf70835c764e3ed2fe8f9a4e92a5dc094310f5fe87f60622e2b02922851bbb5d3ccec10131a9f107efe8be00c296a572211f80c05d7e147ea366719532892d0b`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B45-02610463_459e97.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee
+- **Header String**: `ubisys S1-R 2.6.1`
+- **Min Hardware Version**: `0x0100` (256)
+- **Max Hardware Version**: `0x0100` (256)
+
+**Release Notes:**
+
+> This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).
+> 
+> **Changes**
+> - Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W
+> - Other bug fixes and improvements
+- **Pull Request**: [#33](https://github.com/zigpy/zigpy-ota/pull/33)

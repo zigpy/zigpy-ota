@@ -194,5 +194,17 @@
         "otaHeaderString": "ubisys D1 2.6.0",
         "originalUrl": "https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee",
         "releaseNotes": "This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+    },
+    {
+        "fileName": "10F2-7B45-02610463_459e97.ota",
+        "fileVersion": 39912547,
+        "fileSize": 249598,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B45-02610463_459e97.ota",
+        "imageType": 31557,
+        "manufacturerCode": 4338,
+        "sha512": "bf70835c764e3ed2fe8f9a4e92a5dc094310f5fe87f60622e2b02922851bbb5d3ccec10131a9f107efe8be00c296a572211f80c05d7e147ea366719532892d0b",
+        "otaHeaderString": "ubisys S1-R 2.6.1",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).\n\n**Changes**\n- Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W\n- Other bug fixes and improvements"
     }
 ]
