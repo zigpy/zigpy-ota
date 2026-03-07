@@ -14,6 +14,7 @@ set -euo pipefail
 #   RELEASE_PRERELEASE  - Whether the release is a prerelease (true/false)
 #
 # Optional environment variables:
+#   GH_REPO             - Repository in OWNER/REPO format for gh CLI context
 #   RELEASE_CREATED_AT  - Release creation timestamp (only for release events)
 #   EVENT_ACTION        - GitHub event action (empty for workflow_dispatch)
 #   RELEASE_ASSETS      - JSON array of release assets (only for release events)
@@ -50,13 +51,13 @@ checkout_branch() {
 
 # Check if a release has the JSON asset
 # Only checks for zigpy JSON since both files are always uploaded together
+# Note: uses a here-string instead of a pipeline to avoid SIGPIPE/pipefail
+# interaction where grep -q exits early and kills the producer
 check_json_asset() {
   local tag=$1
-  if gh release view "$tag" --json assets --jq '.assets[].name' | grep -q "$ZIGPY_JSON_FILENAME"; then
-    return 0  # Has JSON asset
-  else
-    return 1  # No JSON asset
-  fi
+  local assets
+  assets=$(gh release view "$tag" --json assets --jq '.assets[].name') || return 1
+  grep -qx -- "$ZIGPY_JSON_FILENAME" <<<"$assets"
 }
 
 # Update or create a JSON version pointer file

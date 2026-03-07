@@ -18,7 +18,8 @@ env:
 jobs:
   update-dev-version-pointer:
     name: Update dev.json on release/version branch
-    runs-on: ubuntu-latest
+    permissions: {}
+    runs-on: ubuntu-slim
     timeout-minutes: 5
     steps:
       - name: Checkout repository
@@ -29,6 +30,7 @@ jobs:
 
       - name: Load schema config
         run: |
+          set -euo pipefail
           for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
             value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
             echo "SCHEMA_${key^^}=$value" >> "$GITHUB_ENV"
@@ -36,11 +38,13 @@ jobs:
 
       - name: Configure git
         run: |
+          set -euo pipefail
           git config --global user.name "zigpy-bot"
           git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
 
       - name: Update dev.json on release/version
         run: |
+          set -euo pipefail
           # Construct dev channel URLs from schema filenames
           ZIGPY_URL="${DEV_BASE_URL}/${SCHEMA_ZIGPY_FILENAME}"
           Z2M_URL="${DEV_BASE_URL}/${SCHEMA_Z2M_FILENAME}"

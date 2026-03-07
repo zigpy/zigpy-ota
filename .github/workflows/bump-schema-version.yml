@@ -24,6 +24,7 @@ env:
 jobs:
   bump-schema-version:
     name: Bump schema version and create PR
+    permissions: {}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -31,7 +32,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN_WORKFLOWS }}
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
         uses: actions/setup-python@v6
@@ -44,6 +45,7 @@ jobs:
           INPUT_SCHEMA: ${{ inputs.schema }}
           INPUT_NEW_VERSION: ${{ inputs.new_version }}
         run: |
+          set -euo pipefail
           rc=0
           python .github/scripts/bump-schema-version.py "$INPUT_SCHEMA" ${INPUT_NEW_VERSION:+"$INPUT_NEW_VERSION"} --apply || rc=$?
           if [ "$rc" -eq 2 ]; then
@@ -57,17 +59,19 @@ jobs:
       - name: Configure git
         if: steps.bump.outputs.skipped != 'true'
         run: |
+          set -euo pipefail
           git config --global user.name "zigpy-bot"
           git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
 
       - name: Create PR
         if: steps.bump.outputs.skipped != 'true'
         env:
-          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN_WORKFLOWS }}
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
           BUMP_LABEL: ${{ steps.bump.outputs.bump_label }}
           BUMP_TITLE: ${{ steps.bump.outputs.bump_title }}
           BUMP_DETAILS: ${{ steps.bump.outputs.bump_details }}
         run: |
+          set -euo pipefail
           BRANCH_NAME="bot/bump-schema/${BUMP_LABEL}"
 
           git checkout -B "$BRANCH_NAME"
@@ -77,7 +81,8 @@ jobs:
           git push --force-with-lease -u origin "$BRANCH_NAME"
 
           # Create PR or update existing one
-          if gh pr view "$BRANCH_NAME" --json state --jq '.state' 2>/dev/null | grep -q OPEN; then
+          PR_STATE=$(gh pr view "$BRANCH_NAME" --json state --jq '.state' 2>/dev/null || true)
+          if [[ "$PR_STATE" == "OPEN" ]]; then
             echo "PR already exists for $BRANCH_NAME, force-pushed update"
           else
             gh pr create \

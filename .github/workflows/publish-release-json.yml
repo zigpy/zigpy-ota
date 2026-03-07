@@ -1,4 +1,4 @@
-name: Publish JSON OTA metadata in GitHub release
+name: Publish release assets and update version pointers
 
 on:
   release:
@@ -40,7 +40,8 @@ jobs:
   # this is a duplicate trigger - skip and let 'published' handle everything.
   retrigger-on-released:
     name: Re-trigger workflow for promoted release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+    timeout-minutes: 2
     permissions:
       actions: write
     if: github.event.action == 'released' && contains(toJSON(github.event.release.assets.*.name), '.json')
@@ -48,31 +49,35 @@ jobs:
       - name: Trigger workflow_dispatch with release info
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
+          set -euo pipefail
           gh workflow run publish-release-json.yml \
-            --repo ${{ github.repository }} \
-            --ref ${{ github.event.repository.default_branch }} \
+            --ref "$DEFAULT_BRANCH" \
             -f tag_name="$RELEASE_TAG" \
             -f is_prerelease="$RELEASE_PRERELEASE"
           echo "::notice::Re-triggered workflow via workflow_dispatch for release $RELEASE_TAG"
 
-  generate-json-and-publish:
-    name: Generate JSON OTA metadata and publish as release asset
+  # Generate index files in a read-only job to isolate OTA image parsing
+  # from privileged upload/push operations
+  generate-index:
+    name: Generate OTA index files
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: write
-    # Only run JSON generation/upload steps for 'published' events
+      contents: read
+    # Only run for 'published' events
     if: github.event.action == 'published'
     steps:
+      # Shallow clone is sufficient — this job only reads files from the working tree.
+      # Full history is only needed by update-version-pointers (which switches branches).
       - name: Checkout repository
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Load schema config
         run: |
+          set -euo pipefail
           {
             for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
               value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
@@ -150,6 +155,7 @@ jobs:
       # Likely redundant
       - name: Validate generated JSON files
         run: |
+          set -euo pipefail
           for file in \
             "$TMP_ZIGPY" \
             "$TMP_ZIGPY_BETA" \
@@ -166,12 +172,13 @@ jobs:
               exit 1
             fi
 
-            FILE_SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+            FILE_SIZE=$(stat -c%s "$file")
             echo "::notice::Generated $file ($FILE_SIZE bytes)"
           done
 
       - name: Validate generated markdown files
         run: |
+          set -euo pipefail
           for file in \
             "$TMP_MARKDOWN" \
             "$TMP_MARKDOWN_BETA"; do
@@ -180,39 +187,61 @@ jobs:
               exit 1
             fi
 
-            FILE_SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+            FILE_SIZE=$(stat -c%s "$file")
             echo "::notice::Generated $file ($FILE_SIZE bytes)"
           done
+
+      - name: Upload generated index files
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-index-files
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            ${{ env.TMP_ZIGPY }}
+            ${{ env.TMP_ZIGPY_BETA }}
+            ${{ env.TMP_Z2M }}
+            ${{ env.TMP_Z2M_BETA }}
+            ${{ env.TMP_MARKDOWN }}
+            ${{ env.TMP_MARKDOWN_BETA }}
+
+  upload-release-assets:
+    name: Upload index files to release
+    needs: [generate-index]
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Download generated index files
+        uses: actions/download-artifact@v8
+        with:
+          name: release-index-files
+          path: /tmp/release-files
 
       - name: Upload files to release
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          gh release upload "$RELEASE_TAG" \
-            "$TMP_ZIGPY" \
-            "$TMP_ZIGPY_BETA" \
-            "$TMP_Z2M" \
-            "$TMP_Z2M_BETA" \
-            "$TMP_MARKDOWN" \
-            "$TMP_MARKDOWN_BETA" \
-            --clobber
+          set -euo pipefail
+          gh release upload "$RELEASE_TAG" /tmp/release-files/* --clobber
 
   update-version-pointers:
     name: Update version pointers (stable.json, beta.json)
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
     permissions:
-      contents: write
+      contents: read
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
     # Run when:
-    # - JSON generation succeeds (published event)
-    # - JSON generation was skipped (workflow_dispatch)
-    # Don't run if JSON generation failed (would point to missing files)
+    # - Release asset upload succeeds (published event)
+    # - Upload was skipped (workflow_dispatch — no index generation needed)
+    # Don't run if upload failed (would point to missing files)
     # Don't run for 'released' events (handled by retrigger-on-released job)
-    needs: [generate-json-and-publish]
-    if: |
-      always() &&
+    needs: [upload-release-assets]
+    if: ${{ !cancelled() &&
       github.event.action != 'released' &&
-      (needs.generate-json-and-publish.result == 'success' || needs.generate-json-and-publish.result == 'skipped')
+      (needs.upload-release-assets.result == 'success' || needs.upload-release-assets.result == 'skipped') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -222,6 +251,7 @@ jobs:
 
       - name: Configure git
         run: |
+          set -euo pipefail
           git config --global user.name "zigpy-bot"
           git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
 
@@ -230,6 +260,7 @@ jobs:
       - name: Update version pointers
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           EVENT_ACTION: ${{ github.event.action }}
           # Use inputs for workflow_dispatch, event data for release events

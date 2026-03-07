@@ -1,4 +1,4 @@
-name: Update dev channel JSON OTA metadata
+name: Update dev channel OTA index files
 
 on:
   workflow_dispatch:
@@ -17,26 +17,24 @@ env:
   PYTHON_VERSION_DEFAULT: "3.14"
 
 jobs:
-  generate-json-and-commit:
-    name: Update release/files branch with JSON OTA metadata
+  # Generate index files in a read-only job to isolate OTA image parsing
+  # from privileged push operations
+  generate-index:
+    name: Generate OTA index files
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
+      # Shallow clone is sufficient — this job only reads files from the working tree.
+      # Full history is only needed by update-release-files (which switches branches).
       - name: Checkout repository
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Load schema config
         run: |
+          set -euo pipefail
           {
-            for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
-              value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
-              echo "SCHEMA_${key^^}=$value"
-            done
-
-            # Pre-compute temp output paths
             echo "TMP_ZIGPY=/tmp/$(jq -r '.zigpy_filename' .github/SCHEMA.json)"
             echo "TMP_Z2M=/tmp/$(jq -r '.z2m_filename' .github/SCHEMA.json)"
             echo "TMP_MARKDOWN=/tmp/$(jq -r '.markdown_filename' .github/SCHEMA.json)"
@@ -74,24 +72,54 @@ jobs:
             --channel dev \
             --output-file "$TMP_MARKDOWN"
 
+      - name: Upload generated index files
+        uses: actions/upload-artifact@v7
+        with:
+          name: dev-index-files
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            ${{ env.TMP_ZIGPY }}
+            ${{ env.TMP_Z2M }}
+            ${{ env.TMP_MARKDOWN }}
+
+  update-release-files:
+    name: Commit index files to release/files branch
+    needs: [generate-index]
+    permissions: {}
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Download generated index files
+        uses: actions/download-artifact@v8
+        with:
+          name: dev-index-files
+          path: /tmp/index-files
+
       - name: Configure git
         run: |
+          set -euo pipefail
           git config --global user.name "zigpy-bot"
           git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
 
       - name: Commit and push changes to release/files
         run: |
+          set -euo pipefail
           # Switch to release/files branch or create it if it doesn't exist
           git fetch origin release/files:release/files || git checkout -b release/files
           git checkout release/files
 
-          # Copy the generated files to the repository
+          # Copy all generated index files to the dev directory
           mkdir -p dev
-          cp "$TMP_ZIGPY" "dev/$SCHEMA_ZIGPY_FILENAME"
-          cp "$TMP_Z2M" "dev/$SCHEMA_Z2M_FILENAME"
-          cp "$TMP_MARKDOWN" "dev/$SCHEMA_MARKDOWN_FILENAME"
+          cp /tmp/index-files/* dev/
 
           # Add, commit, and push if there are changes
-          git add "dev/$SCHEMA_ZIGPY_FILENAME" "dev/$SCHEMA_Z2M_FILENAME" "dev/$SCHEMA_MARKDOWN_FILENAME"
+          git add dev/
           git diff --staged --quiet || git commit -m "Update \`dev\` OTA index files"
           git push origin release/files

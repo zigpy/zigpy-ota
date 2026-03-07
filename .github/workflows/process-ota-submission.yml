@@ -13,39 +13,31 @@ env:
   ISSUE_FILE: /tmp/issue.md
   PR_BODY_FILE: /tmp/pr_body.md
   COMMIT_MSG_FILE: /tmp/commit_msg.txt
+  CHANGES_PATCH_FILE: /tmp/images-changes.patch
+  ZIGPY_JSON_FILE: /tmp/zigpy_ota.json
   ISSUE_NUMBER: ${{ github.event.issue.number }}
   BRANCH_NAME: bot/ota-submission-issue/${{ github.event.issue.number }}
 
 jobs:
-  process-submission:
-    name: Process OTA submission and create PR
-    # Requires ota-create label (added manually by maintainers or auto-added for trusted submitters)
+  # Remove ota-processed label and add resubmit warning if this is a resubmission
+  resubmit-pr-prep:
+    name: Resubmit PR preparation
+    permissions: {}
     if: |
       contains(github.event.issue.labels.*.name, 'ota-submit') &&
       contains(github.event.issue.labels.*.name, 'ota-create') &&
       github.event.action == 'labeled' &&
-      (github.event.label.name == 'ota-create' || github.event.label.name == 'ota-resubmit')
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+      github.event.label.name == 'ota-resubmit'
+    runs-on: ubuntu-slim
+    timeout-minutes: 2
     steps:
-      - name: Remove ota-processed label on resubmit
-        if: github.event.label.name == 'ota-resubmit'
+      - name: Add resubmit warning to PR
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
-        run: gh issue edit "$ISSUE_NUMBER" --remove-label "ota-processed" || true
-
-      - name: Checkout repository
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
-
-      - name: Add resubmit warning to PR on resubmit
-        if: github.event.label.name == 'ota-resubmit'
-        env:
-          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          # Find PR for this issue branch using pr list
+          set -euo pipefail
+          # Find PR for this issue branch
           PR_NUMBER=$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number' 2>/dev/null || echo "")
 
           if [ -n "$PR_NUMBER" ]; then
@@ -70,6 +62,35 @@ jobs:
             echo "No open PR found for branch $BRANCH_NAME"
           fi
 
+      - name: Remove ota-processed label
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: gh issue edit "$ISSUE_NUMBER" --remove-label "ota-processed" || true
+
+  # Prepare submission by parsing OTA, but skip if resubmit preflight failed for some reason
+  prepare-changes:
+    name: Prepare PR changes
+    needs: [resubmit-pr-prep]
+    # Requires ota-create label (added manually by maintainers or auto-added for trusted submitters)
+    if: ${{ !cancelled() &&
+      (needs.resubmit-pr-prep.result == 'success' || needs.resubmit-pr-prep.result == 'skipped') &&
+      contains(github.event.issue.labels.*.name, 'ota-submit') &&
+      contains(github.event.issue.labels.*.name, 'ota-create') &&
+      github.event.action == 'labeled' &&
+      (github.event.label.name == 'ota-create' || github.event.label.name == 'ota-resubmit') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      has_changes: ${{ steps.prepare_pr.outputs.has_changes }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
         uses: actions/setup-python@v6
         with:
@@ -87,12 +108,12 @@ jobs:
         run: |
           printf '%s\n' "$ISSUE_BODY" > "$ISSUE_FILE"
           echo "Issue content saved to $ISSUE_FILE"
-          cat "$ISSUE_FILE"
 
       - name: Prepare PR changes
         id: prepare_pr
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          # Optionally provide a PAT for downloading user attachments from issues
+          GITHUB_TOKEN: ${{ secrets.BOT_DOWNLOAD_TOKEN }}
         run: |
           uv run zigpy-ota prepare-pr "$ISSUE_FILE" \
             --output-pr-markdown "$PR_BODY_FILE" \
@@ -107,8 +128,91 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Configure git
+      - name: Create images patch
         if: steps.prepare_pr.outputs.has_changes == 'true'
+        run: |
+          git add -A images/
+          git diff --cached --binary > "$CHANGES_PATCH_FILE"
+          if [ ! -s "$CHANGES_PATCH_FILE" ]; then
+            echo "::error::Generated patch file is empty"
+            exit 1
+          fi
+
+      - name: Upload prepared changes artifact
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: ota-prepare-output
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            ${{ env.CHANGES_PATCH_FILE }}
+            ${{ env.PR_BODY_FILE }}
+            ${{ env.COMMIT_MSG_FILE }}
+
+      # Generate the full zigpy JSON index as a workflow artifact for reviewers
+      # to inspect or test. Not consumed by other jobs.
+      - name: Generate zigpy JSON metadata artifact
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        run: |
+          uv run zigpy-ota generate-index \
+            --format zigpy \
+            --channel dev \
+            --tag "$BRANCH_NAME" \
+            --output-file "$ZIGPY_JSON_FILE"
+
+      - name: Upload zigpy JSON artifact
+        if: steps.prepare_pr.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          if-no-files-found: error
+          archive: false
+          path: ${{ env.ZIGPY_JSON_FILE }}
+
+  # Runs when prepare-changes ran (success or failure) to create the PR or post
+  # a failure comment. Also runs if resubmit-pr-prep failed (even when
+  # prepare-changes was skipped) so the issue gets a failure comment.
+  create-or-update-pr:
+    name: Create or update PR
+    permissions: {}
+    needs: [resubmit-pr-prep, prepare-changes]
+    if: ${{ !cancelled() && (needs.prepare-changes.result != 'skipped' || needs.resubmit-pr-prep.result == 'failure') }}
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    env:
+      PREP_OK_WITH_CHANGES: ${{ needs.prepare-changes.result == 'success' && needs.prepare-changes.outputs.has_changes == 'true' }}
+    steps:
+      - name: Checkout repository
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Download prepared changes artifact
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
+        uses: actions/download-artifact@v8
+        with:
+          name: ota-prepare-output
+          path: /tmp/ota-prepare
+
+      - name: Apply prepared images patch
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
+        run: |
+          set -euo pipefail
+          PATCH_FILE=/tmp/ota-prepare/images-changes.patch
+
+          # Pre-check: reject any patch that targets files outside images/
+          PATCH_PATHS=$(git apply --numstat "$PATCH_FILE" | awk '{print $NF}')
+          if [ -n "$PATCH_PATHS" ] && grep -qv '^images/' <<<"$PATCH_PATHS"; then
+            echo "::error::Patch contains changes outside images/"
+            exit 1
+          fi
+
+          git apply --index "$PATCH_FILE"
+
+      - name: Configure git
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
         run: |
           git config --global user.name "zigpy-bot"
           git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
@@ -116,33 +220,37 @@ jobs:
       # Make sure the script is executable:
       # git update-index --chmod=+x .github/scripts/create-pr.sh
       - name: Create Pull Request
-        if: steps.prepare_pr.outputs.has_changes == 'true'
+        id: create_pr
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
           ISSUE_NUMBER: ${{ env.ISSUE_NUMBER }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_AUTHOR_LOGIN: ${{ github.event.issue.user.login }}
           ISSUE_AUTHOR_ID: ${{ github.event.issue.user.id }}
-          PR_BODY_FILE: ${{ env.PR_BODY_FILE }}
-          COMMIT_MSG_FILE: ${{ env.COMMIT_MSG_FILE }}
+          PR_BODY_FILE: /tmp/ota-prepare/pr_body.md
+          COMMIT_MSG_FILE: /tmp/ota-prepare/commit_msg.txt
         run: .github/scripts/create-pr.sh
 
       - name: Remove ota-resubmit and ota-edited labels
         if: always() && github.event.label.name == 'ota-resubmit'
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           gh issue edit "$ISSUE_NUMBER" --remove-label "ota-resubmit" || true
           gh issue edit "$ISSUE_NUMBER" --remove-label "ota-edited" || true
 
       - name: Comment on issue (success or closed PR)
-        if: steps.prepare_pr.outputs.has_changes == 'true'
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' && steps.create_pr.outcome == 'success' }}
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
         run: |
+          set -euo pipefail
           # Check if PR is open before posting success message
           PR_INFO=$(gh pr view "$BRANCH_NAME" --json state,url 2>/dev/null || echo "{}")
           PR_STATE=$(echo "$PR_INFO" | jq -r '.state // "UNKNOWN"')
@@ -220,13 +328,15 @@ jobs:
           fi
 
       - name: Comment on issue (no changes)
-        if: steps.prepare_pr.outputs.has_changes == 'false'
+        if: needs.prepare-changes.result == 'success' && needs.prepare-changes.outputs.has_changes == 'false'
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: gh issue comment "$ISSUE_NUMBER" --body "⚠️ No changes were detected in the images directory. Please check your submission and ensure the OTA file URL is valid."
 
       - name: Comment on issue (failure)
-        if: failure()
+        if: ${{ needs.prepare-changes.result != 'success' || (env.PREP_OK_WITH_CHANGES == 'true' && steps.create_pr.outcome == 'failure') }}
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: gh issue comment "$ISSUE_NUMBER" --body "❌ Failed to process your OTA submission. A maintainer will check on this shortly and let you know if any changes are needed. You can check the workflow logs for more details."

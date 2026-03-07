@@ -12,6 +12,7 @@
 #
 # Optional environment variables:
 #   COMMIT_MSG_FILE     - Path to file containing detailed commit message
+#   GH_REPO             - Repository in OWNER/REPO format for gh CLI context
 
 set -euo pipefail
 
@@ -92,11 +93,11 @@ PR_BODY_WITH_FOOTER="${PR_BODY}
 if [ -n "$EXISTING_PR_NUMBER" ]; then
   # Resubmit: We have the PR number, so we can create both commits and push once
   add_pr_to_yaml_files "$EXISTING_PR_NUMBER" || true
-  git push -f origin "$BRANCH_NAME"
+  git push --force-with-lease origin "$BRANCH_NAME"
   gh pr edit "$EXISTING_PR_NUMBER" --title "$ISSUE_TITLE" --body "$PR_BODY_WITH_FOOTER"
 else
   # New PR: Must push first to create PR, then add second commit
-  git push -f origin "$BRANCH_NAME"
+  git push --force-with-lease origin "$BRANCH_NAME"
 
   echo "Creating new PR..."
   PR_URL=$(gh pr create \
