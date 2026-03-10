@@ -150,6 +150,18 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31533,
+            "file_version": 25232480,
+            "file_size": 182526,
+            "checksum": "sha3-256:328d1ac4160c1d713da93d419adb6f40fc4cd6e35870be312efec276ff857db5",
+            "release_notes": "This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).\n\n**Changes**\n- An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/43",
+            "min_hardware_version": 0,
+            "max_hardware_version": 1
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B31-02600460_099597.ota",
             "manufacturer_id": 4338,
             "image_type": 31537,

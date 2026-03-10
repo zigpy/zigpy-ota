@@ -184,6 +184,18 @@
         "modelId": "TRVZB"
     },
     {
+        "fileName": "10F2-7B2D-01810460_328d1a.ota",
+        "fileVersion": 25232480,
+        "fileSize": 182526,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+        "imageType": 31533,
+        "manufacturerCode": 4338,
+        "sha512": "5e4ddf6b723571a6e569950f2097895d41599a7758f3065d674becf4007db337e6715798a56155181d272d88d292b1436e7ce41d650e16d56406cb3568411943",
+        "otaHeaderString": "ubisys H1 1.8.1",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).\n\n**Changes**\n- An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial"
+    },
+    {
         "fileName": "10F2-7B31-02600460_099597.ota",
         "fileVersion": 39847008,
         "fileSize": 153086,

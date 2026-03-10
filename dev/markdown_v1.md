@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 19
+**Total firmware images:** 20
 
 ## aeotec
 
@@ -481,6 +481,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
 
 ## ubisys
+
+### `10F2-7B2D-01810460_328d1a.ota`
+
+- **Original File Name**: `10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B2D` (31533)
+- **File Version**: `0x01810460` (25232480)
+- **File Size**: 182,526 bytes
+- **Checksum SHA3-256**: `328d1ac4160c1d713da93d419adb6f40fc4cd6e35870be312efec276ff857db5`
+- **Checksum SHA512**: `5e4ddf6b723571a6e569950f2097895d41599a7758f3065d674becf4007db337e6715798a56155181d272d88d292b1436e7ce41d650e16d56406cb3568411943`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee
+- **Header String**: `ubisys H1 1.8.1`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0x0001` (1)
+
+**Release Notes:**
+
+> This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).
+> 
+> **Changes**
+> - An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial
+- **Pull Request**: [#43](https://github.com/zigpy/zigpy-ota/pull/43)
 
 ### `10F2-7B31-02600460_099597.ota`
 
