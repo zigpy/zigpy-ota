@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 10F2-7B2D-01810460_328d1a.ota
+source_file_name: 10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee
+source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee
+release_notes: |-
+  This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).
+
+  **Changes**
+  - An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial
