@@ -196,6 +196,18 @@
         "releaseNotes": "This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
     },
     {
+        "fileName": "10F2-7B33-02600460_53ed4b.ota",
+        "fileVersion": 39847008,
+        "fileSize": 150014,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+        "imageType": 31539,
+        "manufacturerCode": 4338,
+        "sha512": "cf54a8f0a0b46962c8d19a50cf26fa87dbf4422dd1637b072d2bc13576b2e16bd5d8de9e775fa513297126d1af884e4ad9e0c4e3f67ff75885086af74edb0944",
+        "otaHeaderString": "ubisys S2 2.6.0",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+    },
+    {
         "fileName": "10F2-7B34-02600462_4293bb.ota",
         "fileVersion": 39847010,
         "fileSize": 152062,

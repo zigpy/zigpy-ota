@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 17
+**Total firmware images:** 18
 
 ## aeotec
 
@@ -504,6 +504,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#31](https://github.com/zigpy/zigpy-ota/pull/31)
+
+### `10F2-7B33-02600460_53ed4b.ota`
+
+- **Original File Name**: `10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B33` (31539)
+- **File Version**: `0x02600460` (39847008)
+- **File Size**: 150,014 bytes
+- **Checksum SHA3-256**: `53ed4b327f620fc2f7f3ef6506c6bdce00a7d572ea07055d7fc76c0c36154f7d`
+- **Checksum SHA512**: `cf54a8f0a0b46962c8d19a50cf26fa87dbf4422dd1637b072d2bc13576b2e16bd5d8de9e775fa513297126d1af884e4ad9e0c4e3f67ff75885086af74edb0944`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B33-02600460_53ed4b.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee
+- **Header String**: `ubisys S2 2.6.0`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0x0006` (6)
+
+**Release Notes:**
+
+> This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).
+> 
+> **Changes**
+> - Bug fixes and improvements
+- **Pull Request**: [#39](https://github.com/zigpy/zigpy-ota/pull/39)
 
 ### `10F2-7B34-02600462_4293bb.ota`
 

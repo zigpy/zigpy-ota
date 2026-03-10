@@ -162,6 +162,18 @@
             "max_hardware_version": 6
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31539,
+            "file_version": 39847008,
+            "file_size": 150014,
+            "checksum": "sha3-256:53ed4b327f620fc2f7f3ef6506c6bdce00a7d572ea07055d7fc76c0c36154f7d",
+            "release_notes": "This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/39",
+            "min_hardware_version": 0,
+            "max_hardware_version": 6
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B34-02600462_4293bb.ota",
             "manufacturer_id": 4338,
             "image_type": 31540,
