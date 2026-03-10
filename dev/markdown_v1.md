@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 15
+**Total firmware images:** 16
 
 ## aeotec
 
@@ -528,3 +528,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W
 > - Other bug fixes and improvements
 - **Pull Request**: [#33](https://github.com/zigpy/zigpy-ota/pull/33)
+
+### `10F2-7B49-02610464_2faab5.ota`
+
+- **Original File Name**: `10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B49` (31561)
+- **File Version**: `0x02610464` (39912548)
+- **File Size**: 225,534 bytes
+- **Checksum SHA3-256**: `2faab58a0acc5d6c60e95c97d25c8b59249a780f60077f01a9f2c5a77601f9fc`
+- **Checksum SHA512**: `761fb11c1c3089b8418883053a55a8048a16ae038d5ffd2ed9f5559ec078c223d1a4a1360293dae053e3ca6314aaf9564da547a662b2a9b0e516bbc551aa8a0c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B49-02610464_2faab5.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee
+- **Header String**: `ubisys C4 2.6.1`
+- **Min Hardware Version**: `0x0100` (256)
+- **Max Hardware Version**: `0x0100` (256)
+
+**Release Notes:**
+
+> This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).
+> 
+> **Changes**
+> - OTA client cluster included in the simple descriptor of the management application endpoint #232
+> - Support for Touch Link commissioning removed
+> - Other bug fixes and improvements
+- **Pull Request**: [#35](https://github.com/zigpy/zigpy-ota/pull/35)

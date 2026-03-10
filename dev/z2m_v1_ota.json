@@ -206,5 +206,17 @@
         "otaHeaderString": "ubisys S1-R 2.6.1",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee",
         "releaseNotes": "This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).\n\n**Changes**\n- Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W\n- Other bug fixes and improvements"
+    },
+    {
+        "fileName": "10F2-7B49-02610464_2faab5.ota",
+        "fileVersion": 39912548,
+        "fileSize": 225534,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B49-02610464_2faab5.ota",
+        "imageType": 31561,
+        "manufacturerCode": 4338,
+        "sha512": "761fb11c1c3089b8418883053a55a8048a16ae038d5ffd2ed9f5559ec078c223d1a4a1360293dae053e3ca6314aaf9564da547a662b2a9b0e516bbc551aa8a0c",
+        "otaHeaderString": "ubisys C4 2.6.1",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements"
     }
 ]
