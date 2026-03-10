@@ -2,6 +2,7 @@
 file_name: 10F2-7B49-02610464_2faab5.ota
 source_file_name: 10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee
 source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee
+pull_request: 35
 release_notes: |-
   This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).
 
