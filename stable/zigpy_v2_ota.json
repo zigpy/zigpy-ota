@@ -1,7 +1,7 @@
 {
     "firmwares": [
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/aeotec/1310-0000-00000011_350c16.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/aeotec/1310-0000-00000011_350c16.ota",
             "manufacturer_id": 4880,
             "image_type": 0,
             "file_version": 17,
@@ -11,7 +11,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/aeotec/1310-0802-00000106_1f3467.ota",
             "manufacturer_id": 4880,
             "image_type": 2050,
             "file_version": 262,
@@ -21,7 +21,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/aeotec/1310-0803-00000106_030d13.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/aeotec/1310-0803-00000106_030d13.ota",
             "manufacturer_id": 4880,
             "image_type": 2051,
             "file_version": 262,
@@ -31,7 +31,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/aeotec/1310-7C04-00000108_6d687b.ota",
             "manufacturer_id": 4880,
             "image_type": 31748,
             "file_version": 264,
@@ -41,7 +41,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0331-191D3685_650309.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
             "file_version": 421344901,
@@ -51,7 +51,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0332-191D3685_9f8062.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0332-191D3685_9f8062.ota",
             "manufacturer_id": 4454,
             "image_type": 818,
             "file_version": 421344901,
@@ -61,7 +61,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/14"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0333-191D3685_ac67dc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0333-191D3685_ac67dc.ota",
             "manufacturer_id": 4454,
             "image_type": 819,
             "file_version": 421344901,
@@ -71,7 +71,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/16"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0334-191E3685_0f83d8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0334-191E3685_0f83d8.ota",
             "manufacturer_id": 4454,
             "image_type": 820,
             "file_version": 421410437,
@@ -81,7 +81,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/18"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0335-191E3685_500102.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0335-191E3685_500102.ota",
             "manufacturer_id": 4454,
             "image_type": 821,
             "file_version": 421410437,
@@ -91,7 +91,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/20"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/innr/1166-0336-191E3685_8008e8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/innr/1166-0336-191E3685_8008e8.ota",
             "manufacturer_id": 4454,
             "image_type": 822,
             "file_version": 421410437,
@@ -101,7 +101,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/sonoff/1286-000B-00002002_cb2909.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,
             "file_version": 8194,
@@ -118,7 +118,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/sonoff/1286-0045-00001005_ea654a.ota",
             "manufacturer_id": 4742,
             "image_type": 69,
             "file_version": 4101,
@@ -134,7 +134,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/sonoff/1286-2007-00001404_fbc68d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,
             "file_version": 5124,
@@ -150,7 +150,19 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/ubisys/10F2-7B31-02600460_099597.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31533,
+            "file_version": 25232480,
+            "file_size": 182526,
+            "checksum": "sha3-256:328d1ac4160c1d713da93d419adb6f40fc4cd6e35870be312efec276ff857db5",
+            "release_notes": "This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).\n\n**Changes**\n- An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/43",
+            "min_hardware_version": 0,
+            "max_hardware_version": 1
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B31-02600460_099597.ota",
             "manufacturer_id": 4338,
             "image_type": 31537,
             "file_version": 39847008,
@@ -162,7 +174,43 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.2/images/ubisys/10F2-7B45-02610463_459e97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31539,
+            "file_version": 39847008,
+            "file_size": 150014,
+            "checksum": "sha3-256:53ed4b327f620fc2f7f3ef6506c6bdce00a7d572ea07055d7fc76c0c36154f7d",
+            "release_notes": "This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/39",
+            "min_hardware_version": 0,
+            "max_hardware_version": 6
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B34-02600462_4293bb.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31540,
+            "file_version": 39847010,
+            "file_size": 152062,
+            "checksum": "sha3-256:4293bbbf84f491d7707e8f9cea04ed76dec2eb4f821145e8e428d090a3630ca1",
+            "release_notes": "This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/37",
+            "min_hardware_version": 0,
+            "max_hardware_version": 7
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31544,
+            "file_version": 39847008,
+            "file_size": 153086,
+            "checksum": "sha3-256:ea7e69ddf70e2c148893eb21de44add66650322ef27ae73e61e5baab3c429379",
+            "release_notes": "This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/41",
+            "min_hardware_version": 0,
+            "max_hardware_version": 4
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B45-02610463_459e97.ota",
             "manufacturer_id": 4338,
             "image_type": 31557,
             "file_version": 39912547,
@@ -170,6 +218,18 @@
             "checksum": "sha3-256:459e9780cf3aff2bd1a4cb825428fdbb3fb0f7375a65b0db3073ca3347ae5b86",
             "release_notes": "This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).\n\n**Changes**\n- Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W\n- Other bug fixes and improvements",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/33",
+            "min_hardware_version": 256,
+            "max_hardware_version": 256
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.3.3/images/ubisys/10F2-7B49-02610464_2faab5.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31561,
+            "file_version": 39912548,
+            "file_size": 225534,
+            "checksum": "sha3-256:2faab58a0acc5d6c60e95c97d25c8b59249a780f60077f01a9f2c5a77601f9fc",
+            "release_notes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/35",
             "min_hardware_version": 256,
             "max_hardware_version": 256
         }
