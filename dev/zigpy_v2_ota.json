@@ -162,6 +162,18 @@
             "max_hardware_version": 6
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B34-02600462_4293bb.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31540,
+            "file_version": 39847010,
+            "file_size": 152062,
+            "checksum": "sha3-256:4293bbbf84f491d7707e8f9cea04ed76dec2eb4f821145e8e428d090a3630ca1",
+            "release_notes": "This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/37",
+            "min_hardware_version": 0,
+            "max_hardware_version": 7
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B45-02610463_459e97.ota",
             "manufacturer_id": 4338,
             "image_type": 31557,

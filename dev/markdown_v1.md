@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 16
+**Total firmware images:** 17
 
 ## aeotec
 
@@ -504,6 +504,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#31](https://github.com/zigpy/zigpy-ota/pull/31)
+
+### `10F2-7B34-02600462_4293bb.ota`
+
+- **Original File Name**: `10F2-7B34-0000-0007-02600462-spo-fmsh.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B34` (31540)
+- **File Version**: `0x02600462` (39847010)
+- **File Size**: 152,062 bytes
+- **Checksum SHA3-256**: `4293bbbf84f491d7707e8f9cea04ed76dec2eb4f821145e8e428d090a3630ca1`
+- **Checksum SHA512**: `a8bdc96481e62b0dd100f64d753bbfbfc157a8791994cd7d2bcdf48dbd36f8d46934447cb010363b96594e5690fe3d863c2da238923f09500d922d0be09ca691`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B34-02600462_4293bb.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B34-0000-0007-02600462-spo-fmsh.ota.zigbee
+- **Header String**: `ubisys J1 2.6.0`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0x0007` (7)
+
+**Release Notes:**
+
+> This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).
+> 
+> **Changes**
+> - Bug fixes and improvements
+- **Pull Request**: [#37](https://github.com/zigpy/zigpy-ota/pull/37)
 
 ### `10F2-7B45-02610463_459e97.ota`
 
