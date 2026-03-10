@@ -220,6 +220,18 @@
         "releaseNotes": "This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).\n\n**Changes**\n- Bug fixes and improvements"
     },
     {
+        "fileName": "10F2-7B38-02600460_ea7e69.ota",
+        "fileVersion": 39847008,
+        "fileSize": 153086,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
+        "imageType": 31544,
+        "manufacturerCode": 4338,
+        "sha512": "334584f0986200600412c4f4111b8c5570bb471f961be8db0ec5e466fd63f8633258edd1bb9eb001030ae9020a8c93e5475e0ac5208ae8a9292a09530a6e96d1",
+        "otaHeaderString": "ubisys D1-R 2.6.0",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+    },
+    {
         "fileName": "10F2-7B45-02610463_459e97.ota",
         "fileVersion": 39912547,
         "fileSize": 249598,

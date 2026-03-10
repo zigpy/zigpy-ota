@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 18
+**Total firmware images:** 19
 
 ## aeotec
 
@@ -550,6 +550,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#37](https://github.com/zigpy/zigpy-ota/pull/37)
+
+### `10F2-7B38-02600460_ea7e69.ota`
+
+- **Original File Name**: `10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B38` (31544)
+- **File Version**: `0x02600460` (39847008)
+- **File Size**: 153,086 bytes
+- **Checksum SHA3-256**: `ea7e69ddf70e2c148893eb21de44add66650322ef27ae73e61e5baab3c429379`
+- **Checksum SHA512**: `334584f0986200600412c4f4111b8c5570bb471f961be8db0ec5e466fd63f8633258edd1bb9eb001030ae9020a8c93e5475e0ac5208ae8a9292a09530a6e96d1`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B38-02600460_ea7e69.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee
+- **Header String**: `ubisys D1-R 2.6.0`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0x0004` (4)
+
+**Release Notes:**
+
+> This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).
+> 
+> **Changes**
+> - Bug fixes and improvements
+- **Pull Request**: [#41](https://github.com/zigpy/zigpy-ota/pull/41)
 
 ### `10F2-7B45-02610463_459e97.ota`
 
