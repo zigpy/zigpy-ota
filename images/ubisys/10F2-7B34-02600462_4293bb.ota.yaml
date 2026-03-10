@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 10F2-7B34-02600462_4293bb.ota
+source_file_name: 10F2-7B34-0000-0007-02600462-spo-fmsh.ota.zigbee
+source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B34-0000-0007-02600462-spo-fmsh.ota.zigbee
+pull_request: 37
+release_notes: |-
+  This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).
+
+  **Changes**
+  - Bug fixes and improvements
