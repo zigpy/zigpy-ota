@@ -2,6 +2,7 @@
 file_name: 10F2-7B38-02600460_ea7e69.ota
 source_file_name: 10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee
 source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee
+pull_request: 41
 release_notes: |-
   This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).
 
