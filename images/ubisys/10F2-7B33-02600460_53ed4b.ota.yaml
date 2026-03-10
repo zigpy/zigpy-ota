@@ -2,6 +2,7 @@
 file_name: 10F2-7B33-02600460_53ed4b.ota
 source_file_name: 10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee
 source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee
+pull_request: 39
 release_notes: |-
   This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).
 
