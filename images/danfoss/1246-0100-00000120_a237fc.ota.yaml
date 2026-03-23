@@ -2,5 +2,6 @@
 file_name: 1246-0100-00000120_a237fc.ota
 source_file_name: 1246-0100-01320132.0002_(56CF25B2).ota
 source_url: https://github.com/user-attachments/files/26163878/1246-0100-01320132.0002_.56CF25B2.zip
+pull_request: 47
 release_notes: |-
   This updates the Danfoss Ally eTRV PSoC4 to v01.32.
