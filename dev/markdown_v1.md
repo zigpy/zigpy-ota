@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 20
+**Total firmware images:** 21
 
 ## aeotec
 
@@ -78,6 +78,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > - Changed the Scene ID configuration for external switch S1/S2
 - **Pull Request**: [#6](https://github.com/zigpy/zigpy-ota/pull/6)
+
+## bega
+
+### `1105-A0A0-00990BF2_143d97.ota`
+
+- **Original File Name**: `Smart-Dimmable-Light-10030066-20250513-Release-signed.ota`
+- **Manufacturer ID**: `0x1105` (4357)
+- **Image Type**: `0xA0A0` (41120)
+- **File Version**: `0x00990BF2` (10030066)
+- **File Size**: 458,443 bytes
+- **Checksum SHA3-256**: `143d973a0ce09b830e32f838dfa5094e5a5c555513a56d70c84d37312f6a9c28`
+- **Checksum SHA512**: `b0bf836e8fb75660f27603a1b75b93bc5164ccbb2f96ee2f1137b36c7cd4723dbe2d69cef1bc91bc5d1ded25cc31cfc98acc0671ca3871fb79a6151c1b893abe`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/bega/1105-A0A0-00990BF2_143d97.ota
+- **Source URL**: https://github.com/user-attachments/files/26263812/Smart-Dimmable-Light-10030066-20250513-Release-signed.zip
+- **Header String**: `EBL Bega_SmartDimmableLight`
+
+**Release Notes:**
+
+> **Changes**
+> - Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations
+> - Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates
+- **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
 
 ## innr
 

@@ -41,6 +41,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/bega/1105-A0A0-00990BF2_143d97.ota",
+            "manufacturer_id": 4357,
+            "image_type": 41120,
+            "file_version": 10030066,
+            "file_size": 458443,
+            "checksum": "sha3-256:143d973a0ce09b830e32f838dfa5094e5a5c555513a56d70c84d37312f6a9c28",
+            "release_notes": "**Changes**\n- Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations\n- Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
