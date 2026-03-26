@@ -1,0 +1,8 @@
+# OTA metadata
+file_name: 1105-A0A0-00990BF2_143d97.ota
+source_file_name: Smart-Dimmable-Light-10030066-20250513-Release-signed.ota
+source_url: https://github.com/user-attachments/files/26263812/Smart-Dimmable-Light-10030066-20250513-Release-signed.zip
+release_notes: |-
+  **Changes**
+  - Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations
+  - Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates
