@@ -10,6 +10,7 @@ MANUFACTURER_ID_MAPPING: dict[int, str] = {
     0x1021: "Legrand",
     0x10E0: "Chameleon",
     0x10F2: "Ubisys",
+    0x1105: "Bega",
     0x110C: "Ledvance",
     0x1124: "Jasco",
     0x1135: "Dresden Elektronik",
@@ -34,6 +35,7 @@ MANUFACTURER_ID_MAPPING: dict[int, str] = {
     0x130D: "Third Reality",
     0x1310: "Aeotec",
     0x1337: "Datek",
+    0x1407: "Third Reality",
     0x2794: "Climax Technology",
 }
 
