@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 21
+**Total firmware images:** 22
 
 ## aeotec
 
@@ -474,6 +474,31 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level
 > - Light dimming is supported when the key type is single touch key
 - **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
+
+### `1286-080E-00001100_a91db8.ota`
+
+- **Original File Name**: `snzb-01m_v1.1.0.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x080E` (2062)
+- **File Version**: `0x00001100` (4352)
+- **File Size**: 193,632 bytes
+- **Checksum SHA3-256**: `a91db84ee6d3602146a8217fbb93f2e935742e95557b33b928a14ac70bcb25df`
+- **Checksum SHA512**: `7fcdc207b28979930d179f904fefac18ed1ddbd9c5a6098dfa49da5dff46c6f8b51bf09cee26634a31705ef0c1e821cb11a07b4604149423a86e45273f863127`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota
+- **Source URL**: https://github.com/user-attachments/files/26337939/snzb-01m_v1.1.0.ota.zip
+- **Header String**: `FIRMWARE`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: SNZB-01M
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-01M Smart Scene Button to firmware version 1.1.0.
+> 
+> **Changes**
+> - Improved binding functionality: each button now supports both on/off control and brightness adjustment
+>   - This is enabled by adding the `OnOff` cluster to endpoints 2, 3, and 4 (previously only available on endpoint 1)
+> - Performance improvements
+- **Pull Request**: [#51](https://github.com/zigpy/zigpy-ota/pull/51)
 
 ### `1286-2007-00001404_fbc68d.ota`
 

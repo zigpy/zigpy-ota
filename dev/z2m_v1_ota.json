@@ -180,6 +180,22 @@
         "modelId": "MINI-ZBDIM"
     },
     {
+        "fileName": "1286-080E-00001100_a91db8.ota",
+        "fileVersion": 4352,
+        "fileSize": 193632,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota",
+        "imageType": 2062,
+        "manufacturerCode": 4742,
+        "sha512": "7fcdc207b28979930d179f904fefac18ed1ddbd9c5a6098dfa49da5dff46c6f8b51bf09cee26634a31705ef0c1e821cb11a07b4604149423a86e45273f863127",
+        "otaHeaderString": "FIRMWARE",
+        "originalUrl": "https://github.com/user-attachments/files/26337939/snzb-01m_v1.1.0.ota.zip",
+        "releaseNotes": "This updates the Sonoff SNZB-01M Smart Scene Button to firmware version 1.1.0.\n\n**Changes**\n- Improved binding functionality: each button now supports both on/off control and brightness adjustment\n  - This is enabled by adding the `OnOff` cluster to endpoints 2, 3, and 4 (previously only available on endpoint 1)\n- Performance improvements",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "SNZB-01M"
+    },
+    {
         "fileName": "1286-2007-00001404_fbc68d.ota",
         "fileVersion": 5124,
         "fileSize": 332220,

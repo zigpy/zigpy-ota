@@ -144,6 +144,22 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota",
+            "manufacturer_id": 4742,
+            "image_type": 2062,
+            "file_version": 4352,
+            "file_size": 193632,
+            "checksum": "sha3-256:a91db84ee6d3602146a8217fbb93f2e935742e95557b33b928a14ac70bcb25df",
+            "release_notes": "This updates the Sonoff SNZB-01M Smart Scene Button to firmware version 1.1.0.\n\n**Changes**\n- Improved binding functionality: each button now supports both on/off control and brightness adjustment\n  - This is enabled by adding the `OnOff` cluster to endpoints 2, 3, and 4 (previously only available on endpoint 1)\n- Performance improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/51",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "SNZB-01M"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,
