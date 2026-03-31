@@ -2,6 +2,7 @@
 file_name: 1286-080E-00001100_a91db8.ota
 source_file_name: snzb-01m_v1.1.0.ota
 source_url: https://github.com/user-attachments/files/26337939/snzb-01m_v1.1.0.ota.zip
+pull_request: 51
 release_notes: |-
   This updates the Sonoff SNZB-01M Smart Scene Button to firmware version 1.1.0.
 
