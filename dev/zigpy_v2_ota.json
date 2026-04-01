@@ -51,6 +51,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/heiman/120B-A080-00000022_19cbfc.ota",
+            "manufacturer_id": 4619,
+            "image_type": 41088,
+            "file_version": 34,
+            "file_size": 214938,
+            "checksum": "sha3-256:19cbfc4d9ed24f88939f8e4f129914d746306cd59a6f9d3efe6af0c87c775e4f",
+            "release_notes": "This updates the Heiman HS1SA-E-PLUS smoke alarm to firmware version 2.2.0.\n\n**Changes**\n- Fixed a bug where the heartbeat LED could not be switched off in a corner case\n- Updated the model name from `HS1SA-EF-3.0` to `HS1SA-E-PLUS`\n- Added temperature calibration attributes\n- Addressed minor bugs",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/53"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,

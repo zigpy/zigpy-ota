@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 22
+**Total firmware images:** 23
 
 ## aeotec
 
@@ -100,6 +100,32 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations
 > - Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
+
+## heiman
+
+### `120B-A080-00000022_19cbfc.ota`
+
+- **Original File Name**: `HS1SA-E-PLUS-120BA080-20260311-Release.ota`
+- **Manufacturer ID**: `0x120B` (4619)
+- **Image Type**: `0xA080` (41088)
+- **File Version**: `0x00000022` (34)
+- **File Size**: 214,938 bytes
+- **Checksum SHA3-256**: `19cbfc4d9ed24f88939f8e4f129914d746306cd59a6f9d3efe6af0c87c775e4f`
+- **Checksum SHA512**: `3a57f0642ffa3ae765ec867759a00c1491fb8b5a6cfd8d37d18a231e32c22ac7f82c6c2957358189be54aea58b809dfd368cbd0bfcc52d08420afa4601ac4c94`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/heiman/120B-A080-00000022_19cbfc.ota
+- **Source URL**: https://github.com/user-attachments/files/26373868/HS1SA-E-PLUS-120BA080-20260311-Release.zip
+- **Header String**: `EBL HS1SA_EF2_UART_0787_dianshan`
+
+**Release Notes:**
+
+> This updates the Heiman HS1SA-E-PLUS smoke alarm to firmware version 2.2.0.
+> 
+> **Changes**
+> - Fixed a bug where the heartbeat LED could not be switched off in a corner case
+> - Updated the model name from `HS1SA-EF-3.0` to `HS1SA-E-PLUS`
+> - Added temperature calibration attributes
+> - Addressed minor bugs
+- **Pull Request**: [#53](https://github.com/zigpy/zigpy-ota/pull/53)
 
 ## innr
 
