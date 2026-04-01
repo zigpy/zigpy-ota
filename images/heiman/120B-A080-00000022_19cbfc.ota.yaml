@@ -1,0 +1,12 @@
+# OTA metadata
+file_name: 120B-A080-00000022_19cbfc.ota
+source_file_name: HS1SA-E-PLUS-120BA080-20260311-Release.ota
+source_url: https://github.com/user-attachments/files/26373868/HS1SA-E-PLUS-120BA080-20260311-Release.zip
+release_notes: |-
+  This updates the Heiman HS1SA-E-PLUS smoke alarm to firmware version 2.2.0.
+
+  **Changes**
+  - Fixed a bug where the heartbeat LED could not be switched off in a corner case
+  - Updated the model name from `HS1SA-EF-3.0` to `HS1SA-E-PLUS`
+  - Added temperature calibration attributes
+  - Addressed minor bugs
