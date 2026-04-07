@@ -36,6 +36,7 @@ MANUFACTURER_ID_MAPPING: dict[int, str] = {
     0x1310: "Aeotec",
     0x1337: "Datek",
     0x1407: "Third Reality",
+    0x15BB: "Zunzunbee",
     0x2794: "Climax Technology",
 }
 
