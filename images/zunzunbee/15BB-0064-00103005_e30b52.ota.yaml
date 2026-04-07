@@ -1,0 +1,14 @@
+# OTA metadata
+file_name: 15BB-0064-00103005_e30b52.ota
+source_file_name: SSWZ8T_0x00103005.ota
+source_url: https://github.com/user-attachments/files/26513550/SSWZ8T_0x00103005.zip
+release_notes: |-
+  This updates the zunzunbee SSWZ8T slate switch to firmware version 01.03.005.
+
+  **Changes**
+  - Improved touch sensitivity
+  - Reduced long press duration
+manufacturer_names:
+  - zunzunbee
+model_names:
+  - SSWZ8T
