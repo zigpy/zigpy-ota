@@ -306,5 +306,21 @@
         "otaHeaderString": "ubisys C4 2.6.1",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee",
         "releaseNotes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements"
+    },
+    {
+        "fileName": "15BB-0064-00103005_e30b52.ota",
+        "fileVersion": 1060869,
+        "fileSize": 293046,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
+        "imageType": 100,
+        "manufacturerCode": 5563,
+        "sha512": "9e2a13f2a6ab456b3588dcd852f7185eff8c6ccc3ed10bfb52dc3b1cea425ef22bf36535ff300dfd2af8f6bc395ded675bf5943d8e97612db4a445925545fb86",
+        "otaHeaderString": "SSW Project",
+        "originalUrl": "https://github.com/user-attachments/files/26513550/SSWZ8T_0x00103005.zip",
+        "releaseNotes": "This updates the zunzunbee SSWZ8T slate switch to firmware version 01.03.005.\n\n**Changes**\n- Improved touch sensitivity\n- Reduced long press duration",
+        "manufacturerName": [
+            "zunzunbee"
+        ],
+        "modelId": "SSWZ8T"
     }
 ]

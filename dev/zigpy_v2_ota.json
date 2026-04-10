@@ -268,6 +268,22 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/35",
             "min_hardware_version": 256,
             "max_hardware_version": 256
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
+            "manufacturer_id": 5563,
+            "image_type": 100,
+            "file_version": 1060869,
+            "file_size": 293046,
+            "checksum": "sha3-256:e30b52373d914a68321408cd24f2032f5767ea30840b1d8b27832f462b8d0335",
+            "release_notes": "This updates the zunzunbee SSWZ8T slate switch to firmware version 01.03.005.\n\n**Changes**\n- Improved touch sensitivity\n- Reduced long press duration",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/56",
+            "manufacturer_names": [
+                "zunzunbee"
+            ],
+            "model_names": [
+                "SSWZ8T"
+            ]
         }
     ]
 }

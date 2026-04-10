@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 23
+**Total firmware images:** 24
 
 ## aeotec
 
@@ -718,3 +718,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Support for Touch Link commissioning removed
 > - Other bug fixes and improvements
 - **Pull Request**: [#35](https://github.com/zigpy/zigpy-ota/pull/35)
+
+## zunzunbee
+
+### `15BB-0064-00103005_e30b52.ota`
+
+- **Original File Name**: `SSWZ8T_0x00103005.ota`
+- **Manufacturer ID**: `0x15BB` (5563)
+- **Image Type**: `0x0064` (100)
+- **File Version**: `0x00103005` (1060869)
+- **File Size**: 293,046 bytes
+- **Checksum SHA3-256**: `e30b52373d914a68321408cd24f2032f5767ea30840b1d8b27832f462b8d0335`
+- **Checksum SHA512**: `9e2a13f2a6ab456b3588dcd852f7185eff8c6ccc3ed10bfb52dc3b1cea425ef22bf36535ff300dfd2af8f6bc395ded675bf5943d8e97612db4a445925545fb86`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/zunzunbee/15BB-0064-00103005_e30b52.ota
+- **Source URL**: https://github.com/user-attachments/files/26513550/SSWZ8T_0x00103005.zip
+- **Header String**: `SSW Project`
+- **Manufacturer Names**: zunzunbee
+- **Model Names**: SSWZ8T
+
+**Release Notes:**
+
+> This updates the zunzunbee SSWZ8T slate switch to firmware version 01.03.005.
+> 
+> **Changes**
+> - Improved touch sensitivity
+> - Reduced long press duration
+- **Pull Request**: [#56](https://github.com/zigpy/zigpy-ota/pull/56)
