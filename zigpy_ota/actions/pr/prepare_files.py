@@ -20,6 +20,7 @@ from zigpy_ota.actions.pr.download_utils import (
     IMAGES_PATH,
     download_ota_file,
     extract_ota_from_zip,
+    normalize_github_url,
     save_ota_file,
 )
 from zigpy_ota.actions.pr.pr_utils import (
@@ -119,6 +120,10 @@ def _download_and_extract_ota_file(issue_data: IssueData) -> tuple[bytes, str, s
     """
     # Extract download information from issue
     download_url, filename, source_url = extract_download_info(issue_data)
+
+    # Normalize GitHub URLs (currently both URLs are always identical)
+    download_url = normalize_github_url(download_url)
+    source_url = normalize_github_url(source_url)
 
     LOGGER.info(f"Downloading OTA file: {filename}")
     LOGGER.info(f"Download URL: {download_url}")

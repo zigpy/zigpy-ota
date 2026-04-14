@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 import logging
 import os
+import re
 import zipfile
 from pathlib import Path
 from urllib.parse import urlparse
@@ -22,6 +23,54 @@ MAX_FILE_SIZE = 2 * 1024 * 1024
 CHUNK_SIZE = 8192
 # Error message for file size limit
 MAX_SIZE_ERROR = f"maximum allowed size ({MAX_FILE_SIZE} bytes / 2 MB)"
+
+# GitHub URL patterns to normalize to raw.githubusercontent.com.
+# Order matters: more specific patterns (refs/heads, refs/tags) must come before
+# the catch-all /raw/ pattern. Each regex captures (owner/repo) and (remaining path).
+_GITHUB_RAW_URL_PATTERNS: list[re.Pattern[str]] = [
+    # github.com/{owner}/{repo}/blob/{ref}/{path}
+    re.compile(r"^https://github\.com/([^/]+/[^/]+)/blob/(.+)$"),
+    # github.com/{owner}/{repo}/raw/refs/heads/{branch}/{path}
+    re.compile(r"^https://github\.com/([^/]+/[^/]+)/raw/refs/heads/(.+)$"),
+    # github.com/{owner}/{repo}/raw/refs/tags/{tag}/{path}
+    re.compile(r"^https://github\.com/([^/]+/[^/]+)/raw/refs/tags/(.+)$"),
+    # github.com/{owner}/{repo}/raw/{ref}/{path} (catch-all)
+    re.compile(r"^https://github\.com/([^/]+/[^/]+)/raw/(.+)$"),
+]
+
+
+def normalize_github_url(url: str) -> str:
+    """Normalize GitHub URLs to raw.githubusercontent.com direct download URLs.
+
+    Converts various GitHub URL formats to the canonical raw.githubusercontent.com
+    form, which provides direct file downloads without HTML wrappers.
+
+    Supported conversions:
+    - github.com/{owner}/{repo}/blob/{ref}/{path}
+      → raw.githubusercontent.com/{owner}/{repo}/{ref}/{path}
+    - github.com/{owner}/{repo}/raw/refs/heads/{branch}/{path}
+      → raw.githubusercontent.com/{owner}/{repo}/{branch}/{path}
+    - github.com/{owner}/{repo}/raw/refs/tags/{tag}/{path}
+      → raw.githubusercontent.com/{owner}/{repo}/{tag}/{path}
+    - github.com/{owner}/{repo}/raw/{ref}/{path}
+      → raw.githubusercontent.com/{owner}/{repo}/{ref}/{path}
+
+    Args:
+        url: URL to normalize
+
+    Returns:
+        Normalized URL (unchanged if not a recognized GitHub pattern)
+    """
+    for pattern in _GITHUB_RAW_URL_PATTERNS:
+        match = pattern.match(url)
+        if match:
+            normalized = (
+                f"https://raw.githubusercontent.com/{match.group(1)}/{match.group(2)}"
+            )
+            LOGGER.info(f"Normalized GitHub URL: {url} → {normalized}")
+            return normalized
+
+    return url
 
 
 def save_ota_file(

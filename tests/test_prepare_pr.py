@@ -44,6 +44,12 @@ def issue_hue_old_release_notes_headings() -> Path:
 
 
 @pytest.fixture
+def issue_hue_old_github_blob_url() -> Path:
+    """Issue file for old Hue OTA version with GitHub blob URL (not raw)."""
+    return Path("tests/data/gh_issues/issue_hue_old_github_blob_url.md")
+
+
+@pytest.fixture
 def issue_hue_old_trailing_whitespace() -> Path:
     """Issue file for old Hue OTA version with trailing whitespace in release notes."""
     return Path("tests/data/gh_issues/issue_hue_old_trailing_whitespace.md")
@@ -329,6 +335,12 @@ def run_prepare_pr(
             ["issue_hue_old_release_notes_headings"],
             ["ota_hue_old"],
             id="release_notes_with_headings",
+        ),
+        # Test 20: GitHub blob URL should be normalized to raw.githubusercontent.com
+        pytest.param(
+            ["issue_hue_old_github_blob_url"],
+            ["ota_hue_old"],
+            id="github_blob_url_normalized",
         ),
     ],
     indirect=["issue_paths", "ota_paths"],
