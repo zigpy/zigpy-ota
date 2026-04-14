@@ -30,9 +30,6 @@ class PrepareResult:
     filename: str
     """Name of the OTA image file."""
 
-    manufacturer_name: str | None
-    """User-provided manufacturer name (if any)."""
-
     manufacturer_directory: str
     """Directory name for the manufacturer."""
 
@@ -69,7 +66,6 @@ class PrepareResult:
             "image_path": str(self.image_path) if self.image_path else None,
             "yaml_path": str(self.yaml_path),
             "filename": self.filename,
-            "manufacturer_name": self.manufacturer_name,
             "manufacturer_directory": self.manufacturer_directory,
             "deletable_images": self.deletable_images,
             "existing_images_handling": self.existing_images_handling.value,

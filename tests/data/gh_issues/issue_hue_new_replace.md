@@ -6,10 +6,6 @@ _No response_
 
 https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
 
-### Manufacturer name
-
-Hue
-
 ### Provided URL is an official source from the manufacturer
 
 - [x] The OTA image URL provided is from an official source (e.g., manufacturer's website, official repository)

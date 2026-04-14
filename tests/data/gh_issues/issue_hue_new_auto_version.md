@@ -6,10 +6,6 @@ _No response_
 
 https://otau.meethue.com/storage/ZGB_100B_010C/0f7ed133-fa2f-48f6-810d-533fd1d4994a/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee
 
-### Manufacturer name
-
-Hue
-
 ### How to handle existing images of the same type
 
 Keep all with version constraint (multi-step)

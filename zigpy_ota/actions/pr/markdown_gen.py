@@ -114,10 +114,6 @@ def generate_pr_markdown(result: PrepareResult) -> str:
     lines.append(f"- **Filename**: `{filename}`")
     lines.append(f"- **Original Filename**: `{result.yaml_metadata.source_file_name}`")
 
-    # Display manufacturer information
-    if result.manufacturer_name:
-        lines.append(f"- **Manufacturer (user provided)**: {result.manufacturer_name}")
-
     lines.append(f"- **Manufacturer Directory**: `{result.manufacturer_directory}`")
     lines.append(f"- **Manufacturer ID**: {format_hex_dec(manufacturer_id, '04X')}")
     lines.append(f"- **Image Type**: {format_hex_dec(image_type, '04X')}")

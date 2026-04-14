@@ -24,7 +24,6 @@ def test_parse_issue_with_third_party_flag() -> None:
     issue_data = parse_issue_file_to_model(issue_path)
 
     assert issue_data.third_party_download is True
-    assert issue_data.manufacturer_name == "Hue"
     assert issue_data.ota_image_url is not None
     assert "otau.meethue.com" in issue_data.ota_image_url
 

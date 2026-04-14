@@ -21,9 +21,6 @@ def parse_issue_markdown(markdown_content: str) -> dict[str, Any]:
         "ota_image_url": _parse_ota_image_url_section(
             sections.get(IssueSection.OTA_IMAGE_URL, "")
         ),
-        "manufacturer_name": _parse_text_section(
-            sections.get(IssueSection.MANUFACTURER_NAME, "")
-        ),
         "existing_images_handling": _parse_existing_images_handling(
             sections.get(IssueSection.EXISTING_IMAGES, "")
         ),

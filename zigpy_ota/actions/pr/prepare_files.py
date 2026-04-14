@@ -122,9 +122,6 @@ def _download_and_extract_ota_file(issue_data: IssueData) -> tuple[bytes, str, s
 
     LOGGER.info(f"Downloading OTA file: {filename}")
     LOGGER.info(f"Download URL: {download_url}")
-    if issue_data.manufacturer_name:
-        LOGGER.info(f"Manufacturer name from issue: {issue_data.manufacturer_name}")
-
     ota_content = download_ota_file(download_url)
 
     # If the file came from a GitHub issue attachment, it may be a ZIP file
@@ -444,7 +441,6 @@ def prepare_pr(issue_data: IssueData) -> PrepareResult:
         image_path=image_path if not issue_data.third_party_download else None,
         yaml_path=yaml_path,
         filename=filename,
-        manufacturer_name=issue_data.manufacturer_name,
         manufacturer_directory=manufacturer_directory,
         deletable_images=images_to_delete,
         existing_images_handling=issue_data.existing_images_handling,

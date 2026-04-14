@@ -69,9 +69,6 @@ def test_parse_issue_model_attributes(issue_path: Path) -> None:
         issue_data.ota_image_url == "https://example.com/releases/firmware-v1.2.3.ota"
     )
 
-    # Test manufacturer
-    assert issue_data.manufacturer_name == "Third Reality"
-
     # Test official source
     assert issue_data.is_official_source is True
 
@@ -133,7 +130,6 @@ def test_parse_issue_empty_model_attributes(issue_empty_path: Path) -> None:
     # Test that empty fields are None
     assert issue_data.ota_file is None
     assert issue_data.ota_image_url is None
-    assert issue_data.manufacturer_name is None
     assert issue_data.release_notes is None
     assert issue_data.additional_information is None
 

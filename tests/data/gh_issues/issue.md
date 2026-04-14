@@ -6,10 +6,6 @@
 
 https://example.com/releases/firmware-v1.2.3.ota
 
-### Manufacturer name
-
-Third Reality
-
 ### How to handle existing images of the same type
 
 Keep all (standard)

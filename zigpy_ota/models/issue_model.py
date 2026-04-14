@@ -52,7 +52,6 @@ class IssueData:
 
     ota_file: OTAFile | None
     ota_image_url: str | None
-    manufacturer_name: str | None
     checklist: IssueChecklist
     existing_images_handling: ExistingImagesHandling = ExistingImagesHandling.KEEP_ALL
     third_party_download: bool = False
@@ -87,7 +86,6 @@ class IssueData:
         return cls(
             ota_file=ota_file,
             ota_image_url=data.get("ota_image_url"),
-            manufacturer_name=data.get("manufacturer_name"),
             existing_images_handling=existing_images_handling,
             third_party_download=data.get("third_party_download", False),
             release_notes=data.get("release_notes"),
@@ -101,7 +99,6 @@ class IssueData:
         return {
             "ota_file": self.ota_file.to_dict() if self.ota_file else None,
             "ota_image_url": self.ota_image_url,
-            "manufacturer_name": self.manufacturer_name,
             "existing_images_handling": self.existing_images_handling.value,
             "third_party_download": self.third_party_download,
             "release_notes": self.release_notes,

@@ -8,7 +8,7 @@ class IssueSection(StrEnum):
 
     OTA_FILE = "OTA file"
     OTA_IMAGE_URL = "OTA image URL"
-    MANUFACTURER_NAME = "Manufacturer name"
+    MANUFACTURER_NAME = "Manufacturer name"  # Removed from template, kept for old ones
     OFFICIAL_SOURCE = "Provided URL is an official source from the manufacturer"
     EXISTING_IMAGES = "How to handle existing images of the same type"
     THIRD_PARTY_DOWNLOAD = "Third-party download (external hosting)"

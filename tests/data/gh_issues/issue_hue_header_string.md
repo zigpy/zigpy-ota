@@ -6,10 +6,6 @@ _No response_
 
 https://otau.meethue.com/storage/ZGB_100B_010C/test/fake_100B-010C-01003000-WithHeaderString.zigbee
 
-### Manufacturer name
-
-Hue
-
 ### Provided URL is an official source from the manufacturer
 
 - [x] The OTA image URL provided is from an official source (e.g., manufacturer's website, official repository)

@@ -68,7 +68,6 @@
   {
     "ota_file": null,
     "ota_image_url": "https://otau.meethue.com/storage/ZGB_100B_010C/2ef158a5-ffb4-43ac-9d59-3cb71078f6f7/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee",
-    "manufacturer_name": "Hue",
     "existing_images_handling": "KEEP_ALL",
     "third_party_download": false,
     "release_notes": "- Bug fixes\n- Performance improvements",

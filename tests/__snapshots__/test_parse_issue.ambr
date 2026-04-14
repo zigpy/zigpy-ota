@@ -9,7 +9,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
-    'manufacturer_name': 'Third Reality',
     'optional_metadata': None,
     'ota_file': dict({
       'filename': 'empty_file.ota.zip',
@@ -33,7 +32,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
-    'manufacturer_name': None,
     'optional_metadata': None,
     'ota_file': None,
     'ota_image_url': None,
@@ -59,7 +57,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': <ExistingImagesHandling.KEEP_ALL: 'KEEP_ALL'>,
-    'manufacturer_name': 'Hue',
     'optional_metadata': '''
       model_names: [test test, test2]
       manufacturer_names: SignifyX
@@ -92,7 +89,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': 'KEEP_ALL',
-    'manufacturer_name': 'Third Reality',
     'optional_metadata': None,
     'ota_file': dict({
       'filename': 'empty_file.ota.zip',
@@ -116,7 +112,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': 'KEEP_ALL',
-    'manufacturer_name': None,
     'optional_metadata': None,
     'ota_file': None,
     'ota_image_url': None,
@@ -142,7 +137,6 @@
       'tested_on_device': False,
     }),
     'existing_images_handling': 'KEEP_ALL',
-    'manufacturer_name': 'Hue',
     'optional_metadata': '''
       model_names: [test test, test2]
       manufacturer_names: SignifyX

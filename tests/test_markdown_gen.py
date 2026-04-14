@@ -89,7 +89,6 @@ def prepare_result_basic(
         image_path=Path("/tmp/test_firmware.zigbee"),
         yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
         filename="test_firmware.zigbee",
-        manufacturer_name="Test Corp",
         manufacturer_directory="test",
         deletable_images={},
         existing_images_handling=ExistingImagesHandling.KEEP_ALL,
@@ -111,7 +110,6 @@ def prepare_result_with_file_existed(
         image_path=Path("/tmp/test_firmware.zigbee"),
         yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
         filename="test_firmware.zigbee",
-        manufacturer_name=None,
         manufacturer_directory="test",
         deletable_images={},
         existing_images_handling=ExistingImagesHandling.KEEP_ALL,
@@ -133,7 +131,6 @@ def prepare_result_with_hw_override(
         image_path=Path("/tmp/test_firmware.zigbee"),
         yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
         filename="test_firmware.zigbee",
-        manufacturer_name=None,
         manufacturer_directory="test",
         deletable_images={},
         existing_images_handling=ExistingImagesHandling.KEEP_ALL,
@@ -157,7 +154,6 @@ def prepare_result_with_deletable_images(
         image_path=Path("/tmp/test_firmware.zigbee"),
         yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
         filename="test_firmware.zigbee",
-        manufacturer_name=None,
         manufacturer_directory="test",
         deletable_images={"old_firmware.zigbee": deletable_image},
         existing_images_handling=ExistingImagesHandling.REPLACE,
@@ -186,7 +182,6 @@ def prepare_result_with_auto_min_version(
         image_path=Path("/tmp/test_firmware.zigbee"),
         yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
         filename="test_firmware.zigbee",
-        manufacturer_name=None,
         manufacturer_directory="test",
         deletable_images={"old_firmware.zigbee": deletable_image},
         existing_images_handling=ExistingImagesHandling.SET_MIN_VERSION,
@@ -211,7 +206,6 @@ class TestGeneratePrMarkdown:
         assert "## OTA File Submission" in markdown
         assert "### File Information" in markdown
         assert "test_firmware.zigbee" in markdown
-        assert "Test Corp" in markdown
         assert "0x100B" in markdown  # manufacturer_id
         assert "0x010C" in markdown  # image_type
 

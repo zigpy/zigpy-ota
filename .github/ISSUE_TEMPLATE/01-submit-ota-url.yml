@@ -15,16 +15,6 @@ body:
       placeholder: "https://example.com/releases/firmware-v1.2.3.ota"
     validations:
       required: true # false
-  - type: input
-    id: manufacturer_name
-    attributes:
-      label: Manufacturer name
-      description: |
-        The device manufacturer's name for display purposes only (e.g., in the generated PR).\
-        The actual storage location is determined automatically from the manufacturer ID inside the OTA file.
-      placeholder: "Example: Aeotec"
-    validations:
-      required: false
   - type: textarea
     attributes:
       label: Release notes
