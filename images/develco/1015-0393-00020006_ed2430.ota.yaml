@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-0393-00020006_ed2430.ota
+source_file_name: IntelligentKeyPad_2.0.6.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentKeyPad_2.0.6.zigbee
+release_notes: |-
+  This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.
+
+  **Changes**
+  - Backlight improvements
