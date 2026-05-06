@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-03D1-00030107_862fed.ota
+source_file_name: EMI2P1_3.1.7.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EMI2P1_3.1.7.zigbee
+release_notes: |-
+  This updates the frient A/S EMI 2, P1 (EMIZB-151) to v3.1.7.
+
+  **Changes**
+  - General improvements
