@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 1015-0251-00040009_1276ed.ota
+source_file_name: IntelligentSmokeAlarm_4.0.9.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentSmokeAlarm_4.0.9.zigbee
+release_notes: |-
+  This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.
+
+  **Changes**
+  - Have a backup image ready in external flash
+  - Bug fixes
