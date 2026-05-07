@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-03A0-00020007_b99ca6.ota
+source_file_name: EntrySensor2_2.0.7.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EntrySensor2_2.0.7.zigbee
+release_notes: |-
+  This updates the frient A/S Entry Sensor 2 Pro/Alarm (WISZB-131 or WISZB-138) or Vibration Sensor (WISZB-137) to v2.0.7.
+
+  **Changes**
+  - General improvements
