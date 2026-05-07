@@ -2,6 +2,7 @@
 file_name: 1015-0390-00020001_fb1605.ota
 source_file_name: IOModule_2.0.1.zigbee
 source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IOModule_2.0.1.zigbee
+pull_request: 72
 release_notes: |-
   This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.
 
