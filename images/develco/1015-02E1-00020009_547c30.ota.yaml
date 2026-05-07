@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-02E1-00020009_547c30.ota
+source_file_name: SmartPlug2_SmartCable2_SmartDIN2_2.0.9.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartPlug2_SmartCable2_SmartDIN2_2.0.9.zigbee
+release_notes: |-
+  This updates the frient A/S Smart Plug Mini 2, Smart Cable 2, or Smart DIN Relay 2 (SPLZB-141, SPLZB-144, SMRZB-153, or SMRZB-342) to v2.0.9.
+
+  **Changes**
+  - RF performance tuning
