@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 1015-02E0-00030C10_c06f96.ota
+source_file_name: SmartPlug_3.12.16.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartPlug_3.12.16.zigbee
+pull_request: 88
+release_notes: |-
+  This updates the frient A/S Smart Plug Mini, Smart Cable, or Smart DIN Relay (SPLZB-131, SPLZB-132, SPLZB-134, SMRZB-143, or SMRZB-332) to v3.12.16.
+
+  **Changes**
+  - Improvements to router functionality
