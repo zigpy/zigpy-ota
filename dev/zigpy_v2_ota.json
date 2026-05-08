@@ -91,6 +91,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/78"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-02E0-00030C10_c06f96.ota",
+            "manufacturer_id": 4117,
+            "image_type": 736,
+            "file_version": 199696,
+            "file_size": 181164,
+            "checksum": "sha3-256:c06f964e0ce748a987fdb49af325f218da526049993a8f5b3795c8b89478b46d",
+            "release_notes": "This updates the frient A/S Smart Plug Mini, Smart Cable, or Smart DIN Relay (SPLZB-131, SPLZB-132, SPLZB-134, SMRZB-143, or SMRZB-332) to v3.12.16.\n\n**Changes**\n- Improvements to router functionality",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/88"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-02E1-00020009_547c30.ota",
             "manufacturer_id": 4117,
             "image_type": 737,

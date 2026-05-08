@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 38
+**Total firmware images:** 39
 
 ## aeotec
 
@@ -184,6 +184,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Have a backup image ready in external flash
 > - Bug fixes
 - **Pull Request**: [#78](https://github.com/zigpy/zigpy-ota/pull/78)
+
+### `1015-02E0-00030C10_c06f96.ota`
+
+- **Original File Name**: `SmartPlug_3.12.16.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x02E0` (736)
+- **File Version**: `0x00030C10` (199696)
+- **File Size**: 181,164 bytes
+- **Checksum SHA3-256**: `c06f964e0ce748a987fdb49af325f218da526049993a8f5b3795c8b89478b46d`
+- **Checksum SHA512**: `eaf4e925dbdf32f171fb8323c52b8652620dea5d62bc007e61ee61d276bdd90f097400a1c1bc48980d78c276117415e274c34529b481be82c28cd3695e2be817`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-02E0-00030C10_c06f96.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartPlug_3.12.16.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Smart Plug Mini, Smart Cable, or Smart DIN Relay (SPLZB-131, SPLZB-132, SPLZB-134, SMRZB-143, or SMRZB-332) to v3.12.16.
+> 
+> **Changes**
+> - Improvements to router functionality
+- **Pull Request**: [#88](https://github.com/zigpy/zigpy-ota/pull/88)
 
 ### `1015-02E1-00020009_547c30.ota`
 
