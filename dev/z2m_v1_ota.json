@@ -60,6 +60,18 @@
         "releaseNotes": "**Changes**\n- Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations\n- Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates"
     },
     {
+        "fileName": "1015-0240-00040003_ba480a.ota",
+        "fileVersion": 262147,
+        "fileSize": 200550,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0240-00040003_ba480a.ota",
+        "imageType": 576,
+        "manufacturerCode": 4117,
+        "sha512": "6da06e817d643c4936e28c1fa6ac4f51cc0a79a8603cd8c91bed8feff4df86e580ea3265895ca740a237dc18fd0f1631f0bc45a27d94dc0c6467c0b1e839fbff",
+        "otaHeaderString": "",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EntrySensor_4.0.3.zigbee",
+        "releaseNotes": "This updates the frient A/S Entry Sensor/Pro (WISZB-121 or WISZB-120) to v4.0.3.\n\n**Changes**\n- General improvements"
+    },
+    {
         "fileName": "1015-0310-00040003_c3738d.ota",
         "fileVersion": 262147,
         "fileSize": 189735,

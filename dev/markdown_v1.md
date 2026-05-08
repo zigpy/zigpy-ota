@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 30
+**Total firmware images:** 31
 
 ## aeotec
 
@@ -102,6 +102,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
 
 ## develco
+
+### `1015-0240-00040003_ba480a.ota`
+
+- **Original File Name**: `EntrySensor_4.0.3.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0240` (576)
+- **File Version**: `0x00040003` (262147)
+- **File Size**: 200,550 bytes
+- **Checksum SHA3-256**: `ba480aada8ee0aca5d240dcb0e5126afb20c5d5b1ce93e9a3d6b84cc81d3c228`
+- **Checksum SHA512**: `6da06e817d643c4936e28c1fa6ac4f51cc0a79a8603cd8c91bed8feff4df86e580ea3265895ca740a237dc18fd0f1631f0bc45a27d94dc0c6467c0b1e839fbff`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0240-00040003_ba480a.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EntrySensor_4.0.3.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Entry Sensor/Pro (WISZB-121 or WISZB-120) to v4.0.3.
+> 
+> **Changes**
+> - General improvements
+- **Pull Request**: [#70](https://github.com/zigpy/zigpy-ota/pull/70)
 
 ### `1015-0310-00040003_c3738d.ota`
 

@@ -51,6 +51,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0240-00040003_ba480a.ota",
+            "manufacturer_id": 4117,
+            "image_type": 576,
+            "file_version": 262147,
+            "file_size": 200550,
+            "checksum": "sha3-256:ba480aada8ee0aca5d240dcb0e5126afb20c5d5b1ce93e9a3d6b84cc81d3c228",
+            "release_notes": "This updates the frient A/S Entry Sensor/Pro (WISZB-121 or WISZB-120) to v4.0.3.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/70"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0310-00040003_c3738d.ota",
             "manufacturer_id": 4117,
             "image_type": 784,
