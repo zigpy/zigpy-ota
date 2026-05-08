@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 40
+**Total firmware images:** 41
 
 ## aeotec
 
@@ -225,6 +225,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - RF performance tuning
 - **Pull Request**: [#86](https://github.com/zigpy/zigpy-ota/pull/86)
+
+### `1015-0300-00040005_1fab69.ota`
+
+- **Original File Name**: `WaterLeakDetector_4.0.5.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0300` (768)
+- **File Version**: `0x00040005` (262149)
+- **File Size**: 201,442 bytes
+- **Checksum SHA3-256**: `1fab693df006363956c9e84cca0eb8b56de66289241959ca20fe894f59244c25`
+- **Checksum SHA512**: `68866a18d002036324d5890957742a1027b00dd5b7fc5b727fae70de2ee20980887fe2287f2474d48aecd89fd564ada2a48243ec3fd46c57b4cc877c2da0a0b7`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0300-00040005_1fab69.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/WaterLeakDetector_4.0.5.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Water Leak Detector (FLSZB-110) to v4.0.5.
+> 
+> **Changes**
+> - Have a backup image ready in external flash
+- **Pull Request**: [#92](https://github.com/zigpy/zigpy-ota/pull/92)
 
 ### `1015-0310-00040003_c3738d.ota`
 

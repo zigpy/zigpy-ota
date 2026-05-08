@@ -111,6 +111,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/86"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0300-00040005_1fab69.ota",
+            "manufacturer_id": 4117,
+            "image_type": 768,
+            "file_version": 262149,
+            "file_size": 201442,
+            "checksum": "sha3-256:1fab693df006363956c9e84cca0eb8b56de66289241959ca20fe894f59244c25",
+            "release_notes": "This updates the frient A/S Water Leak Detector (FLSZB-110) to v4.0.5.\n\n**Changes**\n- Have a backup image ready in external flash",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/92"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0310-00040003_c3738d.ota",
             "manufacturer_id": 4117,
             "image_type": 784,

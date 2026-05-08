@@ -132,6 +132,18 @@
         "releaseNotes": "This updates the frient A/S Smart Plug Mini 2, Smart Cable 2, or Smart DIN Relay 2 (SPLZB-141, SPLZB-144, SMRZB-153, or SMRZB-342) to v2.0.9.\n\n**Changes**\n- RF performance tuning"
     },
     {
+        "fileName": "1015-0300-00040005_1fab69.ota",
+        "fileVersion": 262149,
+        "fileSize": 201442,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0300-00040005_1fab69.ota",
+        "imageType": 768,
+        "manufacturerCode": 4117,
+        "sha512": "68866a18d002036324d5890957742a1027b00dd5b7fc5b727fae70de2ee20980887fe2287f2474d48aecd89fd564ada2a48243ec3fd46c57b4cc877c2da0a0b7",
+        "otaHeaderString": "",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/WaterLeakDetector_4.0.5.zigbee",
+        "releaseNotes": "This updates the frient A/S Water Leak Detector (FLSZB-110) to v4.0.5.\n\n**Changes**\n- Have a backup image ready in external flash"
+    },
+    {
         "fileName": "1015-0310-00040003_c3738d.ota",
         "fileVersion": 262147,
         "fileSize": 189735,
