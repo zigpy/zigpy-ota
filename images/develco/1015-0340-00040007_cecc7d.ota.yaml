@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1015-0340-00040007_cecc7d.ota
+source_file_name: EmiNorwegianHan_4.0.7.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EmiNorwegianHan_4.0.7.zigbee
+pull_request: 66
+release_notes: |-
+  This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.
+
+  **Changes**
+  - Bug fixes
+  - Stability improvements
