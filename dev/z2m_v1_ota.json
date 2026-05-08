@@ -96,6 +96,18 @@
         "releaseNotes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.\n\n**Changes**\n- Bug fixes\n- Stability improvements"
     },
     {
+        "fileName": "1015-03A0-00020007_b99ca6.ota",
+        "fileVersion": 131079,
+        "fileSize": 217818,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota",
+        "imageType": 928,
+        "manufacturerCode": 4117,
+        "sha512": "beff5260fea1010a9ebbbb37870cb0b9adcf616cce58e4ab8449a1738bb6d289d4cd4d8fbe6497dd2584c9cf24223368e72a3305ce64a6f3eaac1628ee6e5d57",
+        "otaHeaderString": "WindowVibrationSensor",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EntrySensor2_2.0.7.zigbee",
+        "releaseNotes": "This updates the frient A/S Entry Sensor 2 Pro/Alarm (WISZB-131 or WISZB-138) or Vibration Sensor (WISZB-137) to v2.0.7.\n\n**Changes**\n- General improvements"
+    },
+    {
         "fileName": "1015-03D0-00030102_58826b.ota",
         "fileVersion": 196866,
         "fileSize": 213826,

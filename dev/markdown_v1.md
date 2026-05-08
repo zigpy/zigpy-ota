@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 29
+**Total firmware images:** 30
 
 ## aeotec
 
@@ -164,6 +164,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Bug fixes
 > - Stability improvements
 - **Pull Request**: [#66](https://github.com/zigpy/zigpy-ota/pull/66)
+
+### `1015-03A0-00020007_b99ca6.ota`
+
+- **Original File Name**: `EntrySensor2_2.0.7.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x03A0` (928)
+- **File Version**: `0x00020007` (131079)
+- **File Size**: 217,818 bytes
+- **Checksum SHA3-256**: `b99ca6243ab0d2af76b5d96def023a49a9d2f108a966655ee28aab5f4aff60bf`
+- **Checksum SHA512**: `beff5260fea1010a9ebbbb37870cb0b9adcf616cce58e4ab8449a1738bb6d289d4cd4d8fbe6497dd2584c9cf24223368e72a3305ce64a6f3eaac1628ee6e5d57`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EntrySensor2_2.0.7.zigbee
+- **Header String**: `WindowVibrationSensor`
+
+**Release Notes:**
+
+> This updates the frient A/S Entry Sensor 2 Pro/Alarm (WISZB-131 or WISZB-138) or Vibration Sensor (WISZB-137) to v2.0.7.
+> 
+> **Changes**
+> - General improvements
+- **Pull Request**: [#68](https://github.com/zigpy/zigpy-ota/pull/68)
 
 ### `1015-03D0-00030102_58826b.ota`
 

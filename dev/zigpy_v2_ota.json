@@ -81,6 +81,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota",
+            "manufacturer_id": 4117,
+            "image_type": 928,
+            "file_version": 131079,
+            "file_size": 217818,
+            "checksum": "sha3-256:b99ca6243ab0d2af76b5d96def023a49a9d2f108a966655ee28aab5f4aff60bf",
+            "release_notes": "This updates the frient A/S Entry Sensor 2 Pro/Alarm (WISZB-131 or WISZB-138) or Vibration Sensor (WISZB-137) to v2.0.7.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/68"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D0-00030102_58826b.ota",
             "manufacturer_id": 4117,
             "image_type": 976,
