@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 35
+**Total firmware images:** 36
 
 ## aeotec
 
@@ -102,6 +102,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
 
 ## develco
+
+### `1015-0182-00040008_43f6cf.ota`
+
+- **Original File Name**: `MotionSensor_4.0.8.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0182` (386)
+- **File Version**: `0x00040008` (262152)
+- **File Size**: 210,984 bytes
+- **Checksum SHA3-256**: `43f6cf798c6eb86466e5fab102c96124d5d832c3adbb27e9cd05195d45ba67a2`
+- **Checksum SHA512**: `87ee44335a39ae5c2d76a84eacff1e3805d562ebbda20663a4dc96bd83278f3569be736d57e614e93ca4f0fe8e4f24bb484d2b637e6e5bda59cb2f34bb5b906d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0182-00040008_43f6cf.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/MotionSensor_4.0.8.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Motion Sensor/Pro (MOSZB-141 or MOSZB-140) to v4.0.8.
+> 
+> **Changes**
+> - Bug fixes
+- **Pull Request**: [#82](https://github.com/zigpy/zigpy-ota/pull/82)
 
 ### `1015-0183-00020008_aa5364.ota`
 
