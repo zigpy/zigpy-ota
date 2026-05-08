@@ -61,6 +61,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/70"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0251-00040009_1276ed.ota",
+            "manufacturer_id": 4117,
+            "image_type": 593,
+            "file_version": 262153,
+            "file_size": 202074,
+            "checksum": "sha3-256:1276ed2145f6ce22b98bd36afa4ab0133482389f17d162328f6b7759f979d510",
+            "release_notes": "This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.\n\n**Changes**\n- Have a backup image ready in external flash\n- Bug fixes",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/78"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0310-00040003_c3738d.ota",
             "manufacturer_id": 4117,
             "image_type": 784,

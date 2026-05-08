@@ -72,6 +72,18 @@
         "releaseNotes": "This updates the frient A/S Entry Sensor/Pro (WISZB-121 or WISZB-120) to v4.0.3.\n\n**Changes**\n- General improvements"
     },
     {
+        "fileName": "1015-0251-00040009_1276ed.ota",
+        "fileVersion": 262153,
+        "fileSize": 202074,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0251-00040009_1276ed.ota",
+        "imageType": 593,
+        "manufacturerCode": 4117,
+        "sha512": "900688dea743db3097d59d90e5c4a2a4551232a1b5dd21be43e66d58de24ee0b98838e6b3ff400fb044051c97a48dacda429b75f2a9e1259af5d9121ef1238b1",
+        "otaHeaderString": "",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentSmokeAlarm_4.0.9.zigbee",
+        "releaseNotes": "This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.\n\n**Changes**\n- Have a backup image ready in external flash\n- Bug fixes"
+    },
+    {
         "fileName": "1015-0310-00040003_c3738d.ota",
         "fileVersion": 262147,
         "fileSize": 189735,

@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 33
+**Total firmware images:** 34
 
 ## aeotec
 
@@ -122,6 +122,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - General improvements
 - **Pull Request**: [#70](https://github.com/zigpy/zigpy-ota/pull/70)
+
+### `1015-0251-00040009_1276ed.ota`
+
+- **Original File Name**: `IntelligentSmokeAlarm_4.0.9.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0251` (593)
+- **File Version**: `0x00040009` (262153)
+- **File Size**: 202,074 bytes
+- **Checksum SHA3-256**: `1276ed2145f6ce22b98bd36afa4ab0133482389f17d162328f6b7759f979d510`
+- **Checksum SHA512**: `900688dea743db3097d59d90e5c4a2a4551232a1b5dd21be43e66d58de24ee0b98838e6b3ff400fb044051c97a48dacda429b75f2a9e1259af5d9121ef1238b1`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0251-00040009_1276ed.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentSmokeAlarm_4.0.9.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.
+> 
+> **Changes**
+> - Have a backup image ready in external flash
+> - Bug fixes
+- **Pull Request**: [#78](https://github.com/zigpy/zigpy-ota/pull/78)
 
 ### `1015-0310-00040003_c3738d.ota`
 
