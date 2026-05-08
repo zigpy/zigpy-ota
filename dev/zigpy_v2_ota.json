@@ -131,6 +131,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0391-00020004_748757.ota",
+            "manufacturer_id": 4117,
+            "image_type": 913,
+            "file_version": 131076,
+            "file_size": 209338,
+            "checksum": "sha3-256:748757aac8d6e8cf673aaf26f8cfbc2c9aefb3cbf1ba3deef836d70c539c2ff6",
+            "release_notes": "This updates the frient A/S Smart Button (SBTZB-110) to v2.0.4.\n\n**Changes**\n- Battery measurement improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/84"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0393-00020006_ed2430.ota",
             "manufacturer_id": 4117,
             "image_type": 915,

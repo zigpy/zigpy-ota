@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 36
+**Total firmware images:** 37
 
 ## aeotec
 
@@ -267,6 +267,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - General improvements
 - **Pull Request**: [#72](https://github.com/zigpy/zigpy-ota/pull/72)
+
+### `1015-0391-00020004_748757.ota`
+
+- **Original File Name**: `SmartButton_2.0.4.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0391` (913)
+- **File Version**: `0x00020004` (131076)
+- **File Size**: 209,338 bytes
+- **Checksum SHA3-256**: `748757aac8d6e8cf673aaf26f8cfbc2c9aefb3cbf1ba3deef836d70c539c2ff6`
+- **Checksum SHA512**: `d36ce5885c2a2ff184546a04defa9c9087a15469125bdc3fc265bdbd4d850ae3edea1b32e44d480bc4debd1908db154d7796d766240635593dd6031a5b8481e9`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0391-00020004_748757.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartButton_2.0.4.zigbee
+- **Header String**: `PanicButton`
+
+**Release Notes:**
+
+> This updates the frient A/S Smart Button (SBTZB-110) to v2.0.4.
+> 
+> **Changes**
+> - Battery measurement improvements
+- **Pull Request**: [#84](https://github.com/zigpy/zigpy-ota/pull/84)
 
 ### `1015-0393-00020006_ed2430.ota`
 
