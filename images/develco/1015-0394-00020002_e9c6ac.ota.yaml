@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-0394-00020002_e9c6ac.ota
+source_file_name: ZigbeeRangeExtender_2.0.2.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/ZigbeeRangeExtender_2.0.2.zigbee
+release_notes: |-
+  This updates the frient A/S Zigbee Range Extender (REXZB-110 or REXZB-111) to v2.0.2.
+
+  **Changes**
+  - Minor improvements
