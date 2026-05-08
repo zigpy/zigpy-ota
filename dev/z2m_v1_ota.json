@@ -108,6 +108,18 @@
         "releaseNotes": "This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.\n\n**Changes**\n- Have a backup image ready in external flash\n- Bug fixes"
     },
     {
+        "fileName": "1015-02E1-00020009_547c30.ota",
+        "fileVersion": 131081,
+        "fileSize": 234822,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-02E1-00020009_547c30.ota",
+        "imageType": 737,
+        "manufacturerCode": 4117,
+        "sha512": "692ca6c846dfe818d52c08e9b4976842419346802ae0c4f2ce5c003989afb49ba21b4c9070393d6080c9a3c82b6ba084ec08486e7e10aa3faecd22799c243b24",
+        "otaHeaderString": "Router - Smart Plug",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartPlug2_SmartCable2_SmartDIN2_2.0.9.zigbee",
+        "releaseNotes": "This updates the frient A/S Smart Plug Mini 2, Smart Cable 2, or Smart DIN Relay 2 (SPLZB-141, SPLZB-144, SMRZB-153, or SMRZB-342) to v2.0.9.\n\n**Changes**\n- RF performance tuning"
+    },
+    {
         "fileName": "1015-0310-00040003_c3738d.ota",
         "fileVersion": 262147,
         "fileSize": 189735,
