@@ -191,6 +191,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/76"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0394-00020002_e9c6ac.ota",
+            "manufacturer_id": 4117,
+            "image_type": 916,
+            "file_version": 131074,
+            "file_size": 230466,
+            "checksum": "sha3-256:e9c6acdb159a01f32917eabd8112df4131365b9914202c5165d8ad353bb04cf6",
+            "release_notes": "This updates the frient A/S Zigbee Range Extender (REXZB-110 or REXZB-111) to v2.0.2.\n\n**Changes**\n- Minor improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/94"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota",
             "manufacturer_id": 4117,
             "image_type": 928,

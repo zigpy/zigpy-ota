@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 41
+**Total firmware images:** 42
 
 ## aeotec
 
@@ -391,6 +391,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Backlight improvements
 - **Pull Request**: [#76](https://github.com/zigpy/zigpy-ota/pull/76)
+
+### `1015-0394-00020002_e9c6ac.ota`
+
+- **Original File Name**: `ZigbeeRangeExtender_2.0.2.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0394` (916)
+- **File Version**: `0x00020002` (131074)
+- **File Size**: 230,466 bytes
+- **Checksum SHA3-256**: `e9c6acdb159a01f32917eabd8112df4131365b9914202c5165d8ad353bb04cf6`
+- **Checksum SHA512**: `bec200a43bc7a51c58e70caa9d057006cbab54e5b058a8191a52d40e9aa8d1b979d2695ce0b4b0d4d1db6e926cce95bc1ae0a9e0810773b6c28ddb6705f4e248`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0394-00020002_e9c6ac.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/ZigbeeRangeExtender_2.0.2.zigbee
+- **Header String**: `Router - Range Extender`
+
+**Release Notes:**
+
+> This updates the frient A/S Zigbee Range Extender (REXZB-110 or REXZB-111) to v2.0.2.
+> 
+> **Changes**
+> - Minor improvements
+- **Pull Request**: [#94](https://github.com/zigpy/zigpy-ota/pull/94)
 
 ### `1015-03A0-00020007_b99ca6.ota`
 

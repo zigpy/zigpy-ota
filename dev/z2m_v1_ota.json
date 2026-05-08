@@ -228,6 +228,18 @@
         "releaseNotes": "This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.\n\n**Changes**\n- Backlight improvements"
     },
     {
+        "fileName": "1015-0394-00020002_e9c6ac.ota",
+        "fileVersion": 131074,
+        "fileSize": 230466,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0394-00020002_e9c6ac.ota",
+        "imageType": 916,
+        "manufacturerCode": 4117,
+        "sha512": "bec200a43bc7a51c58e70caa9d057006cbab54e5b058a8191a52d40e9aa8d1b979d2695ce0b4b0d4d1db6e926cce95bc1ae0a9e0810773b6c28ddb6705f4e248",
+        "otaHeaderString": "Router - Range Extender",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/ZigbeeRangeExtender_2.0.2.zigbee",
+        "releaseNotes": "This updates the frient A/S Zigbee Range Extender (REXZB-110 or REXZB-111) to v2.0.2.\n\n**Changes**\n- Minor improvements"
+    },
+    {
         "fileName": "1015-03A0-00020007_b99ca6.ota",
         "fileVersion": 131079,
         "fileSize": 217818,
