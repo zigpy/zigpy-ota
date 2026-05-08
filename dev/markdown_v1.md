@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 27
+**Total firmware images:** 28
 
 ## aeotec
 
@@ -164,6 +164,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Stability improvements
 - **Pull Request**: [#62](https://github.com/zigpy/zigpy-ota/pull/62)
+
+### `1015-03D1-00030107_862fed.ota`
+
+- **Original File Name**: `EMI2P1_3.1.7.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x03D1` (977)
+- **File Version**: `0x00030107` (196871)
+- **File Size**: 226,882 bytes
+- **Checksum SHA3-256**: `862fed8ac5bb0021a6042fb0d1f0744d62fc4f692f746af995411200b160d9ab`
+- **Checksum SHA512**: `4ad740da6eaba7cbfbc3847f101c264a6df99b3bed6a6223721d4ce28cb39ef28a8a655d94aa9a33721fb0c1621d26d8c2b4f2b1968e3b8016b6125964e99a14`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D1-00030107_862fed.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EMI2P1_3.1.7.zigbee
+- **Header String**: `EMI 2 - P1`
+
+**Release Notes:**
+
+> This updates the frient A/S EMI 2, P1 (EMIZB-151) to v3.1.7.
+> 
+> **Changes**
+> - General improvements
+- **Pull Request**: [#64](https://github.com/zigpy/zigpy-ota/pull/64)
 
 ## heiman
 

@@ -81,6 +81,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/62"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D1-00030107_862fed.ota",
+            "manufacturer_id": 4117,
+            "image_type": 977,
+            "file_version": 196871,
+            "file_size": 226882,
+            "checksum": "sha3-256:862fed8ac5bb0021a6042fb0d1f0744d62fc4f692f746af995411200b160d9ab",
+            "release_notes": "This updates the frient A/S EMI 2, P1 (EMIZB-151) to v3.1.7.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/64"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/heiman/120B-A080-00000022_19cbfc.ota",
             "manufacturer_id": 4619,
             "image_type": 41088,
