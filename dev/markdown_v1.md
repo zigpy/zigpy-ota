@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 24
+**Total firmware images:** 25
 
 ## aeotec
 
@@ -100,6 +100,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations
 > - Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
+
+## develco
+
+### `1015-0320-00040003_5277c4.ota`
+
+- **Original File Name**: `AirQualitySensor_4.0.3.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0320` (800)
+- **File Version**: `0x00040003` (262147)
+- **File Size**: 197,820 bytes
+- **Checksum SHA3-256**: `5277c40903123c7a9566a0ddd6b3bb513927f75881a3558f5597363b5a99caca`
+- **Checksum SHA512**: `f83baaa15e904a96cce8cf525fd9acae8d4944519c6e788ad882dafdc0499178d1607473238a0de75f321e1fda4bfd6e03bd4b309c5feec864e4de89ddd79b6a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0320-00040003_5277c4.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/AirQualitySensor_4.0.3.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Air Quality Sensor (AQSZB-110) or Humidity Sensor (HMSZB-120) to v4.0.3.
+> 
+> **Changes**
+> - Bug fixes and improvements
+- **Pull Request**: [#58](https://github.com/zigpy/zigpy-ota/pull/58)
 
 ## heiman
 
