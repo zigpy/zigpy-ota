@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 26
+**Total firmware images:** 27
 
 ## aeotec
 
@@ -143,6 +143,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#58](https://github.com/zigpy/zigpy-ota/pull/58)
+
+### `1015-03D0-00030102_58826b.ota`
+
+- **Original File Name**: `EMI2LED_3.1.2.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x03D0` (976)
+- **File Version**: `0x00030102` (196866)
+- **File Size**: 213,826 bytes
+- **Checksum SHA3-256**: `58826b7bff4d62d92947edb97b03a3a98467932d8f916f599b728edc2c467e67`
+- **Checksum SHA512**: `fa53c339b61a8980c3d8d42319be4f57aa088d98b8f87393a6fce84c2bd224079c26ca2b097f2a3bf042f629adf32bac90460e17d0b7a28864f244453e262baf`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D0-00030102_58826b.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EMI2LED_3.1.2.zigbee
+- **Header String**: `EMI 2`
+
+**Release Notes:**
+
+> This updates the frient A/S EMI 2, LED (EMIZB-141) to v3.1.2.
+> 
+> **Changes**
+> - Stability improvements
+- **Pull Request**: [#62](https://github.com/zigpy/zigpy-ota/pull/62)
 
 ## heiman
 

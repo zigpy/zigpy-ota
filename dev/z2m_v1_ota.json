@@ -84,6 +84,18 @@
         "releaseNotes": "This updates the frient A/S Air Quality Sensor (AQSZB-110) or Humidity Sensor (HMSZB-120) to v4.0.3.\n\n**Changes**\n- Bug fixes and improvements"
     },
     {
+        "fileName": "1015-03D0-00030102_58826b.ota",
+        "fileVersion": 196866,
+        "fileSize": 213826,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D0-00030102_58826b.ota",
+        "imageType": 976,
+        "manufacturerCode": 4117,
+        "sha512": "fa53c339b61a8980c3d8d42319be4f57aa088d98b8f87393a6fce84c2bd224079c26ca2b097f2a3bf042f629adf32bac90460e17d0b7a28864f244453e262baf",
+        "otaHeaderString": "EMI 2",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EMI2LED_3.1.2.zigbee",
+        "releaseNotes": "This updates the frient A/S EMI 2, LED (EMIZB-141) to v3.1.2.\n\n**Changes**\n- Stability improvements"
+    },
+    {
         "fileName": "120B-A080-00000022_19cbfc.ota",
         "fileVersion": 34,
         "fileSize": 214938,
