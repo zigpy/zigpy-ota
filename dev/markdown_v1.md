@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 28
+**Total firmware images:** 29
 
 ## aeotec
 
@@ -143,6 +143,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Bug fixes and improvements
 - **Pull Request**: [#58](https://github.com/zigpy/zigpy-ota/pull/58)
+
+### `1015-0340-00040007_cecc7d.ota`
+
+- **Original File Name**: `EmiNorwegianHan_4.0.7.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0340` (832)
+- **File Version**: `0x00040007` (262151)
+- **File Size**: 204,077 bytes
+- **Checksum SHA3-256**: `cecc7dc91b2d5cf35380fc6adbd146be0a1b98ec7942ecf95485081faf6b3e0f`
+- **Checksum SHA512**: `cbc9158bc45d7a819d56ed72dc9b53c717371ccc25a17e84ea13819ce62c5a50cc549602b4b7979dd70561be5e1c4c0a31ba2899a15a20730d894165f3c4a487`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0340-00040007_cecc7d.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EmiNorwegianHan_4.0.7.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.
+> 
+> **Changes**
+> - Bug fixes
+> - Stability improvements
+- **Pull Request**: [#66](https://github.com/zigpy/zigpy-ota/pull/66)
 
 ### `1015-03D0-00030102_58826b.ota`
 

@@ -71,6 +71,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/58"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0340-00040007_cecc7d.ota",
+            "manufacturer_id": 4117,
+            "image_type": 832,
+            "file_version": 262151,
+            "file_size": 204077,
+            "checksum": "sha3-256:cecc7dc91b2d5cf35380fc6adbd146be0a1b98ec7942ecf95485081faf6b3e0f",
+            "release_notes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.\n\n**Changes**\n- Bug fixes\n- Stability improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03D0-00030102_58826b.ota",
             "manufacturer_id": 4117,
             "image_type": 976,
