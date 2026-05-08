@@ -108,6 +108,18 @@
         "releaseNotes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.\n\n**Changes**\n- Bug fixes\n- Stability improvements"
     },
     {
+        "fileName": "1015-0390-00020001_fb1605.ota",
+        "fileVersion": 131073,
+        "fileSize": 237070,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0390-00020001_fb1605.ota",
+        "imageType": 912,
+        "manufacturerCode": 4117,
+        "sha512": "7e39f51bdffbec36d4b9cb53ba9cc0abaf672b17102cc3127ea62f85057a89ff0f579cdc89dad83378118c5169ec36b308480253442b6695842efb775ca6741b",
+        "otaHeaderString": "Router - Digital IO",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IOModule_2.0.1.zigbee",
+        "releaseNotes": "This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.\n\n**Changes**\n- General improvements"
+    },
+    {
         "fileName": "1015-03A0-00020007_b99ca6.ota",
         "fileVersion": 131079,
         "fileSize": 217818,

@@ -91,6 +91,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0390-00020001_fb1605.ota",
+            "manufacturer_id": 4117,
+            "image_type": 912,
+            "file_version": 131073,
+            "file_size": 237070,
+            "checksum": "sha3-256:fb1605871379ff5f3a6776151b151daf654a11389684ac4d51be249181db665f",
+            "release_notes": "This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota",
             "manufacturer_id": 4117,
             "image_type": 928,

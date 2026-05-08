@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 31
+**Total firmware images:** 32
 
 ## aeotec
 
@@ -184,6 +184,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Bug fixes
 > - Stability improvements
 - **Pull Request**: [#66](https://github.com/zigpy/zigpy-ota/pull/66)
+
+### `1015-0390-00020001_fb1605.ota`
+
+- **Original File Name**: `IOModule_2.0.1.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0390` (912)
+- **File Version**: `0x00020001` (131073)
+- **File Size**: 237,070 bytes
+- **Checksum SHA3-256**: `fb1605871379ff5f3a6776151b151daf654a11389684ac4d51be249181db665f`
+- **Checksum SHA512**: `7e39f51bdffbec36d4b9cb53ba9cc0abaf672b17102cc3127ea62f85057a89ff0f579cdc89dad83378118c5169ec36b308480253442b6695842efb775ca6741b`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0390-00020001_fb1605.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IOModule_2.0.1.zigbee
+- **Header String**: `Router - Digital IO`
+
+**Release Notes:**
+
+> This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.
+> 
+> **Changes**
+> - General improvements
+- **Pull Request**: [#72](https://github.com/zigpy/zigpy-ota/pull/72)
 
 ### `1015-03A0-00020007_b99ca6.ota`
 
