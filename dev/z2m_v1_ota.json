@@ -60,6 +60,18 @@
         "releaseNotes": "**Changes**\n- Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations\n- Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates"
     },
     {
+        "fileName": "1015-0183-00020008_aa5364.ota",
+        "fileVersion": 131080,
+        "fileSize": 217454,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0183-00020008_aa5364.ota",
+        "imageType": 387,
+        "manufacturerCode": 4117,
+        "sha512": "b5e3be1a224f0411b702a7b9e5b239d79367fdcfe445dc8c7fd73c1ae8ae07f3ff62af353b6709f7762444be8f702eb49e85669811f4be065eb3968ec9f444f5",
+        "otaHeaderString": "MotionSensor",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/MotionSensor2_2.0.8.zigbee",
+        "releaseNotes": "This updates the frient A/S Motion Sensor 2 Pet/Alarm (MOSZB-153 or MOSZB-156) to v2.0.8.\n\n**Changes**\n- Minor improvements"
+    },
+    {
         "fileName": "1015-0240-00040003_ba480a.ota",
         "fileVersion": 262147,
         "fileSize": 200550,

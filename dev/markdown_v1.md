@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 34
+**Total firmware images:** 35
 
 ## aeotec
 
@@ -102,6 +102,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
 
 ## develco
+
+### `1015-0183-00020008_aa5364.ota`
+
+- **Original File Name**: `MotionSensor2_2.0.8.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0183` (387)
+- **File Version**: `0x00020008` (131080)
+- **File Size**: 217,454 bytes
+- **Checksum SHA3-256**: `aa5364188458b7666a4b8bd4c26a39031bf4fd2f588507a1e0e33de72136af43`
+- **Checksum SHA512**: `b5e3be1a224f0411b702a7b9e5b239d79367fdcfe445dc8c7fd73c1ae8ae07f3ff62af353b6709f7762444be8f702eb49e85669811f4be065eb3968ec9f444f5`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0183-00020008_aa5364.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/MotionSensor2_2.0.8.zigbee
+- **Header String**: `MotionSensor`
+
+**Release Notes:**
+
+> This updates the frient A/S Motion Sensor 2 Pet/Alarm (MOSZB-153 or MOSZB-156) to v2.0.8.
+> 
+> **Changes**
+> - Minor improvements
+- **Pull Request**: [#80](https://github.com/zigpy/zigpy-ota/pull/80)
 
 ### `1015-0240-00040003_ba480a.ota`
 
