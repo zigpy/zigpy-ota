@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 39
+**Total firmware images:** 40
 
 ## aeotec
 
@@ -329,6 +329,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Battery measurement improvements
 - **Pull Request**: [#84](https://github.com/zigpy/zigpy-ota/pull/84)
+
+### `1015-0392-00020004_30dc8e.ota`
+
+- **Original File Name**: `SmartSiren_2.0.4.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0392` (914)
+- **File Version**: `0x00020004` (131076)
+- **File Size**: 242,466 bytes
+- **Checksum SHA3-256**: `30dc8ee1ed9185905443c934b4ebcf9c2038ecd57f6ad53789fd7fc28665a380`
+- **Checksum SHA512**: `311cee037d23addef407aff9efd26c62dc9ff66003a369fd8860b54bb51f33254127a9c69c1190c74bf03382ad15e6db764d3eaf67a778e531ba006b4e1de18d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0392-00020004_30dc8e.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartSiren_2.0.4.zigbee
+- **Header String**: `Router - Siren`
+
+**Release Notes:**
+
+> This updates the frient A/S Smart Siren (SIRZB-110, SIRZB-111, or SIRZB-112) to v2.0.4.
+> 
+> **Changes**
+> - General improvements
+- **Pull Request**: [#90](https://github.com/zigpy/zigpy-ota/pull/90)
 
 ### `1015-0393-00020006_ed2430.ota`
 

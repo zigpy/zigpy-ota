@@ -161,6 +161,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/84"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0392-00020004_30dc8e.ota",
+            "manufacturer_id": 4117,
+            "image_type": 914,
+            "file_version": 131076,
+            "file_size": 242466,
+            "checksum": "sha3-256:30dc8ee1ed9185905443c934b4ebcf9c2038ecd57f6ad53789fd7fc28665a380",
+            "release_notes": "This updates the frient A/S Smart Siren (SIRZB-110, SIRZB-111, or SIRZB-112) to v2.0.4.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/90"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0393-00020006_ed2430.ota",
             "manufacturer_id": 4117,
             "image_type": 915,
