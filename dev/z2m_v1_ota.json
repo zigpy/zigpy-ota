@@ -120,6 +120,18 @@
         "releaseNotes": "This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.\n\n**Changes**\n- General improvements"
     },
     {
+        "fileName": "1015-0393-00020006_ed2430.ota",
+        "fileVersion": 131078,
+        "fileSize": 217690,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0393-00020006_ed2430.ota",
+        "imageType": 915,
+        "manufacturerCode": 4117,
+        "sha512": "f5ceec198dcaf61bc2615a0bd249f8a3e3abffa7251100913c13d88df284fd1e73a07c72467cb725e4caa3ff16d70032d134b390cee490fd9d9521092267882a",
+        "otaHeaderString": "KeyPad",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentKeyPad_2.0.6.zigbee",
+        "releaseNotes": "This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.\n\n**Changes**\n- Backlight improvements"
+    },
+    {
         "fileName": "1015-03A0-00020007_b99ca6.ota",
         "fileVersion": 131079,
         "fileSize": 217818,

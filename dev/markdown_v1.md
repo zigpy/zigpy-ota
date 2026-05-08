@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 32
+**Total firmware images:** 33
 
 ## aeotec
 
@@ -205,6 +205,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - General improvements
 - **Pull Request**: [#72](https://github.com/zigpy/zigpy-ota/pull/72)
+
+### `1015-0393-00020006_ed2430.ota`
+
+- **Original File Name**: `IntelligentKeyPad_2.0.6.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0393` (915)
+- **File Version**: `0x00020006` (131078)
+- **File Size**: 217,690 bytes
+- **Checksum SHA3-256**: `ed2430bab3585b01c3eb4dd1159055b0978a87e6eaf1e1b78a748504690b97d5`
+- **Checksum SHA512**: `f5ceec198dcaf61bc2615a0bd249f8a3e3abffa7251100913c13d88df284fd1e73a07c72467cb725e4caa3ff16d70032d134b390cee490fd9d9521092267882a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0393-00020006_ed2430.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/IntelligentKeyPad_2.0.6.zigbee
+- **Header String**: `KeyPad`
+
+**Release Notes:**
+
+> This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.
+> 
+> **Changes**
+> - Backlight improvements
+- **Pull Request**: [#76](https://github.com/zigpy/zigpy-ota/pull/76)
 
 ### `1015-03A0-00020007_b99ca6.ota`
 

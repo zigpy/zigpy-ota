@@ -101,6 +101,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0393-00020006_ed2430.ota",
+            "manufacturer_id": 4117,
+            "image_type": 915,
+            "file_version": 131078,
+            "file_size": 217690,
+            "checksum": "sha3-256:ed2430bab3585b01c3eb4dd1159055b0978a87e6eaf1e1b78a748504690b97d5",
+            "release_notes": "This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.\n\n**Changes**\n- Backlight improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/76"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-03A0-00020007_b99ca6.ota",
             "manufacturer_id": 4117,
             "image_type": 928,
