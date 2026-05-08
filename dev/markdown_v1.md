@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 25
+**Total firmware images:** 26
 
 ## aeotec
 
@@ -102,6 +102,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
 
 ## develco
+
+### `1015-0310-00040003_c3738d.ota`
+
+- **Original File Name**: `HumiditySensor_4.0.3.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0310` (784)
+- **File Version**: `0x00040003` (262147)
+- **File Size**: 189,735 bytes
+- **Checksum SHA3-256**: `c3738dafb1e77a19a4d30b011701b2910280dcef6fdb2180c319866b5966cb05`
+- **Checksum SHA512**: `5e08e54ffecdf2339d5a9ffff1162242dadcc91e05279f690118670eb0f36b3cfd03a2696d748bb414891b79e7f2feef7bc4420135719eb321af32a2211f74b0`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0310-00040003_c3738d.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/HumiditySensor_4.0.3.zigbee
+
+**Release Notes:**
+
+> This updates the frient A/S Humidity Sensor (HMSZB-110) to v4.0.3.
+> 
+> **Changes**
+> - Bug fixes
+> - Improved stability
+- **Pull Request**: [#60](https://github.com/zigpy/zigpy-ota/pull/60)
 
 ### `1015-0320-00040003_5277c4.ota`
 
