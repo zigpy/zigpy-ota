@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-0182-00040008_43f6cf.ota
+source_file_name: MotionSensor_4.0.8.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/MotionSensor_4.0.8.zigbee
+release_notes: |-
+  This updates the frient A/S Motion Sensor/Pro (MOSZB-141 or MOSZB-140) to v4.0.8.
+
+  **Changes**
+  - Bug fixes
