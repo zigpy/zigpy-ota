@@ -2,6 +2,7 @@
 file_name: 1015-0392-00020004_30dc8e.ota
 source_file_name: SmartSiren_2.0.4.zigbee
 source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmartSiren_2.0.4.zigbee
+pull_request: 90
 release_notes: |-
   This updates the frient A/S Smart Siren (SIRZB-110, SIRZB-111, or SIRZB-112) to v2.0.4.
 
