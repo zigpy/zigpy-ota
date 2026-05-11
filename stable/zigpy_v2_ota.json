@@ -1,7 +1,7 @@
 {
     "firmwares": [
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/aeotec/1310-0000-00000011_350c16.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0000-00000011_350c16.ota",
             "manufacturer_id": 4880,
             "image_type": 0,
             "file_version": 17,
@@ -11,7 +11,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0802-00000106_1f3467.ota",
             "manufacturer_id": 4880,
             "image_type": 2050,
             "file_version": 262,
@@ -21,7 +21,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/aeotec/1310-0803-00000106_030d13.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0803-00000106_030d13.ota",
             "manufacturer_id": 4880,
             "image_type": 2051,
             "file_version": 262,
@@ -31,7 +31,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-7C04-00000108_6d687b.ota",
             "manufacturer_id": 4880,
             "image_type": 31748,
             "file_version": 264,
@@ -41,7 +41,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/bega/1105-A0A0-00990BF2_143d97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/bega/1105-A0A0-00990BF2_143d97.ota",
             "manufacturer_id": 4357,
             "image_type": 41120,
             "file_version": 10030066,
@@ -51,7 +51,187 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/heiman/120B-A080-00000022_19cbfc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0182-00040008_43f6cf.ota",
+            "manufacturer_id": 4117,
+            "image_type": 386,
+            "file_version": 262152,
+            "file_size": 210984,
+            "checksum": "sha3-256:43f6cf798c6eb86466e5fab102c96124d5d832c3adbb27e9cd05195d45ba67a2",
+            "release_notes": "This updates the frient A/S Motion Sensor/Pro (MOSZB-141 or MOSZB-140) to v4.0.8.\n\n**Changes**\n- Bug fixes",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/82"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0183-00020008_aa5364.ota",
+            "manufacturer_id": 4117,
+            "image_type": 387,
+            "file_version": 131080,
+            "file_size": 217454,
+            "checksum": "sha3-256:aa5364188458b7666a4b8bd4c26a39031bf4fd2f588507a1e0e33de72136af43",
+            "release_notes": "This updates the frient A/S Motion Sensor 2 Pet/Alarm (MOSZB-153 or MOSZB-156) to v2.0.8.\n\n**Changes**\n- Minor improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/80"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0240-00040003_ba480a.ota",
+            "manufacturer_id": 4117,
+            "image_type": 576,
+            "file_version": 262147,
+            "file_size": 200550,
+            "checksum": "sha3-256:ba480aada8ee0aca5d240dcb0e5126afb20c5d5b1ce93e9a3d6b84cc81d3c228",
+            "release_notes": "This updates the frient A/S Entry Sensor/Pro (WISZB-121 or WISZB-120) to v4.0.3.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/70"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0251-00040009_1276ed.ota",
+            "manufacturer_id": 4117,
+            "image_type": 593,
+            "file_version": 262153,
+            "file_size": 202074,
+            "checksum": "sha3-256:1276ed2145f6ce22b98bd36afa4ab0133482389f17d162328f6b7759f979d510",
+            "release_notes": "This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.\n\n**Changes**\n- Have a backup image ready in external flash\n- Bug fixes",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/78"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-02E0-00030C10_c06f96.ota",
+            "manufacturer_id": 4117,
+            "image_type": 736,
+            "file_version": 199696,
+            "file_size": 181164,
+            "checksum": "sha3-256:c06f964e0ce748a987fdb49af325f218da526049993a8f5b3795c8b89478b46d",
+            "release_notes": "This updates the frient A/S Smart Plug Mini, Smart Cable, or Smart DIN Relay (SPLZB-131, SPLZB-132, SPLZB-134, SMRZB-143, or SMRZB-332) to v3.12.16.\n\n**Changes**\n- Improvements to router functionality",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/88"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-02E1-00020009_547c30.ota",
+            "manufacturer_id": 4117,
+            "image_type": 737,
+            "file_version": 131081,
+            "file_size": 234822,
+            "checksum": "sha3-256:547c3042159d5b21d7eed5915b262d17d8c4ac8b414ef5a597ce0f976e818cf2",
+            "release_notes": "This updates the frient A/S Smart Plug Mini 2, Smart Cable 2, or Smart DIN Relay 2 (SPLZB-141, SPLZB-144, SMRZB-153, or SMRZB-342) to v2.0.9.\n\n**Changes**\n- RF performance tuning",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/86"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0300-00040005_1fab69.ota",
+            "manufacturer_id": 4117,
+            "image_type": 768,
+            "file_version": 262149,
+            "file_size": 201442,
+            "checksum": "sha3-256:1fab693df006363956c9e84cca0eb8b56de66289241959ca20fe894f59244c25",
+            "release_notes": "This updates the frient A/S Water Leak Detector (FLSZB-110) to v4.0.5.\n\n**Changes**\n- Have a backup image ready in external flash",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/92"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0310-00040003_c3738d.ota",
+            "manufacturer_id": 4117,
+            "image_type": 784,
+            "file_version": 262147,
+            "file_size": 189735,
+            "checksum": "sha3-256:c3738dafb1e77a19a4d30b011701b2910280dcef6fdb2180c319866b5966cb05",
+            "release_notes": "This updates the frient A/S Humidity Sensor (HMSZB-110) to v4.0.3.\n\n**Changes**\n- Bug fixes\n- Improved stability",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/60"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0320-00040003_5277c4.ota",
+            "manufacturer_id": 4117,
+            "image_type": 800,
+            "file_version": 262147,
+            "file_size": 197820,
+            "checksum": "sha3-256:5277c40903123c7a9566a0ddd6b3bb513927f75881a3558f5597363b5a99caca",
+            "release_notes": "This updates the frient A/S Air Quality Sensor (AQSZB-110) or Humidity Sensor (HMSZB-120) to v4.0.3.\n\n**Changes**\n- Bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/58"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0340-00040007_cecc7d.ota",
+            "manufacturer_id": 4117,
+            "image_type": 832,
+            "file_version": 262151,
+            "file_size": 204077,
+            "checksum": "sha3-256:cecc7dc91b2d5cf35380fc6adbd146be0a1b98ec7942ecf95485081faf6b3e0f",
+            "release_notes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.\n\n**Changes**\n- Bug fixes\n- Stability improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0390-00020001_fb1605.ota",
+            "manufacturer_id": 4117,
+            "image_type": 912,
+            "file_version": 131073,
+            "file_size": 237070,
+            "checksum": "sha3-256:fb1605871379ff5f3a6776151b151daf654a11389684ac4d51be249181db665f",
+            "release_notes": "This updates the frient A/S IO Module (IOMZB-110) to v2.0.1.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0391-00020004_748757.ota",
+            "manufacturer_id": 4117,
+            "image_type": 913,
+            "file_version": 131076,
+            "file_size": 209338,
+            "checksum": "sha3-256:748757aac8d6e8cf673aaf26f8cfbc2c9aefb3cbf1ba3deef836d70c539c2ff6",
+            "release_notes": "This updates the frient A/S Smart Button (SBTZB-110) to v2.0.4.\n\n**Changes**\n- Battery measurement improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/84"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0392-00020004_30dc8e.ota",
+            "manufacturer_id": 4117,
+            "image_type": 914,
+            "file_version": 131076,
+            "file_size": 242466,
+            "checksum": "sha3-256:30dc8ee1ed9185905443c934b4ebcf9c2038ecd57f6ad53789fd7fc28665a380",
+            "release_notes": "This updates the frient A/S Smart Siren (SIRZB-110, SIRZB-111, or SIRZB-112) to v2.0.4.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/90"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0393-00020006_ed2430.ota",
+            "manufacturer_id": 4117,
+            "image_type": 915,
+            "file_version": 131078,
+            "file_size": 217690,
+            "checksum": "sha3-256:ed2430bab3585b01c3eb4dd1159055b0978a87e6eaf1e1b78a748504690b97d5",
+            "release_notes": "This updates the frient A/S Intelligent Keypad (KEPZB-110, KEPZB-112, KEPZB-120, or KEPZB-122) to v2.0.6.\n\n**Changes**\n- Backlight improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/76"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0394-00020002_e9c6ac.ota",
+            "manufacturer_id": 4117,
+            "image_type": 916,
+            "file_version": 131074,
+            "file_size": 230466,
+            "checksum": "sha3-256:e9c6acdb159a01f32917eabd8112df4131365b9914202c5165d8ad353bb04cf6",
+            "release_notes": "This updates the frient A/S Zigbee Range Extender (REXZB-110 or REXZB-111) to v2.0.2.\n\n**Changes**\n- Minor improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/94"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03A0-00020007_b99ca6.ota",
+            "manufacturer_id": 4117,
+            "image_type": 928,
+            "file_version": 131079,
+            "file_size": 217818,
+            "checksum": "sha3-256:b99ca6243ab0d2af76b5d96def023a49a9d2f108a966655ee28aab5f4aff60bf",
+            "release_notes": "This updates the frient A/S Entry Sensor 2 Pro/Alarm (WISZB-131 or WISZB-138) or Vibration Sensor (WISZB-137) to v2.0.7.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/68"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03D0-00030102_58826b.ota",
+            "manufacturer_id": 4117,
+            "image_type": 976,
+            "file_version": 196866,
+            "file_size": 213826,
+            "checksum": "sha3-256:58826b7bff4d62d92947edb97b03a3a98467932d8f916f599b728edc2c467e67",
+            "release_notes": "This updates the frient A/S EMI 2, LED (EMIZB-141) to v3.1.2.\n\n**Changes**\n- Stability improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/62"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03D1-00030107_862fed.ota",
+            "manufacturer_id": 4117,
+            "image_type": 977,
+            "file_version": 196871,
+            "file_size": 226882,
+            "checksum": "sha3-256:862fed8ac5bb0021a6042fb0d1f0744d62fc4f692f746af995411200b160d9ab",
+            "release_notes": "This updates the frient A/S EMI 2, P1 (EMIZB-151) to v3.1.7.\n\n**Changes**\n- General improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/64"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/heiman/120B-A080-00000022_19cbfc.ota",
             "manufacturer_id": 4619,
             "image_type": 41088,
             "file_version": 34,
@@ -61,7 +241,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/53"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0331-191D3685_650309.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
             "file_version": 421344901,
@@ -71,7 +251,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0332-191D3685_9f8062.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0332-191D3685_9f8062.ota",
             "manufacturer_id": 4454,
             "image_type": 818,
             "file_version": 421344901,
@@ -81,7 +261,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/14"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0333-191D3685_ac67dc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0333-191D3685_ac67dc.ota",
             "manufacturer_id": 4454,
             "image_type": 819,
             "file_version": 421344901,
@@ -91,7 +271,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/16"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0334-191E3685_0f83d8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0334-191E3685_0f83d8.ota",
             "manufacturer_id": 4454,
             "image_type": 820,
             "file_version": 421410437,
@@ -101,7 +281,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/18"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0335-191E3685_500102.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0335-191E3685_500102.ota",
             "manufacturer_id": 4454,
             "image_type": 821,
             "file_version": 421410437,
@@ -111,7 +291,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/20"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/innr/1166-0336-191E3685_8008e8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0336-191E3685_8008e8.ota",
             "manufacturer_id": 4454,
             "image_type": 822,
             "file_version": 421410437,
@@ -121,7 +301,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/sonoff/1286-000B-00002002_cb2909.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,
             "file_version": 8194,
@@ -138,7 +318,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-0045-00001005_ea654a.ota",
             "manufacturer_id": 4742,
             "image_type": 69,
             "file_version": 4101,
@@ -154,7 +334,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/sonoff/1286-080E-00001100_a91db8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,
             "file_version": 4352,
@@ -170,7 +350,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/sonoff/1286-2007-00001404_fbc68d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,
             "file_version": 5124,
@@ -186,7 +366,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
             "file_version": 25232480,
@@ -198,7 +378,7 @@
             "max_hardware_version": 1
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B31-02600460_099597.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B31-02600460_099597.ota",
             "manufacturer_id": 4338,
             "image_type": 31537,
             "file_version": 39847008,
@@ -210,7 +390,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
             "manufacturer_id": 4338,
             "image_type": 31539,
             "file_version": 39847008,
@@ -222,7 +402,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B34-02600462_4293bb.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B34-02600462_4293bb.ota",
             "manufacturer_id": 4338,
             "image_type": 31540,
             "file_version": 39847010,
@@ -234,7 +414,7 @@
             "max_hardware_version": 7
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
             "manufacturer_id": 4338,
             "image_type": 31544,
             "file_version": 39847008,
@@ -246,7 +426,7 @@
             "max_hardware_version": 4
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B45-02610463_459e97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B45-02610463_459e97.ota",
             "manufacturer_id": 4338,
             "image_type": 31557,
             "file_version": 39912547,
@@ -258,7 +438,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/ubisys/10F2-7B49-02610464_2faab5.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B49-02610464_2faab5.ota",
             "manufacturer_id": 4338,
             "image_type": 31561,
             "file_version": 39912548,
@@ -270,7 +450,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.4.1/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
             "manufacturer_id": 5563,
             "image_type": 100,
             "file_version": 1060869,
