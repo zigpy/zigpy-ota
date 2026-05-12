@@ -440,6 +440,18 @@
         "modelId": "TRVZB"
     },
     {
+        "fileName": "1407-D3AE-00000016_2d7f28.ota",
+        "fileVersion": 22,
+        "fileSize": 265858,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
+        "imageType": 54190,
+        "manufacturerCode": 5127,
+        "sha512": "1a1cdecd080acec76664a461788a2a035f8edd0ac43818ce7beedc3f7dfa952d3b91cac32da4d69dea99e3ffe56f485373944d4e229a3dd4f188ceaac7ba4518",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_022_20260511_075640.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22."
+    },
+    {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",
         "fileVersion": 25232480,
         "fileSize": 182526,

@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 42
+**Total firmware images:** 43
 
 ## aeotec
 
@@ -927,6 +927,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
+
+## third_reality
+
+### `1407-D3AE-00000016_2d7f28.ota`
+
+- **Original File Name**: `3RAP0149BZ_ZHA_022_20260511_075640.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3AE` (54190)
+- **File Version**: `0x00000016` (22)
+- **File Size**: 265,858 bytes
+- **Checksum SHA3-256**: `2d7f287c5dba8dc8e191f50fffceaa32d7953289c27d561a914bb85c6e1a17e6`
+- **Checksum SHA512**: `1a1cdecd080acec76664a461788a2a035f8edd0ac43818ce7beedc3f7dfa952d3b91cac32da4d69dea99e3ffe56f485373944d4e229a3dd4f188ceaac7ba4518`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_022_20260511_075640.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Filter Sensor to v1.00.22.
+- **Pull Request**: [#99](https://github.com/zigpy/zigpy-ota/pull/99)
 
 ## ubisys
 
