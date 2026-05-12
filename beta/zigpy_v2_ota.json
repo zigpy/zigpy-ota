@@ -1,7 +1,7 @@
 {
     "firmwares": [
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0000-00000011_350c16.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0000-00000011_350c16.ota",
             "manufacturer_id": 4880,
             "image_type": 0,
             "file_version": 17,
@@ -11,7 +11,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0802-00000106_1f3467.ota",
             "manufacturer_id": 4880,
             "image_type": 2050,
             "file_version": 262,
@@ -21,7 +21,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-0803-00000106_030d13.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0803-00000106_030d13.ota",
             "manufacturer_id": 4880,
             "image_type": 2051,
             "file_version": 262,
@@ -31,7 +31,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-7C04-00000108_6d687b.ota",
             "manufacturer_id": 4880,
             "image_type": 31748,
             "file_version": 264,
@@ -41,7 +41,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/bega/1105-A0A0-00990BF2_143d97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/bega/1105-A0A0-00990BF2_143d97.ota",
             "manufacturer_id": 4357,
             "image_type": 41120,
             "file_version": 10030066,
@@ -51,7 +51,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0182-00040008_43f6cf.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0182-00040008_43f6cf.ota",
             "manufacturer_id": 4117,
             "image_type": 386,
             "file_version": 262152,
@@ -61,7 +61,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/82"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0183-00020008_aa5364.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0183-00020008_aa5364.ota",
             "manufacturer_id": 4117,
             "image_type": 387,
             "file_version": 131080,
@@ -71,7 +71,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/80"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0240-00040003_ba480a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0240-00040003_ba480a.ota",
             "manufacturer_id": 4117,
             "image_type": 576,
             "file_version": 262147,
@@ -81,7 +81,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/70"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0251-00040009_1276ed.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0251-00040009_1276ed.ota",
             "manufacturer_id": 4117,
             "image_type": 593,
             "file_version": 262153,
@@ -91,7 +91,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/78"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-02E0-00030C10_c06f96.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-02E0-00030C10_c06f96.ota",
             "manufacturer_id": 4117,
             "image_type": 736,
             "file_version": 199696,
@@ -101,7 +101,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/88"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-02E1-00020009_547c30.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-02E1-00020009_547c30.ota",
             "manufacturer_id": 4117,
             "image_type": 737,
             "file_version": 131081,
@@ -111,7 +111,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/86"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0300-00040005_1fab69.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0300-00040005_1fab69.ota",
             "manufacturer_id": 4117,
             "image_type": 768,
             "file_version": 262149,
@@ -121,7 +121,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/92"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0310-00040003_c3738d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0310-00040003_c3738d.ota",
             "manufacturer_id": 4117,
             "image_type": 784,
             "file_version": 262147,
@@ -131,7 +131,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/60"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0320-00040003_5277c4.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0320-00040003_5277c4.ota",
             "manufacturer_id": 4117,
             "image_type": 800,
             "file_version": 262147,
@@ -141,7 +141,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/58"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0340-00040007_cecc7d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0340-00040007_cecc7d.ota",
             "manufacturer_id": 4117,
             "image_type": 832,
             "file_version": 262151,
@@ -151,7 +151,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0390-00020001_fb1605.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0390-00020001_fb1605.ota",
             "manufacturer_id": 4117,
             "image_type": 912,
             "file_version": 131073,
@@ -161,7 +161,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0391-00020004_748757.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0391-00020004_748757.ota",
             "manufacturer_id": 4117,
             "image_type": 913,
             "file_version": 131076,
@@ -171,7 +171,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/84"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0392-00020004_30dc8e.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0392-00020004_30dc8e.ota",
             "manufacturer_id": 4117,
             "image_type": 914,
             "file_version": 131076,
@@ -181,7 +181,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/90"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0393-00020006_ed2430.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0393-00020006_ed2430.ota",
             "manufacturer_id": 4117,
             "image_type": 915,
             "file_version": 131078,
@@ -191,7 +191,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/76"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-0394-00020002_e9c6ac.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0394-00020002_e9c6ac.ota",
             "manufacturer_id": 4117,
             "image_type": 916,
             "file_version": 131074,
@@ -201,7 +201,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/94"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03A0-00020007_b99ca6.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03A0-00020007_b99ca6.ota",
             "manufacturer_id": 4117,
             "image_type": 928,
             "file_version": 131079,
@@ -211,7 +211,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/68"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03D0-00030102_58826b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03D0-00030102_58826b.ota",
             "manufacturer_id": 4117,
             "image_type": 976,
             "file_version": 196866,
@@ -221,7 +221,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/62"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/develco/1015-03D1-00030107_862fed.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03D1-00030107_862fed.ota",
             "manufacturer_id": 4117,
             "image_type": 977,
             "file_version": 196871,
@@ -231,7 +231,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/64"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/heiman/120B-A080-00000022_19cbfc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/heiman/120B-A080-00000022_19cbfc.ota",
             "manufacturer_id": 4619,
             "image_type": 41088,
             "file_version": 34,
@@ -241,7 +241,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/53"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0331-191D3685_650309.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
             "file_version": 421344901,
@@ -251,7 +251,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0332-191D3685_9f8062.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0332-191D3685_9f8062.ota",
             "manufacturer_id": 4454,
             "image_type": 818,
             "file_version": 421344901,
@@ -261,7 +261,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/14"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0333-191D3685_ac67dc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0333-191D3685_ac67dc.ota",
             "manufacturer_id": 4454,
             "image_type": 819,
             "file_version": 421344901,
@@ -271,7 +271,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/16"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0334-191E3685_0f83d8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0334-191E3685_0f83d8.ota",
             "manufacturer_id": 4454,
             "image_type": 820,
             "file_version": 421410437,
@@ -281,7 +281,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/18"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0335-191E3685_500102.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0335-191E3685_500102.ota",
             "manufacturer_id": 4454,
             "image_type": 821,
             "file_version": 421410437,
@@ -291,7 +291,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/20"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/innr/1166-0336-191E3685_8008e8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0336-191E3685_8008e8.ota",
             "manufacturer_id": 4454,
             "image_type": 822,
             "file_version": 421410437,
@@ -301,7 +301,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-000B-00002002_cb2909.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,
             "file_version": 8194,
@@ -318,7 +318,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-0045-00001005_ea654a.ota",
             "manufacturer_id": 4742,
             "image_type": 69,
             "file_version": 4101,
@@ -334,7 +334,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-080E-00001100_a91db8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,
             "file_version": 4352,
@@ -350,7 +350,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/sonoff/1286-2007-00001404_fbc68d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,
             "file_version": 5124,
@@ -366,7 +366,19 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54190,
+            "file_version": 22,
+            "file_size": 265858,
+            "checksum": "sha3-256:2d7f287c5dba8dc8e191f50fffceaa32d7953289c27d561a914bb85c6e1a17e6",
+            "release_notes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/99",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
             "file_version": 25232480,
@@ -378,7 +390,7 @@
             "max_hardware_version": 1
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B31-02600460_099597.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B31-02600460_099597.ota",
             "manufacturer_id": 4338,
             "image_type": 31537,
             "file_version": 39847008,
@@ -390,7 +402,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
             "manufacturer_id": 4338,
             "image_type": 31539,
             "file_version": 39847008,
@@ -402,7 +414,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B34-02600462_4293bb.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B34-02600462_4293bb.ota",
             "manufacturer_id": 4338,
             "image_type": 31540,
             "file_version": 39847010,
@@ -414,7 +426,7 @@
             "max_hardware_version": 7
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
             "manufacturer_id": 4338,
             "image_type": 31544,
             "file_version": 39847008,
@@ -426,7 +438,7 @@
             "max_hardware_version": 4
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B45-02610463_459e97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B45-02610463_459e97.ota",
             "manufacturer_id": 4338,
             "image_type": 31557,
             "file_version": 39912547,
@@ -438,7 +450,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/ubisys/10F2-7B49-02610464_2faab5.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B49-02610464_2faab5.ota",
             "manufacturer_id": 4338,
             "image_type": 31561,
             "file_version": 39912548,
@@ -450,7 +462,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.0/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
             "manufacturer_id": 5563,
             "image_type": 100,
             "file_version": 1060869,
