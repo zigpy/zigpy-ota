@@ -2,5 +2,6 @@
 file_name: 1407-D3B0-0000002D_de90d1.ota
 source_file_name: 3RWK0148Z_ZHA_045_20260512_071544.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RWK0148Z_ZHA_045_20260512_071544.ota
+pull_request: 119
 release_notes: |-
   This updates the ThirdReality Smart Watering Kit (3RWK0148Z) to v1.00.45.
