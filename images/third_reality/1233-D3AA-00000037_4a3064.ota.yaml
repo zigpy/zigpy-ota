@@ -2,5 +2,6 @@
 file_name: 1233-D3AA-00000037_4a3064.ota
 source_file_name: 3RSB02015Z_ZHA_055_20260512_072744.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSB02015Z_ZHA_055_20260512_072744.ota
+pull_request: 123
 release_notes: |-
   This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55.
