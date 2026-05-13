@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1407-D3C1-0000000F_dd668d.ota
+source_file_name: 3RTHS0324Z_ZHA_015_20260512_073649.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RTHS0324Z_ZHA_015_20260512_073649.ota
+release_notes: |-
+  This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.
