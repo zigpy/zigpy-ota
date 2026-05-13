@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 46
+**Total firmware images:** 47
 
 ## aeotec
 
@@ -947,6 +947,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
 - **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
+
+### `130D-0000-00000056_b2f39f.ota`
+
+- **Original File Name**: `3RSNL02043Z_ZHA_086_20260512_064023.ota`
+- **Manufacturer ID**: `0x130D` (4877)
+- **Image Type**: `0x0000` (0)
+- **File Version**: `0x00000056` (86)
+- **File Size**: 298,162 bytes
+- **Checksum SHA3-256**: `b2f39f54c2eacc9f688ab36082c29cc21b3547fe5a0f66b9a069450f00d57b58`
+- **Checksum SHA512**: `7ab5d3cc6059166cc8080101090c1f53f4667a2f8a80da0e890687484182274932cb2061af24771c54f6ca6bcf1bb08d3402ad9c0e6fe0dc2a740d1ee45fb22c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/130D-0000-00000056_b2f39f.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSNL02043Z_ZHA_086_20260512_064023.ota
+- **Header String**: `test`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86.
+- **Pull Request**: [#107](https://github.com/zigpy/zigpy-ota/pull/107)
 
 ### `1407-D3AE-00000016_2d7f28.ota`
 

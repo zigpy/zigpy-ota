@@ -452,6 +452,18 @@
         "releaseNotes": "This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63."
     },
     {
+        "fileName": "130D-0000-00000056_b2f39f.ota",
+        "fileVersion": 86,
+        "fileSize": 298162,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/130D-0000-00000056_b2f39f.ota",
+        "imageType": 0,
+        "manufacturerCode": 4877,
+        "sha512": "7ab5d3cc6059166cc8080101090c1f53f4667a2f8a80da0e890687484182274932cb2061af24771c54f6ca6bcf1bb08d3402ad9c0e6fe0dc2a740d1ee45fb22c",
+        "otaHeaderString": "test",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSNL02043Z_ZHA_086_20260512_064023.ota",
+        "releaseNotes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86."
+    },
+    {
         "fileName": "1407-D3AE-00000016_2d7f28.ota",
         "fileVersion": 22,
         "fileSize": 265858,

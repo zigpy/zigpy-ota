@@ -376,6 +376,18 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/130D-0000-00000056_b2f39f.ota",
+            "manufacturer_id": 4877,
+            "image_type": 0,
+            "file_version": 86,
+            "file_size": 298162,
+            "checksum": "sha3-256:b2f39f54c2eacc9f688ab36082c29cc21b3547fe5a0f66b9a069450f00d57b58",
+            "release_notes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/107",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
             "manufacturer_id": 5127,
             "image_type": 54190,
