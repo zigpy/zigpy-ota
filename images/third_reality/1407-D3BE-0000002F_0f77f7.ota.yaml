@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1407-D3BE-0000002F_0f77f7.ota
+source_file_name: 3RSPE02065Z_ZHA_047_20260512_075639.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSPE02065Z_ZHA_047_20260512_075639.ota
+release_notes: |-
+  This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47.
