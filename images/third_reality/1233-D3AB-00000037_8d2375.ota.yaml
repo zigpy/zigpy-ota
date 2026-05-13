@@ -2,5 +2,6 @@
 file_name: 1233-D3AB-00000037_8d2375.ota
 source_file_name: 3RVS01031Z_ZHA_055_20260512_074249.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RVS01031Z_ZHA_055_20260512_074249.ota
+pull_request: 133
 release_notes: |-
   This updates the ThirdReality Smart Vibration Sensor (3RVS01031Z) to v1.00.55.
