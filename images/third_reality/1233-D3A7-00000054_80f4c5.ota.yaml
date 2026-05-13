@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1233-D3A7-00000054_80f4c5.ota
+source_file_name: 3RSB015BZ_ZHA_084_20260512_072044.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSB015BZ_ZHA_084_20260512_072044.ota
+release_notes: |-
+  This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.
