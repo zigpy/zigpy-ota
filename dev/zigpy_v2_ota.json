@@ -386,6 +386,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A7-00000054_80f4c5.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54183,
+            "file_version": 84,
+            "file_size": 157106,
+            "checksum": "sha3-256:80f4c56de3b03a3438dae9229297e1c2a219c7f09c44fb13f16e8b4b7bace13f",
+            "release_notes": "This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/121"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3D0-00000009_e469a4.ota",
             "manufacturer_id": 4659,
             "image_type": 54224,
