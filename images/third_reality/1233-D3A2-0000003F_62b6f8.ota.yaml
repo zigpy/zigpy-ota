@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1233-D3A2-0000003F_62b6f8.ota
+source_file_name: 3RDS17BZ_ZHA_063_20260512_062544.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RDS17BZ_ZHA_063_20260512_062544.ota
+pull_request: 103
+release_notes: |-
+  This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
