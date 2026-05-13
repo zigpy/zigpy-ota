@@ -2,5 +2,6 @@
 file_name: 1407-D3B9-00000014_44fad6.ota
 source_file_name: 3RPS01083Z_ZHA_020_20260512_070945.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RPS01083Z_ZHA_020_20260512_070945.ota
+pull_request: 115
 release_notes: |-
   This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20.
