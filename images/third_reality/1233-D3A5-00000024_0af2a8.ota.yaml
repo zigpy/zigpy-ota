@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1233-D3A5-00000024_0af2a8.ota
+source_file_name: 3RSS009Z_ZHA_036_20260512_073153.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSS009Z_ZHA_036_20260512_073153.ota
+release_notes: |-
+  This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36.
