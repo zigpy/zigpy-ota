@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 56
+**Total firmware images:** 57
 
 ## aeotec
 
@@ -1077,6 +1077,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Filter Sensor to v1.00.22.
 - **Pull Request**: [#99](https://github.com/zigpy/zigpy-ota/pull/99)
+
+### `1407-D3AF-00000033_b7c5d2.ota`
+
+- **Original File Name**: `3RSM0147Z_ZHA_051_20260512_073409.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3AF` (54191)
+- **File Version**: `0x00000033` (51)
+- **File Size**: 144,258 bytes
+- **Checksum SHA3-256**: `b7c5d2805d0dffde199f1fa4a0ecf360cb7fb6705ff921dc2c6cc1858418b201`
+- **Checksum SHA512**: `742082a6a3421bfd757b10f7f5a94afa052fba975852ffac44e2ef25a24a087eb16878117b16f5985dcd44a96ed8c3a59bcb5e1b28b4d51ba56f73c0ea727863`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AF-00000033_b7c5d2.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSM0147Z_ZHA_051_20260512_073409.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Soil Moisture Sensor (3RSM0147Z) to v1.00.51.
+- **Pull Request**: [#127](https://github.com/zigpy/zigpy-ota/pull/127)
 
 ### `1407-D3B0-0000002D_de90d1.ota`
 
