@@ -512,6 +512,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55."
     },
     {
+        "fileName": "1233-D3AB-00000037_8d2375.ota",
+        "fileVersion": 55,
+        "fileSize": 132610,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3AB-00000037_8d2375.ota",
+        "imageType": 54187,
+        "manufacturerCode": 4659,
+        "sha512": "5bd3a87405696100395e93f3f72a512f704c82a1c46775631a4497ffd847d822cb13fdb552213734bac2f46b60027f8939dd793283a2fec60a43e3717afeb502",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RVS01031Z_ZHA_055_20260512_074249.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Vibration Sensor (3RVS01031Z) to v1.00.55."
+    },
+    {
         "fileName": "1233-D3D0-00000009_e469a4.ota",
         "fileVersion": 9,
         "fileSize": 143522,

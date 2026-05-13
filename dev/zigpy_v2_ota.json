@@ -426,6 +426,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/123"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3AB-00000037_8d2375.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54187,
+            "file_version": 55,
+            "file_size": 132610,
+            "checksum": "sha3-256:8d23754132572a193ca1c4e3afc67213750ae5b702e40d507373538b64e1a99d",
+            "release_notes": "This updates the ThirdReality Smart Vibration Sensor (3RVS01031Z) to v1.00.55.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/133"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3D0-00000009_e469a4.ota",
             "manufacturer_id": 4659,
             "image_type": 54224,

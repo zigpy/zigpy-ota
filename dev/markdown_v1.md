@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 59
+**Total firmware images:** 60
 
 ## aeotec
 
@@ -1037,6 +1037,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55.
 - **Pull Request**: [#123](https://github.com/zigpy/zigpy-ota/pull/123)
+
+### `1233-D3AB-00000037_8d2375.ota`
+
+- **Original File Name**: `3RVS01031Z_ZHA_055_20260512_074249.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3AB` (54187)
+- **File Version**: `0x00000037` (55)
+- **File Size**: 132,610 bytes
+- **Checksum SHA3-256**: `8d23754132572a193ca1c4e3afc67213750ae5b702e40d507373538b64e1a99d`
+- **Checksum SHA512**: `5bd3a87405696100395e93f3f72a512f704c82a1c46775631a4497ffd847d822cb13fdb552213734bac2f46b60027f8939dd793283a2fec60a43e3717afeb502`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3AB-00000037_8d2375.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RVS01031Z_ZHA_055_20260512_074249.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Vibration Sensor (3RVS01031Z) to v1.00.55.
+- **Pull Request**: [#133](https://github.com/zigpy/zigpy-ota/pull/133)
 
 ### `1233-D3D0-00000009_e469a4.ota`
 
