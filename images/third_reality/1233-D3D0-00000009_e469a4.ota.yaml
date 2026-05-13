@@ -2,5 +2,6 @@
 file_name: 1233-D3D0-00000009_e469a4.ota
 source_file_name: 3RSB01085Z_ZHA_009_20260512_065536.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSB01085Z_ZHA_009_20260512_065536.ota
+pull_request: 111
 release_notes: |-
   This updates the ThirdReality Smart Button ZB2 (3RSB01085Z) to v1.00.09.
