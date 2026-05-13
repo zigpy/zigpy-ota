@@ -2,5 +2,6 @@
 file_name: 1407-D3B1-00000024_a6a64a.ota
 source_file_name: 3RDTS01056Z_ZHA_036_20260512_063644.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RDTS01056Z_ZHA_036_20260512_063644.ota
+pull_request: 105
 release_notes: |-
   This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36.
