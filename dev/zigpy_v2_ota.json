@@ -514,6 +514,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C1-0000000F_dd668d.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54209,
+            "file_version": 15,
+            "file_size": 250418,
+            "checksum": "sha3-256:dd668d510f849e898121a146d9c05f12a27e9830bfdc69818c456e2547696226",
+            "release_notes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/129",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
             "manufacturer_id": 5127,
             "image_type": 54211,

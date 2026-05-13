@@ -608,6 +608,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21."
     },
     {
+        "fileName": "1407-D3C1-0000000F_dd668d.ota",
+        "fileVersion": 15,
+        "fileSize": 250418,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C1-0000000F_dd668d.ota",
+        "imageType": 54209,
+        "manufacturerCode": 5127,
+        "sha512": "49853bd00a77b27775b83ad7a121dd80187488b1c548f2eb922af74265950ccea7e777d4e21502923f06f9ea38a673fcdaca7d593342e9b87c53ca8abde0b447",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RTHS0324Z_ZHA_015_20260512_073649.ota",
+        "releaseNotes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15."
+    },
+    {
         "fileName": "1407-D3C3-00000023_1feeff.ota",
         "fileVersion": 35,
         "fileSize": 352278,

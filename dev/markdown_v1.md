@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 57
+**Total firmware images:** 58
 
 ## aeotec
 
@@ -1189,6 +1189,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21.
 - **Pull Request**: [#117](https://github.com/zigpy/zigpy-ota/pull/117)
+
+### `1407-D3C1-0000000F_dd668d.ota`
+
+- **Original File Name**: `3RTHS0324Z_ZHA_015_20260512_073649.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3C1` (54209)
+- **File Version**: `0x0000000F` (15)
+- **File Size**: 250,418 bytes
+- **Checksum SHA3-256**: `dd668d510f849e898121a146d9c05f12a27e9830bfdc69818c456e2547696226`
+- **Checksum SHA512**: `49853bd00a77b27775b83ad7a121dd80187488b1c548f2eb922af74265950ccea7e777d4e21502923f06f9ea38a673fcdaca7d593342e9b87c53ca8abde0b447`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C1-0000000F_dd668d.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RTHS0324Z_ZHA_015_20260512_073649.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.
+- **Pull Request**: [#129](https://github.com/zigpy/zigpy-ota/pull/129)
 
 ### `1407-D3C3-00000023_1feeff.ota`
 
