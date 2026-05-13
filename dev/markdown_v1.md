@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 55
+**Total firmware images:** 56
 
 ## aeotec
 
@@ -965,6 +965,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
 - **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
+
+### `1233-D3A5-00000024_0af2a8.ota`
+
+- **Original File Name**: `3RSS009Z_ZHA_036_20260512_073153.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A5` (54181)
+- **File Version**: `0x00000024` (36)
+- **File Size**: 153,570 bytes
+- **Checksum SHA3-256**: `0af2a86e536c2e5b248ae764a21d49bdbeac0293d058771cf655fb88c6499378`
+- **Checksum SHA512**: `0cba05cd3e5f08ac30d0b0d4edf2fdd8695450d4e4f2efd33863ede5da83f07cb83fb2b1f7491a3790d22425bcba6da73397f38bb2310c4e1a98a4d4f94f5131`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A5-00000024_0af2a8.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSS009Z_ZHA_036_20260512_073153.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36.
+- **Pull Request**: [#125](https://github.com/zigpy/zigpy-ota/pull/125)
 
 ### `1233-D3A7-00000054_80f4c5.ota`
 

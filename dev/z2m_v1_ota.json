@@ -464,6 +464,18 @@
         "releaseNotes": "This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63."
     },
     {
+        "fileName": "1233-D3A5-00000024_0af2a8.ota",
+        "fileVersion": 36,
+        "fileSize": 153570,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A5-00000024_0af2a8.ota",
+        "imageType": 54181,
+        "manufacturerCode": 4659,
+        "sha512": "0cba05cd3e5f08ac30d0b0d4edf2fdd8695450d4e4f2efd33863ede5da83f07cb83fb2b1f7491a3790d22425bcba6da73397f38bb2310c4e1a98a4d4f94f5131",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSS009Z_ZHA_036_20260512_073153.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36."
+    },
+    {
         "fileName": "1233-D3A7-00000054_80f4c5.ota",
         "fileVersion": 84,
         "fileSize": 157106,
