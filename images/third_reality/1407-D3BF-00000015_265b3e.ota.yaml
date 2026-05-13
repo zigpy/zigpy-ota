@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1407-D3BF-00000015_265b3e.ota
+source_file_name: 3RSM0347Z_ZHA_021_20260512_071259.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSM0347Z_ZHA_021_20260512_071259.ota
+pull_request: 117
+release_notes: |-
+  This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21.
