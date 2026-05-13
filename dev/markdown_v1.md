@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 43
+**Total firmware images:** 44
 
 ## aeotec
 
@@ -949,6 +949,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Filter Sensor to v1.00.22.
 - **Pull Request**: [#99](https://github.com/zigpy/zigpy-ota/pull/99)
+
+### `1407-D3C3-00000023_1feeff.ota`
+
+- **Original File Name**: `3RPL01084Z_ZHA_035_20260512_060513.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3C3` (54211)
+- **File Version**: `0x00000023` (35)
+- **File Size**: 352,278 bytes
+- **Checksum SHA3-256**: `1feeff5be2a66dfa2ca0e2dbef22e9e4f1da2d12c3e63238c7acfb932e5aa736`
+- **Checksum SHA512**: `c128dd22f9bd281d05f791fb0660e196b76a272940400246031873179bb26747265eeb2a276dc3a6e291f7d74f9a11e25556cb71b3055c563a70792e1752ca4c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_035_20260512_060513.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.35.
+- **Pull Request**: [#101](https://github.com/zigpy/zigpy-ota/pull/101)
 
 ## ubisys
 

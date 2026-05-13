@@ -452,6 +452,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22."
     },
     {
+        "fileName": "1407-D3C3-00000023_1feeff.ota",
+        "fileVersion": 35,
+        "fileSize": 352278,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
+        "imageType": 54211,
+        "manufacturerCode": 5127,
+        "sha512": "c128dd22f9bd281d05f791fb0660e196b76a272940400246031873179bb26747265eeb2a276dc3a6e291f7d74f9a11e25556cb71b3055c563a70792e1752ca4c",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_035_20260512_060513.ota",
+        "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.35."
+    },
+    {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",
         "fileVersion": 25232480,
         "fileSize": 182526,
