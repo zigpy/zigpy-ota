@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 58
+**Total firmware images:** 59
 
 ## aeotec
 
@@ -1001,6 +1001,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.
 - **Pull Request**: [#121](https://github.com/zigpy/zigpy-ota/pull/121)
+
+### `1233-D3A9-00000028_f52fa7.ota`
+
+- **Original File Name**: `3RTHS24BZ_ZHA_040_20260512_074009.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A9` (54185)
+- **File Version**: `0x00000028` (40)
+- **File Size**: 129,538 bytes
+- **Checksum SHA3-256**: `f52fa7440622673a922d465c1220077067bc26a684784df5688637228135bb97`
+- **Checksum SHA512**: `e0028fc07e16f6c4ab60e9492469a787618368ef3050cf5fddc34045ff2e3d7f30283010f7f832342746e82792bb28d450d73e5938597719a1e71555eba6060c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A9-00000028_f52fa7.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RTHS24BZ_ZHA_040_20260512_074009.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Temperature and Humidity Sensor (3RTHS24BZ) to v1.00.40.
+- **Pull Request**: [#131](https://github.com/zigpy/zigpy-ota/pull/131)
 
 ### `1233-D3AA-00000037_4a3064.ota`
 
