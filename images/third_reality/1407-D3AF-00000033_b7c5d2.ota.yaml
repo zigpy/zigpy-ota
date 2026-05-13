@@ -2,5 +2,6 @@
 file_name: 1407-D3AF-00000033_b7c5d2.ota
 source_file_name: 3RSM0147Z_ZHA_051_20260512_073409.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSM0147Z_ZHA_051_20260512_073409.ota
+pull_request: 127
 release_notes: |-
   This updates the ThirdReality Smart Soil Moisture Sensor (3RSM0147Z) to v1.00.51.
