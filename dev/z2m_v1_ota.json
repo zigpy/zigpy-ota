@@ -512,6 +512,18 @@
         "releaseNotes": "This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36."
     },
     {
+        "fileName": "1407-D3B2-0000000E_992fb6.ota",
+        "fileVersion": 14,
+        "fileSize": 136594,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B2-0000000E_992fb6.ota",
+        "imageType": 54194,
+        "manufacturerCode": 5127,
+        "sha512": "54ff734daccbe523e08cfd9566a882db6eee040928bc0ad11072d65e59cddc315b52fb0fcefda83233d4165d350c453f4a4ac6dc895afea60a9ebed8b83b208c",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSMR01067Z_ZHA_014_20260512_070032.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.14."
+    },
+    {
         "fileName": "1407-D3C3-00000023_1feeff.ota",
         "fileVersion": 35,
         "fileSize": 352278,

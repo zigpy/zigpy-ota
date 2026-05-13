@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 49
+**Total firmware images:** 50
 
 ## aeotec
 
@@ -1041,6 +1041,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36.
 - **Pull Request**: [#105](https://github.com/zigpy/zigpy-ota/pull/105)
+
+### `1407-D3B2-0000000E_992fb6.ota`
+
+- **Original File Name**: `3RSMR01067Z_ZHA_014_20260512_070032.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3B2` (54194)
+- **File Version**: `0x0000000E` (14)
+- **File Size**: 136,594 bytes
+- **Checksum SHA3-256**: `992fb605bce87467bb6d30daa3490590e53998deae69d33caf65c04baa861eb2`
+- **Checksum SHA512**: `54ff734daccbe523e08cfd9566a882db6eee040928bc0ad11072d65e59cddc315b52fb0fcefda83233d4165d350c453f4a4ac6dc895afea60a9ebed8b83b208c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B2-0000000E_992fb6.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSMR01067Z_ZHA_014_20260512_070032.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.14.
+- **Pull Request**: [#113](https://github.com/zigpy/zigpy-ota/pull/113)
 
 ### `1407-D3C3-00000023_1feeff.ota`
 
