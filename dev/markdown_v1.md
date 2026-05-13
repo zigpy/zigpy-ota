@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 48
+**Total firmware images:** 49
 
 ## aeotec
 
@@ -965,6 +965,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
 - **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
+
+### `1233-D3D0-00000009_e469a4.ota`
+
+- **Original File Name**: `3RSB01085Z_ZHA_009_20260512_065536.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3D0` (54224)
+- **File Version**: `0x00000009` (9)
+- **File Size**: 143,522 bytes
+- **Checksum SHA3-256**: `e469a48b8a93e7316db7b3a07987400ca2936cfd3f13b204f81a037a6dee9cef`
+- **Checksum SHA512**: `701bef96bb1b245a077d57343d7c3883fd30e2786a77e864a7407fcfdd79daf9261a1045b7da235a7b3e069ebbf39820a55f0fe26b34dc03ea00eb5f6938b66f`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3D0-00000009_e469a4.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSB01085Z_ZHA_009_20260512_065536.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Button ZB2 (3RSB01085Z) to v1.00.09.
+- **Pull Request**: [#111](https://github.com/zigpy/zigpy-ota/pull/111)
 
 ### `130D-0000-00000056_b2f39f.ota`
 

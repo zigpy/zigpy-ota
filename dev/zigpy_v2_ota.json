@@ -386,6 +386,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3D0-00000009_e469a4.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54224,
+            "file_version": 9,
+            "file_size": 143522,
+            "checksum": "sha3-256:e469a48b8a93e7316db7b3a07987400ca2936cfd3f13b204f81a037a6dee9cef",
+            "release_notes": "This updates the ThirdReality Smart Button ZB2 (3RSB01085Z) to v1.00.09.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/111"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/130D-0000-00000056_b2f39f.ota",
             "manufacturer_id": 4877,
             "image_type": 0,
