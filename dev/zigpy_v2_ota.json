@@ -366,6 +366,16 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A2-0000003F_62b6f8.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54178,
+            "file_version": 63,
+            "file_size": 131682,
+            "checksum": "sha3-256:62b6f892d1095afeed75ee3256590d151c0182815c17062d3a4b703d84158b5c",
+            "release_notes": "This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
             "manufacturer_id": 5127,
             "image_type": 54190,

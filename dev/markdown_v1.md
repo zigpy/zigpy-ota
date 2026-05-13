@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 44
+**Total firmware images:** 45
 
 ## aeotec
 
@@ -929,6 +929,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
 
 ## third_reality
+
+### `1233-D3A2-0000003F_62b6f8.ota`
+
+- **Original File Name**: `3RDS17BZ_ZHA_063_20260512_062544.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A2` (54178)
+- **File Version**: `0x0000003F` (63)
+- **File Size**: 131,682 bytes
+- **Checksum SHA3-256**: `62b6f892d1095afeed75ee3256590d151c0182815c17062d3a4b703d84158b5c`
+- **Checksum SHA512**: `ef7dd6575b60532af41b63957ccfe750fd8ab188d3c896d2c005bdb19b0c0df2ddf3d68100bf887449ad9085cca410c1bfc446c2aa632ee13d5bb2fb62761440`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A2-0000003F_62b6f8.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RDS17BZ_ZHA_063_20260512_062544.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
+- **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
 
 ### `1407-D3AE-00000016_2d7f28.ota`
 
