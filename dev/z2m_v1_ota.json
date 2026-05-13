@@ -440,6 +440,18 @@
         "modelId": "TRVZB"
     },
     {
+        "fileName": "1233-D3A1-0000004F_ef1152.ota",
+        "fileVersion": 79,
+        "fileSize": 132610,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A1-0000004F_ef1152.ota",
+        "imageType": 54177,
+        "manufacturerCode": 4659,
+        "sha512": "e6baeb11feef7c8d0fb2e47bee2c2fd79b155af2a0d68e445b3dd6d55a9dde15fa81517c11f72190d691e20eb0ec4f090235f7697f9e2aebd7a73a5d8ba88803",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RMS16BZ_ZHA_079_20260512_065253.ota",
+        "releaseNotes": "This updates the ThirdReality Wireless Motion Sensor (3RMS16BZ) to v1.00.79."
+    },
+    {
         "fileName": "1233-D3A2-0000003F_62b6f8.ota",
         "fileVersion": 63,
         "fileSize": 131682,

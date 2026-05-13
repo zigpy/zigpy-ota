@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 47
+**Total firmware images:** 48
 
 ## aeotec
 
@@ -929,6 +929,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
 
 ## third_reality
+
+### `1233-D3A1-0000004F_ef1152.ota`
+
+- **Original File Name**: `3RMS16BZ_ZHA_079_20260512_065253.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A1` (54177)
+- **File Version**: `0x0000004F` (79)
+- **File Size**: 132,610 bytes
+- **Checksum SHA3-256**: `ef1152de7352c761589faa2ec9cc71a29092cfceb53af98e0cb735c470d829ee`
+- **Checksum SHA512**: `e6baeb11feef7c8d0fb2e47bee2c2fd79b155af2a0d68e445b3dd6d55a9dde15fa81517c11f72190d691e20eb0ec4f090235f7697f9e2aebd7a73a5d8ba88803`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A1-0000004F_ef1152.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RMS16BZ_ZHA_079_20260512_065253.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Wireless Motion Sensor (3RMS16BZ) to v1.00.79.
+- **Pull Request**: [#109](https://github.com/zigpy/zigpy-ota/pull/109)
 
 ### `1233-D3A2-0000003F_62b6f8.ota`
 
