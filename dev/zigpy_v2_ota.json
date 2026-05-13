@@ -452,6 +452,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BF-00000015_265b3e.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54207,
+            "file_version": 21,
+            "file_size": 264830,
+            "checksum": "sha3-256:265b3eabf323a4ba8cb05a215d445c038ecd68a661d1fec5f556bbda90cb14e6",
+            "release_notes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/117",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
             "manufacturer_id": 5127,
             "image_type": 54211,

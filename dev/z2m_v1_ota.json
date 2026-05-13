@@ -536,6 +536,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20."
     },
     {
+        "fileName": "1407-D3BF-00000015_265b3e.ota",
+        "fileVersion": 21,
+        "fileSize": 264830,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BF-00000015_265b3e.ota",
+        "imageType": 54207,
+        "manufacturerCode": 5127,
+        "sha512": "8f9d157f200bc30e5bb541c350c4907bc633e1c731764c8de3afc20d9bfcb0b69abb3c4c699572c39d3569811b33ffb77729c531ecbde4e867196a83dd4d20b2",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSM0347Z_ZHA_021_20260512_071259.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21."
+    },
+    {
         "fileName": "1407-D3C3-00000023_1feeff.ota",
         "fileVersion": 35,
         "fileSize": 352278,
