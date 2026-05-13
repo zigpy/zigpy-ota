@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1233-D3A1-0000004F_ef1152.ota
+source_file_name: 3RMS16BZ_ZHA_079_20260512_065253.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RMS16BZ_ZHA_079_20260512_065253.ota
+pull_request: 109
+release_notes: |-
+  This updates the ThirdReality Wireless Motion Sensor (3RMS16BZ) to v1.00.79.
