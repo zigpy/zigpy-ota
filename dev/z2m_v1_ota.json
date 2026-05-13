@@ -476,6 +476,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84."
     },
     {
+        "fileName": "1233-D3AA-00000037_4a3064.ota",
+        "fileVersion": 55,
+        "fileSize": 173522,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3AA-00000037_4a3064.ota",
+        "imageType": 54186,
+        "manufacturerCode": 4659,
+        "sha512": "649f572d23e239b78e33b8157cbebc86f4b67f56ec62178d8637417eb8265b645eabdf518e808456016f1e450bf1e5747f11bb39ac6590f9e620c94c68534ed8",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSB02015Z_ZHA_055_20260512_072744.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55."
+    },
+    {
         "fileName": "1233-D3D0-00000009_e469a4.ota",
         "fileVersion": 9,
         "fileSize": 143522,

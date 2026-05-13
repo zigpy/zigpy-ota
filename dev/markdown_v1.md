@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 54
+**Total firmware images:** 55
 
 ## aeotec
 
@@ -983,6 +983,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.
 - **Pull Request**: [#121](https://github.com/zigpy/zigpy-ota/pull/121)
+
+### `1233-D3AA-00000037_4a3064.ota`
+
+- **Original File Name**: `3RSB02015Z_ZHA_055_20260512_072744.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3AA` (54186)
+- **File Version**: `0x00000037` (55)
+- **File Size**: 173,522 bytes
+- **Checksum SHA3-256**: `4a30642416646b5867a6da45a5aa95224554b91575247e2a8ff0d6106e2e38c7`
+- **Checksum SHA512**: `649f572d23e239b78e33b8157cbebc86f4b67f56ec62178d8637417eb8265b645eabdf518e808456016f1e450bf1e5747f11bb39ac6590f9e620c94c68534ed8`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3AA-00000037_4a3064.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSB02015Z_ZHA_055_20260512_072744.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55.
+- **Pull Request**: [#123](https://github.com/zigpy/zigpy-ota/pull/123)
 
 ### `1233-D3D0-00000009_e469a4.ota`
 
