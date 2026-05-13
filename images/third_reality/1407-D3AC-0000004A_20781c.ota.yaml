@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1407-D3AC-0000004A_20781c.ota
+source_file_name: 3RCB01057Z_ZHA_074_20260512_075147.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RCB01057Z_ZHA_074_20260512_075147.ota
+pull_request: 139
+release_notes: |-
+  This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74.
