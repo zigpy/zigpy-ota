@@ -440,6 +440,18 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/113"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B9-00000014_44fad6.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54201,
+            "file_version": 20,
+            "file_size": 288654,
+            "checksum": "sha3-256:44fad6c7ea1489363ce160f523cfb93010143cd9a834906dfbeec27fffaf9d74",
+            "release_notes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/115",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
             "manufacturer_id": 5127,
             "image_type": 54211,
