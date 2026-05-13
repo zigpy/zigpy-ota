@@ -500,6 +500,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22."
     },
     {
+        "fileName": "1407-D3B0-0000002D_de90d1.ota",
+        "fileVersion": 45,
+        "fileSize": 151762,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B0-0000002D_de90d1.ota",
+        "imageType": 54192,
+        "manufacturerCode": 5127,
+        "sha512": "52a7822f2968465300da366f83acd5ad88934e483829f4999d7473c18e05c60e5d9de7d2024bda6c6755bf959c544f181d02c9a953b3e2755e94dbebeaef7003",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWK0148Z_ZHA_045_20260512_071544.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Watering Kit (3RWK0148Z) to v1.00.45."
+    },
+    {
         "fileName": "1407-D3B1-00000024_a6a64a.ota",
         "fileVersion": 36,
         "fileSize": 137698,
