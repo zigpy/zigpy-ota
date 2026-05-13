@@ -464,6 +464,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22."
     },
     {
+        "fileName": "1407-D3B1-00000024_a6a64a.ota",
+        "fileVersion": 36,
+        "fileSize": 137698,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B1-00000024_a6a64a.ota",
+        "imageType": 54193,
+        "manufacturerCode": 5127,
+        "sha512": "b68cbc5385270c5196daaec55e5175d8203006ed16672ed3e860b3a630dc23965994123a27bb3a2248ae2f0d9871c81c8b38259f2d7aca28651758f936515535",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RDTS01056Z_ZHA_036_20260512_063644.ota",
+        "releaseNotes": "This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36."
+    },
+    {
         "fileName": "1407-D3C3-00000023_1feeff.ota",
         "fileVersion": 35,
         "fileSize": 352278,

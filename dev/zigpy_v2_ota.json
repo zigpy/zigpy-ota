@@ -388,6 +388,16 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B1-00000024_a6a64a.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54193,
+            "file_version": 36,
+            "file_size": 137698,
+            "checksum": "sha3-256:a6a64abf86ba3ef5cd5399d0be20330f058a2aa36231360577ee1bd59c9d86e7",
+            "release_notes": "This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/105"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
             "manufacturer_id": 5127,
             "image_type": 54211,
