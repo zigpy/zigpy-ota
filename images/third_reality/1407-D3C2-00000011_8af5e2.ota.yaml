@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1407-D3C2-00000011_8af5e2.ota
+source_file_name: 3RWS0218Z_ZHA_017_20260512_074840.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_017_20260512_074840.ota
+release_notes: |-
+  This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17.
