@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 70
+**Total firmware images:** 71
 
 ## aeotec
 
@@ -1038,6 +1038,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.
 - **Pull Request**: [#121](https://github.com/zigpy/zigpy-ota/pull/121)
+
+### `1233-D3A8-0000002F_85880f.ota`
+
+- **Original File Name**: `3RSB22BZ_ZHA_047_20260512_061209.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A8` (54184)
+- **File Version**: `0x0000002F` (47)
+- **File Size**: 145,986 bytes
+- **Checksum SHA3-256**: `85880f492219c80707c66f28f2b8cccf2e454e6e7ca40d3c16a533eb912f42ef`
+- **Checksum SHA512**: `006f67f5437a8b5b031a95109c5f94c938152b7b1b06973eabe05a821958fbf0dce681b015dea378fa0098be896603abbb025fca353bd84c3bd87cdf1c149b67`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A8-0000002F_85880f.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSB22BZ_ZHA_047_20260512_061209.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Button (3RSB22BZ) to v1.00.47.
+- **Pull Request**: [#155](https://github.com/zigpy/zigpy-ota/pull/155)
 
 ### `1233-D3A9-00000028_f52fa7.ota`
 
