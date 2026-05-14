@@ -532,6 +532,18 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/113"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B5-0000002A_7f1585.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54197,
+            "file_version": 42,
+            "file_size": 286614,
+            "checksum": "sha3-256:7f1585ba5240b9f2517e7a1f24c318c8de9051a054292ae51ff14f9e436f39ea",
+            "release_notes": "This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.42.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/141",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B9-00000014_44fad6.ota",
             "manufacturer_id": 5127,
             "image_type": 54201,
