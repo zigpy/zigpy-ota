@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 62
+**Total firmware images:** 63
 
 ## aeotec
 
@@ -1111,6 +1111,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86.
 - **Pull Request**: [#107](https://github.com/zigpy/zigpy-ota/pull/107)
+
+### `1407-D3AC-0000004A_20781c.ota`
+
+- **Original File Name**: `3RCB01057Z_ZHA_074_20260512_075147.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3AC` (54188)
+- **File Version**: `0x0000004A` (74)
+- **File Size**: 280,854 bytes
+- **Checksum SHA3-256**: `20781c2bf0277c23dbc7d1e6f6d3b6cebf470a1171e15351bd64cd904d8049b0`
+- **Checksum SHA512**: `e1345eeebc564050469d3d1cf131c10f962c6a4cc3a83de1b3802ffc1f4d66010a40f726244a1a59c460e5a9b8f4d56b8b8ebe19db7ec132234e11d82bba1b98`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AC-0000004A_20781c.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RCB01057Z_ZHA_074_20260512_075147.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74.
+- **Pull Request**: [#139](https://github.com/zigpy/zigpy-ota/pull/139)
 
 ### `1407-D3AE-00000016_2d7f28.ota`
 

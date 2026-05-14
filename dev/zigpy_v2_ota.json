@@ -468,6 +468,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AC-0000004A_20781c.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54188,
+            "file_version": 74,
+            "file_size": 280854,
+            "checksum": "sha3-256:20781c2bf0277c23dbc7d1e6f6d3b6cebf470a1171e15351bd64cd904d8049b0",
+            "release_notes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/139",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
             "manufacturer_id": 5127,
             "image_type": 54190,

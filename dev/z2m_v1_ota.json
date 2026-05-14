@@ -560,6 +560,18 @@
         "releaseNotes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86."
     },
     {
+        "fileName": "1407-D3AC-0000004A_20781c.ota",
+        "fileVersion": 74,
+        "fileSize": 280854,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AC-0000004A_20781c.ota",
+        "imageType": 54188,
+        "manufacturerCode": 5127,
+        "sha512": "e1345eeebc564050469d3d1cf131c10f962c6a4cc3a83de1b3802ffc1f4d66010a40f726244a1a59c460e5a9b8f4d56b8b8ebe19db7ec132234e11d82bba1b98",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RCB01057Z_ZHA_074_20260512_075147.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74."
+    },
+    {
         "fileName": "1407-D3AE-00000016_2d7f28.ota",
         "fileVersion": 22,
         "fileSize": 265858,
