@@ -2,6 +2,7 @@
 file_name: 1407-D3B4-0000002F_749194.ota
 source_file_name: 3RSP02064Z_ZHA_047_h0xD3B4_20260512_085143.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_047_h0xD3B4_20260512_085143.ota
+pull_request: 151
 release_notes: |-
   This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3B4) to v1.00.47.
 model_names:
