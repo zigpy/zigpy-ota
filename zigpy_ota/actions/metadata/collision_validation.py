@@ -7,10 +7,17 @@ runtime because it cannot determine which is correct.
 
 By detecting collisions at index generation time, we can catch problems before
 publishing the index.
+
+Images that share a matching key but have mutually exclusive device-matching
+constraints (disjoint ``model_names``/``manufacturer_names``, or non-overlapping
+hardware/current-file-version ranges) are not reported as collisions: zigpy's
+runtime ``check_compatibility`` filters them per-device before its own collision
+check runs, so no single device can ever see both at once.
 """
 
 from __future__ import annotations
 
+import itertools
 import logging
 from collections import defaultdict
 from dataclasses import dataclass
@@ -85,6 +92,96 @@ class CollisionInfo:
     images: tuple[tuple[str, IndexMetadata], ...]  # Tuple of (path, metadata) pairs
 
 
+def _ranges_overlap(
+    a_min: int | None,
+    a_max: int | None,
+    b_min: int | None,
+    b_max: int | None,
+) -> bool:
+    """Check if two inclusive integer ranges overlap. ``None`` means unbounded."""
+    lo_a = a_min if a_min is not None else float("-inf")
+    lo_b = b_min if b_min is not None else float("-inf")
+    hi_a = a_max if a_max is not None else float("inf")
+    hi_b = b_max if b_max is not None else float("inf")
+    return max(lo_a, lo_b) <= min(hi_a, hi_b)
+
+
+def _could_match_same_device(a: IndexMetadata, b: IndexMetadata) -> bool:
+    """Return True if a single device could match both images.
+
+    Mirrors the per-device filters zigpy applies in ``check_compatibility``
+    before its runtime collision check (zigpy/ota/__init__.py). Two images
+    cannot collide at runtime if their constraints are mutually exclusive:
+    disjoint ``model_names``/``manufacturer_names``, or non-overlapping
+    hardware/current-file-version ranges.
+
+    A side that is empty/None acts as "any device" for that constraint.
+    """
+    if a.model_names and b.model_names and not set(a.model_names) & set(b.model_names):
+        return False
+
+    if (
+        a.manufacturer_names
+        and b.manufacturer_names
+        and not set(a.manufacturer_names) & set(b.manufacturer_names)
+    ):
+        return False
+
+    if not _ranges_overlap(
+        a.min_hardware_version,
+        a.max_hardware_version,
+        b.min_hardware_version,
+        b.max_hardware_version,
+    ):
+        return False
+
+    if not _ranges_overlap(
+        a.min_current_file_version,
+        a.max_current_file_version,
+        b.min_current_file_version,
+        b.max_current_file_version,
+    ):
+        return False
+
+    return True
+
+
+def _find_colliding_components(
+    entries: list[tuple[str, IndexMetadata]],
+) -> list[list[tuple[str, IndexMetadata]]]:
+    """Partition entries into components that could collide at zigpy runtime.
+
+    Uses union-find to merge any pair of entries whose constraints overlap
+    via :func:`_could_match_same_device`. Returns only components that
+    contain more than one unique checksum, i.e. real collisions.
+    """
+    n = len(entries)
+    parent = list(range(n))
+
+    def find(x: int) -> int:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for i, j in itertools.combinations(range(n), 2):
+        if not _could_match_same_device(entries[i][1], entries[j][1]):
+            continue
+        ri, rj = find(i), find(j)
+        if ri != rj:
+            parent[ri] = rj
+
+    components: dict[int, list[tuple[str, IndexMetadata]]] = {}
+    for i, entry in enumerate(entries):
+        components.setdefault(find(i), []).append(entry)
+
+    return [
+        component
+        for component in components.values()
+        if len({meta.checksum_sha3_256 for _, meta in component}) >= 2
+    ]
+
+
 def validate_collisions(
     metadata: dict[str, IndexMetadata],
     fail_on_collision: bool = False,
@@ -134,38 +231,36 @@ def validate_collisions(
         file_ver,
         specificity,
     ), checksum_buckets in collision_groups.items():
-        # If only one unique checksum, no collision
+        # If only one unique checksum, no collision is possible
         if len(checksum_buckets) < 2:
             continue
 
-        # Multiple different checksums for same (mfr_id, img_type, version, specificity)
-        all_images: list[tuple[str, IndexMetadata]] = []
-        for bucket in checksum_buckets.values():
-            all_images.extend(bucket)
+        entries = [entry for bucket in checksum_buckets.values() for entry in bucket]
 
-        collision = CollisionInfo(
-            manufacturer_id=mfr_id,
-            image_type=img_type,
-            file_version=file_ver,
-            specificity=specificity,
-            images=tuple(all_images),
-        )
-        collisions.append(collision)
+        for component in _find_colliding_components(entries):
+            collisions.append(
+                CollisionInfo(
+                    manufacturer_id=mfr_id,
+                    image_type=img_type,
+                    file_version=file_ver,
+                    specificity=specificity,
+                    images=tuple(component),
+                )
+            )
 
-        # Log the collision
-        image_paths = [path for path, _ in all_images]
-        LOGGER.warning(
-            "Multiple unique OTA images for manufacturer_id=0x%04X, image_type=0x%04X, "
-            "version=0x%08X with specificity=%d exist. "
-            "It is not possible to tell which image is correct so zigpy will ignore "
-            "all %d colliding images at runtime. Images: %s",
-            mfr_id,
-            img_type,
-            file_ver,
-            specificity,
-            len(all_images),
-            image_paths,
-        )
+            image_paths = [path for path, _ in component]
+            LOGGER.warning(
+                "Multiple unique OTA images for manufacturer_id=0x%04X, "
+                "image_type=0x%04X, version=0x%08X with specificity=%d exist. "
+                "It is not possible to tell which image is correct so zigpy will "
+                "ignore all %d colliding images at runtime. Images: %s",
+                mfr_id,
+                img_type,
+                file_ver,
+                specificity,
+                len(component),
+                image_paths,
+            )
 
     if collisions and fail_on_collision:
         collision_details = []

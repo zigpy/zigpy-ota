@@ -1270,6 +1270,310 @@ class TestValidateCollisions:
         with pytest.raises(ValueError, match="OTA image collision"):
             validate_collisions(metadata, fail_on_collision=True)
 
+    def test_no_collision_with_disjoint_model_names(self) -> None:
+        """Two images with disjoint model_names cannot collide at runtime.
+
+        zigpy's check_compatibility filters by model_names before its
+        collision check, so a device with model "A" only ever sees the
+        first image and a device with model "B" only ever sees the
+        second. The validator should not flag this even though the
+        matching key is identical.
+        """
+        meta_a = IndexMetadata(
+            binary_url="https://example.com/test_a.zigbee",
+            manufacturer_id=0x1407,
+            image_type=0xD3B4,
+            file_version=47,
+            file_size=1000,
+            checksum_sha3_256="hash_a",
+            checksum_sha512="def456",
+            source_file_name="test_a.zigbee",
+            model_names=("3RSPU01080Z",),
+        )
+        meta_b = IndexMetadata(
+            binary_url="https://example.com/test_b.zigbee",
+            manufacturer_id=0x1407,
+            image_type=0xD3B4,
+            file_version=47,
+            file_size=1000,
+            checksum_sha3_256="hash_b",
+            checksum_sha512="def456",
+            source_file_name="test_b.zigbee",
+            model_names=("3RSP02064Z",),
+        )
+        metadata = {"mfr/a.zigbee": meta_a, "mfr/b.zigbee": meta_b}
+        assert validate_collisions(metadata) == []
+
+    def test_collision_when_one_image_has_no_model_names(self) -> None:
+        """Asymmetric case: an unconstrained image absorbs all devices.
+
+        An image without model_names matches any device, including those
+        targeted by the constrained image, so the two can collide on the
+        shared model. We bump the unconstrained image's specificity with
+        an explicit ``specificity`` value so the two land in the same
+        group despite the +1000 from the other's ``model_names``.
+        """
+        meta_constrained = IndexMetadata(
+            binary_url="https://example.com/c.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_c",
+            checksum_sha512="def456",
+            source_file_name="c.zigbee",
+            model_names=("Model A",),
+        )
+        meta_unconstrained = IndexMetadata(
+            binary_url="https://example.com/u.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_u",
+            checksum_sha512="def456",
+            source_file_name="u.zigbee",
+            specificity=1000,
+        )
+        assert compute_specificity(meta_constrained) == compute_specificity(
+            meta_unconstrained
+        )
+
+        metadata = {
+            "mfr/c.zigbee": meta_constrained,
+            "mfr/u.zigbee": meta_unconstrained,
+        }
+        collisions = validate_collisions(metadata)
+        assert len(collisions) == 1
+        assert {path for path, _ in collisions[0].images} == {
+            "mfr/c.zigbee",
+            "mfr/u.zigbee",
+        }
+
+    def test_disjoint_hardware_version_ranges_do_not_collide(self) -> None:
+        """Images covering non-overlapping hardware version ranges cannot collide."""
+        meta_low = IndexMetadata(
+            binary_url="https://example.com/low.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_low",
+            checksum_sha512="def456",
+            source_file_name="low.zigbee",
+            min_hardware_version=1,
+            max_hardware_version=5,
+        )
+        meta_high = IndexMetadata(
+            binary_url="https://example.com/high.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_high",
+            checksum_sha512="def456",
+            source_file_name="high.zigbee",
+            min_hardware_version=6,
+            max_hardware_version=10,
+        )
+        metadata = {"mfr/low.zigbee": meta_low, "mfr/high.zigbee": meta_high}
+        assert validate_collisions(metadata) == []
+
+    def test_disjoint_current_file_version_ranges_do_not_collide(self) -> None:
+        """Images covering non-overlapping current-fv ranges cannot collide."""
+        meta_low = IndexMetadata(
+            binary_url="https://example.com/low.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_low",
+            checksum_sha512="def456",
+            source_file_name="low.zigbee",
+            min_current_file_version=0,
+            max_current_file_version=40,
+        )
+        meta_high = IndexMetadata(
+            binary_url="https://example.com/high.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_high",
+            checksum_sha512="def456",
+            source_file_name="high.zigbee",
+            min_current_file_version=41,
+            max_current_file_version=99,
+        )
+        metadata = {"mfr/low.zigbee": meta_low, "mfr/high.zigbee": meta_high}
+        assert validate_collisions(metadata) == []
+
+    def test_three_disjoint_images_produce_no_collision(self) -> None:
+        """Three images with pairwise-disjoint model_names: no collisions."""
+        metas = []
+        for i, model in enumerate(("Model A", "Model B", "Model C")):
+            metas.append(
+                IndexMetadata(
+                    binary_url=f"https://example.com/test{i}.zigbee",
+                    manufacturer_id=100,
+                    image_type=1,
+                    file_version=100,
+                    file_size=1000,
+                    checksum_sha3_256=f"hash_{i}",
+                    checksum_sha512="def456",
+                    source_file_name=f"test{i}.zigbee",
+                    model_names=(model,),
+                )
+            )
+        metadata = {f"mfr/test{i}.zigbee": m for i, m in enumerate(metas)}
+        assert validate_collisions(metadata) == []
+
+    def test_no_collision_with_disjoint_manufacturer_names(self) -> None:
+        """Disjoint manufacturer_names lists exempt a group from collisions."""
+        meta_a = IndexMetadata(
+            binary_url="https://example.com/a.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_a",
+            checksum_sha512="def456",
+            source_file_name="a.zigbee",
+            manufacturer_names=("Mfr A",),
+        )
+        meta_b = IndexMetadata(
+            binary_url="https://example.com/b.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_b",
+            checksum_sha512="def456",
+            source_file_name="b.zigbee",
+            manufacturer_names=("Mfr B",),
+        )
+        metadata = {"mfr/a.zigbee": meta_a, "mfr/b.zigbee": meta_b}
+        assert validate_collisions(metadata) == []
+
+    def test_collision_with_overlapping_hardware_version_ranges(self) -> None:
+        """Overlapping hardware version ranges still produce a collision."""
+        meta_a = IndexMetadata(
+            binary_url="https://example.com/a.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_a",
+            checksum_sha512="def456",
+            source_file_name="a.zigbee",
+            min_hardware_version=1,
+            max_hardware_version=5,
+        )
+        meta_b = IndexMetadata(
+            binary_url="https://example.com/b.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_b",
+            checksum_sha512="def456",
+            source_file_name="b.zigbee",
+            min_hardware_version=3,
+            max_hardware_version=7,
+        )
+        metadata = {"mfr/a.zigbee": meta_a, "mfr/b.zigbee": meta_b}
+        collisions = validate_collisions(metadata)
+        assert len(collisions) == 1
+        assert {path for path, _ in collisions[0].images} == {
+            "mfr/a.zigbee",
+            "mfr/b.zigbee",
+        }
+
+    def test_collision_with_three_mutually_compatible_images(self) -> None:
+        """Three transitively-compatible images merge into a single collision.
+
+        Also exercises the union-find skip path when find(i) == find(j).
+        """
+        meta_a = IndexMetadata(
+            binary_url="https://example.com/a.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_a",
+            checksum_sha512="def456",
+            source_file_name="a.zigbee",
+            model_names=("Model M",),
+        )
+        meta_b = IndexMetadata(
+            binary_url="https://example.com/b.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_b",
+            checksum_sha512="def456",
+            source_file_name="b.zigbee",
+            model_names=("Model M",),
+        )
+        meta_c = IndexMetadata(
+            binary_url="https://example.com/c.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_c",
+            checksum_sha512="def456",
+            source_file_name="c.zigbee",
+            model_names=("Model M",),
+        )
+        metadata = {
+            "mfr/a.zigbee": meta_a,
+            "mfr/b.zigbee": meta_b,
+            "mfr/c.zigbee": meta_c,
+        }
+        collisions = validate_collisions(metadata)
+        assert len(collisions) == 1
+        assert {path for path, _ in collisions[0].images} == {
+            "mfr/a.zigbee",
+            "mfr/b.zigbee",
+            "mfr/c.zigbee",
+        }
+
+    def test_collision_with_overlapping_current_file_version_ranges(self) -> None:
+        """Overlapping current_file_version ranges still produce a collision."""
+        meta_a = IndexMetadata(
+            binary_url="https://example.com/a.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_a",
+            checksum_sha512="def456",
+            source_file_name="a.zigbee",
+            min_current_file_version=0,
+            max_current_file_version=50,
+        )
+        meta_b = IndexMetadata(
+            binary_url="https://example.com/b.zigbee",
+            manufacturer_id=100,
+            image_type=1,
+            file_version=100,
+            file_size=1000,
+            checksum_sha3_256="hash_b",
+            checksum_sha512="def456",
+            source_file_name="b.zigbee",
+            min_current_file_version=30,
+            max_current_file_version=80,
+        )
+        metadata = {"mfr/a.zigbee": meta_a, "mfr/b.zigbee": meta_b}
+        collisions = validate_collisions(metadata)
+        assert len(collisions) == 1
+        assert {path for path, _ in collisions[0].images} == {
+            "mfr/a.zigbee",
+            "mfr/b.zigbee",
+        }
+
 
 def test_collision_cli_option(tmp_path: Path) -> None:
     """Test that --fail-on-collision option works correctly."""
