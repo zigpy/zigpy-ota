@@ -1,7 +1,7 @@
 {
     "firmwares": [
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0000-00000011_350c16.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/aeotec/1310-0000-00000011_350c16.ota",
             "manufacturer_id": 4880,
             "image_type": 0,
             "file_version": 17,
@@ -11,7 +11,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/10"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0802-00000106_1f3467.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/aeotec/1310-0802-00000106_1f3467.ota",
             "manufacturer_id": 4880,
             "image_type": 2050,
             "file_version": 262,
@@ -21,7 +21,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/8"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-0803-00000106_030d13.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/aeotec/1310-0803-00000106_030d13.ota",
             "manufacturer_id": 4880,
             "image_type": 2051,
             "file_version": 262,
@@ -31,7 +31,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/4"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/aeotec/1310-7C04-00000108_6d687b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/aeotec/1310-7C04-00000108_6d687b.ota",
             "manufacturer_id": 4880,
             "image_type": 31748,
             "file_version": 264,
@@ -41,7 +41,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/6"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/bega/1105-A0A0-00990BF2_143d97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/bega/1105-A0A0-00990BF2_143d97.ota",
             "manufacturer_id": 4357,
             "image_type": 41120,
             "file_version": 10030066,
@@ -51,7 +51,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/49"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0182-00040008_43f6cf.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0182-00040008_43f6cf.ota",
             "manufacturer_id": 4117,
             "image_type": 386,
             "file_version": 262152,
@@ -61,7 +61,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/82"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0183-00020008_aa5364.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0183-00020008_aa5364.ota",
             "manufacturer_id": 4117,
             "image_type": 387,
             "file_version": 131080,
@@ -71,7 +71,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/80"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0240-00040003_ba480a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0240-00040003_ba480a.ota",
             "manufacturer_id": 4117,
             "image_type": 576,
             "file_version": 262147,
@@ -81,7 +81,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/70"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0251-00040009_1276ed.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0251-00040009_1276ed.ota",
             "manufacturer_id": 4117,
             "image_type": 593,
             "file_version": 262153,
@@ -91,7 +91,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/78"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-02E0-00030C10_c06f96.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-02E0-00030C10_c06f96.ota",
             "manufacturer_id": 4117,
             "image_type": 736,
             "file_version": 199696,
@@ -101,7 +101,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/88"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-02E1-00020009_547c30.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-02E1-00020009_547c30.ota",
             "manufacturer_id": 4117,
             "image_type": 737,
             "file_version": 131081,
@@ -111,7 +111,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/86"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0300-00040005_1fab69.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0300-00040005_1fab69.ota",
             "manufacturer_id": 4117,
             "image_type": 768,
             "file_version": 262149,
@@ -121,7 +121,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/92"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0310-00040003_c3738d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0310-00040003_c3738d.ota",
             "manufacturer_id": 4117,
             "image_type": 784,
             "file_version": 262147,
@@ -131,7 +131,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/60"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0320-00040003_5277c4.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0320-00040003_5277c4.ota",
             "manufacturer_id": 4117,
             "image_type": 800,
             "file_version": 262147,
@@ -141,7 +141,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/58"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0340-00040007_cecc7d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0340-00040007_cecc7d.ota",
             "manufacturer_id": 4117,
             "image_type": 832,
             "file_version": 262151,
@@ -151,7 +151,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0390-00020001_fb1605.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0390-00020001_fb1605.ota",
             "manufacturer_id": 4117,
             "image_type": 912,
             "file_version": 131073,
@@ -161,7 +161,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/72"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0391-00020004_748757.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0391-00020004_748757.ota",
             "manufacturer_id": 4117,
             "image_type": 913,
             "file_version": 131076,
@@ -171,7 +171,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/84"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0392-00020004_30dc8e.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0392-00020004_30dc8e.ota",
             "manufacturer_id": 4117,
             "image_type": 914,
             "file_version": 131076,
@@ -181,7 +181,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/90"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0393-00020006_ed2430.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0393-00020006_ed2430.ota",
             "manufacturer_id": 4117,
             "image_type": 915,
             "file_version": 131078,
@@ -191,7 +191,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/76"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-0394-00020002_e9c6ac.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-0394-00020002_e9c6ac.ota",
             "manufacturer_id": 4117,
             "image_type": 916,
             "file_version": 131074,
@@ -201,7 +201,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/94"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03A0-00020007_b99ca6.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-03A0-00020007_b99ca6.ota",
             "manufacturer_id": 4117,
             "image_type": 928,
             "file_version": 131079,
@@ -211,7 +211,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/68"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03D0-00030102_58826b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-03D0-00030102_58826b.ota",
             "manufacturer_id": 4117,
             "image_type": 976,
             "file_version": 196866,
@@ -221,7 +221,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/62"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/develco/1015-03D1-00030107_862fed.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/develco/1015-03D1-00030107_862fed.ota",
             "manufacturer_id": 4117,
             "image_type": 977,
             "file_version": 196871,
@@ -231,7 +231,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/64"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/heiman/120B-A080-00000022_19cbfc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/heiman/120B-A080-00000022_19cbfc.ota",
             "manufacturer_id": 4619,
             "image_type": 41088,
             "file_version": 34,
@@ -241,7 +241,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/53"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0331-191D3685_650309.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0331-191D3685_650309.ota",
             "manufacturer_id": 4454,
             "image_type": 817,
             "file_version": 421344901,
@@ -251,7 +251,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/12"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0332-191D3685_9f8062.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0332-191D3685_9f8062.ota",
             "manufacturer_id": 4454,
             "image_type": 818,
             "file_version": 421344901,
@@ -261,7 +261,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/14"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0333-191D3685_ac67dc.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0333-191D3685_ac67dc.ota",
             "manufacturer_id": 4454,
             "image_type": 819,
             "file_version": 421344901,
@@ -271,7 +271,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/16"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0334-191E3685_0f83d8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0334-191E3685_0f83d8.ota",
             "manufacturer_id": 4454,
             "image_type": 820,
             "file_version": 421410437,
@@ -281,7 +281,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/18"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0335-191E3685_500102.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0335-191E3685_500102.ota",
             "manufacturer_id": 4454,
             "image_type": 821,
             "file_version": 421410437,
@@ -291,7 +291,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/20"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/innr/1166-0336-191E3685_8008e8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/innr/1166-0336-191E3685_8008e8.ota",
             "manufacturer_id": 4454,
             "image_type": 822,
             "file_version": 421410437,
@@ -301,7 +301,7 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-000B-00002002_cb2909.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,
             "file_version": 8194,
@@ -318,7 +318,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-0045-00001005_ea654a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/sonoff/1286-0045-00001005_ea654a.ota",
             "manufacturer_id": 4742,
             "image_type": 69,
             "file_version": 4101,
@@ -334,7 +334,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-080E-00001100_a91db8.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,
             "file_version": 4352,
@@ -350,7 +350,7 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/sonoff/1286-2007-00001404_fbc68d.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/sonoff/1286-2007-00001404_fbc68d.ota",
             "manufacturer_id": 4742,
             "image_type": 8199,
             "file_version": 5124,
@@ -366,7 +366,146 @@
             ]
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A1-0000004F_ef1152.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54177,
+            "file_version": 79,
+            "file_size": 132610,
+            "checksum": "sha3-256:ef1152de7352c761589faa2ec9cc71a29092cfceb53af98e0cb735c470d829ee",
+            "release_notes": "This updates the ThirdReality Wireless Motion Sensor (3RMS16BZ) to v1.00.79.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/109"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A2-0000003F_62b6f8.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54178,
+            "file_version": 63,
+            "file_size": 131682,
+            "checksum": "sha3-256:62b6f892d1095afeed75ee3256590d151c0182815c17062d3a4b703d84158b5c",
+            "release_notes": "This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A3-00000049_a99370.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54179,
+            "file_version": 73,
+            "file_size": 145586,
+            "checksum": "sha3-256:a99370aab0f6fef57140699e7ad99a212054591206faeba51c49232313784041",
+            "release_notes": "This updates the ThirdReality Water Leak Sensor (3RWS18BZ) to v1.00.73.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/135"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A5-00000024_0af2a8.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54181,
+            "file_version": 36,
+            "file_size": 153570,
+            "checksum": "sha3-256:0af2a86e536c2e5b248ae764a21d49bdbeac0293d058771cf655fb88c6499378",
+            "release_notes": "This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/125"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A6-10013065_2c5692.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54182,
+            "file_version": 268513381,
+            "file_size": 198146,
+            "checksum": "sha3-256:2c5692221a3e8df73c1a3d6a517814cf8d4f0eb703714028f9b666e5ca5505dd",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/147",
+            "model_names": [
+                "3RSP019BZ",
+                "3RSP02028BZ",
+                "3RSPE01044BZ"
+            ]
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A7-00000054_80f4c5.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54183,
+            "file_version": 84,
+            "file_size": 157106,
+            "checksum": "sha3-256:80f4c56de3b03a3438dae9229297e1c2a219c7f09c44fb13f16e8b4b7bace13f",
+            "release_notes": "This updates the ThirdReality Smart Blind (3RSB015BZ) to v1.00.84.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/121"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A8-0000002F_85880f.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54184,
+            "file_version": 47,
+            "file_size": 145986,
+            "checksum": "sha3-256:85880f492219c80707c66f28f2b8cccf2e454e6e7ca40d3c16a533eb912f42ef",
+            "release_notes": "This updates the ThirdReality Smart Button (3RSB22BZ) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/155"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3A9-00000028_f52fa7.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54185,
+            "file_version": 40,
+            "file_size": 129538,
+            "checksum": "sha3-256:f52fa7440622673a922d465c1220077067bc26a684784df5688637228135bb97",
+            "release_notes": "This updates the ThirdReality Temperature and Humidity Sensor (3RTHS24BZ) to v1.00.40.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/131"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3AA-00000037_4a3064.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54186,
+            "file_version": 55,
+            "file_size": 173522,
+            "checksum": "sha3-256:4a30642416646b5867a6da45a5aa95224554b91575247e2a8ff0d6106e2e38c7",
+            "release_notes": "This updates the ThirdReality Smart Blind Gen2 (3RSB02015Z) to v1.00.55.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/123"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3AB-00000037_8d2375.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54187,
+            "file_version": 55,
+            "file_size": 132610,
+            "checksum": "sha3-256:8d23754132572a193ca1c4e3afc67213750ae5b702e40d507373538b64e1a99d",
+            "release_notes": "This updates the ThirdReality Smart Vibration Sensor (3RVS01031Z) to v1.00.55.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/133"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1233-D3D0-00000009_e469a4.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54224,
+            "file_version": 9,
+            "file_size": 143522,
+            "checksum": "sha3-256:e469a48b8a93e7316db7b3a07987400ca2936cfd3f13b204f81a037a6dee9cef",
+            "release_notes": "This updates the ThirdReality Smart Button ZB2 (3RSB01085Z) to v1.00.09.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/111"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/130D-0000-00000056_b2f39f.ota",
+            "manufacturer_id": 4877,
+            "image_type": 0,
+            "file_version": 86,
+            "file_size": 298162,
+            "checksum": "sha3-256:b2f39f54c2eacc9f688ab36082c29cc21b3547fe5a0f66b9a069450f00d57b58",
+            "release_notes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/107",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3AC-0000004A_20781c.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54188,
+            "file_version": 74,
+            "file_size": 280854,
+            "checksum": "sha3-256:20781c2bf0277c23dbc7d1e6f6d3b6cebf470a1171e15351bd64cd904d8049b0",
+            "release_notes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/139",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
             "manufacturer_id": 5127,
             "image_type": 54190,
             "file_version": 22,
@@ -378,7 +517,188 @@
             "max_hardware_version": 65520
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3AF-00000033_b7c5d2.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54191,
+            "file_version": 51,
+            "file_size": 144258,
+            "checksum": "sha3-256:b7c5d2805d0dffde199f1fa4a0ecf360cb7fb6705ff921dc2c6cc1858418b201",
+            "release_notes": "This updates the ThirdReality Smart Soil Moisture Sensor (3RSM0147Z) to v1.00.51.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/127"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B0-0000002D_de90d1.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54192,
+            "file_version": 45,
+            "file_size": 151762,
+            "checksum": "sha3-256:de90d12f40387137217495cc129a0a88709815fedb8329b27c4b98f73432f2cb",
+            "release_notes": "This updates the ThirdReality Smart Watering Kit (3RWK0148Z) to v1.00.45.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/119"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B1-00000024_a6a64a.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54193,
+            "file_version": 36,
+            "file_size": 137698,
+            "checksum": "sha3-256:a6a64abf86ba3ef5cd5399d0be20330f058a2aa36231360577ee1bd59c9d86e7",
+            "release_notes": "This updates the ThirdReality Garage Door Tilt Sensor (3RDTS01056Z) to v1.00.36.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/105"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B2-0000000E_992fb6.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54194,
+            "file_version": 14,
+            "file_size": 136594,
+            "checksum": "sha3-256:992fb605bce87467bb6d30daa3490590e53998deae69d33caf65c04baa861eb2",
+            "release_notes": "This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.14.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/113"
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B4-0000002F_429dec.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54196,
+            "file_version": 47,
+            "file_size": 281734,
+            "checksum": "sha3-256:429dec557994780fe2abb4f361bf16c14163074569055c837726b23effb7e983",
+            "release_notes": "This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/145",
+            "model_names": [
+                "3RSPU01080Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B4-0000002F_749194.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54196,
+            "file_version": 47,
+            "file_size": 281750,
+            "checksum": "sha3-256:7491940287d584168edaec7a82e1b0386b088a8d3066318de5f9c14b081f1dc6",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3B4) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/151",
+            "model_names": [
+                "3RSP02064Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B5-0000002A_7f1585.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54197,
+            "file_version": 42,
+            "file_size": 286614,
+            "checksum": "sha3-256:7f1585ba5240b9f2517e7a1f24c318c8de9051a054292ae51ff14f9e436f39ea",
+            "release_notes": "This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.42.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/141",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3B9-00000014_44fad6.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54201,
+            "file_version": 20,
+            "file_size": 288654,
+            "checksum": "sha3-256:44fad6c7ea1489363ce160f523cfb93010143cd9a834906dfbeec27fffaf9d74",
+            "release_notes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/115",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3BD-0000002F_d6d185.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54205,
+            "file_version": 47,
+            "file_size": 281750,
+            "checksum": "sha3-256:d6d1858b269d467610fe680a05fe42eabaa8e53d1b81174d7435fd5c36d47232",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/149",
+            "model_names": [
+                "3RSP02064Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3BE-0000002F_0f77f7.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54206,
+            "file_version": 47,
+            "file_size": 281722,
+            "checksum": "sha3-256:0f77f72aea9c15228f59e24890c2040ec956d062a4d9a7e07d4e9a438c6b9023",
+            "release_notes": "This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/143",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3BF-00000015_265b3e.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54207,
+            "file_version": 21,
+            "file_size": 264830,
+            "checksum": "sha3-256:265b3eabf323a4ba8cb05a215d445c038ecd68a661d1fec5f556bbda90cb14e6",
+            "release_notes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/117",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3C1-0000000F_dd668d.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54209,
+            "file_version": 15,
+            "file_size": 250418,
+            "checksum": "sha3-256:dd668d510f849e898121a146d9c05f12a27e9830bfdc69818c456e2547696226",
+            "release_notes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/129",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3C2-00000011_8af5e2.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54210,
+            "file_version": 17,
+            "file_size": 261534,
+            "checksum": "sha3-256:8af5e275e6e69fb8edacc7bf2e16315bbbf1c160d4d484d697de3e22d7af7193",
+            "release_notes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/137",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3C3-00000023_1feeff.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54211,
+            "file_version": 35,
+            "file_size": 352278,
+            "checksum": "sha3-256:1feeff5be2a66dfa2ca0e2dbef22e9e4f1da2d12c3e63238c7acfb932e5aa736",
+            "release_notes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.35.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/101",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/third_reality/1407-D3C3-00000028_27e2e4.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54211,
+            "file_version": 40,
+            "file_size": 352526,
+            "checksum": "sha3-256:27e2e406a18c08abbf8650753883e4556fbb144d31804b3dd84219238194dd93",
+            "release_notes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/153",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
             "file_version": 25232480,
@@ -390,7 +710,7 @@
             "max_hardware_version": 1
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B31-02600460_099597.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B31-02600460_099597.ota",
             "manufacturer_id": 4338,
             "image_type": 31537,
             "file_version": 39847008,
@@ -402,7 +722,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B33-02600460_53ed4b.ota",
             "manufacturer_id": 4338,
             "image_type": 31539,
             "file_version": 39847008,
@@ -414,7 +734,7 @@
             "max_hardware_version": 6
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B34-02600462_4293bb.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B34-02600462_4293bb.ota",
             "manufacturer_id": 4338,
             "image_type": 31540,
             "file_version": 39847010,
@@ -426,7 +746,7 @@
             "max_hardware_version": 7
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B38-02600460_ea7e69.ota",
             "manufacturer_id": 4338,
             "image_type": 31544,
             "file_version": 39847008,
@@ -438,7 +758,7 @@
             "max_hardware_version": 4
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B45-02610463_459e97.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B45-02610463_459e97.ota",
             "manufacturer_id": 4338,
             "image_type": 31557,
             "file_version": 39912547,
@@ -450,7 +770,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/ubisys/10F2-7B49-02610464_2faab5.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/ubisys/10F2-7B49-02610464_2faab5.ota",
             "manufacturer_id": 4338,
             "image_type": 31561,
             "file_version": 39912548,
@@ -462,7 +782,7 @@
             "max_hardware_version": 256
         },
         {
-            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.1/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/2026.5.2/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
             "manufacturer_id": 5563,
             "image_type": 100,
             "file_version": 1060869,
