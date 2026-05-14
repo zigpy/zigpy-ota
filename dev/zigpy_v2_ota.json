@@ -586,6 +586,21 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BD-0000002F_d6d185.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54205,
+            "file_version": 47,
+            "file_size": 281750,
+            "checksum": "sha3-256:d6d1858b269d467610fe680a05fe42eabaa8e53d1b81174d7435fd5c36d47232",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/149",
+            "model_names": [
+                "3RSP02064Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BE-0000002F_0f77f7.ota",
             "manufacturer_id": 5127,
             "image_type": 54206,
