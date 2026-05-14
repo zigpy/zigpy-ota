@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 66
+**Total firmware images:** 67
 
 ## aeotec
 
@@ -1242,6 +1242,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.14.
 - **Pull Request**: [#113](https://github.com/zigpy/zigpy-ota/pull/113)
+
+### `1407-D3B4-0000002F_429dec.ota`
+
+- **Original File Name**: `3RSPU01080Z_ZHA_047_20260512_075916.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3B4` (54196)
+- **File Version**: `0x0000002F` (47)
+- **File Size**: 281,734 bytes
+- **Checksum SHA3-256**: `429dec557994780fe2abb4f361bf16c14163074569055c837726b23effb7e983`
+- **Checksum SHA512**: `4a12d5177e34226c6ec861f956d64969dcb3f68909a43690f835026ea3cb0b5fe5650bbe233d6d691ab749e7567d5343547d14cfaa1d1b57f6c72bc768dee89d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B4-0000002F_429dec.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSPU01080Z_ZHA_047_20260512_075916.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+- **Model Names**: 3RSPU01080Z
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.
+- **Pull Request**: [#145](https://github.com/zigpy/zigpy-ota/pull/145)
 
 ### `1407-D3B5-0000002A_7f1585.ota`
 

@@ -547,6 +547,21 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/113"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B4-0000002F_429dec.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54196,
+            "file_version": 47,
+            "file_size": 281734,
+            "checksum": "sha3-256:429dec557994780fe2abb4f361bf16c14163074569055c837726b23effb7e983",
+            "release_notes": "This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/145",
+            "model_names": [
+                "3RSPU01080Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B5-0000002A_7f1585.ota",
             "manufacturer_id": 5127,
             "image_type": 54197,

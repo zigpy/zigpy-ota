@@ -671,6 +671,19 @@
         "releaseNotes": "This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.14."
     },
     {
+        "fileName": "1407-D3B4-0000002F_429dec.ota",
+        "fileVersion": 47,
+        "fileSize": 281734,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B4-0000002F_429dec.ota",
+        "imageType": 54196,
+        "manufacturerCode": 5127,
+        "sha512": "4a12d5177e34226c6ec861f956d64969dcb3f68909a43690f835026ea3cb0b5fe5650bbe233d6d691ab749e7567d5343547d14cfaa1d1b57f6c72bc768dee89d",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSPU01080Z_ZHA_047_20260512_075916.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.",
+        "modelId": "3RSPU01080Z"
+    },
+    {
         "fileName": "1407-D3B5-0000002A_7f1585.ota",
         "fileVersion": 42,
         "fileSize": 286614,
