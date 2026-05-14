@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 61
+**Total firmware images:** 62
 
 ## aeotec
 
@@ -1263,6 +1263,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.
 - **Pull Request**: [#129](https://github.com/zigpy/zigpy-ota/pull/129)
+
+### `1407-D3C2-00000011_8af5e2.ota`
+
+- **Original File Name**: `3RWS0218Z_ZHA_017_20260512_074840.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3C2` (54210)
+- **File Version**: `0x00000011` (17)
+- **File Size**: 261,534 bytes
+- **Checksum SHA3-256**: `8af5e275e6e69fb8edacc7bf2e16315bbbf1c160d4d484d697de3e22d7af7193`
+- **Checksum SHA512**: `f47a8048a35d8ebf1c12abf0ce8d60ee408db4153ccea046045132de254c18ee68b6be79589f32615073ab5f9a9148f5cefb0b8e4feebf8d9099832293f1d31d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C2-00000011_8af5e2.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_017_20260512_074840.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17.
+- **Pull Request**: [#137](https://github.com/zigpy/zigpy-ota/pull/137)
 
 ### `1407-D3C3-00000023_1feeff.ota`
 

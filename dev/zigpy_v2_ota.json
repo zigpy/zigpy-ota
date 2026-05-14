@@ -556,6 +556,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C2-00000011_8af5e2.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54210,
+            "file_version": 17,
+            "file_size": 261534,
+            "checksum": "sha3-256:8af5e275e6e69fb8edacc7bf2e16315bbbf1c160d4d484d697de3e22d7af7193",
+            "release_notes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/137",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
             "manufacturer_id": 5127,
             "image_type": 54211,
