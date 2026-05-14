@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 60
+**Total firmware images:** 61
 
 ## aeotec
 
@@ -965,6 +965,24 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
 - **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
+
+### `1233-D3A3-00000049_a99370.ota`
+
+- **Original File Name**: `3RWS18BZ_ZHA_073_20260512_074532.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A3` (54179)
+- **File Version**: `0x00000049` (73)
+- **File Size**: 145,586 bytes
+- **Checksum SHA3-256**: `a99370aab0f6fef57140699e7ad99a212054591206faeba51c49232313784041`
+- **Checksum SHA512**: `ac780d5d2bd0da487099210a5abd7137cf52179966194e5637059a1724c12eabce2cc53057a7b0b94be7c37426e4d22b1d71fb60aba27ef93e41286d75ee0f03`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A3-00000049_a99370.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RWS18BZ_ZHA_073_20260512_074532.ota
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the ThirdReality Water Leak Sensor (3RWS18BZ) to v1.00.73.
+- **Pull Request**: [#135](https://github.com/zigpy/zigpy-ota/pull/135)
 
 ### `1233-D3A5-00000024_0af2a8.ota`
 

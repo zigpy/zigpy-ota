@@ -386,6 +386,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/103"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A3-00000049_a99370.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54179,
+            "file_version": 73,
+            "file_size": 145586,
+            "checksum": "sha3-256:a99370aab0f6fef57140699e7ad99a212054591206faeba51c49232313784041",
+            "release_notes": "This updates the ThirdReality Water Leak Sensor (3RWS18BZ) to v1.00.73.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/135"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A5-00000024_0af2a8.ota",
             "manufacturer_id": 4659,
             "image_type": 54181,
