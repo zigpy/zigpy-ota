@@ -4,6 +4,7 @@ import logging
 import re
 
 from zigpy_ota.actions.markdown.utils import format_hex_dec, format_list_or_str
+from zigpy_ota.actions.metadata.collision_validation import could_match_same_device
 from zigpy_ota.actions.metadata.stale_validation import is_dominated_by
 from zigpy_ota.models.index_metadata import IndexMetadata
 from zigpy_ota.models.issue_model import ExistingImagesHandling
@@ -17,9 +18,9 @@ def format_image_info(
     filename: str,
     metadata: IndexMetadata,
     new_version: int,
+    staleness_marker: str,
     auto_min_version: int | None = None,
     yaml_min_version: int | None = None,
-    is_stale: bool = False,
 ) -> str:
     """Format image information from metadata for markdown display.
 
@@ -27,9 +28,13 @@ def format_image_info(
         filename: Name of the OTA image file
         metadata: IndexMetadata containing image information
         new_version: New file version for comparison
+        staleness_marker: Inner text rendered inside the ``**[…]**`` staleness
+            label next to the filename. The caller chooses the wording; see
+            :func:`generate_pr_markdown` for the conventions in use here
+            (typically ``"stale"``, ``"not stale"``, or a qualified variant
+            such as ``"not stale: disjoint devices"``).
         auto_min_version: Auto-calculated min_current_file_version (if available)
         yaml_min_version: Min current file version from YAML metadata (if set)
-        is_stale: Whether this image would become stale after adding the new image
 
     Returns:
         Formatted markdown string with image details as sub-bullet points
@@ -48,11 +53,8 @@ def format_image_info(
         comparison = " (**same** as PR version)"
     file_version_line += comparison
 
-    # Add stale indicator
-    stale_suffix = " **[stale]**" if is_stale else " **[not stale]**"
-
     lines = [
-        f"- `{filename}`{stale_suffix}",
+        f"- `{filename}` **[{staleness_marker}]**",
         f"  - **Source File Name**: `{metadata.source_file_name}`",
         file_version_line,
     ]
@@ -239,6 +241,24 @@ def generate_pr_markdown(result: PrepareResult) -> str:
             )
 
         for filename, metadata in result.deletable_images.items():
+            # Compute a single staleness marker. The reviewer-relevant
+            # distinctions are:
+            #   - [stale]: the new image fully dominates the existing one.
+            #   - [not stale: disjoint devices]: device targets don't overlap,
+            #     so the two cannot compete for any device.
+            #   - [not stale: same version]: same file_version with overlapping
+            #     devices — the collision-risk case the validator could flag.
+            #   - [not stale]: not dominated for other reasons (typically
+            #     version-range constraints or specificity differences).
+            if is_dominated_by(metadata, new_image_metadata):
+                staleness_marker = "stale"
+            elif not could_match_same_device(metadata, new_image_metadata):
+                staleness_marker = "not stale: disjoint devices"
+            elif metadata.file_version == current_version:
+                staleness_marker = "not stale: same version"
+            else:
+                staleness_marker = "not stale"
+
             lines.append(
                 format_image_info(
                     filename=filename,
@@ -246,7 +266,7 @@ def generate_pr_markdown(result: PrepareResult) -> str:
                     new_version=current_version,
                     auto_min_version=result.auto_min_version,
                     yaml_min_version=result.yaml_metadata.min_current_file_version,
-                    is_stale=is_dominated_by(metadata, new_image_metadata),
+                    staleness_marker=staleness_marker,
                 )
             )
         lines.append("")

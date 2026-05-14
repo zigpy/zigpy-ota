@@ -167,6 +167,148 @@ def prepare_result_with_deletable_images(
 
 
 @pytest.fixture
+def deletable_image_disjoint_model() -> IndexMetadata:
+    """Existing image at the same file_version as the new one, disjoint model.
+
+    The file_version is set to match ``ota_metadata.file_version``
+    (``0x01001A02``) so the same-version branch of the marker policy is
+    exercised. With disjoint model_names the marker is
+    ``[not stale: disjoint devices]``.
+    """
+    return IndexMetadata(
+        binary_url="https://example.com/other_model.zigbee",
+        manufacturer_id=0x100B,
+        image_type=0x010C,
+        file_version=0x01001A02,
+        file_size=11111,
+        checksum_sha3_256="dis123" * 10,
+        checksum_sha512="dis456" * 20,
+        source_file_name="other_model.zigbee",
+        model_names=("Other Model",),
+    )
+
+
+@pytest.fixture
+def deletable_image_older_disjoint() -> IndexMetadata:
+    """Older-version existing image with disjoint model_names."""
+    return IndexMetadata(
+        binary_url="https://example.com/older_disjoint.zigbee",
+        manufacturer_id=0x100B,
+        image_type=0x010C,
+        file_version=0x01001A01,
+        file_size=11111,
+        checksum_sha3_256="old123" * 10,
+        checksum_sha512="old456" * 20,
+        source_file_name="older_disjoint.zigbee",
+        model_names=("Other Model",),
+    )
+
+
+@pytest.fixture
+def prepare_result_with_older_disjoint_existing(
+    ota_metadata: OtaMetadata,
+    yaml_metadata: YamlMetadataFile,
+    deletable_image_older_disjoint: IndexMetadata,
+) -> PrepareResult:
+    """Older-version existing image whose model_names are disjoint from the new one.
+
+    Disjoint + different version → marker is ``[not stale: disjoint devices]``
+    (the disjoint qualifier is reported regardless of version, since it's
+    the most reviewer-relevant reason the new image doesn't dominate).
+    """
+    return PrepareResult(
+        image_path=Path("/tmp/test_firmware.zigbee"),
+        yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
+        filename="test_firmware.zigbee",
+        manufacturer_directory="test",
+        deletable_images={"older_disjoint.zigbee": deletable_image_older_disjoint},
+        existing_images_handling=ExistingImagesHandling.KEEP_ALL,
+        auto_min_version=None,
+        file_existed=False,
+        replaced_third_party=False,
+        checklist=DEFAULT_CHECKLIST,
+        ota_metadata=ota_metadata,
+        yaml_metadata=yaml_metadata,
+    )
+
+
+@pytest.fixture
+def deletable_image_overlapping_model() -> IndexMetadata:
+    """Existing image at the same file_version with overlapping model_names."""
+    return IndexMetadata(
+        binary_url="https://example.com/overlap_model.zigbee",
+        manufacturer_id=0x100B,
+        image_type=0x010C,
+        file_version=0x01001A02,
+        file_size=11111,
+        checksum_sha3_256="ovl123" * 10,
+        checksum_sha512="ovl456" * 20,
+        source_file_name="overlap_model.zigbee",
+        model_names=("Model A",),
+    )
+
+
+@pytest.fixture
+def prepare_result_with_overlapping_existing(
+    ota_metadata: OtaMetadata,
+    yaml_metadata: YamlMetadataFile,
+    deletable_image_overlapping_model: IndexMetadata,
+) -> PrepareResult:
+    """Same-file-version existing image whose model_names intersect the new one.
+
+    yaml_metadata has ``model_names=("Model A", "Model B")``;
+    ``deletable_image_overlapping_model`` has ``model_names=("Model A",)``.
+    A "Model A" device matches both, so the marker is
+    ``[not stale: same version]`` — the collision-risk case the validator
+    would otherwise flag.
+    """
+    return PrepareResult(
+        image_path=Path("/tmp/test_firmware.zigbee"),
+        yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
+        filename="test_firmware.zigbee",
+        manufacturer_directory="test",
+        deletable_images={"overlap_model.zigbee": deletable_image_overlapping_model},
+        existing_images_handling=ExistingImagesHandling.KEEP_ALL,
+        auto_min_version=None,
+        file_existed=False,
+        replaced_third_party=False,
+        checklist=DEFAULT_CHECKLIST,
+        ota_metadata=ota_metadata,
+        yaml_metadata=yaml_metadata,
+    )
+
+
+@pytest.fixture
+def prepare_result_with_disjoint_existing(
+    ota_metadata: OtaMetadata,
+    yaml_metadata: YamlMetadataFile,
+    deletable_image_disjoint_model: IndexMetadata,
+) -> PrepareResult:
+    """Same-file-version existing image with disjoint model_names.
+
+    yaml_metadata has ``model_names=("Model A", "Model B")``;
+    ``deletable_image_disjoint_model`` has ``model_names=("Other Model",)``.
+    They share file_version with disjoint device targets, so the marker
+    is ``[not stale: disjoint devices]`` — the safe-coexistence case that
+    PR #151 (UZ1 vs Gen3 PID 0xD3B4) originally tripped over.
+    """
+    return PrepareResult(
+        image_path=Path("/tmp/test_firmware.zigbee"),
+        yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
+        filename="test_firmware.zigbee",
+        manufacturer_directory="test",
+        deletable_images={"other_model.zigbee": deletable_image_disjoint_model},
+        existing_images_handling=ExistingImagesHandling.KEEP_ALL,
+        auto_min_version=None,
+        file_existed=False,
+        replaced_third_party=False,
+        checklist=DEFAULT_CHECKLIST,
+        ota_metadata=ota_metadata,
+        yaml_metadata=yaml_metadata,
+    )
+
+
+@pytest.fixture
 def prepare_result_with_auto_min_version(
     ota_metadata: OtaMetadata,
     deletable_image: IndexMetadata,
@@ -236,6 +378,42 @@ class TestGeneratePrMarkdown:
 
         assert "### Deleted Images" in markdown
         assert "old_firmware.zigbee" in markdown
+        # Older-version existing image with overlap that's NOT dominated
+        # (existing has no model_names; new has model_names, so it can't
+        # match all of existing's devices). Plain [not stale], no qualifier.
+        assert "**[not stale]**" in markdown
+        assert "disjoint" not in markdown
+        assert "same version" not in markdown
+
+    def test_same_version_disjoint_marker(
+        self, prepare_result_with_disjoint_existing: PrepareResult
+    ) -> None:
+        """Same-version + disjoint devices → [not stale: disjoint devices]."""
+        markdown = generate_pr_markdown(prepare_result_with_disjoint_existing)
+
+        assert "### Note: Existing Images Found" in markdown
+        assert "other_model.zigbee" in markdown
+        assert "**[not stale: disjoint devices]**" in markdown
+
+    def test_same_version_overlap_marker(
+        self, prepare_result_with_overlapping_existing: PrepareResult
+    ) -> None:
+        """Same-version + overlapping devices → [not stale: same version]."""
+        markdown = generate_pr_markdown(prepare_result_with_overlapping_existing)
+
+        assert "### Note: Existing Images Found" in markdown
+        assert "overlap_model.zigbee" in markdown
+        assert "**[not stale: same version]**" in markdown
+
+    def test_older_disjoint_marker(
+        self, prepare_result_with_older_disjoint_existing: PrepareResult
+    ) -> None:
+        """Older-version + disjoint devices → [not stale: disjoint devices]."""
+        markdown = generate_pr_markdown(prepare_result_with_older_disjoint_existing)
+
+        assert "### Note: Existing Images Found" in markdown
+        assert "older_disjoint.zigbee" in markdown
+        assert "**[not stale: disjoint devices]**" in markdown
 
     def test_auto_min_version_shown(
         self, prepare_result_with_auto_min_version: PrepareResult

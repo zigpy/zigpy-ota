@@ -122,6 +122,24 @@ def ota_hue_newest() -> Path:
 
 
 @pytest.fixture
+def ota_hue_old_alt_variant() -> Path:
+    """Alternate-variant fake at the same (mfr, image_type, file_version) as ota_hue_old.
+
+    Differs only by header string, so the SHA3-256 is different. Lets a test
+    submit two distinct binaries with the same matching key, exercising the
+    same-version + disjoint-devices code path (validator exempts the pair,
+    PR description renders ``[not stale: disjoint devices]``).
+    """
+    return Path("tests/data/ota_files/fake_100B-010C-01001A02-AltVariant.zigbee")
+
+
+@pytest.fixture
+def issue_hue_old_alt_variant() -> Path:
+    """Submission for the alt-variant fake, declaring disjoint model_names."""
+    return Path("tests/data/gh_issues/issue_hue_old_alt_variant.md")
+
+
+@pytest.fixture
 def issue_hue_new_keep_for_middle() -> Path:
     """Issue file for new Hue OTA version (keep existing - for middle test)."""
     return Path("tests/data/gh_issues/issue_hue_new_keep.md")
@@ -341,6 +359,15 @@ def run_prepare_pr(
             ["issue_hue_old_github_blob_url"],
             ["ota_hue_old"],
             id="github_blob_url_normalized",
+        ),
+        # Test 21: Same-(mfr, image_type, file_version) submissions with disjoint
+        # model_names should render the existing image as
+        # [not stale: disjoint devices] in the PR description, demonstrating
+        # safe coexistence.
+        pytest.param(
+            ["issue_hue_old", "issue_hue_old_alt_variant"],
+            ["ota_hue_old", "ota_hue_old_alt_variant"],
+            id="same_version_disjoint_models",
         ),
     ],
     indirect=["issue_paths", "ota_paths"],

@@ -106,7 +106,7 @@ def _ranges_overlap(
     return max(lo_a, lo_b) <= min(hi_a, hi_b)
 
 
-def _could_match_same_device(a: IndexMetadata, b: IndexMetadata) -> bool:
+def could_match_same_device(a: IndexMetadata, b: IndexMetadata) -> bool:
     """Return True if a single device could match both images.
 
     Mirrors the per-device filters zigpy applies in ``check_compatibility``
@@ -152,7 +152,7 @@ def _find_colliding_components(
     """Partition entries into components that could collide at zigpy runtime.
 
     Uses union-find to merge any pair of entries whose constraints overlap
-    via :func:`_could_match_same_device`. Returns only components that
+    via :func:`could_match_same_device`. Returns only components that
     contain more than one unique checksum, i.e. real collisions.
     """
     n = len(entries)
@@ -165,7 +165,7 @@ def _find_colliding_components(
         return x
 
     for i, j in itertools.combinations(range(n), 2):
-        if not _could_match_same_device(entries[i][1], entries[j][1]):
+        if not could_match_same_device(entries[i][1], entries[j][1]):
             continue
         ri, rj = find(i), find(j)
         if ri != rj:
