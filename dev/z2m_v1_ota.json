@@ -782,16 +782,16 @@
         "releaseNotes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17."
     },
     {
-        "fileName": "1407-D3C3-00000023_1feeff.ota",
-        "fileVersion": 35,
-        "fileSize": 352278,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000023_1feeff.ota",
+        "fileName": "1407-D3C3-00000028_27e2e4.ota",
+        "fileVersion": 40,
+        "fileSize": 352526,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000028_27e2e4.ota",
         "imageType": 54211,
         "manufacturerCode": 5127,
-        "sha512": "c128dd22f9bd281d05f791fb0660e196b76a272940400246031873179bb26747265eeb2a276dc3a6e291f7d74f9a11e25556cb71b3055c563a70792e1752ca4c",
+        "sha512": "7f8670e7411b83b2d41fccd551b03daa834707654344b015925a30a2d234538d3942dada616c2004d294da33cf4a1babc7c1866b93a8059984f4a7534de6d278",
         "otaHeaderString": "temp_humi_sensor",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_035_20260512_060513.ota",
-        "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.35."
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_040_20260514_010312.ota",
+        "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40."
     },
     {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",

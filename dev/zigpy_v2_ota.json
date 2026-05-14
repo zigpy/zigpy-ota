@@ -676,6 +676,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C3-00000028_27e2e4.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54211,
+            "file_version": 40,
+            "file_size": 352526,
+            "checksum": "sha3-256:27e2e406a18c08abbf8650753883e4556fbb144d31804b3dd84219238194dd93",
+            "release_notes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/153",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
