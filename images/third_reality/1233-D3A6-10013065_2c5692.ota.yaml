@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 1233-D3A6-10013065_2c5692.ota
+source_file_name: 3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota
+release_notes: |-
+  This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.
+model_names:
+  - 3RSP019BZ
+  - 3RSP02028BZ
+  - 3RSPE01044BZ
