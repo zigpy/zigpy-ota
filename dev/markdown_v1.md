@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 68
+**Total firmware images:** 69
 
 ## aeotec
 
@@ -1263,6 +1263,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.
 - **Pull Request**: [#145](https://github.com/zigpy/zigpy-ota/pull/145)
+
+### `1407-D3B4-0000002F_749194.ota`
+
+- **Original File Name**: `3RSP02064Z_ZHA_047_h0xD3B4_20260512_085143.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3B4` (54196)
+- **File Version**: `0x0000002F` (47)
+- **File Size**: 281,750 bytes
+- **Checksum SHA3-256**: `7491940287d584168edaec7a82e1b0386b088a8d3066318de5f9c14b081f1dc6`
+- **Checksum SHA512**: `2f6b554b7c633215418fc5a417fbe6b9337af2b6de7514bc377c510bada040574d4b0c22526b704f4802e4cf4c810cc0c41f90edd37da98bbaca1a65e762c399`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B4-0000002F_749194.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_047_h0xD3B4_20260512_085143.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+- **Model Names**: 3RSP02064Z
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3B4) to v1.00.47.
+- **Pull Request**: [#151](https://github.com/zigpy/zigpy-ota/pull/151)
 
 ### `1407-D3B5-0000002A_7f1585.ota`
 
