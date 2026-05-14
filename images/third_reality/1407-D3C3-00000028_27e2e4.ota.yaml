@@ -2,5 +2,6 @@
 file_name: 1407-D3C3-00000028_27e2e4.ota
 source_file_name: 3RPL01084Z_ZHA_040_20260514_010312.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_040_20260514_010312.ota
+pull_request: 153
 release_notes: |-
   This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.
