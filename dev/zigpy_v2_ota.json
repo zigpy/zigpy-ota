@@ -556,6 +556,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BE-0000002F_0f77f7.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54206,
+            "file_version": 47,
+            "file_size": 281722,
+            "checksum": "sha3-256:0f77f72aea9c15228f59e24890c2040ec956d062a4d9a7e07d4e9a438c6b9023",
+            "release_notes": "This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/143",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BF-00000015_265b3e.ota",
             "manufacturer_id": 5127,
             "image_type": 54207,

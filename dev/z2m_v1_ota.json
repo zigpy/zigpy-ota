@@ -656,6 +656,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20."
     },
     {
+        "fileName": "1407-D3BE-0000002F_0f77f7.ota",
+        "fileVersion": 47,
+        "fileSize": 281722,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BE-0000002F_0f77f7.ota",
+        "imageType": 54206,
+        "manufacturerCode": 5127,
+        "sha512": "0a9390caadb57c153c7d26dbe85cae1f512b2eecfc3b687961008aafbeef4b53414354e90a15fcff831537c98946b4d72a7b66b03985a322e04d3a4f11783635",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSPE02065Z_ZHA_047_20260512_075639.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47."
+    },
+    {
         "fileName": "1407-D3BF-00000015_265b3e.ota",
         "fileVersion": 21,
         "fileSize": 264830,
