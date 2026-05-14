@@ -488,6 +488,45 @@
         "releaseNotes": "This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36."
     },
     {
+        "fileName": "1233-D3A6-10013065_2c5692.ota",
+        "fileVersion": 268513381,
+        "fileSize": 198146,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A6-10013065_2c5692.ota",
+        "imageType": 54182,
+        "manufacturerCode": 4659,
+        "sha512": "440d4aa1a6984a5fb899019661db40ab9edf6f6d59f936d45a4cf670c677d64b1ad6fc2f7639f72274f1bd4d62c2150d9365c6d05ea7d80f6c4b6cbaa55b28e5",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.",
+        "modelId": "3RSP019BZ"
+    },
+    {
+        "fileName": "1233-D3A6-10013065_2c5692.ota",
+        "fileVersion": 268513381,
+        "fileSize": 198146,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A6-10013065_2c5692.ota",
+        "imageType": 54182,
+        "manufacturerCode": 4659,
+        "sha512": "440d4aa1a6984a5fb899019661db40ab9edf6f6d59f936d45a4cf670c677d64b1ad6fc2f7639f72274f1bd4d62c2150d9365c6d05ea7d80f6c4b6cbaa55b28e5",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.",
+        "modelId": "3RSP02028BZ"
+    },
+    {
+        "fileName": "1233-D3A6-10013065_2c5692.ota",
+        "fileVersion": 268513381,
+        "fileSize": 198146,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A6-10013065_2c5692.ota",
+        "imageType": 54182,
+        "manufacturerCode": 4659,
+        "sha512": "440d4aa1a6984a5fb899019661db40ab9edf6f6d59f936d45a4cf670c677d64b1ad6fc2f7639f72274f1bd4d62c2150d9365c6d05ea7d80f6c4b6cbaa55b28e5",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.",
+        "modelId": "3RSPE01044BZ"
+    },
+    {
         "fileName": "1233-D3A7-00000054_80f4c5.ota",
         "fileVersion": 84,
         "fileSize": 157106,

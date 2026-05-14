@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 65
+**Total firmware images:** 66
 
 ## aeotec
 
@@ -1001,6 +1001,25 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Switch Gen3 (3RSS009Z) to v1.00.36.
 - **Pull Request**: [#125](https://github.com/zigpy/zigpy-ota/pull/125)
+
+### `1233-D3A6-10013065_2c5692.ota`
+
+- **Original File Name**: `3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota`
+- **Manufacturer ID**: `0x1233` (4659)
+- **Image Type**: `0xD3A6` (54182)
+- **File Version**: `0x10013065` (268513381)
+- **File Size**: 198,146 bytes
+- **Checksum SHA3-256**: `2c5692221a3e8df73c1a3d6a517814cf8d4f0eb703714028f9b666e5ca5505dd`
+- **Checksum SHA512**: `440d4aa1a6984a5fb899019661db40ab9edf6f6d59f936d45a4cf670c677d64b1ad6fc2f7639f72274f1bd4d62c2150d9365c6d05ea7d80f6c4b6cbaa55b28e5`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A6-10013065_2c5692.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSP019BZ-28BZ-44BZ_ZHA_101_20260512_081147.ota
+- **Header String**: `Telink OTA Sample Usage`
+- **Model Names**: 3RSP019BZ, 3RSP02028BZ, 3RSPE01044BZ
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.
+- **Pull Request**: [#147](https://github.com/zigpy/zigpy-ota/pull/147)
 
 ### `1233-D3A7-00000054_80f4c5.ota`
 

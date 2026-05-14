@@ -406,6 +406,21 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/125"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A6-10013065_2c5692.ota",
+            "manufacturer_id": 4659,
+            "image_type": 54182,
+            "file_version": 268513381,
+            "file_size": 198146,
+            "checksum": "sha3-256:2c5692221a3e8df73c1a3d6a517814cf8d4f0eb703714028f9b666e5ca5505dd",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen1, Smart Plug Gen2, or Smart Plug E2 (3RSP019BZ, 3RSP02028BZ, or 3RSPE01044BZ) to v1.01.01.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/147",
+            "model_names": [
+                "3RSP019BZ",
+                "3RSP02028BZ",
+                "3RSPE01044BZ"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A7-00000054_80f4c5.ota",
             "manufacturer_id": 4659,
             "image_type": 54183,
