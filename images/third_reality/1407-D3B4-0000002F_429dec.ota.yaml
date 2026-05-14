@@ -2,6 +2,7 @@
 file_name: 1407-D3B4-0000002F_429dec.ota
 source_file_name: 3RSPU01080Z_ZHA_047_20260512_075916.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSPU01080Z_ZHA_047_20260512_075916.ota
+pull_request: 145
 release_notes: |-
   This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.
 model_names:
