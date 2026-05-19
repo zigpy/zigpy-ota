@@ -301,6 +301,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/22"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0101-01020304_bbc7bb.ota",
+            "manufacturer_id": 4655,
+            "image_type": 257,
+            "file_version": 16909060,
+            "file_size": 319866,
+            "checksum": "sha3-256:bbc7bb34a0c41eb8695ca434f1e9fd96cbd2e084f348979e3b88a8b085398ce5",
+            "release_notes": "This updates the Inovelli VZM31-SN to v3.04.\n\n**Changes**\n- The temperature acquisition algorithm was optimized",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/159"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,

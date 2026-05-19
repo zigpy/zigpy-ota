@@ -360,6 +360,18 @@
         "releaseNotes": "This updates the Innr SP 244 v2 smart plug to firmware version 1.9.30.\n\n**Note:** Please reload ZHA or restart Home Assistant shortly after this update is fully applied to avoid an incorrectly increased \"summation delivered\" state.\n\n**Note:** The relay may turn on or off during the upgrade process.\n\n**Changes compared to version 1.7.23 and older**\n- Fixed attribute reporting failing after power-cycle\n- Improved default attribute reporting settings\n- Improved thresholds for the resettable voltage and current overload protection\n- Added possibility to disable voltage overload protection\n- kWh in 3 decimals instead of 2\n- Added Multiplier and Divisor for kWh\n- Various bug fixes and performance improvements\n\n**Disabling voltage overload protection**\n\nTo disable voltage overload protection:\n1. Keep the button pressed between 15 and 20 seconds, then release\n2. After 5 seconds, the LED will start quick-blinking; keep the button pressed\n3. After 10 seconds, blinking stops; keep the button pressed\n4. After 15 seconds, the LED will start quick-blinking again\n5. Release the button. The LED will slow-blink 3 times to indicate success\n\nEnable again in the same way.\n\nEnabled/disabled state is persisted over power-cycles, even if not connected to a bridge.\nWhile voltage overload protection is disabled, every on/off action will double-blink the LED before assuming final state.\n\nCurrent overload protection cannot be disabled.\n\n**Overload behavior**\n\n- If the voltage or current overload protection triggers, the plug switches off and fast-blinks its LED\n- If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears\n- If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling"
     },
     {
+        "fileName": "122F-0101-01020304_bbc7bb.ota",
+        "fileVersion": 16909060,
+        "fileSize": 319866,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0101-01020304_bbc7bb.ota",
+        "imageType": 257,
+        "manufacturerCode": 4655,
+        "sha512": "95aac7aacb41c9437c9b372bade31c7a1201180c21083cd0ef588ecb9be9208d4d97593528f6ebbe1039d850ee6702eb3f1835488363b30b1a694ac19bf92ae2",
+        "otaHeaderString": "EBL VM_SWITCH",
+        "originalUrl": "https://files.inovelli.com/firmware/VZM31-SN/Production/3.04/VZM31-SN_3.04.ota",
+        "releaseNotes": "This updates the Inovelli VZM31-SN to v3.04.\n\n**Changes**\n- The temperature acquisition algorithm was optimized"
+    },
+    {
         "fileName": "1286-000B-00002002_cb2909.ota",
         "fileVersion": 8194,
         "fileSize": 147232,

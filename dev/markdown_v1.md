@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 71
+**Total firmware images:** 72
 
 ## aeotec
 
@@ -821,6 +821,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - If the cause was voltage overload, the plug will go back to normal operation automatically when the overload condition disappears
 > - If the cause was current overload, the plug will stay off and in overload condition until manually operated, either with the button or by power-cycling
 - **Pull Request**: [#22](https://github.com/zigpy/zigpy-ota/pull/22)
+
+## inovelli
+
+### `122F-0101-01020304_bbc7bb.ota`
+
+- **Original File Name**: `VZM31-SN_3.04.ota`
+- **Manufacturer ID**: `0x122F` (4655)
+- **Image Type**: `0x0101` (257)
+- **File Version**: `0x01020304` (16909060)
+- **File Size**: 319,866 bytes
+- **Checksum SHA3-256**: `bbc7bb34a0c41eb8695ca434f1e9fd96cbd2e084f348979e3b88a8b085398ce5`
+- **Checksum SHA512**: `95aac7aacb41c9437c9b372bade31c7a1201180c21083cd0ef588ecb9be9208d4d97593528f6ebbe1039d850ee6702eb3f1835488363b30b1a694ac19bf92ae2`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0101-01020304_bbc7bb.ota
+- **Source URL**: https://files.inovelli.com/firmware/VZM31-SN/Production/3.04/VZM31-SN_3.04.ota
+- **Header String**: `EBL VM_SWITCH`
+
+**Release Notes:**
+
+> This updates the Inovelli VZM31-SN to v3.04.
+> 
+> **Changes**
+> - The temperature acquisition algorithm was optimized
+- **Pull Request**: [#159](https://github.com/zigpy/zigpy-ota/pull/159)
 
 ## sonoff
 
