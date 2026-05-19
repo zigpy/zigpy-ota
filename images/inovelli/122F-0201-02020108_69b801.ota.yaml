@@ -1,0 +1,14 @@
+# OTA metadata
+file_name: 122F-0201-02020108_69b801.ota
+source_file_name: VZM35-SN_1.08.ota
+source_url: https://files.inovelli.com/firmware/VZM35-SN/Beta/1.08/VZM35-SN_1.08.ota
+release_notes: |-
+  This updates the Inovelli VZM35-SN to v1.08.
+
+  **Changes**
+  - The Power Source parameter (P21) has been changed from read-only to read-write.
+  - The default value of P21 is now set to "Neutral."
+  - Automatic neutral detection has been removed, and users must manually set the correct power source.
+  - Users with non-neutral installations must perform this configuration step after updating to ensure proper operation.
+
+  **More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08
