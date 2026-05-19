@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 72
+**Total firmware images:** 73
 
 ## aeotec
 
@@ -844,6 +844,30 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - The temperature acquisition algorithm was optimized
 - **Pull Request**: [#159](https://github.com/zigpy/zigpy-ota/pull/159)
+
+### `122F-0110-01100103_7c0ac2.ota`
+
+- **Original File Name**: `VZM30-SN_1.03.ota`
+- **Manufacturer ID**: `0x122F` (4655)
+- **Image Type**: `0x0110` (272)
+- **File Version**: `0x01100103` (17826051)
+- **File Size**: 224,794 bytes
+- **Checksum SHA3-256**: `7c0ac2e1794b2f790d1b4dd7250f5cd1fe21122cac7611091741ba447a840761`
+- **Checksum SHA512**: `b7a8958f6f1f56a75e95f0ef8fbfc7ce3988cff77d63c2e5afea43727be2974a5828dd1ca888c8d87771cfd8c1a29838eff316546af0190d3b7ff2b664af8255`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0110-01100103_7c0ac2.ota
+- **Source URL**: https://files.inovelli.com/firmware/VZM30-SN/Production/1.03/VZM30-SN_1.03.ota
+- **Header String**: `VZM30-SN_OnOff`
+
+**Release Notes:**
+
+> This updates the Inovelli VZM30-SN to v1.03.
+> 
+> **Changes**
+> - Fixed the issue where Energy continued to increase even when the load was turned off.
+> - Change the divisor attribute of the metering cluster to 1000
+> - Fixed the issue where the LED effect would fail under certain circumstances.
+> - Fixed the issue where "on with timed off" was ineffective.
+- **Pull Request**: [#157](https://github.com/zigpy/zigpy-ota/pull/157)
 
 ## sonoff
 

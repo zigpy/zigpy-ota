@@ -311,6 +311,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/159"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0110-01100103_7c0ac2.ota",
+            "manufacturer_id": 4655,
+            "image_type": 272,
+            "file_version": 17826051,
+            "file_size": 224794,
+            "checksum": "sha3-256:7c0ac2e1794b2f790d1b4dd7250f5cd1fe21122cac7611091741ba447a840761",
+            "release_notes": "This updates the Inovelli VZM30-SN to v1.03.\n\n**Changes**\n- Fixed the issue where Energy continued to increase even when the load was turned off.\n- Change the divisor attribute of the metering cluster to 1000\n- Fixed the issue where the LED effect would fail under certain circumstances.\n- Fixed the issue where \"on with timed off\" was ineffective.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/157"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,

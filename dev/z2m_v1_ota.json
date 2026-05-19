@@ -372,6 +372,18 @@
         "releaseNotes": "This updates the Inovelli VZM31-SN to v3.04.\n\n**Changes**\n- The temperature acquisition algorithm was optimized"
     },
     {
+        "fileName": "122F-0110-01100103_7c0ac2.ota",
+        "fileVersion": 17826051,
+        "fileSize": 224794,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0110-01100103_7c0ac2.ota",
+        "imageType": 272,
+        "manufacturerCode": 4655,
+        "sha512": "b7a8958f6f1f56a75e95f0ef8fbfc7ce3988cff77d63c2e5afea43727be2974a5828dd1ca888c8d87771cfd8c1a29838eff316546af0190d3b7ff2b664af8255",
+        "otaHeaderString": "VZM30-SN_OnOff",
+        "originalUrl": "https://files.inovelli.com/firmware/VZM30-SN/Production/1.03/VZM30-SN_1.03.ota",
+        "releaseNotes": "This updates the Inovelli VZM30-SN to v1.03.\n\n**Changes**\n- Fixed the issue where Energy continued to increase even when the load was turned off.\n- Change the divisor attribute of the metering cluster to 1000\n- Fixed the issue where the LED effect would fail under certain circumstances.\n- Fixed the issue where \"on with timed off\" was ineffective."
+    },
+    {
         "fileName": "1286-000B-00002002_cb2909.ota",
         "fileVersion": 8194,
         "fileSize": 147232,
