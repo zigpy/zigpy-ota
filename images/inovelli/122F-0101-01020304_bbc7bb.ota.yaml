@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 122F-0101-01020304_bbc7bb.ota
+source_file_name: VZM31-SN_3.04.ota
+source_url: https://files.inovelli.com/firmware/VZM31-SN/Production/3.04/VZM31-SN_3.04.ota
+release_notes: |-
+  This updates the Inovelli VZM31-SN to v3.04.
+
+  **Changes**
+  - The temperature acquisition algorithm was optimized
