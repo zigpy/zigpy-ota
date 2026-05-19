@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 73
+**Total firmware images:** 74
 
 ## aeotec
 
@@ -868,6 +868,32 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Fixed the issue where the LED effect would fail under certain circumstances.
 > - Fixed the issue where "on with timed off" was ineffective.
 - **Pull Request**: [#157](https://github.com/zigpy/zigpy-ota/pull/157)
+
+### `122F-0201-02020108_69b801.ota`
+
+- **Original File Name**: `VZM35-SN_1.08.ota`
+- **Manufacturer ID**: `0x122F` (4655)
+- **Image Type**: `0x0201` (513)
+- **File Version**: `0x02020108` (33685768)
+- **File Size**: 230,538 bytes
+- **Checksum SHA3-256**: `69b801807145972bb5dba35ab997c1e23500f10fa3bc3f1640fd69774ee1e6f1`
+- **Checksum SHA512**: `96e7bd8b4b3bc5e47fb802c5df9133f76617d0fbf400ada66e6c81a42c12ec23afe7d638c7b15865ae894cde99e6a93cfc2b4085d9d71e5e371273050c92348b`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0201-02020108_69b801.ota
+- **Source URL**: https://files.inovelli.com/firmware/VZM35-SN/Beta/1.08/VZM35-SN_1.08.ota
+- **Header String**: `VZM35_MG24`
+
+**Release Notes:**
+
+> This updates the Inovelli VZM35-SN to v1.08.
+> 
+> **Changes**
+> - The Power Source parameter (P21) has been changed from read-only to read-write.
+> - The default value of P21 is now set to "Neutral."
+> - Automatic neutral detection has been removed, and users must manually set the correct power source.
+> - Users with non-neutral installations must perform this configuration step after updating to ensure proper operation.
+> 
+> **More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08
+- **Pull Request**: [#161](https://github.com/zigpy/zigpy-ota/pull/161)
 
 ## sonoff
 

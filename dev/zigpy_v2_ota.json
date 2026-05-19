@@ -321,6 +321,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/157"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0201-02020108_69b801.ota",
+            "manufacturer_id": 4655,
+            "image_type": 513,
+            "file_version": 33685768,
+            "file_size": 230538,
+            "checksum": "sha3-256:69b801807145972bb5dba35ab997c1e23500f10fa3bc3f1640fd69774ee1e6f1",
+            "release_notes": "This updates the Inovelli VZM35-SN to v1.08.\n\n**Changes**\n- The Power Source parameter (P21) has been changed from read-only to read-write.\n- The default value of P21 is now set to \"Neutral.\"\n- Automatic neutral detection has been removed, and users must manually set the correct power source.\n- Users with non-neutral installations must perform this configuration step after updating to ensure proper operation.\n\n**More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/161"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,

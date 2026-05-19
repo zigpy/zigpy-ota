@@ -384,6 +384,18 @@
         "releaseNotes": "This updates the Inovelli VZM30-SN to v1.03.\n\n**Changes**\n- Fixed the issue where Energy continued to increase even when the load was turned off.\n- Change the divisor attribute of the metering cluster to 1000\n- Fixed the issue where the LED effect would fail under certain circumstances.\n- Fixed the issue where \"on with timed off\" was ineffective."
     },
     {
+        "fileName": "122F-0201-02020108_69b801.ota",
+        "fileVersion": 33685768,
+        "fileSize": 230538,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0201-02020108_69b801.ota",
+        "imageType": 513,
+        "manufacturerCode": 4655,
+        "sha512": "96e7bd8b4b3bc5e47fb802c5df9133f76617d0fbf400ada66e6c81a42c12ec23afe7d638c7b15865ae894cde99e6a93cfc2b4085d9d71e5e371273050c92348b",
+        "otaHeaderString": "VZM35_MG24",
+        "originalUrl": "https://files.inovelli.com/firmware/VZM35-SN/Beta/1.08/VZM35-SN_1.08.ota",
+        "releaseNotes": "This updates the Inovelli VZM35-SN to v1.08.\n\n**Changes**\n- The Power Source parameter (P21) has been changed from read-only to read-write.\n- The default value of P21 is now set to \"Neutral.\"\n- Automatic neutral detection has been removed, and users must manually set the correct power source.\n- Users with non-neutral installations must perform this configuration step after updating to ensure proper operation.\n\n**More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08"
+    },
+    {
         "fileName": "1286-000B-00002002_cb2909.ota",
         "fileVersion": 8194,
         "fileSize": 147232,
