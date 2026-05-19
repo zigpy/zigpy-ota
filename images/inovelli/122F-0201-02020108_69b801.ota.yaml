@@ -2,6 +2,7 @@
 file_name: 122F-0201-02020108_69b801.ota
 source_file_name: VZM35-SN_1.08.ota
 source_url: https://files.inovelli.com/firmware/VZM35-SN/Beta/1.08/VZM35-SN_1.08.ota
+pull_request: 161
 release_notes: |-
   This updates the Inovelli VZM35-SN to v1.08.
 
