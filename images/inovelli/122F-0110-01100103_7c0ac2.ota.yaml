@@ -1,0 +1,12 @@
+# OTA metadata
+file_name: 122F-0110-01100103_7c0ac2.ota
+source_file_name: VZM30-SN_1.03.ota
+source_url: https://files.inovelli.com/firmware/VZM30-SN/Production/1.03/VZM30-SN_1.03.ota
+release_notes: |-
+  This updates the Inovelli VZM30-SN to v1.03.
+
+  **Changes**
+  - Fixed the issue where Energy continued to increase even when the load was turned off.
+  - Change the divisor attribute of the metering cluster to 1000
+  - Fixed the issue where the LED effect would fail under certain circumstances.
+  - Fixed the issue where "on with timed off" was ineffective.
