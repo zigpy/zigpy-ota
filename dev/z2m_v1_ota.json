@@ -396,6 +396,18 @@
         "releaseNotes": "This updates the Inovelli VZM35-SN to v1.08.\n\n**Changes**\n- The Power Source parameter (P21) has been changed from read-only to read-write.\n- The default value of P21 is now set to \"Neutral.\"\n- Automatic neutral detection has been removed, and users must manually set the correct power source.\n- Users with non-neutral installations must perform this configuration step after updating to ensure proper operation.\n\n**More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08"
     },
     {
+        "fileName": "122F-0401-04010102_d82a28.ota",
+        "fileVersion": 67174658,
+        "fileSize": 234866,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0401-04010102_d82a28.ota",
+        "imageType": 1025,
+        "manufacturerCode": 4655,
+        "sha512": "a53ce5132b40e21491320961c51777b27dc5b2914a2bebd1a15406569be8930931da8a74dc1d2af009dda7c95b59e760ea33423c3e6b0ccf48945a3d3df7adf9",
+        "otaHeaderString": "VMZB_Canopy",
+        "originalUrl": "https://files.inovelli.com/firmware/VZM36/Beta/1.02/VZM36_1.02.ota",
+        "releaseNotes": "This updates the Inovelli VZM36 to v1.02.\n\n**Changes**\n- The dimming algorithm has been optimized.\n- If issues are observed in leading edge mode, please try trailing edge or full sine mode."
+    },
+    {
         "fileName": "1286-000B-00002002_cb2909.ota",
         "fileVersion": 8194,
         "fileSize": 147232,

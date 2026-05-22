@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 74
+**Total firmware images:** 75
 
 ## aeotec
 
@@ -894,6 +894,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **More info:** https://help.inovelli.com/en/articles/13381709-vzm35-sn-fan-switch-firmware-update-v1-08
 - **Pull Request**: [#161](https://github.com/zigpy/zigpy-ota/pull/161)
+
+### `122F-0401-04010102_d82a28.ota`
+
+- **Original File Name**: `VZM36_1.02.ota`
+- **Manufacturer ID**: `0x122F` (4655)
+- **Image Type**: `0x0401` (1025)
+- **File Version**: `0x04010102` (67174658)
+- **File Size**: 234,866 bytes
+- **Checksum SHA3-256**: `d82a2861169ac9a7cdc2e81e8057f6172180b24158fdab969b2461654730b4c6`
+- **Checksum SHA512**: `a53ce5132b40e21491320961c51777b27dc5b2914a2bebd1a15406569be8930931da8a74dc1d2af009dda7c95b59e760ea33423c3e6b0ccf48945a3d3df7adf9`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0401-04010102_d82a28.ota
+- **Source URL**: https://files.inovelli.com/firmware/VZM36/Beta/1.02/VZM36_1.02.ota
+- **Header String**: `VMZB_Canopy`
+
+**Release Notes:**
+
+> This updates the Inovelli VZM36 to v1.02.
+> 
+> **Changes**
+> - The dimming algorithm has been optimized.
+> - If issues are observed in leading edge mode, please try trailing edge or full sine mode.
+- **Pull Request**: [#163](https://github.com/zigpy/zigpy-ota/pull/163)
 
 ## sonoff
 

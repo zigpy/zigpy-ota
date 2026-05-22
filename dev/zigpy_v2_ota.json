@@ -331,6 +331,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/161"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0401-04010102_d82a28.ota",
+            "manufacturer_id": 4655,
+            "image_type": 1025,
+            "file_version": 67174658,
+            "file_size": 234866,
+            "checksum": "sha3-256:d82a2861169ac9a7cdc2e81e8057f6172180b24158fdab969b2461654730b4c6",
+            "release_notes": "This updates the Inovelli VZM36 to v1.02.\n\n**Changes**\n- The dimming algorithm has been optimized.\n- If issues are observed in leading edge mode, please try trailing edge or full sine mode.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/163"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,
