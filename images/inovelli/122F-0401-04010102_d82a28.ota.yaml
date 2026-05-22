@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 122F-0401-04010102_d82a28.ota
+source_file_name: VZM36_1.02.ota
+source_url: https://files.inovelli.com/firmware/VZM36/Beta/1.02/VZM36_1.02.ota
+pull_request: 163
+release_notes: |-
+  This updates the Inovelli VZM36 to v1.02.
+
+  **Changes**
+  - The dimming algorithm has been optimized.
+  - If issues are observed in leading edge mode, please try trailing edge or full sine mode.
