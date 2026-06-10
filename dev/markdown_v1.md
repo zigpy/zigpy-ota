@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 75
+**Total firmware images:** 76
 
 ## aeotec
 
@@ -1578,6 +1578,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.
 - **Pull Request**: [#153](https://github.com/zigpy/zigpy-ota/pull/153)
+
+### `1407-D405-0000000E_4ee304.ota`
+
+- **Original File Name**: `3RAQ1096Z_ZHA_014_20260609_031557.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD405` (54277)
+- **File Version**: `0x0000000E` (14)
+- **File Size**: 241,646 bytes
+- **Checksum SHA3-256**: `4ee304ee633c9f65f63a6acee448683db8b46318fd7cfc9d66fcff7cad440bf5`
+- **Checksum SHA512**: `ba77839d6089278bb274ea90b2d79666269eb883a9ec3d0d95b34ff7d783af58a0975526d47f57a8d6e608f40fe2bc2a109a948a29feca574b0c54063f037e92`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-0000000E_4ee304.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_014_20260609_031557.ota
+- **Header String**: `test`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.14.
+- **Pull Request**: [#167](https://github.com/zigpy/zigpy-ota/pull/167)
 
 ## ubisys
 
