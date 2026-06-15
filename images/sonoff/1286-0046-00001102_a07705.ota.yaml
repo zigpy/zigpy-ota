@@ -2,6 +2,7 @@
 file_name: 1286-0046-00001102_a07705.ota
 source_file_name: FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.ota
 source_url: https://github.com/user-attachments/files/28790507/FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.zip
+pull_request: 169
 release_notes: |-
   This updates the Sonoff MINI-ZB1GSP to firmware version 1.1.2.
 
