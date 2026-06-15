@@ -1,0 +1,18 @@
+# OTA metadata
+file_name: 1286-000B-00002003_8c7677.ota
+source_file_name: SN-TLSR8656-S60-01-v2.0.3.ota
+source_url: https://github.com/user-attachments/files/28705921/SN-TLSR8656-S60-01-v2.0.3.zip
+pull_request: 165
+release_notes: |-
+  This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.3.
+
+  **Changes**
+  - Fix power, current, and voltage attributes freezing at their last value when the plug is turned off
+  - Fix the `instantaneous_demand` attribute incorrectly being reported as supported
+  - Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation
+  - Improve robustness of energy statistic updates in edge-case scenarios
+manufacturer_names:
+  - SONOFF
+model_names:
+  - S60ZBTPF
+  - S60ZBTPG
