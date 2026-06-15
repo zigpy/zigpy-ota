@@ -472,6 +472,22 @@
         "modelId": "MINI-ZB1GSP"
     },
     {
+        "fileName": "1286-0047-00001102_33f69d.ota",
+        "fileVersion": 4354,
+        "fileSize": 323774,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0047-00001102_33f69d.ota",
+        "imageType": 71,
+        "manufacturerCode": 4742,
+        "sha512": "aa17174b8bd95fd02575c3e9c5cbb57163cd917e0cc05244d6840ebe45b8bf0f211a795e2946a18b717667d46061196051a6ed9915df17db098481cf30497fd3",
+        "otaHeaderString": "EBL FWPLUG_MINIZB1GSP_ELECTRICAL",
+        "originalUrl": "https://github.com/user-attachments/files/28820530/FWPLUG_MINIZB1GP_ELECTRICAL_EFR32MG21.zip",
+        "releaseNotes": "This updates the Sonoff MINI-ZB1GP to firmware version 1.1.2.\n\n**Bug fixes**\n- Fix synchronization issues between BLE and Zigbee\n- Fix storage and calculation issues with electricity consumption and price\n\n**New features**\n- Add scene threshold report\n- Add voltage frequency attribute",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "MINI-ZB1GP"
+    },
+    {
         "fileName": "1286-080E-00001100_a91db8.ota",
         "fileVersion": 4352,
         "fileSize": 193632,
