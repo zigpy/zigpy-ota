@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 78
+**Total firmware images:** 79
 
 ## aeotec
 
@@ -996,6 +996,34 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level
 > - Light dimming is supported when the key type is single touch key
 - **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
+
+### `1286-0046-00001102_a07705.ota`
+
+- **Original File Name**: `FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0046` (70)
+- **File Version**: `0x00001102` (4354)
+- **File Size**: 329,538 bytes
+- **Checksum SHA3-256**: `a0770524bee9d15fc5da2742a60d32afb9421f8b54080018ca89998f1c6d8219`
+- **Checksum SHA512**: `c217bfa6b83d0b186af326374613ce0fc8f9ae13d65e06924d1b22d728bbe04613c24e4321399c98b7308b3e4d2a0c88ba994ab7eb55f2e3dce61cca92eccced`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001102_a07705.ota
+- **Source URL**: https://github.com/user-attachments/files/28790507/FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.zip
+- **Header String**: `EBL FWPLUG_MINIZB1GSP_ELECTRICAL`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZB1GSP
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZB1GSP to firmware version 1.1.2.
+> 
+> **Bug fixes**
+> - Fix synchronization issues between BLE and Zigbee
+> - Fix storage and calculation issues with electricity consumption and price
+> 
+> **New features**
+> - Add inching switch and scene threshold report
+> - Add voltage frequency attribute
+- **Pull Request**: [#169](https://github.com/zigpy/zigpy-ota/pull/169)
 
 ### `1286-080E-00001100_a91db8.ota`
 

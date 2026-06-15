@@ -391,6 +391,22 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001102_a07705.ota",
+            "manufacturer_id": 4742,
+            "image_type": 70,
+            "file_version": 4354,
+            "file_size": 329538,
+            "checksum": "sha3-256:a0770524bee9d15fc5da2742a60d32afb9421f8b54080018ca89998f1c6d8219",
+            "release_notes": "This updates the Sonoff MINI-ZB1GSP to firmware version 1.1.2.\n\n**Bug fixes**\n- Fix synchronization issues between BLE and Zigbee\n- Fix storage and calculation issues with electricity consumption and price\n\n**New features**\n- Add inching switch and scene threshold report\n- Add voltage frequency attribute",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/169",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "MINI-ZB1GSP"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,

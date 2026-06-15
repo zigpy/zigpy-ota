@@ -456,6 +456,22 @@
         "modelId": "MINI-ZBDIM"
     },
     {
+        "fileName": "1286-0046-00001102_a07705.ota",
+        "fileVersion": 4354,
+        "fileSize": 329538,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001102_a07705.ota",
+        "imageType": 70,
+        "manufacturerCode": 4742,
+        "sha512": "c217bfa6b83d0b186af326374613ce0fc8f9ae13d65e06924d1b22d728bbe04613c24e4321399c98b7308b3e4d2a0c88ba994ab7eb55f2e3dce61cca92eccced",
+        "otaHeaderString": "EBL FWPLUG_MINIZB1GSP_ELECTRICAL",
+        "originalUrl": "https://github.com/user-attachments/files/28790507/FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.zip",
+        "releaseNotes": "This updates the Sonoff MINI-ZB1GSP to firmware version 1.1.2.\n\n**Bug fixes**\n- Fix synchronization issues between BLE and Zigbee\n- Fix storage and calculation issues with electricity consumption and price\n\n**New features**\n- Add inching switch and scene threshold report\n- Add voltage frequency attribute",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "MINI-ZB1GSP"
+    },
+    {
         "fileName": "1286-080E-00001100_a91db8.ota",
         "fileVersion": 4352,
         "fileSize": 193632,
