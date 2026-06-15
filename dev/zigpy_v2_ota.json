@@ -358,6 +358,23 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002003_8c7677.ota",
+            "manufacturer_id": 4742,
+            "image_type": 11,
+            "file_version": 8195,
+            "file_size": 147808,
+            "checksum": "sha3-256:8c76771245be758c6555f05cf3d0fb7d2aa14eb03880ec0de8f57dd6f4ef5460",
+            "release_notes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.3.\n\n**Changes**\n- Fix power, current, and voltage attributes freezing at their last value when the plug is turned off\n- Fix the `instantaneous_demand` attribute incorrectly being reported as supported\n- Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation\n- Improve robustness of energy statistic updates in edge-case scenarios",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/165",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "S60ZBTPF",
+                "S60ZBTPG"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0045-00001005_ea654a.ota",
             "manufacturer_id": 4742,
             "image_type": 69,

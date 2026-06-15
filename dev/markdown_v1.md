@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 77
+**Total firmware images:** 78
 
 ## aeotec
 
@@ -919,7 +919,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 ## sonoff
 
-### `1286-000B-00002002_cb2909.ota`
+### `1286-000B-00002002_cb2909.ota` **[stale]**
 
 - **Original File Name**: `SN-TLSR8656-S60-01-v2.0.2.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -941,6 +941,32 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Improves on/off state reporting during overload conditions to ensure accurate device state
 - **Pull Request**: [#26](https://github.com/zigpy/zigpy-ota/pull/26)
+
+### `1286-000B-00002003_8c7677.ota`
+
+- **Original File Name**: `SN-TLSR8656-S60-01-v2.0.3.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x000B` (11)
+- **File Version**: `0x00002003` (8195)
+- **File Size**: 147,808 bytes
+- **Checksum SHA3-256**: `8c76771245be758c6555f05cf3d0fb7d2aa14eb03880ec0de8f57dd6f4ef5460`
+- **Checksum SHA512**: `dae1245594b9ba392c8acd0bcfaba682d22fa24c08147539cec5435856c0f26556b5e14f6ea983e8fd0f4b35c3f6ff5aca34e9f2598b6ba596b411cff6534c82`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002003_8c7677.ota
+- **Source URL**: https://github.com/user-attachments/files/28705921/SN-TLSR8656-S60-01-v2.0.3.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: S60ZBTPF, S60ZBTPG
+
+**Release Notes:**
+
+> This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.3.
+> 
+> **Changes**
+> - Fix power, current, and voltage attributes freezing at their last value when the plug is turned off
+> - Fix the `instantaneous_demand` attribute incorrectly being reported as supported
+> - Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation
+> - Improve robustness of energy statistic updates in edge-case scenarios
+- **Pull Request**: [#165](https://github.com/zigpy/zigpy-ota/pull/165)
 
 ### `1286-0045-00001005_ea654a.ota`
 
