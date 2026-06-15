@@ -1,0 +1,19 @@
+# OTA metadata
+file_name: 1286-0047-00001102_33f69d.ota
+source_file_name: FWPLUG_MINIZB1GP_ELECTRICAL_EFR32MG21.ota
+source_url: https://github.com/user-attachments/files/28820530/FWPLUG_MINIZB1GP_ELECTRICAL_EFR32MG21.zip
+pull_request: 173
+release_notes: |-
+  This updates the Sonoff MINI-ZB1GP to firmware version 1.1.2.
+
+  **Bug fixes**
+  - Fix synchronization issues between BLE and Zigbee
+  - Fix storage and calculation issues with electricity consumption and price
+
+  **New features**
+  - Add scene threshold report
+  - Add voltage frequency attribute
+manufacturer_names:
+  - SONOFF
+model_names:
+  - MINI-ZB1GP
