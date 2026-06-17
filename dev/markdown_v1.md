@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 81
+**Total firmware images:** 82
 
 ## aeotec
 
@@ -967,6 +967,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation
 > - Improve robustness of energy statistic updates in edge-case scenarios
 - **Pull Request**: [#165](https://github.com/zigpy/zigpy-ota/pull/165)
+
+### `1286-0044-00001007_3524ca.ota`
+
+- **Original File Name**: `mini-zb2gs_v1.0.7.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0044` (68)
+- **File Version**: `0x00001007` (4103)
+- **File Size**: 297,974 bytes
+- **Checksum SHA3-256**: `3524ca40501694a925efa950b279c18fc40cd4c7c0e43785cdd728a14ec7492c`
+- **Checksum SHA512**: `7389631847f6b78573a14ac370ab19cf760c0efc3727cb1aa30664e9c18064d707cd6224a019f48032614f49bee84f2b1cc34ade46793341f31fdc32bcb923cf`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0044-00001007_3524ca.ota
+- **Source URL**: https://github.com/user-attachments/files/28982917/mini-zb2gs_v1.0.7.zip
+- **Header String**: `ota-file-test`
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZB2GS to firmware version 1.0.7.
+> 
+> **Changes**
+> - Add step function
+> - Change the external switch pairing trigger: toggle the external switch 10 times after 2 minutes of Zigbee disconnection
+- **Pull Request**: [#179](https://github.com/zigpy/zigpy-ota/pull/179)
 
 ### `1286-0045-00001005_ea654a.ota`
 
