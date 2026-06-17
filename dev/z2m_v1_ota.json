@@ -886,16 +886,16 @@
         "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40."
     },
     {
-        "fileName": "1407-D405-0000000F_cba4ad.ota",
-        "fileVersion": 15,
-        "fileSize": 241758,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-0000000F_cba4ad.ota",
+        "fileName": "1407-D405-00000010_d6d529.ota",
+        "fileVersion": 16,
+        "fileSize": 243102,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-00000010_d6d529.ota",
         "imageType": 54277,
         "manufacturerCode": 5127,
-        "sha512": "5ebfd5ee7f06218c4c3109e9720f6cb58ea6a0c639e9ce4f25a706b92abd855b68fdf9db74f7c7c7b259b369a49184882992eeec0618801401600a697b659bff",
+        "sha512": "d5a1236dc27f86157d2b83cc24a66c77c15b94f81d42cb2db3a46c34e3b8a4059642e1cc0e17622428abecb4790680c228b3f6a39313a3273b24c65b9f5bc60b",
         "otaHeaderString": "test",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_015_20260612_091045.ota",
-        "releaseNotes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.15."
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_016_20260617_021133.ota",
+        "releaseNotes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.16."
     },
     {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",
