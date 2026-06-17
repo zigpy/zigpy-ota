@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1286-0044-00001007_3524ca.ota
+source_file_name: mini-zb2gs_v1.0.7.ota
+source_url: https://github.com/user-attachments/files/28982917/mini-zb2gs_v1.0.7.zip
+pull_request: 179
+release_notes: |-
+  This updates the Sonoff MINI-ZB2GS to firmware version 1.0.7.
+
+  **Changes**
+  - Add step function
+  - Change the external switch pairing trigger: toggle the external switch 10 times after 2 minutes of Zigbee disconnection
