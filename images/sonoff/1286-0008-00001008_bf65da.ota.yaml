@@ -2,6 +2,7 @@
 file_name: 1286-0008-00001008_bf65da.ota
 source_file_name: zbminir2_v1.0.8.ota
 source_url: https://github.com/user-attachments/files/28987707/zbminir2_v1.0.8.zip
+pull_request: 181
 release_notes: |-
   This updates the Sonoff ZBMINIR2 to firmware version 1.0.8.
 
