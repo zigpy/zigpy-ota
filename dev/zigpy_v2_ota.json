@@ -341,6 +341,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/163"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0008-00001008_bf65da.ota",
+            "manufacturer_id": 4742,
+            "image_type": 8,
+            "file_version": 4104,
+            "file_size": 277180,
+            "checksum": "sha3-256:bf65da3ba0e0fd0aca4142c0fb566b7c2ad5d023a8f027e086f8c72929f54d53",
+            "release_notes": "This updates the Sonoff ZBMINIR2 to firmware version 1.0.8.\n\n**Changes**\n- Add binding support (only available when detached relay mode is enabled)",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/181"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002002_cb2909.ota",
             "manufacturer_id": 4742,
             "image_type": 11,

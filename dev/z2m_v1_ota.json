@@ -408,6 +408,18 @@
         "releaseNotes": "This updates the Inovelli VZM36 to v1.02.\n\n**Changes**\n- The dimming algorithm has been optimized.\n- If issues are observed in leading edge mode, please try trailing edge or full sine mode."
     },
     {
+        "fileName": "1286-0008-00001008_bf65da.ota",
+        "fileVersion": 4104,
+        "fileSize": 277180,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0008-00001008_bf65da.ota",
+        "imageType": 8,
+        "manufacturerCode": 4742,
+        "sha512": "051912851dffed4b49d3caece8d67b0fec9987dcbdf4d6db45c4e23f4ea0c9be867491758af12f153bc9672d4205129a9270be79e781d150734be295c44971bf",
+        "otaHeaderString": "ota-file-test",
+        "originalUrl": "https://github.com/user-attachments/files/28987707/zbminir2_v1.0.8.zip",
+        "releaseNotes": "This updates the Sonoff ZBMINIR2 to firmware version 1.0.8.\n\n**Changes**\n- Add binding support (only available when detached relay mode is enabled)"
+    },
+    {
         "fileName": "1286-000B-00002003_8c7677.ota",
         "fileVersion": 8195,
         "fileSize": 147808,

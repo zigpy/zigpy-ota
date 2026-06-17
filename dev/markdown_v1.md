@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 82
+**Total firmware images:** 83
 
 ## aeotec
 
@@ -918,6 +918,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#163](https://github.com/zigpy/zigpy-ota/pull/163)
 
 ## sonoff
+
+### `1286-0008-00001008_bf65da.ota`
+
+- **Original File Name**: `zbminir2_v1.0.8.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0008` (8)
+- **File Version**: `0x00001008` (4104)
+- **File Size**: 277,180 bytes
+- **Checksum SHA3-256**: `bf65da3ba0e0fd0aca4142c0fb566b7c2ad5d023a8f027e086f8c72929f54d53`
+- **Checksum SHA512**: `051912851dffed4b49d3caece8d67b0fec9987dcbdf4d6db45c4e23f4ea0c9be867491758af12f153bc9672d4205129a9270be79e781d150734be295c44971bf`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0008-00001008_bf65da.ota
+- **Source URL**: https://github.com/user-attachments/files/28987707/zbminir2_v1.0.8.zip
+- **Header String**: `ota-file-test`
+
+**Release Notes:**
+
+> This updates the Sonoff ZBMINIR2 to firmware version 1.0.8.
+> 
+> **Changes**
+> - Add binding support (only available when detached relay mode is enabled)
+- **Pull Request**: [#181](https://github.com/zigpy/zigpy-ota/pull/181)
 
 ### `1286-000B-00002002_cb2909.ota` **[stale]**
 
