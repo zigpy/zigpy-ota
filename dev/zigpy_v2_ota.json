@@ -666,6 +666,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/113"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B2-00000010_ede2c4.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54194,
+            "file_version": 16,
+            "file_size": 139858,
+            "checksum": "sha3-256:ede2c4d68206e39d889a2b63cc19d7e853f0baff9810ec6084c779131beb113e",
+            "release_notes": "This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.16.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/185"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B4-0000002F_429dec.ota",
             "manufacturer_id": 5127,
             "image_type": 54196,
