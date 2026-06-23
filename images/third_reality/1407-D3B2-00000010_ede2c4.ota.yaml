@@ -2,5 +2,6 @@
 file_name: 1407-D3B2-00000010_ede2c4.ota
 source_file_name: 3RSMR01067Z_ZHA_016_20260623_091208.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSMR01067Z_ZHA_016_20260623_091208.ota
+pull_request: 185
 release_notes: |-
   This updates the ThirdReality Smart Motion Sensor R1 (3RSMR01067Z) to v1.00.16.
