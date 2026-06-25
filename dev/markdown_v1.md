@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 84
+**Total firmware images:** 85
 
 ## aeotec
 
@@ -844,6 +844,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - The temperature acquisition algorithm was optimized
 - **Pull Request**: [#159](https://github.com/zigpy/zigpy-ota/pull/159)
+
+### `122F-0103-01030102_c65fd9.ota`
+
+- **Original File Name**: `VZM32-SN_1.02.ota`
+- **Manufacturer ID**: `0x122F` (4655)
+- **Image Type**: `0x0103` (259)
+- **File Version**: `0x01030102` (16974082)
+- **File Size**: 227,442 bytes
+- **Checksum SHA3-256**: `c65fd9d61e282444cd5b02eee44ddb7a337ce42fd8edde5512adef7489e51228`
+- **Checksum SHA512**: `c203b8b462a2d5b71be3d760ea5ef4bd4ce4df051e3816775ec1f5386f1451e40f527109378208a183da8ad821a38e80ddacc71ab8e3bf3d79ca73062cad4ba2`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0103-01030102_c65fd9.ota
+- **Source URL**: https://files.inovelli.com/firmware/VZM32-SN/Production/1.02/VZM32-SN_1.02.ota
+- **Header String**: `vzm32-sn_mmWave`
+
+**Release Notes:**
+
+> This updates the Inovelli VZM32-SN to v1.02.
+> 
+> **Changes**
+> - Reduce the debounce count for button recognition
+> - Fix unexpected behavior during the startup stage
+> - Set the number of Zigbee scene tables to 15 (default is 3)
+- **Pull Request**: [#187](https://github.com/zigpy/zigpy-ota/pull/187)
 
 ### `122F-0110-01100103_7c0ac2.ota`
 

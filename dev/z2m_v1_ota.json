@@ -372,6 +372,18 @@
         "releaseNotes": "This updates the Inovelli VZM31-SN to v3.04.\n\n**Changes**\n- The temperature acquisition algorithm was optimized"
     },
     {
+        "fileName": "122F-0103-01030102_c65fd9.ota",
+        "fileVersion": 16974082,
+        "fileSize": 227442,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/inovelli/122F-0103-01030102_c65fd9.ota",
+        "imageType": 259,
+        "manufacturerCode": 4655,
+        "sha512": "c203b8b462a2d5b71be3d760ea5ef4bd4ce4df051e3816775ec1f5386f1451e40f527109378208a183da8ad821a38e80ddacc71ab8e3bf3d79ca73062cad4ba2",
+        "otaHeaderString": "vzm32-sn_mmWave",
+        "originalUrl": "https://files.inovelli.com/firmware/VZM32-SN/Production/1.02/VZM32-SN_1.02.ota",
+        "releaseNotes": "This updates the Inovelli VZM32-SN to v1.02.\n\n**Changes**\n- Reduce the debounce count for button recognition\n- Fix unexpected behavior during the startup stage\n- Set the number of Zigbee scene tables to 15 (default is 3)"
+    },
+    {
         "fileName": "122F-0110-01100103_7c0ac2.ota",
         "fileVersion": 17826051,
         "fileSize": 224794,
