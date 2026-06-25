@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 122F-0103-01030102_c65fd9.ota
+source_file_name: VZM32-SN_1.02.ota
+source_url: https://files.inovelli.com/firmware/VZM32-SN/Production/1.02/VZM32-SN_1.02.ota
+release_notes: |-
+  This updates the Inovelli VZM32-SN to v1.02.
+
+  **Changes**
+  - Reduce the debounce count for button recognition
+  - Fix unexpected behavior during the startup stage
+  - Set the number of Zigbee scene tables to 15 (default is 3)
