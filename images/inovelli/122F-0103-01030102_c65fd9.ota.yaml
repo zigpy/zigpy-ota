@@ -2,6 +2,7 @@
 file_name: 122F-0103-01030102_c65fd9.ota
 source_file_name: VZM32-SN_1.02.ota
 source_url: https://files.inovelli.com/firmware/VZM32-SN/Production/1.02/VZM32-SN_1.02.ota
+pull_request: 187
 release_notes: |-
   This updates the Inovelli VZM32-SN to v1.02.
 
