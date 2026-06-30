@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1286-0049-00001005_a9ce60.ota
+source_file_name: SN-TLSR8656-BASICZB1GSP-01-v1.0.5.ota
+source_url: https://github.com/user-attachments/files/29504444/SN-TLSR8656-BASICZB1GSP-01-v1.0.5.zip
+release_notes: |-
+  This updates the Sonoff BASIC-ZB1GSP to firmware version 1.0.5.
