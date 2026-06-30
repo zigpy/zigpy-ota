@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 85
+**Total firmware images:** 86
 
 ## aeotec
 
@@ -1564,7 +1564,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3B4) to v1.00.47.
 - **Pull Request**: [#151](https://github.com/zigpy/zigpy-ota/pull/151)
 
-### `1407-D3B5-0000002A_7f1585.ota`
+### `1407-D3B5-0000002A_7f1585.ota` **[stale]**
 
 - **Original File Name**: `3RDP01072Z_ZHA_042_20260512_075416.ota`
 - **Manufacturer ID**: `0x1407` (5127)
@@ -1583,6 +1583,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.42.
 - **Pull Request**: [#141](https://github.com/zigpy/zigpy-ota/pull/141)
+
+### `1407-D3B5-00000034_1d2971.ota`
+
+- **Original File Name**: `3RDP01072Z_ZHA_052_20260629_064255.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3B5` (54197)
+- **File Version**: `0x00000034` (52)
+- **File Size**: 287,614 bytes
+- **Checksum SHA3-256**: `1d297133780a355af15109c8c6c95da463ae56128419a374922f941f9ea415f7`
+- **Checksum SHA512**: `de2bc2ad5a9a8e275e188c17277518178d4ba2a8ebc600eb4373adbd050cf739721adb9b98ad017119f0da1054dd2e9a6c8345d029e5abbd74c027d326dbe9b1`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B5-00000034_1d2971.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RDP01072Z_ZHA_052_20260629_064255.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52.
+- **Pull Request**: [#190](https://github.com/zigpy/zigpy-ota/pull/190)
 
 ### `1407-D3B9-00000014_44fad6.ota`
 
