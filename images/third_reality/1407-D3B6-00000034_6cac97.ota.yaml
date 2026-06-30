@@ -2,5 +2,6 @@
 file_name: 1407-D3B6-00000034_6cac97.ota
 source_file_name: 3RWP01073Z_ZHA_052_20260629_064655.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RWP01073Z_ZHA_052_20260629_064655.ota
+pull_request: 191
 release_notes: |-
   This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52.
