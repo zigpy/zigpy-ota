@@ -2,5 +2,6 @@
 file_name: 1407-D3B5-00000034_1d2971.ota
 source_file_name: 3RDP01072Z_ZHA_052_20260629_064255.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RDP01072Z_ZHA_052_20260629_064255.ota
+pull_request: 190
 release_notes: |-
   This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52.
