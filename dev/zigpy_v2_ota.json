@@ -740,6 +740,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B6-00000034_6cac97.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54198,
+            "file_version": 52,
+            "file_size": 287558,
+            "checksum": "sha3-256:6cac9716bb22874192d3b4f9735d056f718b063f1cea965f7f52eb3c31f8c7bc",
+            "release_notes": "This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/191",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B9-00000014_44fad6.ota",
             "manufacturer_id": 5127,
             "image_type": 54201,

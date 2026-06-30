@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 86
+**Total firmware images:** 87
 
 ## aeotec
 
@@ -1603,6 +1603,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52.
 - **Pull Request**: [#190](https://github.com/zigpy/zigpy-ota/pull/190)
+
+### `1407-D3B6-00000034_6cac97.ota`
+
+- **Original File Name**: `3RWP01073Z_ZHA_052_20260629_064655.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3B6` (54198)
+- **File Version**: `0x00000034` (52)
+- **File Size**: 287,558 bytes
+- **Checksum SHA3-256**: `6cac9716bb22874192d3b4f9735d056f718b063f1cea965f7f52eb3c31f8c7bc`
+- **Checksum SHA512**: `bb1777cff5fe2c4022d42e004f67abc8a54c99634f8ef8d15b2a543af245cc0fffb732c1425c04894d64128481644e4572db16dbabfeef899bd13569ff47876c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B6-00000034_6cac97.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RWP01073Z_ZHA_052_20260629_064655.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52.
+- **Pull Request**: [#191](https://github.com/zigpy/zigpy-ota/pull/191)
 
 ### `1407-D3B9-00000014_44fad6.ota`
 

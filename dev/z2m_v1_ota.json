@@ -837,6 +837,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52."
     },
     {
+        "fileName": "1407-D3B6-00000034_6cac97.ota",
+        "fileVersion": 52,
+        "fileSize": 287558,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3B6-00000034_6cac97.ota",
+        "imageType": 54198,
+        "manufacturerCode": 5127,
+        "sha512": "bb1777cff5fe2c4022d42e004f67abc8a54c99634f8ef8d15b2a543af245cc0fffb732c1425c04894d64128481644e4572db16dbabfeef899bd13569ff47876c",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWP01073Z_ZHA_052_20260629_064655.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52."
+    },
+    {
         "fileName": "1407-D3B9-00000014_44fad6.ota",
         "fileVersion": 20,
         "fileSize": 288654,
