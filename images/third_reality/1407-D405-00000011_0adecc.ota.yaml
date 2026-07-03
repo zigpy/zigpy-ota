@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1407-D405-00000011_0adecc.ota
+source_file_name: 3RAQ1096Z_ZHA_017_20260703_032042.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_017_20260703_032042.ota
+release_notes: |-
+  This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17.
