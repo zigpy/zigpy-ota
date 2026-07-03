@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 87
+**Total firmware images:** 88
 
 ## aeotec
 
@@ -1825,7 +1825,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.15.
 - **Pull Request**: [#175](https://github.com/zigpy/zigpy-ota/pull/175)
 
-### `1407-D405-00000010_d6d529.ota`
+### `1407-D405-00000010_d6d529.ota` **[stale]**
 
 - **Original File Name**: `3RAQ1096Z_ZHA_016_20260617_021133.ota`
 - **Manufacturer ID**: `0x1407` (5127)
@@ -1844,6 +1844,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.16.
 - **Pull Request**: [#183](https://github.com/zigpy/zigpy-ota/pull/183)
+
+### `1407-D405-00000011_0adecc.ota`
+
+- **Original File Name**: `3RAQ1096Z_ZHA_017_20260703_032042.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD405` (54277)
+- **File Version**: `0x00000011` (17)
+- **File Size**: 244,506 bytes
+- **Checksum SHA3-256**: `0adecc18427f4410ab89dbe93b4fe6b40a517f90edaaff14d0a4a915b181a717`
+- **Checksum SHA512**: `8431ac5cc986ad3fa3c2c4b44db34212eeb05b6fc50e448f3a8556a759b3748701787eecf2876ff80d18f5bd4034d24bc33563309654c43fa55a8b087538a676`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-00000011_0adecc.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_017_20260703_032042.ota
+- **Header String**: `test`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17.
+- **Pull Request**: [#195](https://github.com/zigpy/zigpy-ota/pull/195)
 
 ## ubisys
 

@@ -887,6 +887,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-00000011_0adecc.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54277,
+            "file_version": 17,
+            "file_size": 244506,
+            "checksum": "sha3-256:0adecc18427f4410ab89dbe93b4fe6b40a517f90edaaff14d0a4a915b181a717",
+            "release_notes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/195",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
