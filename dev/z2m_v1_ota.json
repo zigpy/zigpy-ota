@@ -524,6 +524,18 @@
         "modelId": "MINI-ZB1GP"
     },
     {
+        "fileName": "1286-0049-00001005_a9ce60.ota",
+        "fileVersion": 4101,
+        "fileSize": 154512,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001005_a9ce60.ota",
+        "imageType": 73,
+        "manufacturerCode": 4742,
+        "sha512": "41d3a384612384ff0c9e4d4559f162b270973b8a983638b617b3a9a2ac9337dddc8cdd7ef51764e735794b0b715c5a8bac960c7ccc285152d5cc84dc4515f69d",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://github.com/user-attachments/files/29504444/SN-TLSR8656-BASICZB1GSP-01-v1.0.5.zip",
+        "releaseNotes": "This updates the Sonoff BASIC-ZB1GSP to firmware version 1.0.5."
+    },
+    {
         "fileName": "1286-080E-00001100_a91db8.ota",
         "fileVersion": 4352,
         "fileSize": 193632,

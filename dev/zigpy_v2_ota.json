@@ -453,6 +453,16 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001005_a9ce60.ota",
+            "manufacturer_id": 4742,
+            "image_type": 73,
+            "file_version": 4101,
+            "file_size": 154512,
+            "checksum": "sha3-256:a9ce604d0c1fd2388d8c289b783c1dc8741b93fbacef6c14386b42d68f0da2f9",
+            "release_notes": "This updates the Sonoff BASIC-ZB1GSP to firmware version 1.0.5.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/193"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,
