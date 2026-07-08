@@ -2,6 +2,7 @@
 file_name: 10F2-7B4A-02600460_67f6ba.ota
 source_file_name: 10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee
 source_url: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee
+pull_request: 197
 release_notes: |-
   This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).
 
