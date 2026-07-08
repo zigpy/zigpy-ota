@@ -993,6 +993,18 @@
             "max_hardware_version": 256
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B4A-02600460_67f6ba.ota",
+            "manufacturer_id": 4338,
+            "image_type": 31562,
+            "file_version": 39847008,
+            "file_size": 221438,
+            "checksum": "sha3-256:67f6bacd1bd28301752ad27e7889bdfb689ed09c57e13a80da941983debe7230",
+            "release_notes": "This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Add all supported server clusters to the simple descriptor of the management application endpoint 232\n- Remove support for Touch Link commissioning\n- Other bug fixes and improvements",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/197",
+            "min_hardware_version": 256,
+            "max_hardware_version": 256
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/zunzunbee/15BB-0064-00103005_e30b52.ota",
             "manufacturer_id": 5563,
             "image_type": 100,

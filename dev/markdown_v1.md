@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 89
+**Total firmware images:** 90
 
 ## aeotec
 
@@ -2048,6 +2048,31 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Support for Touch Link commissioning removed
 > - Other bug fixes and improvements
 - **Pull Request**: [#35](https://github.com/zigpy/zigpy-ota/pull/35)
+
+### `10F2-7B4A-02600460_67f6ba.ota`
+
+- **Original File Name**: `10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee`
+- **Manufacturer ID**: `0x10F2` (4338)
+- **Image Type**: `0x7B4A` (31562)
+- **File Version**: `0x02600460` (39847008)
+- **File Size**: 221,438 bytes
+- **Checksum SHA3-256**: `67f6bacd1bd28301752ad27e7889bdfb689ed09c57e13a80da941983debe7230`
+- **Checksum SHA512**: `fb8f1ca7ad9b74e57f6bf1188ea128d462663b837e35e86b65ad64178dfe21882ab85d7f867e404b775b487ed7e73293d0d43611e5d1e32ca74a6adccbddf8af`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B4A-02600460_67f6ba.ota
+- **Source URL**: https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee
+- **Header String**: `ubisys R0 2.6.0`
+- **Min Hardware Version**: `0x0100` (256)
+- **Max Hardware Version**: `0x0100` (256)
+
+**Release Notes:**
+
+> This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).
+> 
+> **Changes**
+> - Add all supported server clusters to the simple descriptor of the management application endpoint 232
+> - Remove support for Touch Link commissioning
+> - Other bug fixes and improvements
+- **Pull Request**: [#197](https://github.com/zigpy/zigpy-ota/pull/197)
 
 ## zunzunbee
 

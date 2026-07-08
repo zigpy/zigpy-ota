@@ -1042,6 +1042,18 @@
         "releaseNotes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements"
     },
     {
+        "fileName": "10F2-7B4A-02600460_67f6ba.ota",
+        "fileVersion": 39847008,
+        "fileSize": 221438,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B4A-02600460_67f6ba.ota",
+        "imageType": 31562,
+        "manufacturerCode": 4338,
+        "sha512": "fb8f1ca7ad9b74e57f6bf1188ea128d462663b837e35e86b65ad64178dfe21882ab85d7f867e404b775b487ed7e73293d0d43611e5d1e32ca74a6adccbddf8af",
+        "otaHeaderString": "ubisys R0 2.6.0",
+        "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee",
+        "releaseNotes": "This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Add all supported server clusters to the simple descriptor of the management application endpoint 232\n- Remove support for Touch Link commissioning\n- Other bug fixes and improvements"
+    },
+    {
         "fileName": "15BB-0064-00103005_e30b52.ota",
         "fileVersion": 1060869,
         "fileSize": 293046,
