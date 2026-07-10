@@ -751,16 +751,16 @@
         "releaseNotes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74."
     },
     {
-        "fileName": "1407-D3AE-00000016_2d7f28.ota",
-        "fileVersion": 22,
-        "fileSize": 265858,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000016_2d7f28.ota",
+        "fileName": "1407-D3AE-00000018_0f2790.ota",
+        "fileVersion": 24,
+        "fileSize": 266114,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000018_0f2790.ota",
         "imageType": 54190,
         "manufacturerCode": 5127,
-        "sha512": "1a1cdecd080acec76664a461788a2a035f8edd0ac43818ce7beedc3f7dfa952d3b91cac32da4d69dea99e3ffe56f485373944d4e229a3dd4f188ceaac7ba4518",
-        "otaHeaderString": "temp_humi_sensor",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_022_20260511_075640.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Filter Sensor to v1.00.22."
+        "sha512": "daeecb7f466090994aeaf0e98681edbee84ef713f1d8a6ef0b584081b3c32df483753253291ae679b893a4bec40bf7f8727cc7a088792930a9358aadb4a97c13",
+        "otaHeaderString": "thirdreality",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_024_20260710_035423.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.24."
     },
     {
         "fileName": "1407-D3AF-00000033_b7c5d2.ota",
