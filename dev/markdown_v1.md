@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 94
+**Total firmware images:** 95
 
 ## aeotec
 
@@ -1962,6 +1962,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02.
 - **Pull Request**: [#208](https://github.com/zigpy/zigpy-ota/pull/208)
+
+### `1407-D408-00000002_6efd7e.ota`
+
+- **Original File Name**: `3RAK1099Z_ZHA_002_20260715_012849.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD408` (54280)
+- **File Version**: `0x00000002` (2)
+- **File Size**: 263,206 bytes
+- **Checksum SHA3-256**: `6efd7ee55b5e3ea9ce1bdc97545a99d43437b5d2a516296054bdf8a74e07af50`
+- **Checksum SHA512**: `1de2302306e4de9d5fd0497f631040d35c5dd7b5998dbf0714e6d59bf70829f15d2b6ed14773d326b41ea495f824ca17429cdec117bdef504fd7d6a72682fb4a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D408-00000002_6efd7e.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAK1099Z_ZHA_002_20260715_012849.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Alarm Keypad (3RAK1099Z) to v1.00.02.
+- **Pull Request**: [#209](https://github.com/zigpy/zigpy-ota/pull/209)
 
 ## ubisys
 

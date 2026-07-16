@@ -957,6 +957,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D408-00000002_6efd7e.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54280,
+            "file_version": 2,
+            "file_size": 263206,
+            "checksum": "sha3-256:6efd7ee55b5e3ea9ce1bdc97545a99d43437b5d2a516296054bdf8a74e07af50",
+            "release_notes": "This updates the ThirdReality Smart Alarm Keypad (3RAK1099Z) to v1.00.02.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/209",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/ubisys/10F2-7B2D-01810460_328d1a.ota",
             "manufacturer_id": 4338,
             "image_type": 31533,
