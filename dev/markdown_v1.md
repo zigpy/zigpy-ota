@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 93
+**Total firmware images:** 94
 
 ## aeotec
 
@@ -1942,6 +1942,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17.
 - **Pull Request**: [#195](https://github.com/zigpy/zigpy-ota/pull/195)
+
+### `1407-D407-00000002_ee91ad.ota`
+
+- **Original File Name**: `3RAS1098Z_ZHA_002_20260715_013037.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD407` (54279)
+- **File Version**: `0x00000002` (2)
+- **File Size**: 264,006 bytes
+- **Checksum SHA3-256**: `ee91ad68d02dbca929c25941a94ed189fceac6f439122da68600526b89b0cf23`
+- **Checksum SHA512**: `b4db4b76b12cbf2ce725577d0ada52fa77705c151f34abbb3fa332a493d5a90ca7f57ef4693c85f0cd3d7c414d832659dbb47da8800a0da41611ae105eda5d6d`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D407-00000002_ee91ad.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAS1098Z_ZHA_002_20260715_013037.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02.
+- **Pull Request**: [#208](https://github.com/zigpy/zigpy-ota/pull/208)
 
 ## ubisys
 

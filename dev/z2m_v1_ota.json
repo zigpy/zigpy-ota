@@ -970,6 +970,18 @@
         "releaseNotes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17."
     },
     {
+        "fileName": "1407-D407-00000002_ee91ad.ota",
+        "fileVersion": 2,
+        "fileSize": 264006,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D407-00000002_ee91ad.ota",
+        "imageType": 54279,
+        "manufacturerCode": 5127,
+        "sha512": "b4db4b76b12cbf2ce725577d0ada52fa77705c151f34abbb3fa332a493d5a90ca7f57ef4693c85f0cd3d7c414d832659dbb47da8800a0da41611ae105eda5d6d",
+        "otaHeaderString": "thirdreality",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAS1098Z_ZHA_002_20260715_013037.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02."
+    },
+    {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",
         "fileVersion": 25232480,
         "fileSize": 182526,
