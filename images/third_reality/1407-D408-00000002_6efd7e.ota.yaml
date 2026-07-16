@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1407-D408-00000002_6efd7e.ota
+source_file_name: 3RAK1099Z_ZHA_002_20260715_012849.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RAK1099Z_ZHA_002_20260715_012849.ota
+pull_request: 209
+release_notes: |-
+  This updates the ThirdReality Smart Alarm Keypad (3RAK1099Z) to v1.00.02.
