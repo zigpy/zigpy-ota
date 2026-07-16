@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1407-D407-00000002_ee91ad.ota
+source_file_name: 3RAS1098Z_ZHA_002_20260715_013037.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RAS1098Z_ZHA_002_20260715_013037.ota
+pull_request: 208
+release_notes: |-
+  This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02.
