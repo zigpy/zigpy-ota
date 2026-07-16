@@ -873,6 +873,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D401-00000002_f1e047.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54273,
+            "file_version": 2,
+            "file_size": 261290,
+            "checksum": "sha3-256:f1e0476a02c0dd227d7411fcb0745101e729ccb7dfc02ff17b44f3ca207b71b1",
+            "release_notes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.02.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/203",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D405-0000000E_4ee304.ota",
             "manufacturer_id": 5127,
             "image_type": 54277,

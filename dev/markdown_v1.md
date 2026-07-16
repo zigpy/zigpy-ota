@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 91
+**Total firmware images:** 92
 
 ## aeotec
 
@@ -1822,6 +1822,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.
 - **Pull Request**: [#153](https://github.com/zigpy/zigpy-ota/pull/153)
+
+### `1407-D401-00000002_f1e047.ota`
+
+- **Original File Name**: `3RMS26Z_ZHA_002_20260713_094803.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD401` (54273)
+- **File Version**: `0x00000002` (2)
+- **File Size**: 261,290 bytes
+- **Checksum SHA3-256**: `f1e0476a02c0dd227d7411fcb0745101e729ccb7dfc02ff17b44f3ca207b71b1`
+- **Checksum SHA512**: `dd765044c15bf5617801c5f2a0ee81d5d7b5f2269aacd117e921dd041d3aa337a6b1557cd9e47804e2d3e233853926de99a5e4aba21f6f48686ccccb3398d78c`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D401-00000002_f1e047.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RMS26Z_ZHA_002_20260713_094803.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.02.
+- **Pull Request**: [#203](https://github.com/zigpy/zigpy-ota/pull/203)
 
 ### `1407-D405-0000000E_4ee304.ota` **[stale]**
 
