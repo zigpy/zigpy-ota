@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1407-D403-00000004_e1e881.ota
+source_file_name: 3ROR0194Z_ZHA_004_20260716_055414.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3ROR0194Z_ZHA_004_20260716_055414.ota
+pull_request: 211
+release_notes: |-
+  This updates the ThirdReality Smart Outdoor Range Extender (3ROR0194Z) to v1.00.04.
