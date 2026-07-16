@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 95
+**Total firmware images:** 96
 
 ## aeotec
 
@@ -1862,6 +1862,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.02.
 - **Pull Request**: [#203](https://github.com/zigpy/zigpy-ota/pull/203)
+
+### `1407-D403-00000004_e1e881.ota`
+
+- **Original File Name**: `3ROR0194Z_ZHA_004_20260716_055414.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD403` (54275)
+- **File Version**: `0x00000004` (4)
+- **File Size**: 254,998 bytes
+- **Checksum SHA3-256**: `e1e88193b17d8b42440539cf60f6c0cf794dacd8b9b0c38a5a24c57713e3116d`
+- **Checksum SHA512**: `3940f5cadf186ad60076be36b26f5282b18bcd491348f8c311b94374f18fa0ec2a6c20fa27806e825c45402964a8338edb3ce471f9d2901c534e2762fff31ef9`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D403-00000004_e1e881.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3ROR0194Z_ZHA_004_20260716_055414.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Outdoor Range Extender (3ROR0194Z) to v1.00.04.
+- **Pull Request**: [#211](https://github.com/zigpy/zigpy-ota/pull/211)
 
 ### `1407-D405-0000000E_4ee304.ota` **[stale]**
 

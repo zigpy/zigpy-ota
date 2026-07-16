@@ -958,6 +958,18 @@
         "releaseNotes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.02."
     },
     {
+        "fileName": "1407-D403-00000004_e1e881.ota",
+        "fileVersion": 4,
+        "fileSize": 254998,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D403-00000004_e1e881.ota",
+        "imageType": 54275,
+        "manufacturerCode": 5127,
+        "sha512": "3940f5cadf186ad60076be36b26f5282b18bcd491348f8c311b94374f18fa0ec2a6c20fa27806e825c45402964a8338edb3ce471f9d2901c534e2762fff31ef9",
+        "otaHeaderString": "thirdreality",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3ROR0194Z_ZHA_004_20260716_055414.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Outdoor Range Extender (3ROR0194Z) to v1.00.04."
+    },
+    {
         "fileName": "1407-D405-00000011_0adecc.ota",
         "fileVersion": 17,
         "fileSize": 244506,
