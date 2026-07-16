@@ -2,5 +2,6 @@
 file_name: 1407-D401-00000002_f1e047.ota
 source_file_name: 3RMS26Z_ZHA_002_20260713_094803.ota
 source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RMS26Z_ZHA_002_20260713_094803.ota
+pull_request: 203
 release_notes: |-
   This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.02.
