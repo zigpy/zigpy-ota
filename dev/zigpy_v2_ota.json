@@ -658,6 +658,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-00000019_db5fd2.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54190,
+            "file_version": 25,
+            "file_size": 266258,
+            "checksum": "sha3-256:db5fd208669fcc5e84935b803f00e7248a29edba622cdec1afc558c08e36066f",
+            "release_notes": "This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.25.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/205",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AF-00000033_b7c5d2.ota",
             "manufacturer_id": 5127,
             "image_type": 54191,
