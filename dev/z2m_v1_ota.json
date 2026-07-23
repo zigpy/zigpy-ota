@@ -168,16 +168,16 @@
         "releaseNotes": "This updates the frient A/S Air Quality Sensor (AQSZB-110) or Humidity Sensor (HMSZB-120) to v4.0.3.\n\n**Changes**\n- Bug fixes and improvements"
     },
     {
-        "fileName": "1015-0340-00040007_cecc7d.ota",
-        "fileVersion": 262151,
-        "fileSize": 204077,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0340-00040007_cecc7d.ota",
+        "fileName": "1015-0340-0004000A_9cd1da.ota",
+        "fileVersion": 262154,
+        "fileSize": 204375,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0340-0004000A_9cd1da.ota",
         "imageType": 832,
         "manufacturerCode": 4117,
-        "sha512": "cbc9158bc45d7a819d56ed72dc9b53c717371ccc25a17e84ea13819ce62c5a50cc549602b4b7979dd70561be5e1c4c0a31ba2899a15a20730d894165f3c4a487",
+        "sha512": "c3bf90fe3e5abc7a616f57e0c670b9497097dd88e20374dcf86209a8731c47fccca0d4144272b9d8cd57e9e692f9e8e081e0f9957305afe19d5f27fa1984d5c9",
         "otaHeaderString": "",
-        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EmiNorwegianHan_4.0.7.zigbee",
-        "releaseNotes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.7.\n\n**Changes**\n- Bug fixes\n- Stability improvements"
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/EMINorwegianHan_4.0.10.zigbee",
+        "releaseNotes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.10.\n\n**Changes**\n- Add support for Landis+Gyr (Embriq_V1_1)\n- Small optimizations"
     },
     {
         "fileName": "1015-0390-00020001_fb1605.ota",

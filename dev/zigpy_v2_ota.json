@@ -151,6 +151,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/66"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0340-0004000A_9cd1da.ota",
+            "manufacturer_id": 4117,
+            "image_type": 832,
+            "file_version": 262154,
+            "file_size": 204375,
+            "checksum": "sha3-256:9cd1da960d02d0383f63f3d6b580467623751c8c326c9ca5ae80580286fcbe34",
+            "release_notes": "This updates the frient A/S EMI Norwegian HAN (EMIZB-132) to v4.0.10.\n\n**Changes**\n- Add support for Landis+Gyr (Embriq_V1_1)\n- Small optimizations",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/217"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0390-00020001_fb1605.ota",
             "manufacturer_id": 4117,
             "image_type": 912,
