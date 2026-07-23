@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 98
+**Total firmware images:** 99
 
 ## aeotec
 
@@ -1493,7 +1493,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.24.
 - **Pull Request**: [#201](https://github.com/zigpy/zigpy-ota/pull/201)
 
-### `1407-D3AE-00000019_db5fd2.ota`
+### `1407-D3AE-00000019_db5fd2.ota` **[stale]**
 
 - **Original File Name**: `3RAP0149BZ_ZHA_025_20260714_092252.ota`
 - **Manufacturer ID**: `0x1407` (5127)
@@ -1512,6 +1512,26 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.25.
 - **Pull Request**: [#205](https://github.com/zigpy/zigpy-ota/pull/205)
+
+### `1407-D3AE-0000001A_9bcffe.ota`
+
+- **Original File Name**: `3RAP0149BZ_ZHA_026_20260720_091949.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3AE` (54190)
+- **File Version**: `0x0000001A` (26)
+- **File Size**: 266,250 bytes
+- **Checksum SHA3-256**: `9bcffeccc2392b0a8babc1dd67f96e12540324f419203dce24005974ecfc6103`
+- **Checksum SHA512**: `6e354dd723f1f175d92baef39ab634d247116552b88c7ec616433fe94b137e140c86fb74ad6779a0d349b685daa0b8671303392c1983847a65b1c57f957fc2e8`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3AE-0000001A_9bcffe.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_026_20260720_091949.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.26.
+- **Pull Request**: [#215](https://github.com/zigpy/zigpy-ota/pull/215)
 
 ### `1407-D3AF-00000033_b7c5d2.ota`
 
