@@ -432,32 +432,32 @@
         "releaseNotes": "This updates the Sonoff ZBMINIR2 to firmware version 1.0.8.\n\n**Changes**\n- Add binding support (only available when detached relay mode is enabled)"
     },
     {
-        "fileName": "1286-000B-00002003_8c7677.ota",
-        "fileVersion": 8195,
-        "fileSize": 147808,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002003_8c7677.ota",
+        "fileName": "1286-000B-00002005_efd644.ota",
+        "fileVersion": 8197,
+        "fileSize": 147872,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002005_efd644.ota",
         "imageType": 11,
         "manufacturerCode": 4742,
-        "sha512": "dae1245594b9ba392c8acd0bcfaba682d22fa24c08147539cec5435856c0f26556b5e14f6ea983e8fd0f4b35c3f6ff5aca34e9f2598b6ba596b411cff6534c82",
+        "sha512": "316a5137d1d6a1fcd728680d5ea6611da680360cfd9e38026df37828314e5b7651f351f2f1f419903628fdebd81e5eac3e0357842ca9930a134692f41c0e2b88",
         "otaHeaderString": "Telink OTA Sample Usage",
-        "originalUrl": "https://github.com/user-attachments/files/28705921/SN-TLSR8656-S60-01-v2.0.3.zip",
-        "releaseNotes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.3.\n\n**Changes**\n- Fix power, current, and voltage attributes freezing at their last value when the plug is turned off\n- Fix the `instantaneous_demand` attribute incorrectly being reported as supported\n- Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation\n- Improve robustness of energy statistic updates in edge-case scenarios",
+        "originalUrl": "https://github.com/user-attachments/files/29795612/SN-TLSR8656-S60-01-v2.0.5.zip",
+        "releaseNotes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.5.\n\n**Changes**\n- Add support for energy reporting accuracy down to 0.001 kWh",
         "manufacturerName": [
             "SONOFF"
         ],
         "modelId": "S60ZBTPF"
     },
     {
-        "fileName": "1286-000B-00002003_8c7677.ota",
-        "fileVersion": 8195,
-        "fileSize": 147808,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002003_8c7677.ota",
+        "fileName": "1286-000B-00002005_efd644.ota",
+        "fileVersion": 8197,
+        "fileSize": 147872,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002005_efd644.ota",
         "imageType": 11,
         "manufacturerCode": 4742,
-        "sha512": "dae1245594b9ba392c8acd0bcfaba682d22fa24c08147539cec5435856c0f26556b5e14f6ea983e8fd0f4b35c3f6ff5aca34e9f2598b6ba596b411cff6534c82",
+        "sha512": "316a5137d1d6a1fcd728680d5ea6611da680360cfd9e38026df37828314e5b7651f351f2f1f419903628fdebd81e5eac3e0357842ca9930a134692f41c0e2b88",
         "otaHeaderString": "Telink OTA Sample Usage",
-        "originalUrl": "https://github.com/user-attachments/files/28705921/SN-TLSR8656-S60-01-v2.0.3.zip",
-        "releaseNotes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.3.\n\n**Changes**\n- Fix power, current, and voltage attributes freezing at their last value when the plug is turned off\n- Fix the `instantaneous_demand` attribute incorrectly being reported as supported\n- Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation\n- Improve robustness of energy statistic updates in edge-case scenarios",
+        "originalUrl": "https://github.com/user-attachments/files/29795612/SN-TLSR8656-S60-01-v2.0.5.zip",
+        "releaseNotes": "This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.5.\n\n**Changes**\n- Add support for energy reporting accuracy down to 0.001 kWh",
         "manufacturerName": [
             "SONOFF"
         ],

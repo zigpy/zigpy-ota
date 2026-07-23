@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 97
+**Total firmware images:** 98
 
 ## aeotec
 
@@ -986,7 +986,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improves on/off state reporting during overload conditions to ensure accurate device state
 - **Pull Request**: [#26](https://github.com/zigpy/zigpy-ota/pull/26)
 
-### `1286-000B-00002003_8c7677.ota`
+### `1286-000B-00002003_8c7677.ota` **[stale]**
 
 - **Original File Name**: `SN-TLSR8656-S60-01-v2.0.3.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1011,6 +1011,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improve energy reporting reliability with safeguards for today, yesterday, monthly, and total energy accumulation
 > - Improve robustness of energy statistic updates in edge-case scenarios
 - **Pull Request**: [#165](https://github.com/zigpy/zigpy-ota/pull/165)
+
+### `1286-000B-00002005_efd644.ota`
+
+- **Original File Name**: `SN-TLSR8656-S60-01-v2.0.5.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x000B` (11)
+- **File Version**: `0x00002005` (8197)
+- **File Size**: 147,872 bytes
+- **Checksum SHA3-256**: `efd644bc2cdc61b2edd7748db77c7746e8b7b00fb6d5b5cf77ecdfb298b6b29b`
+- **Checksum SHA512**: `316a5137d1d6a1fcd728680d5ea6611da680360cfd9e38026df37828314e5b7651f351f2f1f419903628fdebd81e5eac3e0357842ca9930a134692f41c0e2b88`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002005_efd644.ota
+- **Source URL**: https://github.com/user-attachments/files/29795612/SN-TLSR8656-S60-01-v2.0.5.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: S60ZBTPF, S60ZBTPG
+
+**Release Notes:**
+
+> This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.5.
+> 
+> **Changes**
+> - Add support for energy reporting accuracy down to 0.001 kWh
+- **Pull Request**: [#199](https://github.com/zigpy/zigpy-ota/pull/199)
 
 ### `1286-0044-00001007_3524ca.ota`
 
