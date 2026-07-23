@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1407-D3AE-0000001A_9bcffe.ota
+source_file_name: 3RAP0149BZ_ZHA_026_20260720_091949.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_026_20260720_091949.ota
+release_notes: |-
+  This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.26.
