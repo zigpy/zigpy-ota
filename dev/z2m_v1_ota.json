@@ -946,16 +946,16 @@
         "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40."
     },
     {
-        "fileName": "1407-D401-00000004_636c30.ota",
-        "fileVersion": 4,
-        "fileSize": 263274,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D401-00000004_636c30.ota",
+        "fileName": "1407-D401-00000006_4db260.ota",
+        "fileVersion": 6,
+        "fileSize": 268822,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D401-00000006_4db260.ota",
         "imageType": 54273,
         "manufacturerCode": 5127,
-        "sha512": "01dcac2ed079f5d989b8c741e26d225c2f8ced825e5a2757a42fcfa136083d62c9345706d444be9f85d5ed802ef6b23e7a1e52fa596d5f75a82bd4ad196fa80a",
+        "sha512": "396dfea0e27de3c4729cdf7f78af5cb608584cd8beda2d00e7b79076ff1cdeccbe272f4f7076782b323ffa9428b4440c9f5415840caaffcaa6fe5db13fe3b3e1",
         "otaHeaderString": "thirdreality",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RMS26Z_ZHA_004_20260716_091343.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.04."
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RMS26Z_ZHA_006_20260727_092110.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.06."
     },
     {
         "fileName": "1407-D403-00000004_e1e881.ota",
