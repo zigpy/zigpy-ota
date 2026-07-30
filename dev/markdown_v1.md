@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 102
+**Total firmware images:** 101
 
 ## aeotec
 
@@ -1253,7 +1253,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality Wireless Motion Sensor (3RMS16BZ) to v1.00.79.
 - **Pull Request**: [#109](https://github.com/zigpy/zigpy-ota/pull/109)
 
-### `1233-D3A2-0000003F_62b6f8.ota` **[stale]**
+### `1233-D3A2-0000003F_62b6f8.ota`
 
 - **Original File Name**: `3RDS17BZ_ZHA_063_20260512_062544.ota`
 - **Manufacturer ID**: `0x1233` (4659)
@@ -1270,24 +1270,6 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.63.
 - **Pull Request**: [#103](https://github.com/zigpy/zigpy-ota/pull/103)
-
-### `1233-D3A2-00000044_6614a8.ota`
-
-- **Original File Name**: `3RDS17BZ_ZHA_068_20260727_024833.ota`
-- **Manufacturer ID**: `0x1233` (4659)
-- **Image Type**: `0xD3A2` (54178)
-- **File Version**: `0x00000044` (68)
-- **File Size**: 150,098 bytes
-- **Checksum SHA3-256**: `6614a8ee42af0744dd73597094982b3ce9de27911f891bc528d633e1449e0f8a`
-- **Checksum SHA512**: `493bcbc65ad49d378d9e1cb84e769c58edd4c7278677c6023c506d7c103f37332a30277fbfd7e81466507dcb593e10f0cbc1717486f44b566bf17770c6209cd3`
-- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A2-00000044_6614a8.ota
-- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RDS17BZ_ZHA_068_20260727_024833.ota
-- **Header String**: `Telink OTA Sample Usage`
-
-**Release Notes:**
-
-> This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.68.
-- **Pull Request**: [#219](https://github.com/zigpy/zigpy-ota/pull/219)
 
 ### `1233-D3A3-00000049_a99370.ota`
 
