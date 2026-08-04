@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1233-D3A2-00000045_ef8371.ota
+source_file_name: 3RDS17BZ_ZHA_069_20260803_054649.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RDS17BZ_ZHA_069_20260803_054649.ota
+release_notes: |-
+  This updates the ThirdReality Door Sensor (3RDS17BZ) to v1.00.69.
+
+  **Changes**
+  - Add VID and PID information to the device log
+  - Improve health monitoring logging
+  - Remove the `OnOff` cluster
