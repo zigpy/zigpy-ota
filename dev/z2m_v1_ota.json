@@ -922,16 +922,16 @@
         "releaseNotes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15."
     },
     {
-        "fileName": "1407-D3C2-00000011_8af5e2.ota",
-        "fileVersion": 17,
-        "fileSize": 261534,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C2-00000011_8af5e2.ota",
+        "fileName": "1407-D3C2-00000012_35e255.ota",
+        "fileVersion": 18,
+        "fileSize": 261690,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C2-00000012_35e255.ota",
         "imageType": 54210,
         "manufacturerCode": 5127,
-        "sha512": "f47a8048a35d8ebf1c12abf0ce8d60ee408db4153ccea046045132de254c18ee68b6be79589f32615073ab5f9a9148f5cefb0b8e4feebf8d9099832293f1d31d",
+        "sha512": "95e6e7f32388f829ee892d153d6711e68c8747ced7522991ff1af82bc6c90cc3c9f90cc26c6aec1fde19485caaf143881e40ae51445ffbdb51e9f54182ffb146",
         "otaHeaderString": "temp_humi_sensor",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_017_20260512_074840.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17."
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_018_20260804_090533.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.18.\n\n**Changes**\n- Improve the fast heartbeat behavior in the 30 seconds after the hub reconnects following an OTA update"
     },
     {
         "fileName": "1407-D3C3-00000028_27e2e4.ota",

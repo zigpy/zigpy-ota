@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 103
+**Total firmware images:** 104
 
 ## aeotec
 
@@ -1894,7 +1894,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.
 - **Pull Request**: [#129](https://github.com/zigpy/zigpy-ota/pull/129)
 
-### `1407-D3C2-00000011_8af5e2.ota`
+### `1407-D3C2-00000011_8af5e2.ota` **[stale]**
 
 - **Original File Name**: `3RWS0218Z_ZHA_017_20260512_074840.ota`
 - **Manufacturer ID**: `0x1407` (5127)
@@ -1913,6 +1913,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.17.
 - **Pull Request**: [#137](https://github.com/zigpy/zigpy-ota/pull/137)
+
+### `1407-D3C2-00000012_35e255.ota`
+
+- **Original File Name**: `3RWS0218Z_ZHA_018_20260804_090533.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3C2` (54210)
+- **File Version**: `0x00000012` (18)
+- **File Size**: 261,690 bytes
+- **Checksum SHA3-256**: `35e25545c95503cacc43bd9abebfa972bdcb0f78001acf81d60897d67c67d938`
+- **Checksum SHA512**: `95e6e7f32388f829ee892d153d6711e68c8747ced7522991ff1af82bc6c90cc3c9f90cc26c6aec1fde19485caaf143881e40ae51445ffbdb51e9f54182ffb146`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3C2-00000012_35e255.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_018_20260804_090533.ota
+- **Header String**: `temp_humi_sensor`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.18.
+> 
+> **Changes**
+> - Improve the fast heartbeat behavior in the 30 seconds after the hub reconnects following an OTA update
+- **Pull Request**: [#233](https://github.com/zigpy/zigpy-ota/pull/233)
 
 ### `1407-D3C3-00000023_1feeff.ota` **[stale]**
 
