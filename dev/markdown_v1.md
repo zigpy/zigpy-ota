@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 102
+**Total firmware images:** 103
 
 ## aeotec
 
@@ -1789,7 +1789,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20.
 - **Pull Request**: [#115](https://github.com/zigpy/zigpy-ota/pull/115)
 
-### `1407-D3BD-0000002F_d6d185.ota`
+### `1407-D3BD-0000002F_d6d185.ota` **[stale]**
 
 - **Original File Name**: `3RSP02064Z_ZHA_047_h0xD3BD_20260512_085012.ota`
 - **Manufacturer ID**: `0x1407` (5127)
@@ -1809,6 +1809,30 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.47.
 - **Pull Request**: [#149](https://github.com/zigpy/zigpy-ota/pull/149)
+
+### `1407-D3BD-00000038_c88d72.ota`
+
+- **Original File Name**: `3RSP02064Z_ZHA_056_20260803_013340.ota`
+- **Manufacturer ID**: `0x1407` (5127)
+- **Image Type**: `0xD3BD` (54205)
+- **File Version**: `0x00000038` (56)
+- **File Size**: 282,386 bytes
+- **Checksum SHA3-256**: `c88d72e46e02de7309798bac98d00da572bb887283bf1f603ac2b1d3695e9d93`
+- **Checksum SHA512**: `3a933d01a1deea94759cd72d0b5c91c809b8d43f930b29c66fcf075041f648928ae33ef207395b795050c1748b48d72537befe63c18761183a7e8b862d1773eb`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BD-00000038_c88d72.ota
+- **Source URL**: https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_056_20260803_013340.ota
+- **Header String**: `thirdreality`
+- **Min Hardware Version**: `0x0000` (0)
+- **Max Hardware Version**: `0xFFF0` (65520)
+- **Model Names**: 3RSP02064Z
+
+**Release Notes:**
+
+> This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.56.
+> 
+> **Changes**
+> - Restore the configured LED brightness after a power cycle
+- **Pull Request**: [#229](https://github.com/zigpy/zigpy-ota/pull/229)
 
 ### `1407-D3BE-0000002F_0f77f7.ota`
 

@@ -873,16 +873,16 @@
         "releaseNotes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20."
     },
     {
-        "fileName": "1407-D3BD-0000002F_d6d185.ota",
-        "fileVersion": 47,
-        "fileSize": 281750,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BD-0000002F_d6d185.ota",
+        "fileName": "1407-D3BD-00000038_c88d72.ota",
+        "fileVersion": 56,
+        "fileSize": 282386,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BD-00000038_c88d72.ota",
         "imageType": 54205,
         "manufacturerCode": 5127,
-        "sha512": "87f65bb17e35820179499ff4c74ac651a1af781bdfbbb3d048e7735c9a82cdcee2e52ce0190a3c183dc76d9fd9c3d63bdf1907711eb995bc3e376e52c56b184d",
+        "sha512": "3a933d01a1deea94759cd72d0b5c91c809b8d43f930b29c66fcf075041f648928ae33ef207395b795050c1748b48d72537befe63c18761183a7e8b862d1773eb",
         "otaHeaderString": "thirdreality",
-        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_047_h0xD3BD_20260512_085012.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.47.",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_056_20260803_013340.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.56.\n\n**Changes**\n- Restore the configured LED brightness after a power cycle",
         "modelId": "3RSP02064Z"
     },
     {

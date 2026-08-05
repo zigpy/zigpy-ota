@@ -862,6 +862,21 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BD-00000038_c88d72.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54205,
+            "file_version": 56,
+            "file_size": 282386,
+            "checksum": "sha3-256:c88d72e46e02de7309798bac98d00da572bb887283bf1f603ac2b1d3695e9d93",
+            "release_notes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.56.\n\n**Changes**\n- Restore the configured LED brightness after a power cycle",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/229",
+            "model_names": [
+                "3RSP02064Z"
+            ],
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3BE-0000002F_0f77f7.ota",
             "manufacturer_id": 5127,
             "image_type": 54206,
