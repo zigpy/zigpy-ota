@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 104
+**Total firmware images:** 105
 
 ## aeotec
 
@@ -1232,6 +1232,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
+
+### `1286-200C-00001100_dfdd63.ota`
+
+- **Original File Name**: `SNZB-SWV1C/SN-TLSR8656-SWV1C-01-v1.1.0.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x200C` (8204)
+- **File Version**: `0x00001100` (4352)
+- **File Size**: 180,496 bytes
+- **Checksum SHA3-256**: `dfdd633e85d47bc647a15a2e37c4712be1d9b7695d08c6a3b9cbbd81b01c475b`
+- **Checksum SHA512**: `0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-200C-00001100_dfdd63.ota
+- **Source URL**: https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip
+- **Header String**: `FIRMWARE`
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.
+> 
+> **Changes**
+> - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
+- **Pull Request**: [#223](https://github.com/zigpy/zigpy-ota/pull/223)
 
 ## third_reality
 
