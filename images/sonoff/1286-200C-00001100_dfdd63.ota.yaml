@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1286-200C-00001100_dfdd63.ota
+source_file_name: SNZB-SWV1C/SN-TLSR8656-SWV1C-01-v1.1.0.ota
+source_url: https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip
+release_notes: |-
+  This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.
+
+  **Changes**
+  - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
