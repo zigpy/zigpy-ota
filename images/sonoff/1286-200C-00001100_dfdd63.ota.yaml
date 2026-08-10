@@ -8,3 +8,4 @@ release_notes: |-
 
   **Changes**
   - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
+disabled: true
