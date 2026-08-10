@@ -568,30 +568,6 @@
         "modelId": "TRVZB"
     },
     {
-        "fileName": "1286-200C-00001100_dfdd63.ota",
-        "fileVersion": 4352,
-        "fileSize": 180496,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-200C-00001100_dfdd63.ota",
-        "imageType": 8204,
-        "manufacturerCode": 4742,
-        "sha512": "0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2",
-        "otaHeaderString": "FIRMWARE",
-        "originalUrl": "https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter"
-    },
-    {
-        "fileName": "1286-210C-00001009_8e62f7.ota",
-        "fileVersion": 4105,
-        "fileSize": 181584,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-210C-00001009_8e62f7.ota",
-        "imageType": 8460,
-        "manufacturerCode": 4742,
-        "sha512": "50ee6704e698ba258708f6477b4132a36bcddf7f9265ec4dfb27f5729bc89cae7eeaea1984e389fdd1ae636ad8c5b1ba8036694ce4fe1d39c80fa95ea522d52e",
-        "otaHeaderString": "FIRMWARE",
-        "originalUrl": "https://github.com/user-attachments/files/30534640/snzb-swv2c_v1.0.9.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)"
-    },
-    {
         "fileName": "1233-D3A1-0000004F_ef1152.ota",
         "fileVersion": 79,
         "fileSize": 132610,

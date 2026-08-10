@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 106
+**Total firmware images:** 104 enabled + 2 disabled
 
 ## aeotec
 
@@ -1233,7 +1233,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
 
-### `1286-200C-00001100_dfdd63.ota`
+### `1286-200C-00001100_dfdd63.ota` **[disabled]** **[stale]**
 
 - **Original File Name**: `SNZB-SWV1C/SN-TLSR8656-SWV1C-01-v1.1.0.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1254,7 +1254,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
 - **Pull Request**: [#223](https://github.com/zigpy/zigpy-ota/pull/223)
 
-### `1286-210C-00001009_8e62f7.ota`
+### `1286-210C-00001009_8e62f7.ota` **[disabled]** **[stale]**
 
 - **Original File Name**: `SN-TLSR8258-SWV2C-01-v1.0.9.ota`
 - **Manufacturer ID**: `0x1286` (4742)
