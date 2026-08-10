@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 105
+**Total firmware images:** 106
 
 ## aeotec
 
@@ -1253,6 +1253,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
 - **Pull Request**: [#223](https://github.com/zigpy/zigpy-ota/pull/223)
+
+### `1286-210C-00001009_8e62f7.ota`
+
+- **Original File Name**: `SN-TLSR8258-SWV2C-01-v1.0.9.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x210C` (8460)
+- **File Version**: `0x00001009` (4105)
+- **File Size**: 181,584 bytes
+- **Checksum SHA3-256**: `8e62f7b53c0a3898549fe69f7477821c7a4f869224a6255a6ee414863b8714c4`
+- **Checksum SHA512**: `50ee6704e698ba258708f6477b4132a36bcddf7f9265ec4dfb27f5729bc89cae7eeaea1984e389fdd1ae636ad8c5b1ba8036694ce4fe1d39c80fa95ea522d52e`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-210C-00001009_8e62f7.ota
+- **Source URL**: https://github.com/user-attachments/files/30534640/snzb-swv2c_v1.0.9.ota.zip
+- **Header String**: `FIRMWARE`
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.
+> 
+> **Changes**
+> - Add support for setting the water flow unit (liter, US gallon, or imperial gallon)
+- **Pull Request**: [#234](https://github.com/zigpy/zigpy-ota/pull/234)
 
 ## third_reality
 

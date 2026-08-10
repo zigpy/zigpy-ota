@@ -532,6 +532,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/223"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-210C-00001009_8e62f7.ota",
+            "manufacturer_id": 4742,
+            "image_type": 8460,
+            "file_version": 4105,
+            "file_size": 181584,
+            "checksum": "sha3-256:8e62f7b53c0a3898549fe69f7477821c7a4f869224a6255a6ee414863b8714c4",
+            "release_notes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/234"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1233-D3A1-0000004F_ef1152.ota",
             "manufacturer_id": 4659,
             "image_type": 54177,
