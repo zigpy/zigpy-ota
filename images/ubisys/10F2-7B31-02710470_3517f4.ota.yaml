@@ -2,6 +2,7 @@
 file_name: 10F2-7B31-02710470_3517f4.ota
 source_file_name: 10F2-7B31-0000-0006-02710470-spo-fmd.ota.zigbee
 source_url: https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02710470-spo-fmd.ota.zigbee
+pull_request: 236
 release_notes: |-
   ### Changes:
   - On/Off and Level Control interaction: Refined the transient behaviour when an On, Off or Toggle command is received while a level transition is in progress, avoiding visually abrupt or unnatural output changes
