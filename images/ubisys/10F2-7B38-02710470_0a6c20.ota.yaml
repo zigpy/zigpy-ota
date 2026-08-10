@@ -1,0 +1,15 @@
+# OTA metadata
+file_name: 10F2-7B38-02710470_0a6c20.ota
+source_file_name: 10F2-7B38-0000-0004-02710470-spo-rmd.ota.zigbee
+source_url: https://www.ubisys.de/wp-content/uploads/10F2-7B38-0000-0004-02710470-spo-rmd.ota.zigbee
+release_notes: |-
+  ### Changes
+
+  - On/Off and Level Control interaction: Refined the transient behaviour when an On, Off or Toggle command is received while a level transition is in progress, avoiding visually abrupt or unnatural output changes
+  - Electrical Measurement and Metering clusters: Reworked both implementations for improved accuracy and specification conformance
+  - Attribute scaling: Added support for multiplier and divisor attributes in the Electrical Measurement cluster, allowing reported values to be scaled to the applicable engineering units
+  - Attribute reporting: Attribute reports now account for the case in which the current value of a reportable attribute is invalid or unavailable at the time the report is generated
+  - Other bug fixes and improvements
+
+  **Full change log can be found here:**
+  https://www.ubisys.de/unterstuetzung/support-firmware/aenderungsprotokoll-d1r/
