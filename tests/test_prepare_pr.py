@@ -164,9 +164,9 @@ def issue_hue_new_set_min_version() -> Path:
 
 
 @pytest.fixture
-def issue_hue_new_manual_override() -> Path:
-    """Issue file for new Hue OTA version (manual override of min_current_file_version)."""
-    return Path("tests/data/gh_issues/issue_hue_new_manual_override.md")
+def issue_hue_new_manual_override_valid() -> Path:
+    """Issue file for new Hue OTA version (valid manual min_current_file_version override)."""
+    return Path("tests/data/gh_issues/issue_hue_new_manual_override_valid.md")
 
 
 @pytest.fixture
@@ -314,7 +314,11 @@ def run_prepare_pr(
         ),
         # Test 13: Manual override of min_current_file_version (warning should appear)
         pytest.param(
-            ["issue_hue_old", "issue_hue_newest_keep", "issue_hue_new_manual_override"],
+            [
+                "issue_hue_old",
+                "issue_hue_newest_keep",
+                "issue_hue_new_manual_override_valid",
+            ],
             ["ota_hue_old", "ota_hue_newest", "ota_hue_new"],
             id="middle_manual_override_warning",
         ),
@@ -506,3 +510,156 @@ def test_prepare_pr_command_with_snapshot(
         "ota_files": ota_file_names,  # Track which image files were actually saved
         "ota_index": ota_index_json,
     } == snapshot
+
+
+def test_prepare_pr_stale_hint_and_pr_backlink(
+    snapshot: SnapshotAssertion,
+    tmp_path: Path,
+) -> None:
+    """New unconstrained submission over a name-scoped existing image.
+
+    The existing image has model/manufacturer names and a recorded
+    pull_request (stamped into its YAML by the workflow after PR creation),
+    so the second submission's PR body must mark it [stale], link the PR
+    that added it, and hint that exclusivity requires constraining the
+    new image.
+    """
+    images_path = tmp_path / "images"
+    markdown_output_path = tmp_path / "markdown_outputs"
+    markdown_output_path.mkdir(exist_ok=True)
+
+    issue_old = Path("tests/data/gh_issues/issue_hue_old.md")
+    ota_old = Path(
+        "tests/data/ota_files/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee"
+    )
+    issue_newer = Path("tests/data/gh_issues/issue_hue_newer_unconstrained.md")
+    ota_newer = Path(
+        "tests/data/ota_files/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee"
+    )
+
+    with (
+        patch("zigpy_ota.actions.pr.prepare_files.download_ota_file") as mock_download,
+        patch("zigpy_ota.actions.pr.download_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.pr_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.prepare_files.IMAGES_PATH", images_path),
+    ):
+        # Submit the old, name-scoped image
+        result = run_prepare_pr(
+            issue_old, ota_old, markdown_output_path / "test_pr_0.md", mock_download
+        )
+        assert result.exit_code == 0, f"First submission failed: {result.output}"
+
+        # Stamp the PR number into its YAML, as the workflow does after PR creation
+        (old_yaml,) = images_path.rglob("*.yaml")
+        old_yaml.write_text(old_yaml.read_text() + "pull_request: 42\n")
+
+        # Submit the newer image without any name constraints
+        output_markdown = markdown_output_path / "test_pr_1.md"
+        result = run_prepare_pr(issue_newer, ota_newer, output_markdown, mock_download)
+        assert result.exit_code == 0, f"Second submission failed: {result.output}"
+
+    markdown = output_markdown.read_text()
+    assert "**[stale]**" in markdown
+    assert "**Added in**: https://github.com/zigpy/zigpy-ota/pull/42" in markdown
+    assert "add name constraints to the new image" in markdown
+
+    yaml_contents = {f.name: f.read_text() for f in sorted(images_path.rglob("*.yaml"))}
+    assert {"markdown": markdown, "yamls": yaml_contents} == snapshot
+
+
+def test_prepare_pr_rejects_unreachable_min_version(tmp_path: Path) -> None:
+    """A manual min_current_file_version at/above the image's own version fails.
+
+    The rejection happens at submission time with an actionable message,
+    instead of a reachability crash in the later generate-index step.
+    """
+    images_path = tmp_path / "images"
+    issue_path = Path("tests/data/gh_issues/issue_hue_new_manual_override.md")
+    ota_file = Path(
+        "tests/data/ota_files/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee"
+    )
+
+    with (
+        patch("zigpy_ota.actions.pr.prepare_files.download_ota_file") as mock_download,
+        patch("zigpy_ota.actions.pr.download_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.pr_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.prepare_files.IMAGES_PATH", images_path),
+    ):
+        result = run_prepare_pr(issue_path, ota_file, tmp_path / "pr.md", mock_download)
+
+    assert result.exit_code != 0
+    # min 0x01002602 vs the image's own file version 0x01002500
+    assert "unreachable" in result.output
+    # Rejection happens before any file is written
+    assert not list(images_path.rglob("*"))
+
+
+def test_prepare_pr_rejects_quoted_min_version(tmp_path: Path) -> None:
+    """A quoted numeric constraint from the issue form fails with a clear message.
+
+    The type check must run before the reachability comparison - otherwise the
+    submitter-visible error is an opaque TypeError about str vs int.
+    """
+    images_path = tmp_path / "images"
+    issue_path = Path("tests/data/gh_issues/issue_hue_quoted_min_version.md")
+    ota_file = Path(
+        "tests/data/ota_files/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee"
+    )
+
+    with (
+        patch("zigpy_ota.actions.pr.prepare_files.download_ota_file") as mock_download,
+        patch("zigpy_ota.actions.pr.download_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.pr_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.prepare_files.IMAGES_PATH", images_path),
+    ):
+        result = run_prepare_pr(issue_path, ota_file, tmp_path / "pr.md", mock_download)
+
+    assert result.exit_code != 0
+    assert "must be an integer" in result.output
+    assert "remove any quotes" in result.output
+    assert "not supported between" not in result.output
+    # Rejection happens before any file is written
+    assert not list(images_path.rglob("*"))
+
+
+def test_prepare_pr_rejected_replace_deletes_nothing(tmp_path: Path) -> None:
+    """A rejected REPLACE submission leaves the existing images untouched.
+
+    Deletion must run only after validation - a rejected submission
+    previously left existing OTA/YAML files already deleted.
+    """
+    images_path = tmp_path / "images"
+    markdown_output_path = tmp_path / "markdown_outputs"
+    markdown_output_path.mkdir(exist_ok=True)
+
+    issue_old = Path("tests/data/gh_issues/issue_hue_old.md")
+    ota_old = Path(
+        "tests/data/ota_files/fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee"
+    )
+    # REPLACE handling with an invalid (quoted) constraint
+    issue_replace = Path("tests/data/gh_issues/issue_hue_new_replace_invalid.md")
+    ota_new = Path(
+        "tests/data/ota_files/fake_100B-010C-01002500-ConfLight-Lamps_0012.zigbee"
+    )
+
+    with (
+        patch("zigpy_ota.actions.pr.prepare_files.download_ota_file") as mock_download,
+        patch("zigpy_ota.actions.pr.download_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.pr_utils.IMAGES_PATH", images_path),
+        patch("zigpy_ota.actions.pr.prepare_files.IMAGES_PATH", images_path),
+    ):
+        result = run_prepare_pr(
+            issue_old, ota_old, markdown_output_path / "test_pr_0.md", mock_download
+        )
+        assert result.exit_code == 0, f"First submission failed: {result.output}"
+        existing_files = sorted(p for p in images_path.rglob("*") if p.is_file())
+        assert existing_files, "First submission should have written files"
+
+        result = run_prepare_pr(
+            issue_replace, ota_new, markdown_output_path / "test_pr_1.md", mock_download
+        )
+
+    assert result.exit_code != 0
+    assert "must be an integer" in result.output
+    # The rejected REPLACE submission deleted nothing and wrote nothing
+    assert sorted(p for p in images_path.rglob("*") if p.is_file()) == existing_files

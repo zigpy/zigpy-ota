@@ -9,6 +9,7 @@ from zigpy_ota.actions.metadata.ota_parsing import parse_ota_files
 from zigpy_ota.actions.metadata.stale_validation import (
     compute_stale_images,
     is_dominated_by,
+    narrower_names_hint,
 )
 from zigpy_ota.actions.metadata.yaml_parsing import parse_metadata_files
 from zigpy_ota.actions.metadata.z2m_utils import compute_max_file_versions
@@ -328,20 +329,15 @@ def prepare_metadata_for_z2m(
         if image_path in stale_paths:
             continue
 
-        entry = index_meta.to_dict_z2m()
+        # Z2M only accepts a single modelId per entry, so images with multiple
+        # model names produce one entry per model
+        for model_name in index_meta.model_names or (None,):
+            entry = index_meta.to_dict_z2m(model_name=model_name)
 
-        # Apply computed max_current_file_version if needed
-        if image_path in computed_max_versions:
-            entry["maxFileVersion"] = computed_max_versions[image_path]
+            # Apply computed max_current_file_version if needed
+            if image_path in computed_max_versions:
+                entry["maxFileVersion"] = computed_max_versions[image_path]
 
-        # Z2M only accepts a single modelId per entry, so we duplicate entries
-        # for images with multiple model names
-        if index_meta.model_names and len(index_meta.model_names) > 1:
-            for model_name in index_meta.model_names:
-                model_entry = entry.copy()
-                model_entry["modelId"] = model_name
-                prepared_metadata.append(model_entry)
-        else:
             prepared_metadata.append(entry)
 
     return prepared_metadata
@@ -375,12 +371,27 @@ def prepare_metadata_for_markdown(
     enabled_metadata = {k: v for k, v in filtered_metadata.items() if not v.disabled}
     stale_paths = compute_stale_images(enabled_metadata)
 
-    # Also check if disabled images would be stale relative to enabled images
+    # Also check if disabled images would be stale relative to enabled images.
+    # Sort newest-first so the reported dominator matches compute_stale_images.
     disabled_metadata = {k: v for k, v in filtered_metadata.items() if v.disabled}
+    enabled_newest_first = sorted(
+        enabled_metadata.items(), key=lambda kv: kv[1].file_version, reverse=True
+    )
     for disabled_path, disabled_meta in disabled_metadata.items():
-        for enabled_meta in enabled_metadata.values():
+        for enabled_path, enabled_meta in enabled_newest_first:
             if is_dominated_by(disabled_meta, enabled_meta):
                 stale_paths.add(disabled_path)
+                LOGGER.info(
+                    "Disabled image %s (version 0x%08X) is stale: dominated by %s "
+                    "(version 0x%08X) for manufacturer_id=0x%04X, image_type=0x%04X%s",
+                    disabled_path,
+                    disabled_meta.file_version,
+                    enabled_path,
+                    enabled_meta.file_version,
+                    disabled_meta.manufacturer_id,
+                    disabled_meta.image_type,
+                    narrower_names_hint(disabled_meta, enabled_meta),
+                )
                 break
 
     sorted_items = _sort_metadata_items(filtered_metadata, reverse_file_version=False)

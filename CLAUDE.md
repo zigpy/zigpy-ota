@@ -51,7 +51,7 @@ Use the GitHub issue form - this is the easiest method:
    - Third-party download checkbox (for external hosting - URL form only - disabled at the moment)
    - Checklist items (at least confirm the file format)
 
-**Important**: Submit **one issue per OTA image**. Multiple versions should be separate issues. An automated PR will be created from your submission for review by maintainers.
+**Important**: Submit **one issue per OTA image**. Multiple versions should be separate issues. An automated PR will be created from your submission for review by maintainers. If processing fails, the bot comments on the issue - including the specific reason when it is a submission problem (e.g. metadata constraints no device could satisfy).
 
 **2. Manual YAML Metadata Edits**
 
@@ -121,6 +121,17 @@ Note: Files on the `release/files` branch use the same names (`zigpy_v2_ota.json
    - `url`: Direct URL to the OTA metadata for that release (GitHub release asset for stable/beta, `release/files` branch for dev)
    - Schema keys (`zigpy_v2`, `z2m_v1`, `markdown_v1`) allow for future schema evolution while maintaining backward compatibility
 
+**Pulling a Broken Release:**
+
+The version pointers (`stable.json`, `beta.json`) always point to the latest non-draft release whose title is exactly its tag name (the "election" in `.github/scripts/update-version-pointers.sh`). A release containing a broken OTA image can be **pulled** (excluded from the election) in two ways:
+
+1. **"Pull a release" workflow (recommended)**: Run `.github/workflows/pull-release.yml` with the tag to pull. It retitles the release to `<tag> - pulled`, prepends a caution notice to the release body (with the optional reason and a hidden state comment recording the pull date and original commit), re-points the version pointers to the previous good release, and renames the pulled release's index assets (prefixes them with `pulled_`, so clients resolving a stale version pointer fail closed with a 404 while the original assets stay preserved). Unless disabled via the `move_tag` input (on by default), it additionally re-tags the release to `pulled_<tag>` (created at the original commit, so the release keeps pointing at the code it was built from) and force-moves the original tag to the commit of the newest release older than the pulled one (NOT the currently elected release, whose newer tree still contains the pulled files): clients may cache the pulled index (whose binary URLs contain the pulled tag) for up to 24 hours and only download images on install, and moving the tag makes exactly the files added by the pulled release stop resolving while all other links keep working. The weekly `restore-pulled-tags.yml` workflow automatically restores the original tag/commit association once the pull is at least 48 hours old (so up to ~9 days after the pull; the release stays pulled). Note: moving tags requires the pushing identity to have a bypass on any tag protection ruleset.
+2. **Manual title edit**: Edit the release title to `<tag> - pulled` in the GitHub web UI. The `edited` release event detects that no pull state is recorded yet and dispatches the pull workflow automatically (with its default inputs, so tags are moved too). Only works for releases tagged after this trigger logic was added.
+
+**Disabling/removing images via PR labels:** Adding `ota-disable`, `ota-enable`, or `ota-remove` to an OTA submission PR (usually a merged one) makes the bot open a PR against the default branch that sets `disabled: true` in that PR's image YAMLs, removes the field again, or deletes the image files entirely (`ota-remove` is for legal/redistribution problems only - the normal policy is keeping disabled images). The bot PR is reviewed and merged by a maintainer; merging updates the dev index automatically. If the images already shipped in a release, additionally pull that release. The trigger label is removed after processing; re-adding it re-runs the action (e.g. to refresh a stale bot PR against the current default branch).
+
+Any other release title fails the election loudly (the workflow errors), so a typo can't silently change which release is elected. To **un-pull** (reinstate) a release, run `.github/workflows/unpull-release.yml` (or simply edit the title back to `<tag>`, which dispatches it): it restores the tag/commit association and asset names, replaces the caution notice with a note recording the pull/re-add dates, restores the title, and re-runs the election.
+
 **Client Access:**
 
 - **Recommended**: Clients fetch version files via stable URLs to discover the index URL dynamically:
@@ -166,8 +177,9 @@ The `zigpy_v2_ota.json` is an object containing a `firmwares` array:
 - `binary_url` - Download URL (GitHub raw for local files, external URL for third-party)
 - `manufacturer_id`, `image_type`, `file_version` - Device matching identifiers
 - `checksum` - SHA3-256 hash for verification
-- `source_url` - Original source URL provided in the YAML metadata
-- `third_party_download` - (Optional) Set to `true` when file is hosted externally
+- `release_url` - Link to release notes, falling back to the PR that added the image
+
+Repo-internal YAML fields (`source_url`, `source_file_name`, `pull_request`, `third_party_download`, `disabled`, ...) are not emitted; third-party hosting is only reflected in where `binary_url` points.
 
 ### YAML Metadata Files
 
@@ -261,7 +273,7 @@ There is **no dedicated CLI command** to generate third-party YAML metadata from
 - `max_current_file_version` - Maximum current firmware version for update eligibility
 - `min_hardware_version` - Minimum hardware version compatibility
 - `max_hardware_version` - Maximum hardware version compatibility
-- `specificity` - Priority level when multiple images match (higher = more specific)
+- `specificity` - Breaks ties between matching images with the same file version (higher wins; a newer file version always takes priority)
 - `channel` - Release channel (omit for stable which appears in all channels; `beta` appears in beta and dev; `dev` appears only in dev)
 - `pull_request` - PR number that added this image (auto-added by GitHub Actions workflow)
 - `disabled` - Set to `true` to exclude from JSON indexes while keeping the file in the repo
@@ -575,7 +587,7 @@ An image is considered "stale" (dominated) when a newer image exists that would 
 - B's constraints are a superset of A's (or both have no constraints):
   - If A has `model_names`, B must have the same or a superset
   - If A has `manufacturer_names`, B must have the same or a superset
-  - If A has version constraints (`min/max_current_file_version`), B must not have constraints that would exclude devices A would match
+  - If A has version constraints (`min/max_current_file_version`), B must not have constraints that would exclude devices A would match. Since an image is only offered to devices running a version below its own file version, each image's effective maximum is capped at `file_version - 1` — B's `max_current_file_version` only blocks domination if it cuts below A's effective range
 
 This detection helps identify firmware images that are effectively obsolete because a newer version would be preferred for all matching devices.
 
@@ -596,6 +608,7 @@ zigpy-ota generate-index
 --allow-filename-mismatch   # Allow YAML file_name field not matching filename
 --allow-invalid-yaml        # Allow YAML files that fail to parse
 --allow-collisions          # Allow duplicate images (same ID/type/version)
+--allow-unreachable         # Allow images that can never be offered to any device
 
 # Download and validate third-party/remote hosted images (not for CI/CD)
 --validate-third-party
@@ -637,6 +650,14 @@ zigpy-ota generate-index
   - **Default behavior**: Fails if two images would have identical matching criteria
   - Prevents ambiguous firmware matching where multiple files could apply
   - Use `--allow-collisions` only for debugging duplicate detection
+
+- `--allow-unreachable` / `--no-allow-unreachable` (default: fail)
+  - Controls whether images that can never be offered to any device are allowed
+  - **Default behavior**: Fails on an empty effective current-version range (e.g. `min_current_file_version` at or above the image's own file version, since an image is only offered below its own version) or an empty hardware-version range (min above max)
+  - Disabled images are skipped (they never ship in an index)
+  - Validation runs across all channels regardless of `--channel` (like collision validation), so e.g. an unreachable dev-only image also fails a stable publish - intentional strictness
+  - Issue-form submissions can't produce unreachable images: `prepare-pr` rejects such constraints up front with an actionable message
+  - Use `--allow-unreachable` only for debugging
 
 - `--validate-third-party` (flag, default: off)
   - Downloads and validates third-party OTA images from their URLs

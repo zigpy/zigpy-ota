@@ -18,6 +18,9 @@ on:
         required: false
         type: string
 
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
 env:
   PYTHON_VERSION_DEFAULT: "3.14"
 
@@ -28,14 +31,25 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      # Branch pushes go through the GitHub App (checkout credentials); the
+      # zigpy-bot fine-grained token is only used for the gh CLI (PR creation,
+      # keeping zigpy-bot as the PR author)
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          permission-contents: write
+
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
 

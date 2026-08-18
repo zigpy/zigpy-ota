@@ -111,9 +111,10 @@ class IndexMetadata:
         if yaml.model_names:
             result["model_names"] = yaml.model_names
 
-        # Override hardware versions if specified in YAML
-        # TODO: Check if zigpy supports this
-        # TODO: Check if we want to log a warning if OTA and YAML differ, or raise?
+        # Override hardware versions if specified in YAML. zigpy prefers index
+        # metadata over the OTA header (it falls back to the firmware header
+        # only when metadata is unset), and overrides are surfaced at
+        # submission time via the PR-body hardware override warning.
         if yaml.min_hardware_version is not None:
             result["min_hardware_version"] = yaml.min_hardware_version
         if yaml.max_hardware_version is not None:
@@ -139,10 +140,13 @@ class IndexMetadata:
 
         return cls(**result)
 
-    def to_dict(self) -> dict[str, Any]:
-        """Convert to dictionary for JSON serialization.
+    def to_dict_zigpy(self) -> dict[str, Any]:
+        """Convert to dictionary for zigpy JSON index serialization.
 
-        Only includes non-None values and skips SHA-512 checksum.
+        Only emits fields zigpy's remote provider consumes. Repo-internal
+        fields (source_file_name, source_url, pull_request, release_notes_url,
+        third_party_download, disabled) are omitted to keep the index lean;
+        pull_request/release_notes_url instead feed the release_url field.
         """
         result: dict[str, Any] = {
             "binary_url": self.binary_url,
@@ -151,18 +155,17 @@ class IndexMetadata:
             "file_version": self.file_version,
             "file_size": self.file_size,
             "checksum": f"sha3-256:{self.checksum_sha3_256}",
-            "source_file_name": self.source_file_name,
         }
 
-        # Add optional fields if present
-        if self.source_url:
-            result["source_url"] = self.source_url
-        if self.pull_request:
-            result["pull_request"] = self.pull_request
         if self.release_notes:
             result["release_notes"] = self.release_notes
+
+        # release_url: prefer release_notes_url, fall back to the PR URL
         if self.release_notes_url:
-            result["release_notes_url"] = self.release_notes_url
+            result["release_url"] = self.release_notes_url
+        elif self.pull_request:
+            result["release_url"] = f"{GITHUB_PR_BASE_URL}/{self.pull_request}"
+
         if self.manufacturer_names:
             result["manufacturer_names"] = self.manufacturer_names
         if self.model_names:
@@ -177,56 +180,10 @@ class IndexMetadata:
             result["max_current_file_version"] = self.max_current_file_version
         if self.specificity is not None:
             result["specificity"] = self.specificity
-        if self.third_party_download:
-            result["third_party_download"] = self.third_party_download
-        if self.disabled:
-            result["disabled"] = self.disabled
 
         return result
 
-    def to_dict_zigpy(self) -> dict[str, Any]:
-        """Convert to dictionary for zigpy JSON index serialization.
-
-        Similar to to_dict() but excludes fields not used by zigpy:
-        - source_file_name: informational field, not consumed by zigpy
-        - source_url: informational field, not consumed by zigpy
-        - disabled: internal field, disabled entries are filtered out entirely
-        """
-        result = self.to_dict()
-        result.pop("disabled", None)
-        result.pop("source_file_name", None)
-
-        # TODO: Do we want to keep source_url and third_party_download for zigpy?
-        result.pop("source_url", None)
-        result.pop("third_party_download", None)
-
-        # Remove internal fields from zigpy output
-        result.pop("pull_request", None)
-        result.pop("release_notes_url", None)
-
-        # Compute release_url: prefer release_notes_url, fall back to PR URL
-        release_url: str | None = None
-        if self.release_notes_url:
-            release_url = self.release_notes_url
-        elif self.pull_request:
-            release_url = f"{GITHUB_PR_BASE_URL}/{self.pull_request}"
-
-        # TODO: Remove this hack and insert release_url properly in the correct position
-        # Insert release_url after release_notes, or after checksum if no release_notes
-        # We can insert after checksum, as everything else between is popped before it
-        if release_url:
-            insert_after = "release_notes" if "release_notes" in result else "checksum"
-            new_result: dict[str, Any] = {}
-            for key, value in result.items():
-                new_result[key] = value
-                if key == insert_after:
-                    new_result["release_url"] = release_url
-            result = new_result
-
-        return result
-
-    # TODO: For later
-    def to_dict_z2m(self) -> dict[str, Any]:
+    def to_dict_z2m(self, model_name: str | None = None) -> dict[str, Any]:
         """Convert to dictionary for Zigbee2MQTT JSON index serialization.
 
         Uses camelCase field names and z2m-specific field mappings:
@@ -236,11 +193,17 @@ class IndexMetadata:
         - originalUrl (from source_url)
         - releaseNotes (from release_notes)
         - manufacturerName (from manufacturer_names)
-        - modelId (from model_names, first entry only)
+        - modelId (from `model_name`, or the first of model_names)
         - minFileVersion, maxFileVersion (version constraints)
+        - hardwareVersionMin, hardwareVersionMax (hardware constraints)
+
+        Args:
+            model_name: Model name to emit as modelId. z2m entries carry a
+                single modelId, so the index generator calls this once per
+                model name. Defaults to the first of model_names, if any.
         """
-        # TODO: Get this into IndexMetadata properly
-        # Extract filename from binary_url
+        # The URL basename is the standardized repo file name for local
+        # images, and the actual remote file's name for third-party images
         file_name = self.binary_url.rsplit("/", 1)[-1]
 
         result: dict[str, Any] = {
@@ -266,11 +229,11 @@ class IndexMetadata:
         if self.manufacturer_names:
             result["manufacturerName"] = self.manufacturer_names
 
-        # Add modelId (z2m uses first model name only, as a string)
-        # Note: prepare_metadata_for_z2m() duplicates entries for multiple model names
-        # TODO: Leave like this? Add parameter to this method about which model name to use?
-        if self.model_names:
-            result["modelId"] = self.model_names[0]
+        # Add modelId (single string; one z2m entry per model name)
+        if model_name is None and self.model_names:
+            model_name = self.model_names[0]
+        if model_name is not None:
+            result["modelId"] = model_name
 
         # Add version constraints
         if self.min_current_file_version is not None:
@@ -278,5 +241,12 @@ class IndexMetadata:
 
         if self.max_current_file_version is not None:
             result["maxFileVersion"] = self.max_current_file_version
+
+        # Add hardware version constraints (Z2M matches on these)
+        if self.min_hardware_version is not None:
+            result["hardwareVersionMin"] = self.min_hardware_version
+
+        if self.max_hardware_version is not None:
+            result["hardwareVersionMax"] = self.max_hardware_version
 
         return result

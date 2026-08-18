@@ -559,3 +559,53 @@ release_notes: |-
     # Compare YAML content against snapshot
     yaml_content = renamed_yaml.read_text()
     assert yaml_content == snapshot
+
+
+def test_set_image_disabled(tmp_path: Path) -> None:
+    """Test set-image-disabled sets and removes the disabled field."""
+    yaml_file = tmp_path / "test.ota.yaml"
+    original = (
+        "# OTA metadata\n"
+        "file_name: test.ota\n"
+        "source_file_name: firmware.ota\n"
+        "release_notes: |-\n"
+        "  - Bug fixes\n"
+    )
+    yaml_file.write_text(original)
+
+    runner = CliRunner()
+
+    # Disable the image
+    result = runner.invoke(cli, ["set-image-disabled", str(yaml_file)])
+    assert result.exit_code == 0, f"Command failed: {result.output}"
+    assert "Changed 1 of 1 file(s)" in result.output
+    content = yaml_file.read_text()
+    assert "disabled: true" in content
+    assert content.startswith("# OTA metadata\n"), "Comment was not preserved"
+
+    # Disabling again is a no-op
+    result = runner.invoke(cli, ["set-image-disabled", str(yaml_file)])
+    assert result.exit_code == 0
+    assert "Changed 0 of 1 file(s)" in result.output
+
+    # Re-enable the image; content returns to the original
+    result = runner.invoke(cli, ["set-image-disabled", "--enable", str(yaml_file)])
+    assert result.exit_code == 0
+    assert "Changed 1 of 1 file(s)" in result.output
+    assert yaml_file.read_text() == original
+
+    # Enabling again is a no-op
+    result = runner.invoke(cli, ["set-image-disabled", "--enable", str(yaml_file)])
+    assert result.exit_code == 0
+    assert "Changed 0 of 1 file(s)" in result.output
+
+
+def test_set_image_disabled_invalid_yaml(tmp_path: Path) -> None:
+    """Test set-image-disabled rejects empty/non-mapping YAML with a clean error."""
+    yaml_file = tmp_path / "empty.ota.yaml"
+    yaml_file.write_text("# only a comment\n")
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["set-image-disabled", str(yaml_file)])
+    assert result.exit_code == 1
+    assert "does not contain a YAML mapping" in result.output

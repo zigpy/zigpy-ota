@@ -45,7 +45,12 @@ def normalize_yaml_values(data: dict[str, Any]) -> dict[str, Any]:
     """
     result: dict[str, Any] = {}
     for key, value in data.items():
-        if isinstance(value, int):
+        if isinstance(value, bool):
+            # Keep booleans as booleans (bool is an int subclass): coercing
+            # turned `disabled: true` into 1 and let a boolean in a numeric
+            # field slip past the integer validation as 1/0
+            result[key] = value
+        elif isinstance(value, int):
             # Convert any int subclass (HexInt, OctalInt, etc.) to plain int
             result[key] = int(value)
         elif isinstance(value, dict):

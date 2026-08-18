@@ -5,7 +5,11 @@ import re
 
 from zigpy_ota.actions.markdown.utils import format_hex_dec, format_list_or_str
 from zigpy_ota.actions.metadata.collision_validation import could_match_same_device
-from zigpy_ota.actions.metadata.stale_validation import is_dominated_by
+from zigpy_ota.actions.metadata.stale_validation import (
+    has_narrower_names,
+    is_dominated_by,
+)
+from zigpy_ota.const import GITHUB_PR_BASE_URL
 from zigpy_ota.models.index_metadata import IndexMetadata
 from zigpy_ota.models.issue_model import ExistingImagesHandling
 from zigpy_ota.models.pr_result import PrepareResult
@@ -56,8 +60,15 @@ def format_image_info(
     lines = [
         f"- `{filename}` **[{staleness_marker}]**",
         f"  - **Source File Name**: `{metadata.source_file_name}`",
-        file_version_line,
     ]
+
+    # Link the PR that added this image (recorded in its YAML metadata).
+    # Raw URL on purpose: GitHub renders it as a rich reference with the
+    # PR title, unlike an explicit markdown link.
+    if metadata.pull_request:
+        lines.append(f"  - **Added in**: {GITHUB_PR_BASE_URL}/{metadata.pull_request}")
+
+    lines.append(file_version_line)
 
     # Add note if this version was used for auto_min_version calculation
     if auto_min_version is not None and metadata.file_version == auto_min_version:
@@ -240,7 +251,7 @@ def generate_pr_markdown(result: PrepareResult) -> str:
                 "The following existing image(s) with the same manufacturer ID and image type were found:"
             )
 
-        for filename, metadata in result.deletable_images.items():
+        for existing_filename, metadata in result.deletable_images.items():
             # Compute a single staleness marker. The reviewer-relevant
             # distinctions are:
             #   - [stale]: the new image fully dominates the existing one.
@@ -249,7 +260,8 @@ def generate_pr_markdown(result: PrepareResult) -> str:
             #   - [not stale: same version]: same file_version with overlapping
             #     devices — the collision-risk case the validator could flag.
             #   - [not stale]: not dominated for other reasons (typically
-            #     version-range constraints or specificity differences).
+            #     version-range constraints or the existing image covering
+            #     devices the new one doesn't).
             if is_dominated_by(metadata, new_image_metadata):
                 staleness_marker = "stale"
             elif not could_match_same_device(metadata, new_image_metadata):
@@ -261,7 +273,7 @@ def generate_pr_markdown(result: PrepareResult) -> str:
 
             lines.append(
                 format_image_info(
-                    filename=filename,
+                    filename=existing_filename,
                     metadata=metadata,
                     new_version=current_version,
                     auto_min_version=result.auto_min_version,
@@ -269,6 +281,19 @@ def generate_pr_markdown(result: PrepareResult) -> str:
                     staleness_marker=staleness_marker,
                 )
             )
+
+            # A stale existing image scoped to device names may signal intent:
+            # zigpy will offer the (unconstrained) new image to those devices
+            # regardless, so exclusivity requires constraining the new image.
+            if staleness_marker == "stale" and has_narrower_names(
+                metadata, new_image_metadata
+            ):
+                lines.append(
+                    "  - ⚠️ This existing image has model/manufacturer name "
+                    "constraints the new image lacks. If it must stay "
+                    "exclusive to those devices, add name constraints to the "
+                    "new image."
+                )
         lines.append("")
 
     # Add note about auto-calculated min_current_file_version

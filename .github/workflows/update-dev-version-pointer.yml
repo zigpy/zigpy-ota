@@ -8,6 +8,9 @@ on:
     paths:
       - ".github/SCHEMA.json"
 
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
 concurrency:
   group: push-release-version
   cancel-in-progress: false
@@ -22,20 +25,46 @@ jobs:
     runs-on: ubuntu-slim
     timeout-minutes: 5
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions)
+          permission-contents: write
+
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Load schema config
         run: |
           set -euo pipefail
-          for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
+          # Assign first so a jq failure fails the step (a process
+          # substitution's exit status is invisible to set -e)
+          keys=$(jq -r 'keys[]' .github/SCHEMA.json)
+          if [ -z "$keys" ]; then
+            echo "::error::SCHEMA.json has no keys"
+            exit 1
+          fi
+          while IFS= read -r key; do
             value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
+            # A key outside [A-Za-z0-9_] or a multi-line value would define
+            # arbitrary extra variables (e.g. PATH) for later steps
+            # (while-read keeps a key with spaces intact so the guard catches it)
+            if [[ ! "$key" =~ ^[A-Za-z0-9_]+$ ]] || [[ "$value" == *$'\n'* ]]; then
+              echo "::error::Invalid SCHEMA.json entry for key '$key'"
+              exit 1
+            fi
             echo "SCHEMA_${key^^}=$value" >> "$GITHUB_ENV"
-          done
+          done <<<"$keys"
 
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
       - name: Configure git
         run: |
           set -euo pipefail
@@ -50,13 +79,15 @@ jobs:
           Z2M_URL="${DEV_BASE_URL}/${SCHEMA_Z2M_FILENAME}"
           MARKDOWN_URL="${DEV_BASE_URL}/${SCHEMA_MARKDOWN_FILENAME}"
 
-          # Switch to release/version branch
-          if git ls-remote --exit-code --heads origin release/version > /dev/null 2>&1; then
-            git fetch origin release/version:release/version
-            git checkout release/version
-          else
-            git checkout -b release/version
+          # Switch to the release/version branch. It must already exist: it is created
+          # once per repository as an orphan branch, never derived from the code tree
+          # (e.g. git switch --orphan release/version && git commit --allow-empty -m "Init")
+          if ! git ls-remote --exit-code --heads origin release/version > /dev/null 2>&1; then
+            echo "::error::Branch release/version not found (or the remote could not be reached). It must be created manually, once, as an orphan branch."
+            exit 1
           fi
+          git fetch origin release/version:release/version
+          git checkout release/version
 
           # Update dev.json (preserve existing schema keys, e.g. zigpy_v1 when adding zigpy_v2)
           if [ -f dev.json ]; then
@@ -81,7 +112,11 @@ jobs:
               > dev.json
           fi
 
-          # Commit and push if changed
+          # Commit and push if changed. Retry once after a rebase: the version
+          # pointer workflows push to this branch from a different concurrency group.
           git add dev.json
           git diff --staged --quiet || git commit -m "Update \`dev\` version pointer"
-          git push origin release/version
+          git push origin release/version || {
+            git pull --rebase origin release/version
+            git push origin release/version
+          }

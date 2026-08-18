@@ -1,0 +1,98 @@
+name: Restore pulled release tags
+
+# Periodically restores the original tag/commit association of releases that remain
+# pulled but had their tag moved by pull-release.yml (move_tag input): force-moves the
+# original tag back to the recorded original commit, re-tags the release from
+# "pulled_<tag>" back to "<tag>", and deletes the "pulled_<tag>" tag - for reference
+# purposes, so tags permanently point at the commits they were built from.
+#
+# Tags are only restored once a pull is old enough (default: 48 hours) that OTA clients
+# can no longer hold a cached index referencing the pulled tag (zigpy caches indexes for
+# up to 24 hours), so restoring the tag can't re-expose the pulled OTA images to
+# clients. The releases themselves stay pulled (title, body notice, renamed assets).
+#
+# Additionally self-heals releases whose title disagrees with their recorded pull state
+# by dispatching pull-release.yml / unpull-release.yml: the `edited`-event dispatches in
+# publish-release-json.yml can be lost while queued, since GitHub keeps at most one
+# pending run per concurrency group and cancels older pending ones.
+
+on:
+  schedule:
+    # Weekly (Mondays 04:37 UTC): pulls are rare, and during an active incident
+    # admins re-trigger lost actions manually anyway - this schedule is only the
+    # unattended safety net (and can always be run manually via workflow_dispatch)
+    - cron: "37 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      delay_hours:
+        description: "Minimum age (in hours) of a pull before its tag is restored"
+        required: false
+        type: string
+        default: "48"
+
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
+concurrency:
+  group: push-release-version
+  cancel-in-progress: false
+
+jobs:
+  restore-tags:
+    name: Restore pulled release tags
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      # For dispatching pull-release.yml / unpull-release.yml in the sync step
+      actions: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions).
+          # Workflows write is needed for tag refs whose workflow files differ
+          # from the default branch (see pull-release.sh).
+          permission-contents: write
+          permission-workflows: write
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
+      - name: Configure git
+        run: |
+          set -euo pipefail
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      # Uses the app token for gh: tag pushes go through the checkout credentials and
+      # need the app's Workflows (write) permission (see pull-release.sh), and
+      # re-tagging the release must use the same identity. Side effect: app-made
+      # release edits fire `edited` events, re-triggering an (idempotent) version
+      # pointer recalculation.
+      - name: Restore tags of pulled releases
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+          RESTORE_DELAY_HOURS: ${{ inputs.delay_hours || '48' }}
+        run: .github/scripts/pull-release.sh restore-tags
+
+      # Self-heal releases whose title disagrees with their recorded pull state
+      # (e.g. a pull/un-pull dispatch that was cancelled while queued). Runs even
+      # if a tag restore failed - this step is the safety net and must not be
+      # starved by a stuck restore.
+      - name: Sync pull state
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: .github/scripts/pull-release.sh sync-pull-state

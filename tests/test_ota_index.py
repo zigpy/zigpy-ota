@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import dataclasses
 import json
+import logging
 import shutil
 from pathlib import Path
 
@@ -10,17 +12,24 @@ import pytest
 from click.testing import CliRunner
 from syrupy.assertion import SnapshotAssertion
 
-from tests.common import validate_ota_index_schema
+from tests.common import validate_ota_index_schema, validate_z2m_index_schema
 from zigpy_ota.actions.metadata.collision_validation import (
     compute_specificity,
+    could_match_same_device,
     validate_collisions,
 )
 from zigpy_ota.actions.metadata.merging import (
+    prepare_metadata_for_markdown,
     prepare_metadata_for_z2m,
     prepare_metadata_for_zigpy,
 )
-from zigpy_ota.actions.metadata.stale_validation import compute_stale_images
+from zigpy_ota.actions.metadata.stale_validation import (
+    compute_stale_images,
+    is_dominated_by,
+    validate_unreachable_images,
+)
 from zigpy_ota.actions.metadata.z2m_utils import compute_max_file_versions
+from zigpy_ota.actions.testing.fake_ota_generator import generate_fake_ota_image
 from zigpy_ota.cli import cli
 from zigpy_ota.const import Z2M_OTA_METADATA_OUTPUT_PATH, ZIGPY_OTA_METADATA_OUTPUT_PATH
 from zigpy_ota.models.index_metadata import IndexMetadata
@@ -105,6 +114,9 @@ def test_generate_index_z2m_format(tmp_path: Path) -> None:
         "Expected 'manufacturerCode' in z2m format"
     )
     assert "sha512" in first_entry, "Expected 'sha512' in z2m format"
+
+    # Validate every entry against zigbee-herdsman's index entry shape
+    validate_z2m_index_schema(data)
     # zigpy uses "manufacturer_id" and "checksum", z2m uses "manufacturerCode" and "sha512"
     assert "manufacturer_id" not in first_entry, "Unexpected zigpy field in z2m format"
 
@@ -512,6 +524,192 @@ class TestComputeMaxFileVersions:
         result = compute_max_file_versions(metadata)
         # v200 is the only (and newest) image, so no max version set
         assert result == {}
+
+
+class TestValidateUnreachableImages:
+    """Tests for validate_unreachable_images."""
+
+    def test_reachable_images_pass(self) -> None:
+        """Ordinary images, including constrained ones, are not flagged."""
+        metadata = {
+            "mfr/plain.zigbee": _make_index_metadata(100, 1, 200),
+            "mfr/constrained.zigbee": _make_index_metadata(
+                100, 1, 300, min_current_file_version=200, max_current_file_version=299
+            ),
+        }
+        assert validate_unreachable_images(metadata, fail_on_unreachable=True) == []
+
+    @pytest.mark.parametrize(
+        ("meta", "reason"),
+        [
+            # min at/above the image's own version: only offered below it
+            pytest.param(
+                _make_index_metadata(100, 1, 200, min_current_file_version=200),
+                "empty current-version range",
+                id="min_equals_file_version",
+            ),
+            # min above explicit max
+            pytest.param(
+                _make_index_metadata(
+                    100,
+                    1,
+                    200,
+                    min_current_file_version=50,
+                    max_current_file_version=40,
+                ),
+                "empty current-version range",
+                id="min_above_max",
+            ),
+            # file_version 0 can never be an upgrade (current < 0 is impossible)
+            pytest.param(
+                _make_index_metadata(100, 1, 0),
+                "empty current-version range",
+                id="file_version_zero",
+            ),
+            pytest.param(
+                dataclasses.replace(
+                    _make_index_metadata(100, 1, 200),
+                    min_hardware_version=5,
+                    max_hardware_version=2,
+                ),
+                "empty hardware-version range",
+                id="empty_hw_range",
+            ),
+        ],
+    )
+    def test_unreachable_images_flagged(self, meta: IndexMetadata, reason: str) -> None:
+        """Images that can never match any device are flagged and can raise."""
+        metadata = {"mfr/image.zigbee": meta}
+
+        result = validate_unreachable_images(metadata, fail_on_unreachable=False)
+        assert len(result) == 1
+        assert reason in result[0]
+
+        with pytest.raises(ValueError, match="Unreachable images detected"):
+            validate_unreachable_images(metadata, fail_on_unreachable=True)
+
+    def test_disabled_images_skipped(self) -> None:
+        """Disabled images never ship in an index and are not flagged."""
+        metadata = {
+            "mfr/disabled.zigbee": dataclasses.replace(
+                _make_index_metadata(100, 1, 200, min_current_file_version=200),
+                disabled=True,
+            ),
+        }
+        assert validate_unreachable_images(metadata, fail_on_unreachable=True) == []
+
+
+def test_generate_index_fails_on_unreachable_image(tmp_path: Path) -> None:
+    """generate-index fails on unreachable images unless --allow-unreachable."""
+    images_path = tmp_path / "images"
+    manufacturer_dir = images_path / "test_manufacturer"
+    manufacturer_dir.mkdir(parents=True)
+
+    ota_file = "fake_100B-010C-01001A02-ConfLight-Lamps_0012.zigbee"
+    shutil.copy(Path("tests/data/ota_files") / ota_file, manufacturer_dir / ota_file)
+    # min == the image's own file version -> empty effective range
+    (manufacturer_dir / f"{ota_file}.yaml").write_text(
+        f"""file_name: {ota_file}
+source_file_name: {ota_file}
+source_url: https://example.com/{ota_file}
+min_current_file_version: 0x01001A02
+"""
+    )
+
+    runner = CliRunner()
+    args = [
+        "generate-index",
+        "--images-path",
+        str(images_path),
+        "--output-file",
+        str(tmp_path / "out.json"),
+    ]
+
+    result = runner.invoke(cli, args)
+    assert result.exit_code != 0
+    assert isinstance(result.exception, ValueError)
+    assert "Unreachable images detected" in str(result.exception)
+
+    result = runner.invoke(cli, [*args, "--allow-unreachable"])
+    assert result.exit_code == 0, f"Command failed with output: {result.output}"
+
+
+def test_z2m_format_header_hardware_versions_end_to_end(tmp_path: Path) -> None:
+    """Header-derived hardware versions reach the z2m index (full pipeline).
+
+    Mirrors real-world case: the constraints live in the OTA header (not the
+    YAML) and must survive parsing, merging, and z2m output.
+    """
+    images_path = tmp_path / "images"
+    manufacturer_dir = images_path / "test_manufacturer"
+    manufacturer_dir.mkdir(parents=True)
+
+    # Different image types so neither image is stale (stale is excluded from z2m)
+    generate_fake_ota_image(
+        output_path=manufacturer_dir / "hw_constrained.zigbee",
+        manufacturer_id=0x100B,
+        image_type=0x0001,
+        file_version=0x00000005,
+        min_hardware_version=2,
+        max_hardware_version=5,
+    )
+    generate_fake_ota_image(
+        output_path=manufacturer_dir / "unconstrained.zigbee",
+        manufacturer_id=0x100B,
+        image_type=0x0002,
+        file_version=0x00000005,
+    )
+    for name in ("hw_constrained.zigbee", "unconstrained.zigbee"):
+        (manufacturer_dir / f"{name}.yaml").write_text(
+            f"""file_name: {name}
+source_file_name: {name}
+source_url: https://example.com/{name}
+"""
+        )
+
+    output_file = tmp_path / "z2m.json"
+    runner = CliRunner()
+    result = runner.invoke(
+        cli,
+        [
+            "generate-index",
+            "--format",
+            "z2m",
+            "--images-path",
+            str(images_path),
+            "--output-file",
+            str(output_file),
+        ],
+    )
+    assert result.exit_code == 0, f"Command failed with output: {result.output}"
+
+    with output_file.open("r") as f:
+        data = json.load(f)
+
+    validate_z2m_index_schema(data)
+
+    entries = {entry["fileName"]: entry for entry in data}
+    assert entries["hw_constrained.zigbee"]["hardwareVersionMin"] == 2
+    assert entries["hw_constrained.zigbee"]["hardwareVersionMax"] == 5
+    assert "hardwareVersionMin" not in entries["unconstrained.zigbee"]
+    assert "hardwareVersionMax" not in entries["unconstrained.zigbee"]
+
+
+def test_z2m_dict_includes_hardware_versions() -> None:
+    """Hardware version constraints are emitted for zigbee-herdsman matching."""
+    meta = dataclasses.replace(
+        _make_index_metadata(100, 1, 200),
+        min_hardware_version=2,
+        max_hardware_version=5,
+    )
+    result = meta.to_dict_z2m()
+    assert result["hardwareVersionMin"] == 2
+    assert result["hardwareVersionMax"] == 5
+
+    # Omitted entirely when unconstrained
+    unconstrained = _make_index_metadata(100, 1, 200).to_dict_z2m()
+    assert "hardwareVersionMin" not in unconstrained
+    assert "hardwareVersionMax" not in unconstrained
 
 
 def test_z2m_format_auto_max_file_version(tmp_path: Path) -> None:
@@ -1653,8 +1851,13 @@ class TestComputeStaleImages:
         # v100 is stale: v200 matches all same devices with same specificity
         assert stale == {"mfr/v100.zigbee"}
 
-    def test_not_stale_when_older_has_model_names(self) -> None:
-        """Older image with model_names is NOT stale when newer has none."""
+    def test_stale_when_older_has_model_names_newer_unconstrained(self) -> None:
+        """Older image with model_names IS stale when an unconstrained newer exists.
+
+        zigpy sorts upgrade candidates by (file_version, specificity) descending,
+        so for a "Model A" device the unconstrained v200 always outranks the
+        model-specific v100 — specificity only breaks equal-version ties.
+        """
         metadata = {
             "mfr/v100.zigbee": _make_index_metadata(
                 100, 1, 100, model_names=("Model A",)
@@ -1662,8 +1865,18 @@ class TestComputeStaleImages:
             "mfr/v200.zigbee": _make_index_metadata(100, 1, 200),
         }
         stale = compute_stale_images(metadata)
-        # v100 is NOT stale: has higher specificity for Model A devices
-        assert stale == set()
+        assert stale == {"mfr/v100.zigbee"}
+
+    def test_stale_despite_explicit_specificity_boost(self) -> None:
+        """An explicit specificity boost cannot save an older image from staleness."""
+        metadata = {
+            "mfr/v100.zigbee": dataclasses.replace(
+                _make_index_metadata(100, 1, 100), specificity=100
+            ),
+            "mfr/v200.zigbee": _make_index_metadata(100, 1, 200),
+        }
+        stale = compute_stale_images(metadata)
+        assert stale == {"mfr/v100.zigbee"}
 
     def test_stale_when_newer_has_superset_of_model_names(self) -> None:
         """Older is stale when newer's model_names is superset of older's."""
@@ -1772,3 +1985,179 @@ class TestComputeStaleImages:
         stale = compute_stale_images(metadata)
         # v100 is NOT stale: matches devices at version 0-49 that v200 doesn't
         assert stale == set()
+
+    def test_stale_when_newer_max_covers_older_implicit_ceiling(self) -> None:
+        """Older is stale when newer's max constraint still covers older's range.
+
+        v100 is only ever offered to devices below v100 (implicit ceiling of
+        file_version - 1), so a newer image accepting versions up to 150
+        covers everything v100 covers.
+        """
+        metadata = {
+            "mfr/v100.zigbee": _make_index_metadata(100, 1, 100),
+            "mfr/v200.zigbee": _make_index_metadata(
+                100, 1, 200, max_current_file_version=150
+            ),
+        }
+        stale = compute_stale_images(metadata)
+        assert stale == {"mfr/v100.zigbee"}
+
+    def test_implicit_ceiling_boundary(self) -> None:
+        """Newer max exactly at older's implicit ceiling dominates; below does not."""
+        older = _make_index_metadata(100, 1, 100)
+        # v100's effective range is current versions 0-99
+        at_ceiling = _make_index_metadata(100, 1, 200, max_current_file_version=99)
+        below_ceiling = _make_index_metadata(100, 1, 200, max_current_file_version=98)
+        assert is_dominated_by(older, at_ceiling)
+        assert not is_dominated_by(older, below_ceiling)
+
+    def test_explicit_max_above_own_version_is_capped(self) -> None:
+        """An explicit max above the image's own version doesn't widen its range."""
+        # max=500 is meaningless on v100: devices at 100+ never get offered v100
+        older = _make_index_metadata(100, 1, 100, max_current_file_version=500)
+        newer = _make_index_metadata(100, 1, 200, max_current_file_version=150)
+        assert is_dominated_by(older, newer)
+
+    def test_could_match_same_device_unrelated_images(self) -> None:
+        """Images with a different manufacturer_id or image_type never overlap.
+
+        A device queries with a single (manufacturer_id, image_type) pair, so
+        could_match_same_device() must check it itself rather than rely on
+        callers grouping first (same latent bug is_dominated_by() had).
+        """
+        image = _make_index_metadata(100, 1, 200)
+        assert not could_match_same_device(image, _make_index_metadata(200, 1, 200))
+        assert not could_match_same_device(image, _make_index_metadata(100, 2, 200))
+        # Sanity check: same pair with no constraints does overlap
+        assert could_match_same_device(image, _make_index_metadata(100, 1, 300))
+
+    def test_could_match_same_device_implicit_ceiling(self) -> None:
+        """Current-version ranges are capped at each image's own version.
+
+        v100 unconstrained only matches devices below v100; a newer image
+        requiring version >= 200 targets a disjoint device set.
+        """
+        older = _make_index_metadata(100, 1, 100)
+        newer = _make_index_metadata(100, 1, 300, min_current_file_version=200)
+        assert not could_match_same_device(older, newer)
+        # min at/below the older's ceiling does overlap
+        overlapping = _make_index_metadata(100, 1, 300, min_current_file_version=99)
+        assert could_match_same_device(older, overlapping)
+
+    def test_hardware_version_constraints(self) -> None:
+        """Hardware-version constraints follow the same superset rules.
+
+        zigpy's check_compatibility rejects hw-constrained images for devices
+        that report no hardware version, so a newer image WITH hw constraints
+        never covers an older image WITHOUT them.
+        """
+        older_unconstrained = _make_index_metadata(100, 1, 100)
+        older_hw = dataclasses.replace(
+            _make_index_metadata(100, 1, 100),
+            min_hardware_version=2,
+            max_hardware_version=5,
+        )
+        newer_unconstrained = _make_index_metadata(100, 1, 200)
+        newer_same_hw = dataclasses.replace(
+            _make_index_metadata(100, 1, 200),
+            min_hardware_version=2,
+            max_hardware_version=5,
+        )
+        newer_narrower_hw = dataclasses.replace(
+            _make_index_metadata(100, 1, 200),
+            min_hardware_version=3,
+            max_hardware_version=5,
+        )
+
+        # Newer with hw constraints can't dominate an unconstrained older
+        assert not is_dominated_by(older_unconstrained, newer_same_hw)
+        # Newer without hw constraints covers a hw-constrained older
+        assert is_dominated_by(older_hw, newer_unconstrained)
+        # Identical hw range dominates; a narrower one does not
+        assert is_dominated_by(older_hw, newer_same_hw)
+        assert not is_dominated_by(older_hw, newer_narrower_hw)
+
+    def test_disabled_stale_logs_newest_dominator(
+        self, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        """Disabled-vs-enabled staleness logs the newest dominating image."""
+        metadata = {
+            "mfr/disabled_v100.zigbee": dataclasses.replace(
+                _make_index_metadata(100, 1, 100), disabled=True
+            ),
+            "mfr/v200.zigbee": _make_index_metadata(100, 1, 200),
+            "mfr/v300.zigbee": _make_index_metadata(100, 1, 300),
+        }
+        with caplog.at_level(logging.INFO):
+            result = prepare_metadata_for_markdown(metadata, Channel.STABLE)
+
+        stale_by_path = {path: is_stale for path, _, is_stale, _ in result}
+        assert stale_by_path["mfr/disabled_v100.zigbee"] is True
+        # The newest dominator (v300) is reported, not an arbitrary one
+        assert (
+            "Disabled image mfr/disabled_v100.zigbee (version 0x00000064) is stale: "
+            "dominated by mfr/v300.zigbee (version 0x0000012C) for "
+            "manufacturer_id=0x0064, image_type=0x0001" in caplog.text
+        )
+
+    def test_compute_stale_images_logs_dominator(
+        self, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        """compute_stale_images logs which image dominates a stale one."""
+        metadata = {
+            "mfr/v100.zigbee": _make_index_metadata(100, 1, 100),
+            "mfr/v200.zigbee": _make_index_metadata(100, 1, 200),
+        }
+        with caplog.at_level(logging.INFO):
+            stale = compute_stale_images(metadata)
+
+        assert stale == {"mfr/v100.zigbee"}
+        assert (
+            "Image mfr/v100.zigbee (version 0x00000064) is stale: dominated by "
+            "mfr/v200.zigbee (version 0x000000C8) for manufacturer_id=0x0064, "
+            "image_type=0x0001" in caplog.text
+        )
+
+    def test_stale_log_hints_at_narrower_names(
+        self, caplog: pytest.LogCaptureFixture
+    ) -> None:
+        """A dominated image scoped to device names gets an intent hint."""
+        scoped_by_model = {
+            "mfr/v100.zigbee": _make_index_metadata(
+                100, 1, 100, model_names=("Model A",)
+            ),
+            "mfr/v200.zigbee": _make_index_metadata(100, 1, 200),
+        }
+        with caplog.at_level(logging.INFO):
+            assert compute_stale_images(scoped_by_model) == {"mfr/v100.zigbee"}
+        assert "the newer image needs constraints" in caplog.text
+
+        caplog.clear()
+
+        # No hint when the dominator explicitly covers the same names
+        covered = {
+            "mfr/v100.zigbee": _make_index_metadata(
+                100, 1, 100, model_names=("Model A",)
+            ),
+            "mfr/v200.zigbee": _make_index_metadata(
+                100, 1, 200, model_names=("Model A", "Model B")
+            ),
+        }
+        with caplog.at_level(logging.INFO):
+            assert compute_stale_images(covered) == {"mfr/v100.zigbee"}
+        assert "needs constraints" not in caplog.text
+
+    def test_not_dominated_by_unrelated_image(self) -> None:
+        """An image is never dominated by one with a different manufacturer/type.
+
+        Regression test: is_dominated_by is also called directly (outside the
+        grouping in compute_stale_images) for disabled-vs-enabled staleness in
+        prepare_metadata_for_markdown, so it must check manufacturer_id and
+        image_type itself.
+        """
+        older = _make_index_metadata(100, 1, 100)
+        # Same constraints and a higher file_version, but unrelated images
+        assert not is_dominated_by(older, _make_index_metadata(200, 1, 200))
+        assert not is_dominated_by(older, _make_index_metadata(100, 2, 200))
+        # Sanity check: same (manufacturer_id, image_type) still dominates
+        assert is_dominated_by(older, _make_index_metadata(100, 1, 200))

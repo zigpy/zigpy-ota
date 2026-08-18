@@ -20,6 +20,7 @@ from zigpy_ota.actions.issue.issue_parsing import (
 )
 from zigpy_ota.actions.markdown.markdown_gen import save_metadata_to_markdown_file
 from zigpy_ota.actions.metadata.collision_validation import validate_collisions
+from zigpy_ota.actions.metadata.disable_images import set_images_disabled
 from zigpy_ota.actions.metadata.merging import (
     parse_metadata_complete,
     prepare_metadata_for_markdown,
@@ -29,6 +30,7 @@ from zigpy_ota.actions.metadata.merging import (
     save_metadata_to_zigpy_file,
 )
 from zigpy_ota.actions.metadata.ota_renaming import rename_ota_files_in_folder
+from zigpy_ota.actions.metadata.stale_validation import validate_unreachable_images
 from zigpy_ota.actions.metadata.yaml_metadata_deletion import delete_metadata
 from zigpy_ota.actions.metadata.yaml_metadata_generation import (
     generate_metadata_for_image,
@@ -182,6 +184,12 @@ def generate_stub_metadata_all(images_path: Path, include_examples: bool) -> Non
     "version, and specificity but different content). Default: fail on collisions.",
 )
 @click.option(
+    "--allow-unreachable/--no-allow-unreachable",
+    default=False,
+    help="Allow images that can never be offered to any device (empty "
+    "current-version or hardware-version range). Default: fail on unreachable.",
+)
+@click.option(
     "--channel",
     type=click.Choice(["stable", "beta", "dev"], case_sensitive=False),
     default="stable",
@@ -199,6 +207,7 @@ def generate_index(
     allow_missing_ota: bool,
     allow_invalid_yaml: bool,
     allow_collisions: bool,
+    allow_unreachable: bool,
     channel: str,
 ) -> None:
     """Parse OTA images and metadata YAML files to generate OTA index.
@@ -245,6 +254,11 @@ def generate_index(
         fail_on_filename_mismatch,
         fail_on_missing_ota,
         fail_on_invalid_yaml,
+    )
+
+    # Check for images that can never be offered to any device
+    validate_unreachable_images(
+        merged_metadata, fail_on_unreachable=not allow_unreachable
     )
 
     # Check for OTA image collisions (same version+specificity, different content)
@@ -295,6 +309,36 @@ def delete_stub_metadata(images_path: Path) -> None:
     click.echo(f"Deleting stub metadata files in: {images_path}")
     delete_metadata(images_path)
     click.echo("Done!")
+
+
+@cli.command()
+@click.argument(
+    "yaml_files",
+    nargs=-1,
+    required=True,
+    type=click.Path(
+        exists=True, file_okay=True, dir_okay=False, path_type=type(IMAGES_PATH)
+    ),
+)
+@click.option(
+    "--enable",
+    is_flag=True,
+    default=False,
+    help="Remove the `disabled` field (re-enable the images) instead of setting it",
+)
+def set_image_disabled(yaml_files: tuple[Path, ...], enable: bool) -> None:
+    """Set `disabled: true` in OTA metadata YAML files (or remove it with --enable).
+
+    Disabled images are excluded from the generated JSON indexes but stay in the
+    repository.
+    """
+    try:
+        changed = set_images_disabled(list(yaml_files), disabled=not enable)
+    except ValueError as err:
+        raise click.ClickException(str(err)) from err
+    for yaml_file in changed:
+        click.echo(f"{'Enabled' if enable else 'Disabled'}: {yaml_file}")
+    click.echo(f"Changed {len(changed)} of {len(yaml_files)} file(s)")
 
 
 @cli.command()

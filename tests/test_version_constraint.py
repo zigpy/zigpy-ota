@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from unittest.mock import patch
 
-from zigpy_ota.actions.pr.prepare_files import _check_and_delete_existing_images
+from zigpy_ota.actions.pr.prepare_files import _check_existing_images
 from zigpy_ota.models.index_metadata import IndexMetadata
 from zigpy_ota.models.issue_model import ExistingImagesHandling
 from zigpy_ota.models.ota_metadata import OtaMetadata
@@ -68,7 +68,7 @@ def test_set_min_version_only_considers_lower_versions() -> None:
         "zigpy_ota.actions.pr.prepare_files.find_existing_images_with_same_type",
         return_value=mock_existing_images,
     ):
-        images_to_delete, auto_min_version = _check_and_delete_existing_images(
+        images_to_delete, auto_min_version = _check_existing_images(
             manufacturer_directory="signify",
             filename="middle.zigbee",
             existing_images_handling=ExistingImagesHandling.SET_MIN_VERSION,
@@ -142,7 +142,7 @@ def test_set_min_version_with_all_higher_versions() -> None:
         "zigpy_ota.actions.pr.prepare_files.find_existing_images_with_same_type",
         return_value=existing_metadata,
     ):
-        images_to_delete, auto_min_version = _check_and_delete_existing_images(
+        images_to_delete, auto_min_version = _check_existing_images(
             manufacturer_directory="signify",
             filename="oldest.zigbee",
             existing_images_handling=ExistingImagesHandling.SET_MIN_VERSION,
@@ -214,7 +214,7 @@ def test_set_min_version_with_all_lower_versions() -> None:
         "zigpy_ota.actions.pr.prepare_files.find_existing_images_with_same_type",
         return_value=existing_metadata,
     ):
-        images_to_delete, auto_min_version = _check_and_delete_existing_images(
+        images_to_delete, auto_min_version = _check_existing_images(
             manufacturer_directory="signify",
             filename="newest.zigbee",
             existing_images_handling=ExistingImagesHandling.SET_MIN_VERSION,

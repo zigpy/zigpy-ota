@@ -4,6 +4,9 @@ on:
   issues:
     types: [labeled]
 
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
 concurrency:
   group: ota-submission-${{ github.event.issue.number }}
   cancel-in-progress: false
@@ -87,17 +90,24 @@ jobs:
       has_changes: ${{ steps.prepare_pr.outputs.has_changes }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          # This job downloads and parses untrusted user-submitted OTA files -
+          # don't leave any credentials behind
+          persist-credentials: false
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          # No dependency caching: this job processes untrusted user-submitted
+          # OTA files and must not write caches that trusted jobs could restore
+          enable-cache: false
 
       - name: Install package
         run: uv sync --group ci
@@ -113,11 +123,29 @@ jobs:
         id: prepare_pr
         env:
           # Optionally provide a PAT for downloading user attachments from issues
-          GITHUB_TOKEN: ${{ secrets.BOT_DOWNLOAD_TOKEN }}
+          GITHUB_TOKEN: ${{ contains(github.event.issue.body, 'https://github.com/user-attachments/files/') && secrets.BOT_DOWNLOAD_TOKEN || '' }}
         run: |
+          # Capture stderr to a file so a failure's reason (the CLI prints
+          # "Error: <reason>") can be surfaced as a run annotation. Plain
+          # redirection (not `2> >(tee ...)`) so the file is guaranteed complete
+          # when read - bash does not wait for process substitutions, and the
+          # reason would racily come up empty. Stderr is echoed back afterwards.
+          rc=0
           uv run zigpy-ota prepare-pr "$ISSUE_FILE" \
             --output-pr-markdown "$PR_BODY_FILE" \
-            --output-commit-message "$COMMIT_MSG_FILE"
+            --output-commit-message "$COMMIT_MSG_FILE" \
+            2>"$RUNNER_TEMP/prepare-pr-stderr.log" || rc=$?
+          cat "$RUNNER_TEMP/prepare-pr-stderr.log" >&2
+          if [ "$rc" -ne 0 ]; then
+            reason=$(grep -m1 '^Error: ' "$RUNNER_TEMP/prepare-pr-stderr.log" | head -c 700 || true)
+            reason=${reason#Error: }
+            if [ -n "$reason" ]; then
+              echo "::error title=prepare-pr failed::${reason}"
+              # Also persisted (as an artifact) for the issue failure comment
+              printf '%s\n' "$reason" > prepare-pr-error.txt
+            fi
+            exit "$rc"
+          fi
 
           # Check if there are changes in the images directory (both tracked and untracked)
           if [[ -z "$(git status --porcelain images/)" ]]; then
@@ -127,6 +155,15 @@ jobs:
             echo "Changes detected in images directory"
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Upload failure reason artifact
+        if: ${{ failure() && steps.prepare_pr.outcome == 'failure' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ota-prepare-failure-reason
+          if-no-files-found: ignore
+          retention-days: 1
+          path: prepare-pr-error.txt
 
       - name: Create images patch
         if: steps.prepare_pr.outputs.has_changes == 'true'
@@ -182,12 +219,25 @@ jobs:
     env:
       PREP_OK_WITH_CHANGES: ${{ needs.prepare-changes.result == 'success' && needs.prepare-changes.outputs.has_changes == 'true' }}
     steps:
+      # PR branch pushes go through the GitHub App (checkout credentials); the
+      # zigpy-bot fine-grained token is only used for the gh CLI (PR creation -
+      # keeping zigpy-bot as the PR author - plus comments and labels), so it
+      # doesn't need any contents permission
+      - name: Generate GitHub App token
+        id: app-token
+        if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          permission-contents: write
+
       - name: Checkout repository
         if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Download prepared changes artifact
         if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
@@ -202,14 +252,32 @@ jobs:
           set -euo pipefail
           PATCH_FILE=/tmp/ota-prepare/images-changes.patch
 
-          # Pre-check: reject any patch that targets files outside images/
-          PATCH_PATHS=$(git apply --numstat "$PATCH_FILE" | awk '{print $NF}')
-          if [ -n "$PATCH_PATHS" ] && grep -qv '^images/' <<<"$PATCH_PATHS"; then
+          git apply --index "$PATCH_FILE"
+
+          # Validate the exact staged paths (NUL-delimited, so paths containing
+          # spaces or newlines can't slip past); this is the security boundary
+          # between the untrusted-OTA-parsing job that produced the patch and
+          # this privileged job. --no-renames: rename detection would pair a
+          # deletion outside images/ with a same-content addition inside and
+          # report only the new path, hiding the deletion. Written to a file
+          # first: `grep -q` on a live pipe exits early, and the resulting
+          # SIGPIPE (141) under pipefail would make the `if` skip the rejection
+          # on large patches.
+          git diff --cached --no-renames --name-only -z > /tmp/staged-paths.lst
+          if grep -qzv '^images/' /tmp/staged-paths.lst; then
             echo "::error::Patch contains changes outside images/"
             exit 1
           fi
 
-          git apply --index "$PATCH_FILE"
+          # Only plain files belong under images/ - reject any other staged mode
+          # (120000 symlink, 160000 gitlink, 100755 executable), which a patch
+          # can otherwise introduce. Checked against the index so pre-existing
+          # anomalies fail too; ls-files C-quotes odd path bytes onto one line.
+          git ls-files --cached -s -- images/ > /tmp/staged-modes.lst
+          if grep -Ev '^100644 ' /tmp/staged-modes.lst; then
+            echo "::error::Patch introduces a non-regular file mode under images/"
+            exit 1
+          fi
 
       - name: Configure git
         if: ${{ env.PREP_OK_WITH_CHANGES == 'true' }}
@@ -334,9 +402,33 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: gh issue comment "$ISSUE_NUMBER" --body "⚠️ No changes were detected in the images directory. Please check your submission and ensure the OTA file URL is valid."
 
+      # !cancelled() suppresses the implicit success() that would skip this step
+      # whenever an earlier step failed; outcome != 'success' also catches
+      # create_pr being skipped by an earlier failure (e.g. patch validation)
+      # Only exists when prepare-pr itself failed with a recognized error;
+      # continue-on-error covers every other failure path (no artifact)
+      - name: Download failure reason artifact
+        if: ${{ !cancelled() && needs.prepare-changes.result != 'success' }}
+        id: failure_reason
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: ota-prepare-failure-reason
+          path: /tmp/ota-prepare-failure
+
       - name: Comment on issue (failure)
-        if: ${{ needs.prepare-changes.result != 'success' || (env.PREP_OK_WITH_CHANGES == 'true' && steps.create_pr.outcome == 'failure') }}
+        if: ${{ !cancelled() && (needs.prepare-changes.result != 'success' || (env.PREP_OK_WITH_CHANGES == 'true' && steps.create_pr.outcome != 'success')) }}
         env:
           GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
           GH_REPO: ${{ github.repository }}
-        run: gh issue comment "$ISSUE_NUMBER" --body "❌ Failed to process your OTA submission. A maintainer will check on this shortly and let you know if any changes are needed. You can check the workflow logs for more details."
+        run: |
+          body="❌ Failed to process your OTA submission. A maintainer will check on this shortly and let you know if any changes are needed. You can check the workflow logs for more details."
+          reason_file=/tmp/ota-prepare-failure/prepare-pr-error.txt
+          if [ -s "$reason_file" ]; then
+            # Fenced so issue-derived text in the reason (e.g. URLs) can't render
+            # as markdown or ping mentions; backticks stripped so the reason
+            # can't break out of the fence
+            reason=$(head -c 700 "$reason_file" | tr -d '`')
+            body="$body"$'\n\n'"Reason:"$'\n''```'$'\n'"$reason"$'\n''```'
+          fi
+          gh issue comment "$ISSUE_NUMBER" --body "$body"

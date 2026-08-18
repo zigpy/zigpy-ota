@@ -22,6 +22,7 @@ import logging
 from collections import defaultdict
 from dataclasses import dataclass
 
+from zigpy_ota.actions.metadata.constraints import effective_max_current_version
 from zigpy_ota.models.index_metadata import IndexMetadata
 
 LOGGER = logging.getLogger(__name__)
@@ -117,6 +118,12 @@ def could_match_same_device(a: IndexMetadata, b: IndexMetadata) -> bool:
 
     A side that is empty/None acts as "any device" for that constraint.
     """
+    # A device queries with a single (manufacturer_id, image_type) pair, so
+    # images differing there can never match the same device. Note: callers
+    # currently group by these fields already, but we check explicitly.
+    if (a.manufacturer_id, a.image_type) != (b.manufacturer_id, b.image_type):
+        return False
+
     if a.model_names and b.model_names and not set(a.model_names) & set(b.model_names):
         return False
 
@@ -135,11 +142,13 @@ def could_match_same_device(a: IndexMetadata, b: IndexMetadata) -> bool:
     ):
         return False
 
+    # Current-version ranges carry the implicit ceiling of file_version - 1:
+    # an image is only ever offered to devices running a version below its own
     if not _ranges_overlap(
         a.min_current_file_version,
-        a.max_current_file_version,
+        effective_max_current_version(a.file_version, a.max_current_file_version),
         b.min_current_file_version,
-        b.max_current_file_version,
+        effective_max_current_version(b.file_version, b.max_current_file_version),
     ):
         return False
 

@@ -4,6 +4,9 @@ on:
   issues:
     types: [edited]
 
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
 env:
   ISSUE_NUMBER: ${{ github.event.issue.number }}
 

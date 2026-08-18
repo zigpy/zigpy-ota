@@ -222,7 +222,7 @@ There is no dedicated CLI command to generate third-party YAML at the moment. Us
 - `max_current_file_version` - Maximum current firmware version for update eligibility
 - `min_hardware_version` - Minimum hardware version compatibility
 - `max_hardware_version` - Maximum hardware version compatibility
-- `specificity` - Priority level when multiple images match (higher = more specific)
+- `specificity` - Breaks ties between matching images with the same file version (higher wins; a newer file version always takes priority)
 - `channel` - Release channel (omit for stable which appears in all channels; `beta` appears in beta and dev; `dev` appears only in dev)
 
 **Note on multi-step upgrades:** Due to how zigpy's firmware matching algorithm works, it's typically sufficient to set `min_current_file_version` on the newer image to require a previous upgrade first.
@@ -325,6 +325,7 @@ zigpy-ota generate-index
 --allow-filename-mismatch   # Allow YAML file_name field not matching filename
 --allow-invalid-yaml        # Allow YAML files that fail to parse
 --allow-collisions          # Allow duplicate images (same ID/type/version)
+--allow-unreachable         # Allow images that can never be offered to any device
 
 # Download and validate third-party/remote hosted images (not for CI/CD)
 --validate-third-party

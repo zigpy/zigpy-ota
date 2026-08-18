@@ -3,21 +3,45 @@ set -euo pipefail
 
 # Script to update version pointer files (stable.json, beta.json) in the release/version branch
 # and copy index files (JSON, markdown) to stable/ and beta/ directories in the release/files branch.
-# Determines which channels need updates based on the event type and release status.
+#
+# The desired state is recalculated from scratch on every run ("election", see below), so the
+# script is idempotent: publishing a release, editing a release title, or a manual dispatch all
+# converge on the same result. Event payloads are only used for logging.
 #
 # Required environment variables:
 #   GH_TOKEN            - GitHub token for gh CLI
-#   GITHUB_EVENT_NAME   - GitHub event name (release, workflow_dispatch)
-#
-# Required for release events and workflow_dispatch with tag:
-#   RELEASE_TAG_NAME    - Release tag name
-#   RELEASE_PRERELEASE  - Whether the release is a prerelease (true/false)
 #
 # Optional environment variables:
 #   GH_REPO             - Repository in OWNER/REPO format for gh CLI context
-#   RELEASE_CREATED_AT  - Release creation timestamp (only for release events)
-#   EVENT_ACTION        - GitHub event action (empty for workflow_dispatch)
-#   RELEASE_ASSETS      - JSON array of release assets (only for release events)
+#   GITHUB_EVENT_NAME   - GitHub event name (release, workflow_dispatch; for logging only)
+#   RELEASE_CREATED_AT  - Release creation timestamp (only for release events; for logging only)
+#   GITHUB_OUTPUT       - If set, the election results are appended as step outputs
+#                         (stable_tag, beta_tag, update_stable, update_beta) for
+#                         observability and potential downstream consumers
+
+# Remember the original checkout so we can restore it at the end (this script switches
+# to the release/version and release/files branches; later workflow steps should see
+# the tree they started with). Restore on EVERY exit path: the release/* branches are
+# orphans without .github/, so a failure exit mid-checkout would otherwise strand the
+# workspace and break later steps that must still run (e.g. pull-release.sh finalize).
+ORIGINAL_HEAD=$(git rev-parse HEAD)
+# Restore on every exit path, escalating only as far as needed: a plain
+# checkout first (preserves unrelated local changes, e.g. a dirty local
+# invocation), then aborting a possibly in-flight rebase from push_branch's
+# retry, and --force only as a last resort for a genuinely wedged tree (the
+# script's own staged-but-uncommitted pointer edits are recomputed on re-run).
+# A failed restore must not mask the script's exit code (warning returns 0).
+restore_original_checkout() {
+  git checkout --quiet "$ORIGINAL_HEAD" 2>/dev/null && return 0
+  git rebase --abort >/dev/null 2>&1 || true
+  git checkout --quiet "$ORIGINAL_HEAD" 2>/dev/null && return 0
+  if git checkout --force --quiet "$ORIGINAL_HEAD" 2>/dev/null; then
+    echo "::warning::Restoring the original checkout required --force - uncommitted changes were discarded"
+  else
+    echo "::warning::Could not restore the original checkout ($ORIGINAL_HEAD)"
+  fi
+}
+trap restore_original_checkout EXIT
 
 # Read schema config from .github/SCHEMA.json (must be done before any branch switches)
 ZIGPY_JSON_FILENAME=$(jq -r '.zigpy_filename' .github/SCHEMA.json)
@@ -36,28 +60,44 @@ MARKDOWN_SCHEMA_KEY=$(jq -r '.markdown_schema_key' .github/SCHEMA.json)
 # Functions
 # ------------------------------------------------------------------------------
 
-# Checkout a branch, fetching from remote or creating if needed
-checkout_branch() {
-  local branch=$1
-  if git ls-remote --exit-code --heads origin "$branch" > /dev/null 2>&1; then
-    echo "Branch $branch exists, fetching..."
-    git fetch origin "$branch:$branch"
-    git checkout "$branch"
-  else
-    echo "Branch $branch does not exist, creating..."
-    git checkout -b "$branch"
-  fi
+# Push a branch, retrying once after a rebase if another workflow pushed to it
+# concurrently (e.g. update-dev-json.yml commits to release/files from a different
+# concurrency group)
+push_branch() {
+  git push origin "$1" || {
+    git pull --rebase origin "$1"
+    git push origin "$1"
+  }
 }
 
-# Check if a release has the JSON asset
-# Only checks for zigpy JSON since both files are always uploaded together
+# Checkout a branch, fetching it from the remote. The release/* branches must
+# already exist: they are created once per repository as orphan branches, never
+# derived from the code tree
+# (e.g. git switch --orphan release/files && git commit --allow-empty -m "Init")
+checkout_branch() {
+  local branch=$1
+  if ! git ls-remote --exit-code --heads origin "$branch" > /dev/null 2>&1; then
+    echo "::error::Branch $branch not found (or the remote could not be reached). It must be created manually, once, as an orphan branch."
+    exit 1
+  fi
+  git fetch origin "$branch:$branch"
+  git checkout "$branch"
+}
+
+# Check if a release has all of the given assets ($1 = tag, $2.. = filenames).
+# All per-channel assets are checked (the election can pick any historical release,
+# e.g. one whose asset upload failed midway), so a version pointer never references
+# a missing asset and the release/files downloads below can't fail.
 # Note: uses a here-string instead of a pipeline to avoid SIGPIPE/pipefail
 # interaction where grep -q exits early and kills the producer
-check_json_asset() {
+check_release_assets() {
   local tag=$1
-  local assets
+  shift
+  local assets fname
   assets=$(gh release view "$tag" --json assets --jq '.assets[].name') || return 1
-  grep -qx -- "$ZIGPY_JSON_FILENAME" <<<"$assets"
+  for fname in "$@"; do
+    grep -qx -- "$fname" <<<"$assets" || return 1
+  done
 }
 
 # Update or create a JSON version pointer file
@@ -112,7 +152,7 @@ update_json() {
 # ------------------------------------------------------------------------------
 
 # For release events, log when the release was created
-if [ "$GITHUB_EVENT_NAME" = "release" ]; then
+if [ "${GITHUB_EVENT_NAME:-}" = "release" ] && [ -n "${RELEASE_CREATED_AT:-}" ]; then
   CREATED_AT="${RELEASE_CREATED_AT}"
   CREATED_AT_UNIX=$(date -u -d "$CREATED_AT" +%s 2>/dev/null || date -u -j -f "%Y-%m-%dT%H:%M:%SZ" "$CREATED_AT" +%s)
   NOW=$(date -u +%s)
@@ -122,9 +162,60 @@ fi
 
 echo "::group::Determine version pointers to update"
 
-# Get all releases and sort by version
-LATEST_STABLE_RELEASE=$(gh release list --exclude-drafts --exclude-pre-releases --json tagName --jq '.[].tagName' | sort -V | tail -n1)
-LATEST_ANY_RELEASE=$(gh release list --exclude-drafts --json tagName --jq '.[].tagName' | sort -V | tail -n1)
+# Elect the latest stable and beta releases. A release participates in the election
+# only if its title is the tag name itself (or empty). Releases can be excluded from
+# the election ("pulled", e.g. because they contain a broken OTA image) by editing
+# the release title to "<tag> - pulled" (optionally followed by a reason). Releases
+# whose tag starts with "pulled_" (a pulled release temporarily re-tagged by
+# pull-release.sh so it keeps pointing at its original commit) are also excluded,
+# regardless of title: an already-restored title on a still-re-tagged release is a
+# normal transient state while an un-pull is pending. Any other title is a hard
+# error, so a typo can't silently change the election.
+RELEASES_JSON=$(gh release list --exclude-drafts --limit 200 --json tagName,name,isPrerelease)
+
+INVALID_TITLES=$(jq -r '
+  .[] | (.name // "") as $name
+  | ((.tagName | ascii_downcase) + " - pulled") as $pulled_prefix
+  | ($name | ascii_downcase | startswith($pulled_prefix)) as $has_pulled_title
+  | select(
+      (.tagName | startswith("pulled_") | not)
+      and ($name != "" and $name != .tagName and ($has_pulled_title | not))
+    )
+  | "\(.tagName): \"\($name)\""' <<<"$RELEASES_JSON")
+if [ -n "$INVALID_TITLES" ]; then
+  echo "::error::Release title(s) must be either \"<tag>\" or \"<tag> - pulled ...\". Fix the following release title(s) and re-run this workflow: $INVALID_TITLES"
+  echo "::endgroup::"
+  exit 1
+fi
+
+PULLED_RELEASES=$(jq -r '
+  .[] | (.name // "") as $name
+  | (if (.tagName | startswith("pulled_")) then (.tagName | ltrimstr("pulled_")) else .tagName end) as $base_tag
+  | (($base_tag | ascii_downcase) + " - pulled") as $pulled_prefix
+  | select(
+      (.tagName | startswith("pulled_"))
+      or ($name | ascii_downcase | startswith($pulled_prefix))
+    )
+  | .tagName' <<<"$RELEASES_JSON")
+if [ -n "$PULLED_RELEASES" ]; then
+  # shellcheck disable=SC2086 # word splitting is intentional for display
+  echo "::notice::Excluding pulled release(s) from the election:" $PULLED_RELEASES
+fi
+
+LATEST_STABLE_RELEASE=$(jq -r '
+  .[] | select(
+    (.tagName | startswith("pulled_") | not)
+    and ((.name // "") == "" or .name == .tagName)
+    and (.isPrerelease | not)
+  ) | .tagName' <<<"$RELEASES_JSON" | sort -V | tail -n1)
+LATEST_ANY_RELEASE=$(jq -r '
+  .[] | select(
+    (.tagName | startswith("pulled_") | not)
+    and ((.name // "") == "" or .name == .tagName)
+  ) | .tagName' <<<"$RELEASES_JSON" | sort -V | tail -n1)
+
+echo "Latest stable: $LATEST_STABLE_RELEASE"
+echo "Latest any/beta: $LATEST_ANY_RELEASE"
 
 # Initialize update flags
 UPDATE_STABLE=false
@@ -132,110 +223,44 @@ UPDATE_BETA=false
 STABLE_TAG=""
 BETA_TAG=""
 
-# Handle different event types:
-# - workflow_dispatch without tag: manual trigger, recalculate from latest releases
-# - workflow_dispatch with tag: re-triggered from 'released' event, use provided tag
-# - release events: use provided tag from event payload
-if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "${RELEASE_TAG_NAME:-}" ]; then
-  # Manual trigger without tag: recalculate and update to latest releases
-  echo "Event: workflow_dispatch (manual trigger, no tag provided)"
-  echo "Latest stable: $LATEST_STABLE_RELEASE"
-  echo "Latest any/beta: $LATEST_ANY_RELEASE"
-
-  # Check beta release
-  if [ -n "$LATEST_ANY_RELEASE" ]; then
-    if check_json_asset "$LATEST_ANY_RELEASE"; then
-      echo "JSON asset: $ZIGPY_JSON_FILENAME exists in release $LATEST_ANY_RELEASE"
-      UPDATE_BETA=true
-      BETA_TAG="$LATEST_ANY_RELEASE"
-      echo "Will update beta.json to $LATEST_ANY_RELEASE"
-    else
-      echo "::warning::JSON asset not found in latest beta release $LATEST_ANY_RELEASE - skipping beta.json update"
-    fi
-  fi
-
-  # Check stable release
-  if [ -n "$LATEST_STABLE_RELEASE" ]; then
-    if check_json_asset "$LATEST_STABLE_RELEASE"; then
-      echo "JSON asset: $ZIGPY_JSON_FILENAME exists in release $LATEST_STABLE_RELEASE"
-      UPDATE_STABLE=true
-      STABLE_TAG="$LATEST_STABLE_RELEASE"
-      echo "Will update stable.json to $LATEST_STABLE_RELEASE"
-    else
-      echo "::warning::JSON asset not found in latest stable release $LATEST_STABLE_RELEASE - skipping stable.json update"
-    fi
-  fi
-
-  if [ "$UPDATE_STABLE" = false ] && [ "$UPDATE_BETA" = false ]; then
-    echo "::error::No releases with JSON assets found. Nothing to update."
-    echo "::endgroup::"
-    exit 1
-  fi
-else
-  # Release event OR workflow_dispatch with tag (re-triggered from 'released' event)
-  CURRENT_TAG="${RELEASE_TAG_NAME}"
-  IS_PRERELEASE="${RELEASE_PRERELEASE}"
-  ACTION="${EVENT_ACTION:-}"
-
-  if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-    echo "Event: workflow_dispatch (with tag $CURRENT_TAG)"
-  else
-    echo "Event: $ACTION"
-  fi
-  echo "Current release: $CURRENT_TAG (prerelease=$IS_PRERELEASE)"
-  echo "Latest stable: $LATEST_STABLE_RELEASE"
-  echo "Latest any/beta: $LATEST_ANY_RELEASE"
-
-  # Check if JSON asset exists in current release (from event payload or by querying)
-  # For 'published' events, the asset may not be in the payload yet since it's uploaded in the same workflow
-  # For workflow_dispatch, we need to query the release directly
-  HAS_JSON=false
-  if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-    # Query release directly for workflow_dispatch
-    if check_json_asset "$CURRENT_TAG"; then
-      echo "JSON asset: $ZIGPY_JSON_FILENAME exists in release $CURRENT_TAG"
-      HAS_JSON=true
-    else
-      echo "JSON asset: $ZIGPY_JSON_FILENAME NOT found in release $CURRENT_TAG"
-    fi
-  elif [ -n "${RELEASE_ASSETS:-}" ] && echo "$RELEASE_ASSETS" | jq -e --arg name "$ZIGPY_JSON_FILENAME" '.[] | select(.name == $name)' > /dev/null 2>&1; then
-    # Release event with asset in payload
-    echo "JSON asset: $ZIGPY_JSON_FILENAME exists in release payload for $CURRENT_TAG"
-    HAS_JSON=true
-  else
-    # Release event without asset in payload (e.g., 'published' event before upload completes)
-    echo "JSON asset: $ZIGPY_JSON_FILENAME NOT found in release payload for $CURRENT_TAG"
-  fi
-
-  # Update beta.json if this is the latest release (including pre-releases)
-  if [ "$CURRENT_TAG" = "$LATEST_ANY_RELEASE" ]; then
+# Check beta release
+if [ -n "$LATEST_ANY_RELEASE" ]; then
+  if check_release_assets "$LATEST_ANY_RELEASE" "$ZIGPY_JSON_BETA_FILENAME" "$Z2M_JSON_BETA_FILENAME" "$MARKDOWN_BETA_FILENAME"; then
+    echo "All beta index assets exist in release $LATEST_ANY_RELEASE"
     UPDATE_BETA=true
-    BETA_TAG="$CURRENT_TAG"
-    echo "Will update beta.json to $CURRENT_TAG (this is the latest beta)"
+    BETA_TAG="$LATEST_ANY_RELEASE"
+    echo "Will update beta.json to $LATEST_ANY_RELEASE"
+  else
+    echo "::warning::Missing beta index asset(s) in latest beta release $LATEST_ANY_RELEASE - skipping beta.json update (regenerate them by running this workflow with tag_name=$LATEST_ANY_RELEASE)"
   fi
+fi
 
-  # Update stable.json if this is NOT a pre-release AND is the latest stable release
-  if [ "$IS_PRERELEASE" != "true" ] && [ "$CURRENT_TAG" = "$LATEST_STABLE_RELEASE" ]; then
+# Check stable release
+if [ -n "$LATEST_STABLE_RELEASE" ]; then
+  if check_release_assets "$LATEST_STABLE_RELEASE" "$ZIGPY_JSON_FILENAME" "$Z2M_JSON_FILENAME" "$MARKDOWN_FILENAME"; then
+    echo "All stable index assets exist in release $LATEST_STABLE_RELEASE"
     UPDATE_STABLE=true
-    STABLE_TAG="$CURRENT_TAG"
-    echo "Will update stable.json to $CURRENT_TAG (this is the latest stable)"
+    STABLE_TAG="$LATEST_STABLE_RELEASE"
+    echo "Will update stable.json to $LATEST_STABLE_RELEASE"
+  else
+    echo "::warning::Missing stable index asset(s) in latest stable release $LATEST_STABLE_RELEASE - skipping stable.json update (regenerate them by running this workflow with tag_name=$LATEST_STABLE_RELEASE)"
   fi
+fi
 
-  # Exit early if nothing to update
-  if [ "$UPDATE_STABLE" = false ] && [ "$UPDATE_BETA" = false ]; then
-    echo "::notice::This is not the latest release. Skipping version pointer updates."
-    echo "::endgroup::"
-    exit 0
-  fi
+if [ "$UPDATE_STABLE" = false ] && [ "$UPDATE_BETA" = false ]; then
+  echo "::error::No releases with JSON assets found. Nothing to update."
+  echo "::endgroup::"
+  exit 1
+fi
 
-  # Verify JSON asset exists before proceeding
-  # For 'published' events, JSON was generated and uploaded earlier in the workflow
-  # but isn't present in the event's release assets payload
-  if [ "$HAS_JSON" != true ] && [ "$ACTION" != "published" ]; then
-    echo "::notice::JSON asset not found in release $CURRENT_TAG - skipping version pointer update"
-    echo "::endgroup::"
-    exit 0
-  fi
+# Expose the election results as step outputs (observability / potential consumers)
+if [ -n "${GITHUB_OUTPUT:-}" ]; then
+  {
+    echo "stable_tag=$STABLE_TAG"
+    echo "beta_tag=$BETA_TAG"
+    echo "update_stable=$UPDATE_STABLE"
+    echo "update_beta=$UPDATE_BETA"
+  } >> "$GITHUB_OUTPUT"
 fi
 
 echo "::endgroup::"
@@ -265,7 +290,7 @@ if [ "$UPDATE_STABLE" = true ]; then
 fi
 
 # Push changes
-git push origin release/version
+push_branch release/version
 
 echo "::endgroup::"
 
@@ -289,7 +314,7 @@ if [ "$UPDATE_BETA" = true ]; then
   mv "beta/$Z2M_JSON_BETA_FILENAME" "beta/$Z2M_JSON_FILENAME"
   mv "beta/$MARKDOWN_BETA_FILENAME" "beta/$MARKDOWN_FILENAME"
   git add beta/
-  git diff --staged --quiet || git commit -m "Update \`beta\` OTA index files"
+  git diff --staged --quiet || git commit -m "Update \`beta\` OTA index files to $BETA_TAG"
   echo "::notice::Successfully updated beta/ (from $BETA_TAG)"
 fi
 
@@ -301,11 +326,13 @@ if [ "$UPDATE_STABLE" = true ]; then
   gh release download "$STABLE_TAG" --pattern "$Z2M_JSON_FILENAME" --dir stable --clobber
   gh release download "$STABLE_TAG" --pattern "$MARKDOWN_FILENAME" --dir stable --clobber
   git add stable/
-  git diff --staged --quiet || git commit -m "Update \`stable\` OTA index files"
+  git diff --staged --quiet || git commit -m "Update \`stable\` OTA index files to $STABLE_TAG"
   echo "::notice::Successfully updated stable/ (from $STABLE_TAG)"
 fi
 
 # Push changes
-git push origin release/files
+push_branch release/files
 
 echo "::endgroup::"
+
+# (The EXIT trap restores the original checkout, on success and failure alike)

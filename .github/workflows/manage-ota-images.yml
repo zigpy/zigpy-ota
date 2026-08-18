@@ -1,0 +1,121 @@
+name: Manage OTA images via PR labels
+
+# Adding one of these labels to an OTA submission PR opens a bot PR against the
+# default branch that acts on the image files the labeled PR added:
+#   ota-disable - set `disabled: true` in the images' YAML metadata (the images are
+#                 excluded from the JSON indexes but their files stay in the repo)
+#   ota-enable  - remove `disabled: true` again (e.g. after the firmware was verified
+#                 or a precautionary disable turned out unnecessary)
+#   ota-remove  - delete the image and YAML files entirely (only when the files must
+#                 not stay in the repo, e.g. for legal reasons - the normal policy is
+#                 to keep disabled images for history)
+#
+# The bot PR is NOT auto-merged: a maintainer reviews and merges it, which then
+# updates the dev channel index automatically. If the images already shipped in a
+# release, additionally pull that release (pull-release.yml).
+#
+# pull_request_target is used (instead of pull_request) so the workflow also runs
+# for labels added to merged/closed PRs and always executes the workflow version
+# from the default branch. This is safe here: the job never checks out or executes
+# PR head content - it only reads the labeled PR's file list via the API and edits
+# files that already exist on the default branch. Labels can be added with
+# triage access or higher - acceptable, since nothing changes on the default
+# branch without a maintainer merging the bot PR.
+on:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types: [labeled]
+
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
+# Note: GitHub keeps at most one *pending* run per group, so a third label event
+# arriving while one run executes and another queues silently replaces the queued
+# one - the replaced run's label then lingers on the PR without effect. Remove
+# and re-add the label to re-trigger.
+concurrency:
+  group: manage-ota-images-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION_DEFAULT: "3.14"
+
+jobs:
+  manage-images:
+    name: Act on labeled PR's images
+    if: contains(fromJSON('["ota-disable", "ota-enable", "ota-remove"]'), github.event.label.name)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      # Only for the checkout below; pushes use the App token minted later
+      contents: read
+    steps:
+      # Explicitly check out the default branch: this workflow acts on the current
+      # tree, never on the labeled PR's head. No credentials are persisted - the
+      # push-capable App token is minted only after the third-party setup actions
+      # and dependency install below.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          # No dependency caching, consistent with the other workflows that
+          # generate content from this repository
+          enable-cache: false
+
+      - name: Install package
+        run: uv sync --group ci
+
+      # Branch pushes go through the GitHub App (via the origin remote URL set
+      # below); the zigpy-bot fine-grained token is only used for the gh CLI
+      # (PR creation, keeping zigpy-bot as the PR author, plus comments)
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          permission-contents: write
+
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (set on the origin remote URL)
+      - name: Configure git
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+      # Make sure the script is executable:
+      # git update-index --chmod=+x .github/scripts/manage-ota-images.sh
+      - name: Apply image action and open PR
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LABEL_NAME: ${{ github.event.label.name }}
+          SOURCE_PR: ${{ github.event.pull_request.number }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: .github/scripts/manage-ota-images.sh
+
+      # Consume the trigger label (like ota-resubmit in process-ota-submission):
+      # the outcome is recorded by the bot PR and comments, and re-adding the
+      # label is how the action is triggered again
+      - name: Remove the trigger label
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LABEL_NAME: ${{ github.event.label.name }}
+          SOURCE_PR: ${{ github.event.pull_request.number }}
+        run: gh pr edit "$SOURCE_PR" --remove-label "$LABEL_NAME" || true

@@ -2,9 +2,15 @@
 
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass
 from enum import StrEnum
 from typing import Any
+
+LOGGER = logging.getLogger(__name__)
+
+MAX_UINT16 = 0xFFFF
+MAX_UINT32 = 0xFFFFFFFF
 
 
 class Channel(StrEnum):
@@ -41,6 +47,24 @@ class ThirdPartyDownload:
 
     # Optional header string from OTA file header
     header_string: str | None = None
+
+    def __post_init__(self) -> None:
+        # Same integer strictness as BaseYamlMetadata: with no local binary to
+        # extract from, these YAML values go straight into the published index,
+        # so a quoted number or boolean must fail here, not serialize as-is
+        for field_name in (
+            "manufacturer_id",
+            "image_type",
+            "file_version",
+            "file_size",
+        ):
+            value = getattr(self, field_name)
+            if isinstance(value, bool) or not isinstance(value, int):
+                raise TypeError(
+                    f"third_party_download.{field_name} must be an integer, got "
+                    f"{type(value).__name__} ({value!r}) - remove any quotes "
+                    f"around the value"
+                )
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> ThirdPartyDownload:
@@ -100,6 +124,66 @@ class BaseYamlMetadata:
     specificity: int | None = None
     disabled: bool = False
     channel: Channel = Channel.STABLE
+
+    def __post_init__(self) -> None:
+        # Numeric fields must be actual integers: a quoted value in YAML
+        # (e.g. min_current_file_version: "100") would silently bypass the
+        # normalization below and blow up later, deep in index generation
+        for field_name in (
+            "min_hardware_version",
+            "max_hardware_version",
+            "min_current_file_version",
+            "max_current_file_version",
+            "specificity",
+        ):
+            value = getattr(self, field_name)
+            if value is not None and (
+                isinstance(value, bool) or not isinstance(value, int)
+            ):
+                raise TypeError(
+                    f"{field_name} must be an integer, got {type(value).__name__} "
+                    f"({value!r}) - remove any quotes around the value"
+                )
+
+        # Name lists must be non-empty name strings: an empty name matches no
+        # device while still boosting zigpy specificity by 1000
+        for field_name in ("model_names", "manufacturer_names"):
+            value = getattr(self, field_name)
+            if value is not None and (
+                not value
+                or any(not isinstance(item, str) or not item.strip() for item in value)
+            ):
+                raise ValueError(
+                    f"{field_name} must be a non-empty list of non-empty names, "
+                    f"got {value!r}"
+                )
+
+        # disabled must be a real boolean: YAML 1.2 parses yes/no/on/off as
+        # STRINGS, and any non-empty string is truthy - `disabled: no` would
+        # silently exclude the image from every index
+        if not isinstance(self.disabled, bool):
+            raise TypeError(
+                f"disabled must be true or false, got "
+                f"{type(self.disabled).__name__} ({self.disabled!r})"
+            )
+
+        # min=0 / max=0xFFFFFFFF can never exclude a device (current versions
+        # are uint32), but the fields' mere presence changes behavior: zigpy
+        # boosts specificity for each constraint, the z2m index auto-computes
+        # maxFileVersion for groups with a min constraint, and stale detection
+        # treats them as narrower than no constraint. Normalize to None.
+        if self.min_current_file_version == 0:
+            LOGGER.warning(
+                "Ignoring vacuous min_current_file_version=0 for %s", self.file_name
+            )
+            object.__setattr__(self, "min_current_file_version", None)
+
+        if self.max_current_file_version == MAX_UINT32:
+            LOGGER.warning(
+                "Ignoring vacuous max_current_file_version=0xFFFFFFFF for %s",
+                self.file_name,
+            )
+            object.__setattr__(self, "max_current_file_version", None)
 
     def _add_optional_fields_to_dict(self, result: dict[str, Any]) -> None:
         """Add optional metadata fields to the result dictionary.

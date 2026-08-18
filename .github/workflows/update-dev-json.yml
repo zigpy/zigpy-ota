@@ -9,6 +9,9 @@ on:
       - "images/**"
       - ".github/SCHEMA.json"
 
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
 concurrency:
   group: update-dev-json
   cancel-in-progress: false
@@ -29,7 +32,11 @@ jobs:
       # Shallow clone is sufficient — this job only reads files from the working tree.
       # Full history is only needed by update-release-files (which switches branches).
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          # This job only reads the tree (and parses untrusted OTA images) -
+          # don't leave any credentials behind
+          persist-credentials: false
 
       - name: Load schema config
         run: |
@@ -41,12 +48,16 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          # No dependency caching: this job generates the published OTA index
+          # files, so a poisoned cache must not be able to influence its output
+          enable-cache: false
 
       - name: Install package
         run: uv sync --group ci
@@ -90,11 +101,21 @@ jobs:
     runs-on: ubuntu-slim
     timeout-minutes: 5
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions)
+          permission-contents: write
+
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Download generated index files
         uses: actions/download-artifact@v8
@@ -102,6 +123,8 @@ jobs:
           name: dev-index-files
           path: /tmp/index-files
 
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
       - name: Configure git
         run: |
           set -euo pipefail
@@ -111,15 +134,26 @@ jobs:
       - name: Commit and push changes to release/files
         run: |
           set -euo pipefail
-          # Switch to release/files branch or create it if it doesn't exist
-          git fetch origin release/files:release/files || git checkout -b release/files
+          # Switch to the release/files branch. It must already exist: it is created
+          # once per repository as an orphan branch, never derived from the code tree
+          # (e.g. git switch --orphan release/files && git commit --allow-empty -m "Init")
+          if ! git ls-remote --exit-code --heads origin release/files > /dev/null 2>&1; then
+            echo "::error::Branch release/files not found (or the remote could not be reached). It must be created manually, once, as an orphan branch."
+            exit 1
+          fi
+          git fetch origin release/files:release/files
           git checkout release/files
 
           # Copy all generated index files to the dev directory
           mkdir -p dev
           cp /tmp/index-files/* dev/
 
-          # Add, commit, and push if there are changes
+          # Add, commit, and push if there are changes. Retry once after a rebase:
+          # the version pointer workflows push to this branch from a different
+          # concurrency group.
           git add dev/
-          git diff --staged --quiet || git commit -m "Update \`dev\` OTA index files"
-          git push origin release/files
+          git diff --staged --quiet || git commit -m "Update \`dev\` OTA index files to ${GITHUB_SHA::10}"
+          git push origin release/files || {
+            git pull --rebase origin release/files
+            git push origin release/files
+          }

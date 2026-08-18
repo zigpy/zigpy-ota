@@ -1,0 +1,80 @@
+name: Un-pull a release
+
+# Reinstates a previously pulled release (see pull-release.yml for the pulling side):
+#   1. Restores the original tag/commit association if the tag was moved: force-moves
+#      the original tag back to the recorded original commit, re-tags the release from
+#      "pulled_<tag>" back to "<tag>", and deletes the "pulled_<tag>" tag
+#   2. Renames the "pulled_*" index assets back to their original names
+#   3. Replaces the caution notice in the release body with a note recording when the
+#      release was pulled and re-added (repeated pull/un-pull cycles stack one note
+#      each), and restores the release title to "<tag>" (which re-includes the release
+#      in the version pointer election)
+#   4. Re-runs the election and updates the release/version and release/files branches
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Tag of the release to un-pull (with or without the pulled_ prefix)"
+        required: true
+        type: string
+
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
+concurrency:
+  group: push-release-version
+  cancel-in-progress: false
+
+jobs:
+  unpull-release:
+    name: Un-pull release
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions).
+          # Workflows write is needed for tag refs whose workflow files differ
+          # from the default branch (see pull-release.sh).
+          permission-contents: write
+          permission-workflows: write
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
+      - name: Configure git
+        run: |
+          set -euo pipefail
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      # Uses the app token for gh: tag pushes go through the checkout credentials and
+      # need the app's Workflows (write) permission (see pull-release.sh), and
+      # re-tagging the release must use the same identity. Side effect: app-made
+      # release edits fire `edited` events, re-triggering an (idempotent) version
+      # pointer recalculation.
+      - name: Un-pull release
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+          PULL_TAG: ${{ inputs.tag_name }}
+        run: .github/scripts/pull-release.sh unpull
+
+      - name: Update version pointers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: .github/scripts/update-version-pointers.sh

@@ -9,6 +9,7 @@ from typing import Any
 
 from ruamel.yaml import YAML, YAMLError
 
+from zigpy_ota.actions.metadata.constraints import unreachable_reasons
 from zigpy_ota.actions.metadata.name_utils import generate_ota_filename
 from zigpy_ota.actions.metadata.ota_parsing import parse_and_validate_ota_bytes
 from zigpy_ota.actions.metadata.yaml_metadata_generation import (
@@ -35,7 +36,10 @@ from zigpy_ota.models.issue_model import ExistingImagesHandling, IssueData
 from zigpy_ota.models.ota_metadata import OtaMetadata
 from zigpy_ota.models.pr_result import PrepareResult
 from zigpy_ota.models.yaml_metadata import (
+    MAX_UINT16,
+    MAX_UINT32,
     BaseYamlMetadata,
+    Channel,
     ThirdPartyDownload,
     YamlMetadataFile,
     YamlMetadataThirdParty,
@@ -48,14 +52,18 @@ LOGGER = logging.getLogger(__name__)
 def parse_optional_metadata(optional_metadata_yaml: str | None) -> dict[str, Any]:
     """Parse optional metadata from YAML string.
 
-    Filters out unsupported fields and normalizes model_names and manufacturer_names
-    to lists.
+    Filters out unsupported fields, drops fields left empty, and normalizes
+    model_names and manufacturer_names to tuples.
 
     Args:
         optional_metadata_yaml: YAML string containing optional metadata, or None
 
     Returns:
-        Dictionary of parsed and filtered metadata, empty dict if parsing fails
+        Dictionary of parsed, validated, and filtered metadata
+
+    Raises:
+        ValueError: If the YAML cannot be parsed or a field has an invalid
+            type or value (the message is submitter-facing)
     """
     if not optional_metadata_yaml or not optional_metadata_yaml.strip():
         return {}
@@ -68,11 +76,24 @@ def parse_optional_metadata(optional_metadata_yaml: str | None) -> dict[str, Any
     try:
         yaml = YAML()
         parsed = yaml.load(optional_metadata_yaml)
-        if not isinstance(parsed, dict):
-            LOGGER.warning(
-                f"Optional metadata is not a dictionary, ignoring: {type(parsed)}"
-            )
+
+        # Common "left empty on purpose" spellings are not rejections: only
+        # GitHub's literal "_No response_" maps to None upstream, so a
+        # submitter typing "none"/"N/A" (or only comments, which load as
+        # None) means "no metadata", not a malformed submission
+        if parsed is None or (
+            isinstance(parsed, str) and parsed.strip().lower() in ("none", "n/a", "na")
+        ):
             return {}
+
+        if not isinstance(parsed, dict):
+            # Same harm as a syntax error: silently returning {} would drop
+            # the submitter's constraints (e.g. a leading "- " bullet copied
+            # from the release-notes field turns the mapping into a list)
+            raise ValueError(
+                "Optional metadata must be 'field: value' lines - remove any "
+                "leading '-' bullets or stray text"
+            )
 
         # Convert CommentedMap to regular dict and normalize special YAML types
         parsed = normalize_yaml_values(dict(parsed))
@@ -87,22 +108,105 @@ def parse_optional_metadata(optional_metadata_yaml: str | None) -> dict[str, Any
         filtered = {
             key: value
             for key, value in parsed.items()
-            if key in SUPPORTED_OPTIONAL_METADATA_FIELDS
+            # A field left empty (e.g. a stray "min_current_file_version:"
+            # line) parses as None - treat it as absent, so it can't e.g.
+            # suppress an auto-computed min_current_file_version
+            if key in SUPPORTED_OPTIONAL_METADATA_FIELDS and value is not None
         }
 
         # Normalize metadata fields
         filtered = normalize_metadata_fields(filtered)
 
-        if filtered:
-            LOGGER.info(f"Parsed optional metadata: {filtered}")
-
-        return filtered
-
     except YAMLError as e:
-        # TODO: raise (but earlier, so OTA file isn't created yet)
-        #  or handle error better? Easy to miss right now if optional metadata is bad.
-        LOGGER.error(f"Failed to parse optional metadata YAML: {e}")
-        return {}
+        # Raising (rather than the previous silent {}) matters: swallowing a
+        # syntax error would drop the submitter's constraints and let the
+        # firmware be offered to unintended devices. Safe to raise here: this
+        # runs before any file is written.
+        raise ValueError(
+            f"Could not parse the optional metadata as YAML - fix the "
+            f"formatting or clear the field: {e}"
+        ) from e
+
+    # Numeric fields must be actual in-range integers here already: downstream
+    # consumers (the reachability check, YAML model construction) compare
+    # them, and a quoted issue-form value (e.g. "0x01000000") would
+    # otherwise surface as an opaque TypeError in the failure comment
+    for field_name, max_value in (
+        ("min_current_file_version", MAX_UINT32),
+        ("max_current_file_version", MAX_UINT32),
+        ("min_hardware_version", MAX_UINT16),
+        ("max_hardware_version", MAX_UINT16),
+        ("specificity", None),
+    ):
+        value = filtered.get(field_name)
+        if value is None:
+            continue
+        if isinstance(value, bool) or not isinstance(value, int):
+            raise ValueError(
+                f"{field_name} must be an integer, got {type(value).__name__} "
+                f"({value!r}) - remove any quotes around the value"
+            )
+        if max_value is not None and not 0 <= value <= max_value:
+            raise ValueError(
+                f"{field_name} must be between 0 and 0x{max_value:X}, got {value}"
+            )
+
+    # Vacuous constraints are rejected for parity with committed YAML
+    # (yaml_parsing): min=0 also silently voided the auto-computed minimum
+    # by counting as "present" for the injection's key check
+    if filtered.get("min_current_file_version") == 0:
+        raise ValueError(
+            "min_current_file_version=0 can never exclude a device - "
+            "omit the field instead"
+        )
+    if filtered.get("max_current_file_version") == MAX_UINT32:
+        raise ValueError(
+            "max_current_file_version=0xFFFFFFFF can never exclude a device - "
+            "omit the field instead"
+        )
+
+    # disabled must be a real boolean: ruamel parses YAML 1.2, where
+    # yes/no/on/off are STRINGS - and any non-empty string (even "false" or
+    # "no") is truthy, silently excluding the image from every index
+    disabled = filtered.get("disabled")
+    if disabled is not None and not isinstance(disabled, bool):
+        raise ValueError(
+            f"disabled must be true or false, got {disabled!r} - note that "
+            f"values like yes/no/off are not recognized"
+        )
+
+    # Name lists must be non-empty strings (normalize_metadata_fields only
+    # converts str/list inputs; anything else would serialize as-is, and an
+    # empty name matches no device while still boosting specificity)
+    for field_name in ("model_names", "manufacturer_names"):
+        value = filtered.get(field_name)
+        if value is None:
+            continue
+        if not isinstance(value, (list, tuple)) or not all(
+            isinstance(item, str) for item in value
+        ):
+            raise ValueError(
+                f"{field_name} must be a name or a list of names, got {value!r}"
+            )
+        if not value or any(not item.strip() for item in value):
+            raise ValueError(f"{field_name} must not be or contain empty names")
+
+    # Coerce channel to the enum: an unknown value must fail here with a clear
+    # message ('stable' happened to work as a plain string while 'beta'/'dev'
+    # crashed later with an opaque AttributeError)
+    if "channel" in filtered:
+        try:
+            filtered["channel"] = Channel(filtered["channel"])
+        except ValueError:
+            valid = ", ".join(c.value for c in Channel)
+            raise ValueError(
+                f"channel must be one of: {valid} - got {filtered['channel']!r}"
+            ) from None
+
+    if filtered:
+        LOGGER.info(f"Parsed optional metadata: {filtered}")
+
+    return filtered
 
 
 def _download_and_extract_ota_file(issue_data: IssueData) -> tuple[bytes, str, str]:
@@ -144,13 +248,17 @@ def _download_and_extract_ota_file(issue_data: IssueData) -> tuple[bytes, str, s
     return ota_content, filename, source_url
 
 
-def _check_and_delete_existing_images(
+def _check_existing_images(
     manufacturer_directory: str,
     filename: str,
     existing_images_handling: ExistingImagesHandling,
     ota_metadata: OtaMetadata,
 ) -> tuple[dict[str, IndexMetadata], int | None]:
-    """Check for and optionally delete existing images with the same manufacturer and type.
+    """Check for existing images with the same manufacturer and type.
+
+    Scan only - REPLACE deletions are performed by the caller after the
+    submission's metadata has been validated, so a rejected submission never
+    leaves files already deleted.
 
     Args:
         manufacturer_directory: Directory name for the manufacturer
@@ -160,7 +268,7 @@ def _check_and_delete_existing_images(
 
     Returns:
         Tuple of:
-        - Dictionary of images that were found (and potentially deleted)
+        - Dictionary of existing images found (deletable under REPLACE)
         - Highest file version from existing images that's lower than new image version
           (only set when SET_MIN_VERSION option is selected)
     """
@@ -181,14 +289,9 @@ def _check_and_delete_existing_images(
             if fname != filename
         }
 
-        # Handle based on user selection
-        if existing_images_handling == ExistingImagesHandling.REPLACE:
-            if images_to_delete:
-                LOGGER.info(
-                    f"Replace existing enabled. Deleting {len(images_to_delete)} image(s)"
-                )
-                delete_images(manufacturer_directory, images_to_delete)
-        elif existing_images_handling == ExistingImagesHandling.SET_MIN_VERSION:
+        # Handle based on user selection (REPLACE deletions happen at the call
+        # site, after validation)
+        if existing_images_handling == ExistingImagesHandling.SET_MIN_VERSION:
             if images_to_delete:
                 # Find the highest file version from existing images that's still lower than new version
                 versions_below_new = [
@@ -215,7 +318,7 @@ def _check_and_delete_existing_images(
                     f"Keeping all {len(images_to_delete)} existing image(s) without version constraints"
                 )
     except Exception as e:
-        LOGGER.warning(f"Failed to check/delete existing images: {e}")
+        LOGGER.warning(f"Failed to check existing images: {e}")
 
     return images_to_delete, highest_version
 
@@ -282,6 +385,35 @@ def _handle_file_replacement(
         image_path = save_ota_file(ota_content, manufacturer_directory, filename)
 
     return image_path, file_existed, replaced_third_party
+
+
+def _validate_reachable_constraints(
+    optional_metadata: dict[str, Any],
+    file_version: int,
+) -> None:
+    """Reject version/hardware constraints that no device could ever satisfy.
+
+    Same rules as generate-index's reachability validation (shared via
+    constraints.unreachable_reasons), applied at submission time so the
+    failure carries an actionable message instead of crashing a later
+    pipeline step after the files were written.
+
+    Raises:
+        ValueError: If the constraints make the image unreachable
+    """
+    reasons = unreachable_reasons(
+        file_version=file_version,
+        min_current_file_version=optional_metadata.get("min_current_file_version"),
+        max_current_file_version=optional_metadata.get("max_current_file_version"),
+        min_hardware_version=optional_metadata.get("min_hardware_version"),
+        max_hardware_version=optional_metadata.get("max_hardware_version"),
+    )
+    if reasons:
+        raise ValueError(
+            "The provided constraints make this image unreachable - "
+            + "; ".join(reasons)
+            + ". Fix the metadata in the issue."
+        )
 
 
 def _inject_auto_min_version(
@@ -405,12 +537,34 @@ def prepare_pr(issue_data: IssueData) -> PrepareResult:
         f"manufacturer_id=0x{ota_metadata.manufacturer_id:04X}, "
         f"image_type=0x{ota_metadata.image_type:04X}"
     )
-    images_to_delete, auto_min_version = _check_and_delete_existing_images(
+    images_to_delete, auto_min_version = _check_existing_images(
         manufacturer_directory,
         filename,
         issue_data.existing_images_handling,
         ota_metadata,
     )
+
+    # Parse optional metadata and inject auto-calculated min_current_file_version if applicable
+    optional_metadata = parse_optional_metadata(issue_data.optional_metadata)
+    optional_metadata = _inject_auto_min_version(optional_metadata, auto_min_version)
+
+    # Reject constraints that make the image unreachable, BEFORE the image is
+    # written: a manual min at/above the image's own version, a manual max
+    # below an (auto-computed or manual) min, or an empty hardware range.
+    # Failing here gives an actionable error at submission time instead of a
+    # generate-index crash later in the pipeline.
+    _validate_reachable_constraints(optional_metadata, ota_metadata.file_version)
+
+    # Only now that validation passed: delete existing images under REPLACE
+    # handling (a rejected submission must not leave files already deleted)
+    if (
+        issue_data.existing_images_handling == ExistingImagesHandling.REPLACE
+        and images_to_delete
+    ):
+        LOGGER.info(
+            f"Replace existing enabled. Deleting {len(images_to_delete)} image(s)"
+        )
+        delete_images(manufacturer_directory, images_to_delete)
 
     # Handle file replacement logic
     ota_target_path = IMAGES_PATH / manufacturer_directory / filename
@@ -421,10 +575,6 @@ def prepare_pr(issue_data: IssueData) -> PrepareResult:
         filename,
         issue_data.third_party_download,
     )
-
-    # Parse optional metadata and inject auto-calculated min_current_file_version if applicable
-    optional_metadata = parse_optional_metadata(issue_data.optional_metadata)
-    optional_metadata = _inject_auto_min_version(optional_metadata, auto_min_version)
 
     # Create YAML metadata object
     yaml_metadata = _create_yaml_metadata(

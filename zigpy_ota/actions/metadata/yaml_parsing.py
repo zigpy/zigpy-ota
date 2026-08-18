@@ -150,11 +150,28 @@ def parse_metadata_file(
         # Normalize fields
         normalized_data = normalize_metadata_fields(data)
 
+        # Reject vacuous constraints in committed YAML (the correct spelling of
+        # "no constraint" is omitting the field). Issue-form submissions never
+        # produce these: the model drops them before the YAML is generated.
+        if normalized_data.get("min_current_file_version") == 0:
+            raise ValueError(
+                f"{file_path}: min_current_file_version=0 can never exclude a "
+                "device - omit the field instead"
+            )
+        if normalized_data.get("max_current_file_version") == 0xFFFFFFFF:
+            raise ValueError(
+                f"{file_path}: max_current_file_version=0xFFFFFFFF can never "
+                "exclude a device - omit the field instead"
+            )
+
         # Create appropriate metadata type based on third_party_download presence
         try:
             if "third_party_download" in normalized_data:
                 return YamlMetadataThirdParty.from_dict(normalized_data)
             else:
                 return YamlMetadataFile.from_dict(normalized_data)
-        except (KeyError, TypeError) as e:
+        except KeyError as e:
             raise ValueError(f"{file_path}: Missing required fields - {e}") from e
+        except (TypeError, ValueError) as e:
+            # e.g. non-integer constraint values, or an unknown channel value
+            raise ValueError(f"{file_path}: Invalid metadata - {e}") from e

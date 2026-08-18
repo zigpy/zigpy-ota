@@ -77,6 +77,7 @@ def deletable_image() -> IndexMetadata:
         checksum_sha3_256="old123" * 10,
         checksum_sha512="old456" * 20,
         source_file_name="old_firmware.zigbee",
+        pull_request="123",
     )
 
 
@@ -378,12 +379,56 @@ class TestGeneratePrMarkdown:
 
         assert "### Deleted Images" in markdown
         assert "old_firmware.zigbee" in markdown
+        # The PR that added the existing image is linked (raw URL, so GitHub
+        # renders it as a rich reference with the PR title)
+        assert "**Added in**: https://github.com/zigpy/zigpy-ota/pull/123" in markdown
         # Older-version existing image with overlap that's NOT dominated
         # (existing has no model_names; new has model_names, so it can't
         # match all of existing's devices). Plain [not stale], no qualifier.
         assert "**[not stale]**" in markdown
         assert "disjoint" not in markdown
         assert "same version" not in markdown
+
+    def test_stale_narrower_names_hint(self, ota_metadata: OtaMetadata) -> None:
+        """A stale existing image scoped by model names gets a constraint hint."""
+        # New image without name constraints (hw 5-10 comes from ota_metadata)
+        yaml_metadata = YamlMetadataFile(
+            file_name="test_firmware.zigbee",
+            source_file_name="original_firmware.zigbee",
+            source_url="https://example.com/firmware.zigbee",
+        )
+        existing = IndexMetadata(
+            binary_url="https://example.com/exclusive.zigbee",
+            manufacturer_id=0x100B,
+            image_type=0x010C,
+            file_version=0x01001A01,  # Older version
+            file_size=11111,
+            checksum_sha3_256="exc123" * 10,
+            checksum_sha512="exc456" * 20,
+            source_file_name="exclusive.zigbee",
+            model_names=("Exclusive Model",),
+            min_hardware_version=5,
+            max_hardware_version=10,
+        )
+        result = PrepareResult(
+            image_path=Path("/tmp/test_firmware.zigbee"),
+            yaml_path=Path("/tmp/test_firmware.zigbee.yaml"),
+            filename="test_firmware.zigbee",
+            manufacturer_directory="test",
+            deletable_images={"exclusive.zigbee": existing},
+            existing_images_handling=ExistingImagesHandling.KEEP_ALL,
+            auto_min_version=None,
+            file_existed=False,
+            replaced_third_party=False,
+            checklist=DEFAULT_CHECKLIST,
+            ota_metadata=ota_metadata,
+            yaml_metadata=yaml_metadata,
+        )
+
+        markdown = generate_pr_markdown(result)
+
+        assert "**[stale]**" in markdown
+        assert "add name constraints to the new image" in markdown
 
     def test_same_version_disjoint_marker(
         self, prepare_result_with_disjoint_existing: PrepareResult

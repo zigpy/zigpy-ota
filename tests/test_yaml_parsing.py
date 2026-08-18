@@ -9,9 +9,16 @@ from typing import Any
 import pytest
 from ruamel.yaml import YAML
 
-from zigpy_ota.actions.metadata.yaml_parsing import parse_metadata_file
+from zigpy_ota.actions.metadata.yaml_parsing import (
+    parse_metadata_file,
+    parse_metadata_files,
+)
 from zigpy_ota.actions.pr.prepare_files import parse_optional_metadata
-from zigpy_ota.models.yaml_metadata import ThirdPartyDownload, YamlMetadataThirdParty
+from zigpy_ota.models.yaml_metadata import (
+    ThirdPartyDownload,
+    YamlMetadataFile,
+    YamlMetadataThirdParty,
+)
 
 
 def dump_yaml(data: dict[str, Any]) -> str:
@@ -264,3 +271,238 @@ def test_parse_metadata_file_with_channel(tmp_path: Path) -> None:
 
     assert result is not None
     assert result.channel == "beta"
+
+
+def test_vacuous_version_constraints_normalized() -> None:
+    """min=0 / max=0xFFFFFFFF are dropped by the model (issue-form path)."""
+    result = YamlMetadataFile(
+        file_name="test.zigbee",
+        source_file_name="original.zigbee",
+        source_url="https://example.com",
+        min_current_file_version=0,
+        max_current_file_version=0xFFFFFFFF,
+    )
+
+    assert result.min_current_file_version is None
+    assert result.max_current_file_version is None
+    # Dropped fields are not written to the generated YAML either
+    assert "min_current_file_version" not in result.to_dict()
+    assert "max_current_file_version" not in result.to_dict()
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("min_current_file_version", 0),
+        ("max_current_file_version", 0xFFFFFFFF),
+    ],
+)
+def test_vacuous_version_constraints_rejected_in_yaml(
+    tmp_path: Path, field: str, value: int
+) -> None:
+    """Committed YAML with vacuous constraints fails parsing."""
+    yaml_path = tmp_path / "test.yaml"
+    yaml_content = {
+        "file_name": "test.zigbee",
+        "source_file_name": "original.zigbee",
+        "source_url": "https://example.com",
+        field: value,
+    }
+    yaml_path.write_text(dump_yaml(yaml_content))
+
+    with pytest.raises(ValueError, match="can never exclude a device"):
+        parse_metadata_file(yaml_path)
+
+    # Strict by default, skipped with --allow-invalid-yaml
+    with pytest.raises(ValueError, match="can never exclude a device"):
+        parse_metadata_files(
+            tmp_path,
+            fail_on_filename_mismatch=False,
+            fail_on_missing_ota=False,
+            fail_on_invalid_yaml=True,
+        )
+    result = parse_metadata_files(
+        tmp_path,
+        fail_on_filename_mismatch=False,
+        fail_on_missing_ota=False,
+        fail_on_invalid_yaml=False,
+    )
+    assert result == {}
+
+
+def test_meaningful_version_constraints_kept(tmp_path: Path) -> None:
+    """Non-vacuous version constraints are preserved unchanged."""
+    yaml_path = tmp_path / "test.yaml"
+    yaml_content = {
+        "file_name": "test.zigbee",
+        "source_file_name": "original.zigbee",
+        "source_url": "https://example.com",
+        "min_current_file_version": 1,
+        "max_current_file_version": 0xFFFFFFFE,
+    }
+    yaml_path.write_text(dump_yaml(yaml_content))
+
+    result = parse_metadata_file(yaml_path)
+
+    assert result is not None
+    assert result.min_current_file_version == 1
+    assert result.max_current_file_version == 0xFFFFFFFE
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("min_current_file_version", "100"),
+        ("max_current_file_version", "0xFFFFFFFF"),
+        ("min_hardware_version", "1"),
+        ("specificity", True),
+    ],
+)
+def test_non_integer_constraints_rejected(
+    tmp_path: Path, field: str, value: object
+) -> None:
+    """Quoted numbers (and booleans) in numeric fields fail parsing loudly."""
+    yaml_path = tmp_path / "test.yaml"
+    yaml_content = {
+        "file_name": "test.zigbee",
+        "source_file_name": "original.zigbee",
+        "source_url": "https://example.com",
+        field: value,
+    }
+    yaml_path.write_text(dump_yaml(yaml_content))
+
+    with pytest.raises(ValueError, match="must be an integer"):
+        parse_metadata_file(yaml_path)
+
+
+def test_non_integer_constraints_rejected_on_construction() -> None:
+    """Booleans are rejected at model construction too."""
+    with pytest.raises(TypeError, match="specificity must be an integer"):
+        YamlMetadataFile(
+            file_name="test.zigbee",
+            source_file_name="original.zigbee",
+            specificity=True,  # type: ignore[arg-type]
+        )
+
+
+@pytest.mark.parametrize("value", ["4107", True])
+def test_third_party_non_integer_fields_rejected(value: object) -> None:
+    """Quoted numbers/booleans in third_party_download numeric fields fail."""
+    with pytest.raises(TypeError, match="manufacturer_id must be an integer"):
+        ThirdPartyDownload(
+            manufacturer_id=value,  # type: ignore[arg-type]
+            image_type=268,
+            file_version=16781568,
+            file_size=123456,
+            checksum_sha3_256="abc123",
+            checksum_sha512="def456",
+        )
+
+
+def test_parse_optional_metadata_strictness() -> None:
+    """Invalid issue-form metadata fails with submitter-facing messages."""
+    # Malformed YAML no longer silently drops all constraints
+    with pytest.raises(ValueError, match="Could not parse the optional metadata"):
+        parse_optional_metadata("model_names: [unclosed")
+
+    # Unknown channel fails clearly ('stable' worked while 'beta' crashed later)
+    with pytest.raises(ValueError, match="channel must be one of"):
+        parse_optional_metadata("channel: nightly")
+
+    # Non-string name entries are rejected instead of serialized as-is
+    with pytest.raises(ValueError, match="must be a name or a list of names"):
+        parse_optional_metadata("model_names: 5")
+
+    # Out-of-range values are rejected (uint32 for versions, uint16 for hw)
+    with pytest.raises(ValueError, match="must be between 0 and"):
+        parse_optional_metadata("min_current_file_version: -1")
+    with pytest.raises(ValueError, match="must be between 0 and"):
+        parse_optional_metadata("max_hardware_version: 0x10000")
+
+
+def test_parse_optional_metadata_drops_empty_values() -> None:
+    """A field left empty (stray trailing colon) is treated as absent.
+
+    Previously 'min_current_file_version:' parsed as None and suppressed the
+    auto-computed minimum via the key-presence check.
+    """
+    result = parse_optional_metadata("min_current_file_version:\nmodel_names: [a]")
+    assert "min_current_file_version" not in result
+    assert result["model_names"] == ("a",)
+
+
+def test_parse_optional_metadata_channel_coerced_to_enum() -> None:
+    """A valid channel becomes the Channel enum (not a bare string)."""
+    from zigpy_ota.models.yaml_metadata import Channel
+
+    result = parse_optional_metadata("channel: beta")
+    assert result["channel"] is Channel.BETA
+
+
+def test_parse_optional_metadata_more_strictness() -> None:
+    """Shape errors, vacuous constraints, and non-bool disabled are rejected."""
+    # A non-mapping root (e.g. a copied '-' bullet) no longer silently drops
+    # all constraints
+    with pytest.raises(ValueError, match="must be 'field: value' lines"):
+        parse_optional_metadata("- model_names: [Hue Lamp]")
+
+    # Vacuous constraints are rejected like in committed YAML (min=0 also
+    # silently voided the auto-computed minimum)
+    with pytest.raises(ValueError, match="can never exclude a device"):
+        parse_optional_metadata("min_current_file_version: 0")
+    with pytest.raises(ValueError, match="can never exclude a device"):
+        parse_optional_metadata("max_current_file_version: 0xFFFFFFFF")
+
+    # YAML 1.2 parses no/off as strings, and any non-empty string is truthy
+    with pytest.raises(ValueError, match="disabled must be true or false"):
+        parse_optional_metadata("disabled: no")
+    with pytest.raises(ValueError, match="disabled must be true or false"):
+        parse_optional_metadata('disabled: "false"')
+    assert parse_optional_metadata("disabled: true") == {"disabled": True}
+
+    # Empty names match no device while still boosting specificity
+    with pytest.raises(ValueError, match="empty names"):
+        parse_optional_metadata("model_names: []")
+    with pytest.raises(ValueError, match="empty names"):
+        parse_optional_metadata('model_names: [""]')
+
+
+def test_yaml_file_non_bool_disabled_rejected(tmp_path: Path) -> None:
+    """Committed YAML with a non-boolean disabled value fails parsing."""
+    yaml_path = tmp_path / "test.yaml"
+    yaml_path.write_text(
+        dump_yaml(
+            {
+                "file_name": "test.zigbee",
+                "source_file_name": "original.zigbee",
+                "disabled": "no",
+            }
+        )
+    )
+
+    with pytest.raises(ValueError, match="disabled must be true or false"):
+        parse_metadata_file(yaml_path)
+
+
+def test_parse_optional_metadata_empty_sentinels() -> None:
+    """Common 'left empty on purpose' spellings mean no metadata, not a rejection."""
+    assert parse_optional_metadata("none") == {}
+    assert parse_optional_metadata("N/A") == {}
+    assert parse_optional_metadata("# just a comment") == {}
+
+
+def test_yaml_file_empty_names_rejected(tmp_path: Path) -> None:
+    """Committed YAML with empty names fails parsing (parity with the issue form)."""
+    yaml_path = tmp_path / "test.yaml"
+    yaml_path.write_text(
+        dump_yaml(
+            {
+                "file_name": "test.zigbee",
+                "source_file_name": "original.zigbee",
+                "model_names": [""],
+            }
+        )
+    )
+
+    with pytest.raises(ValueError, match="non-empty names"):
+        parse_metadata_file(yaml_path)

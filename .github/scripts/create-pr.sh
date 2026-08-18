@@ -20,16 +20,17 @@ set -euo pipefail
 # Returns 0 if changes were committed, 1 if no YAML files to update
 add_pr_to_yaml_files() {
   local pr_number="$1"
-  local yaml_files
-  yaml_files=$(git diff --name-only HEAD~1 HEAD -- 'images/*.yaml' 'images/**/*.yaml' || true)
+  local yaml_files=()
+  # NUL-delimited into an array so unusual filename bytes can't word-split
+  mapfile -d '' -t yaml_files < <(git diff --name-only -z HEAD~1 HEAD -- 'images/*.yaml' 'images/**/*.yaml' || true)
 
-  if [ -z "$yaml_files" ]; then
+  if [ "${#yaml_files[@]}" -eq 0 ]; then
     echo "No YAML files to update"
     return 1
   fi
 
   echo "Adding pull_request field to YAML files..."
-  for yaml_file in $yaml_files; do
+  for yaml_file in "${yaml_files[@]}"; do
     if [ -f "$yaml_file" ] && ! grep -q "^pull_request:" "$yaml_file"; then
       echo "Updating $yaml_file"
       # Insert pull_request after source_url if present, otherwise after source_file_name

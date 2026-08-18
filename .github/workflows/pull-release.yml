@@ -1,0 +1,127 @@
+name: Pull a release
+
+# Pulls a broken release (e.g. one containing a broken OTA image) and restores the
+# previous good release for OTA clients:
+#   1. Retitles the release to "<tag> - pulled" and prepends a caution notice
+#      to its body. The title excludes the release from the version pointer election
+#      (see update-version-pointers.sh).
+#   2. Re-runs the election and updates the release/version and release/files branches
+#      to the newly elected (previous good) releases.
+#   3. Renames the pulled release's index assets (prefixes them with "pulled_"), so
+#      clients still resolving a stale version pointer fail closed with a 404 instead
+#      of downloading the pulled index. The original assets (including upload date and
+#      download count) are preserved.
+#   4. Unless disabled (move_tag input, on by default), re-tags the release to
+#      "pulled_<tag>" (created at the original commit, so the release keeps pointing at
+#      the code it was built from) and force-moves the original tag to the commit of
+#      the newest release older than the pulled one. Clients may cache the pulled index
+#      (with binary URLs containing the pulled tag) for up to 24 hours and only download
+#      an OTA image when an update is actually installed; moving the tag makes exactly
+#      the files added by the pulled release stop resolving, while all other links keep
+#      working. Once the pull is old enough that no client can hold a cached index
+#      anymore, restore-pulled-tags.yml automatically restores the original tag/commit
+#      association (the release stays pulled).
+#
+# Editing a release title to "<tag> - pulled" by hand (GitHub web UI) dispatches this
+# workflow automatically (with its default inputs) via the `edited` release event (see
+# publish-release-json.yml), and removing the " - pulled" part dispatches
+# unpull-release.yml - but only for releases tagged after that trigger logic was added.
+#
+# To un-pull (reinstate) a release, run unpull-release.yml (or edit the title back).
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Tag of the release to pull"
+        required: true
+        type: string
+      reason:
+        description: "Optional short reason (added to the caution notice in the release body)"
+        required: false
+        type: string
+      move_tag:
+        description: "Re-tag the release to pulled_<tag> and force-move the original tag to the newest release older than the pulled one (breaks cached binary URLs of exactly the files added by the pulled release)"
+        required: false
+        type: boolean
+        default: true
+
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
+
+concurrency:
+  group: push-release-version
+  cancel-in-progress: false
+
+jobs:
+  pull-release:
+    name: Pull release
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions).
+          # Workflows write is needed for tag refs whose workflow files differ
+          # from the default branch (see pull-release.sh).
+          permission-contents: write
+          permission-workflows: write
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
+      - name: Configure git
+        run: |
+          set -euo pipefail
+          git config --global user.name "zigpy-bot"
+          git config --global user.email "247691930+zigpy-bot@users.noreply.github.com"
+
+      # Make sure the script is executable:
+      # git update-index --chmod=+x .github/scripts/pull-release.sh
+      - name: Mark release as pulled
+        id: mark
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PULL_TAG: ${{ inputs.tag_name }}
+          PULL_REASON: ${{ inputs.reason }}
+        run: .github/scripts/pull-release.sh mark
+
+      - name: Update version pointers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: .github/scripts/update-version-pointers.sh
+
+      # Uses the app token for gh: tag pushes go through the checkout credentials and
+      # need the app's Workflows (write) permission (see pull-release.sh), and
+      # re-tagging the release must use the same identity. Side effect: app-made
+      # release edits fire `edited` events, re-triggering an (idempotent) version
+      # pointer recalculation.
+      #
+      # Runs even if the version pointer update failed (as long as the release was
+      # marked): renaming the assets and moving the tag don't depend on the election,
+      # and a marked-but-unprotected release would otherwise keep serving its index
+      # while the sweeps consider its title/state consistent. The failed reconcile
+      # still fails the run, and any later successful reconcile heals the pointers.
+      - name: Rename pulled release index assets (and optionally move tag)
+        if: ${{ !cancelled() && steps.mark.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+          PULL_TAG: ${{ inputs.tag_name }}
+          MOVE_TAG: ${{ inputs.move_tag }}
+          ORIGINAL_COMMIT: ${{ steps.mark.outputs.original_commit }}
+        run: .github/scripts/pull-release.sh finalize

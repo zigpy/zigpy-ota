@@ -8,19 +8,29 @@ on:
       # `released` is triggered when a pre-release is promoted to a release, but unfortunately also
       # when a new stable release is created (and not from a draft, according to docs)
       - released
+      # `edited` is triggered when a release's title or body is edited. Editing a release title
+      # to "<tag> - pulled" excludes it from the version pointer election (and editing it back
+      # re-includes it), so re-run the election on edits. Note: release events run the workflow
+      # file at the release's tagged commit, so this only works for releases tagged after this
+      # trigger was added; for older releases, manually run this workflow (or pull-release.yml).
+      - edited
   workflow_dispatch:
     inputs:
       # When triggered manually without inputs, recalculates and updates version pointers.
-      # When triggered with a tag_name, updates version pointers for that release.
+      # When triggered with a tag_name, additionally regenerates and re-uploads that release's
+      # index assets first (e.g. to restore the original assets of an un-pulled release).
       tag_name:
-        description: "Release tag name (leave empty to recalculate from latest releases)"
+        description: "Release tag name to (re)generate index assets for (leave empty to only recalculate version pointers)"
         required: false
         type: string
       is_prerelease:
-        description: "Is this a pre-release?"
+        description: "Deprecated, unused (kept so re-triggers from workflow files at older release tags don't fail)"
         required: false
         type: boolean
         default: false
+
+# Default to no permissions; each job declares exactly what it needs
+permissions: {}
 
 concurrency:
   group: push-release-version
@@ -28,36 +38,77 @@ concurrency:
 
 env:
   PYTHON_VERSION_DEFAULT: "3.14"
-  RELEASE_TAG: ${{ github.event.release.tag_name }}
-  RELEASE_PRERELEASE: ${{ github.event.release.prerelease }}
+  RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag_name }}
 
 jobs:
-  # For 'released' events (pre-release promoted to stable), re-trigger this workflow
-  # using workflow_dispatch to ensure the latest workflow code is used.
+  # For 'released' events (pre-release promoted to stable) and 'edited' events (e.g. a release
+  # title edited to/from "<tag> - pulled"), re-trigger a workflow using workflow_dispatch to
+  # ensure the latest workflow code is used (release events run the workflow file at the
+  # release's tagged commit).
+  #
+  # For 'edited' events, the release title is compared against the recorded pull state to make
+  # a manual title edit (GitHub web UI) fully equivalent to running the pull/un-pull workflows:
+  # - Title marks the release as pulled, but no pull state is recorded in the body:
+  #   dispatch pull-release.yml to also rename the index assets, record the pull state,
+  #   and move the tags (inputs are omitted, so pull-release.yml's defaults apply).
+  # - Title no longer marks the release as pulled, but pull state is still recorded (or the
+  #   release is still on a "pulled_<tag>" tag): dispatch unpull-release.yml to restore the
+  #   tag/commit association and asset names and to record the un-pull in the body.
+  # - Otherwise (e.g. body-only edits, edits made by the pull/un-pull workflows themselves):
+  #   just recalculate the version pointers. This makes the whole cycle converge instead of
+  #   looping: the dispatched workflows' own release edits land in this branch.
   #
   # When a new stable release is created, both 'published' and 'released' events fire.
   # The 'published' event handles JSON generation and upload. If no JSON assets exist yet,
   # this is a duplicate trigger - skip and let 'published' handle everything.
   retrigger-on-released:
-    name: Re-trigger workflow for promoted release
+    name: Re-trigger workflow for promoted or edited release
     runs-on: ubuntu-slim
     timeout-minutes: 2
     permissions:
       actions: write
-    if: github.event.action == 'released' && contains(toJSON(github.event.release.assets.*.name), '.json')
+    if: >-
+      (github.event.action == 'released' || github.event.action == 'edited') &&
+      contains(toJSON(github.event.release.assets.*.name), '.json')
     steps:
-      - name: Trigger workflow_dispatch with release info
+      - name: Trigger workflow_dispatch to sync pull state and recalculate version pointers
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          EVENT_ACTION: ${{ github.event.action }}
+          RELEASE_TITLE: ${{ github.event.release.name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
         run: |
           set -euo pipefail
+
+          if [ "$EVENT_ACTION" = "edited" ]; then
+            BASE_TAG="${RELEASE_TAG#pulled_}"
+            LOWER_TITLE=$(tr '[:upper:]' '[:lower:]' <<<"${RELEASE_TITLE:-}")
+            LOWER_PREFIX=$(tr '[:upper:]' '[:lower:]' <<<"$BASE_TAG - pulled")
+            TITLE_PULLED=false
+            if [ "${LOWER_TITLE:0:${#LOWER_PREFIX}}" = "$LOWER_PREFIX" ]; then
+              TITLE_PULLED=true
+            fi
+            HAS_STATE=false
+            if grep -q '<!-- pulled-release-state ' <<<"${RELEASE_BODY:-}"; then
+              HAS_STATE=true
+            fi
+
+            if [ "$TITLE_PULLED" = true ] && [ "$HAS_STATE" = false ]; then
+              gh workflow run pull-release.yml --ref "$DEFAULT_BRANCH" -f tag_name="$BASE_TAG"
+              echo "::notice::Release $BASE_TAG was marked as pulled by a title edit - dispatched pull-release.yml"
+              exit 0
+            elif [ "$TITLE_PULLED" = false ] && { [ "$HAS_STATE" = true ] || [ "$RELEASE_TAG" != "$BASE_TAG" ]; }; then
+              gh workflow run unpull-release.yml --ref "$DEFAULT_BRANCH" -f tag_name="$BASE_TAG"
+              echo "::notice::Release $BASE_TAG was un-pulled by a title edit - dispatched unpull-release.yml"
+              exit 0
+            fi
+          fi
+
           gh workflow run publish-release-json.yml \
-            --ref "$DEFAULT_BRANCH" \
-            -f tag_name="$RELEASE_TAG" \
-            -f is_prerelease="$RELEASE_PRERELEASE"
-          echo "::notice::Re-triggered workflow via workflow_dispatch for release $RELEASE_TAG"
+            --ref "$DEFAULT_BRANCH"
+          echo "::notice::Re-triggered workflow via workflow_dispatch ('$EVENT_ACTION' event for release $RELEASE_TAG)"
 
   # Generate index files in a read-only job to isolate OTA image parsing
   # from privileged upload/push operations
@@ -67,22 +118,71 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
-    # Only run for 'published' events
-    if: github.event.action == 'published'
+    # Run for 'published' events, or for a manual workflow_dispatch with a tag_name
+    # (to regenerate a release's index assets, e.g. after un-pulling a release)
+    if: >-
+      github.event.action == 'published' ||
+      (github.event_name == 'workflow_dispatch' && inputs.tag_name != '')
     steps:
       # Shallow clone is sufficient — this job only reads files from the working tree.
       # Full history is only needed by update-version-pointers (which switches branches).
+      # For release events, `ref` is empty and the release's tagged commit is checked out
+      # by default; for workflow_dispatch with a tag_name, that tag is checked out.
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag_name }}
+          # This job only reads the tree (and parses untrusted OTA images) -
+          # don't leave any credentials behind
+          persist-credentials: false
+
+      # Regenerating assets for a pulled release would silently re-open its index
+      # URLs next to the renamed pulled_* assets (and break a later un-pull with
+      # asset name conflicts) - refuse and point to unpull-release.yml instead
+      - name: Ensure the release is not pulled
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ "${RELEASE_TAG#pulled_}" != "$RELEASE_TAG" ]; then
+            echo "::error::Tag $RELEASE_TAG refers to a pulled release. Un-pull it first (unpull-release.yml); assets are always regenerated under the base tag."
+            exit 1
+          fi
+          if gh release view "pulled_$RELEASE_TAG" --json name > /dev/null 2>&1; then
+            echo "::error::Release $RELEASE_TAG is pulled (re-tagged to pulled_$RELEASE_TAG). Un-pull it first (unpull-release.yml) instead of regenerating its assets."
+            exit 1
+          fi
+          TITLE=$(gh release view "$RELEASE_TAG" --json name --jq '.name // ""')
+          LOWER_TITLE=$(tr '[:upper:]' '[:lower:]' <<<"$TITLE")
+          LOWER_PREFIX=$(tr '[:upper:]' '[:lower:]' <<<"$RELEASE_TAG - pulled")
+          if [ "${LOWER_TITLE:0:${#LOWER_PREFIX}}" = "$LOWER_PREFIX" ]; then
+            echo "::error::Release $RELEASE_TAG is pulled. Un-pull it first (unpull-release.yml) instead of regenerating its assets."
+            exit 1
+          fi
 
       - name: Load schema config
         run: |
           set -euo pipefail
           {
-            for key in $(jq -r 'keys[]' .github/SCHEMA.json); do
+            # Assign first so a jq failure fails the step (a process
+            # substitution's exit status is invisible to set -e)
+            keys=$(jq -r 'keys[]' .github/SCHEMA.json)
+            if [ -z "$keys" ]; then
+              echo "::error::SCHEMA.json has no keys" >&2
+              exit 1
+            fi
+            while IFS= read -r key; do
               value=$(jq -r --arg k "$key" '.[$k]' .github/SCHEMA.json)
+              # A key outside [A-Za-z0-9_] or a multi-line value would define
+              # arbitrary extra variables (e.g. PATH) for later steps
+              # (while-read keeps a key with spaces intact so the guard catches it)
+              if [[ ! "$key" =~ ^[A-Za-z0-9_]+$ ]] || [[ "$value" == *$'\n'* ]]; then
+                echo "::error::Invalid SCHEMA.json entry for key '$key'" >&2
+                exit 1
+              fi
               echo "SCHEMA_${key^^}=$value"
-            done
+            done <<<"$keys"
 
             # Pre-compute temp output paths
             echo "TMP_ZIGPY=/tmp/$(jq -r '.zigpy_filename' .github/SCHEMA.json)"
@@ -94,12 +194,16 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Set up Python ${{ env.PYTHON_VERSION_DEFAULT }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION_DEFAULT }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          # No dependency caching: this job generates the published OTA index
+          # files, so a poisoned cache must not be able to influence its output
+          enable-cache: false
 
       - name: Install package
         run: uv sync --group ci
@@ -234,21 +338,37 @@ jobs:
     runs-on: ubuntu-slim
     timeout-minutes: 5
     # Run when:
-    # - Release asset upload succeeds (published event)
-    # - Upload was skipped (workflow_dispatch — no index generation needed)
-    # Don't run if upload failed (would point to missing files)
-    # Don't run for 'released' events (handled by retrigger-on-released job)
-    needs: [upload-release-assets]
+    # - Release asset upload succeeds (published event or workflow_dispatch with tag_name)
+    # - Upload was skipped because index generation was skipped too
+    #   (workflow_dispatch without tag_name — no index generation needed)
+    # Don't run if index generation or upload failed (would point to missing files;
+    # a failed generate-index makes upload 'skipped', so check both results)
+    # Don't run for 'released'/'edited' events (handled by retrigger-on-released job)
+    needs: [generate-index, upload-release-assets]
     if: ${{ !cancelled() &&
       github.event.action != 'released' &&
+      github.event.action != 'edited' &&
+      (needs.generate-index.result == 'success' || needs.generate-index.result == 'skipped') &&
       (needs.upload-release-assets.result == 'success' || needs.upload-release-assets.result == 'skipped') }}
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+          # Downscope the token to just what this workflow needs (without
+          # permission-* inputs, it would carry all installation permissions)
+          permission-contents: write
+
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
+      # Commits keep the zigpy-bot user identity for now; pushes authenticate
+      # with the GitHub App installation token (the checkout credentials)
       - name: Configure git
         run: |
           set -euo pipefail
@@ -262,10 +382,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          EVENT_ACTION: ${{ github.event.action }}
-          # Use inputs for workflow_dispatch, event data for release events
-          RELEASE_TAG_NAME: ${{ inputs.tag_name || github.event.release.tag_name }}
-          RELEASE_PRERELEASE: ${{ inputs.is_prerelease || github.event.release.prerelease }}
           RELEASE_CREATED_AT: ${{ github.event.release.created_at }}
-          RELEASE_ASSETS: ${{ toJSON(github.event.release.assets) }}
         run: .github/scripts/update-version-pointers.sh
