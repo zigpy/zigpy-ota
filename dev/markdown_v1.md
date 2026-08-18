@@ -1251,7 +1251,11 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.
 > 
-> **Changes**
+> **Bug fixes**
+> - Fix several RTC and battery reporting issues
+> - Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity
+> 
+> **New features**
 > - Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter
 - **Pull Request**: [#223](https://github.com/zigpy/zigpy-ota/pull/223)
 
@@ -1273,7 +1277,11 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.
 > 
-> **Changes**
+> **Bug fixes**
+> - Fix several RTC and battery reporting issues
+> - Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity
+> 
+> **New features**
 > - Add support for setting the water flow unit (liter, US gallon, or imperial gallon)
 - **Pull Request**: [#234](https://github.com/zigpy/zigpy-ota/pull/234)
 

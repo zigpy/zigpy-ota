@@ -577,7 +577,7 @@
         "sha512": "0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
         "modelId": "SWV-ZFE"
     },
     {
@@ -590,7 +590,7 @@
         "sha512": "0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
         "modelId": "SWV-ZFU"
     },
     {
@@ -603,7 +603,7 @@
         "sha512": "0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
         "modelId": "SWV-ZNE"
     },
     {
@@ -616,7 +616,7 @@
         "sha512": "0187e2e2a420c56d8350457b6c0fd4f55ec93ec7b4fb66427d9b01c387dcf76a26e585632b1d6dca746532c6b06e6235b3eca757ae4fc8d99eca8b7bcb534ce2",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30488549/snzb-swv1c_v1.1.0.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
         "modelId": "SWV-ZNU"
     },
     {
@@ -629,7 +629,7 @@
         "sha512": "50ee6704e698ba258708f6477b4132a36bcddf7f9265ec4dfb27f5729bc89cae7eeaea1984e389fdd1ae636ad8c5b1ba8036694ce4fe1d39c80fa95ea522d52e",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30534640/snzb-swv2c_v1.0.9.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
         "modelId": "SWV-ZF2"
     },
     {
@@ -642,7 +642,7 @@
         "sha512": "50ee6704e698ba258708f6477b4132a36bcddf7f9265ec4dfb27f5729bc89cae7eeaea1984e389fdd1ae636ad8c5b1ba8036694ce4fe1d39c80fa95ea522d52e",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30534640/snzb-swv2c_v1.0.9.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
         "modelId": "SWV-ZF2E"
     },
     {
@@ -655,7 +655,7 @@
         "sha512": "50ee6704e698ba258708f6477b4132a36bcddf7f9265ec4dfb27f5729bc89cae7eeaea1984e389fdd1ae636ad8c5b1ba8036694ce4fe1d39c80fa95ea522d52e",
         "otaHeaderString": "FIRMWARE",
         "originalUrl": "https://github.com/user-attachments/files/30534640/snzb-swv2c_v1.0.9.ota.zip",
-        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
+        "releaseNotes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
         "modelId": "SWV-ZF2U"
     },
     {

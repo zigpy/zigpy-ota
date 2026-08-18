@@ -528,7 +528,7 @@
             "file_version": 4352,
             "file_size": 180496,
             "checksum": "sha3-256:dfdd633e85d47bc647a15a2e37c4712be1d9b7695d08c6a3b9cbbd81b01c475b",
-            "release_notes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
+            "release_notes": "This updates the Sonoff SNZB-SWV1C smart water valve (Hydro ONE and Hydro ONE Lite: SWV-ZFE, SWV-ZFU, SWV-ZNE, SWV-ZNU) to firmware version 1.1.0.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon) on valves with a flow meter",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/223",
             "model_names": [
                 "SWV-ZFE",
@@ -544,7 +544,7 @@
             "file_version": 4105,
             "file_size": 181584,
             "checksum": "sha3-256:8e62f7b53c0a3898549fe69f7477821c7a4f869224a6255a6ee414863b8714c4",
-            "release_notes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Changes**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
+            "release_notes": "This updates the Sonoff SNZB-SWV2C dual-channel smart water valve (Hydro DUO: SWV-ZF2, SWV-ZF2E, SWV-ZF2U) to firmware version 1.0.9.\n\n**Bug fixes**\n- Fix several RTC and battery reporting issues\n- Improve Bluetooth connection reliability by automatically disconnecting after prolonged inactivity\n\n**New features**\n- Add support for setting the water flow unit (liter, US gallon, or imperial gallon)",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/234",
             "model_names": [
                 "SWV-ZF2",
