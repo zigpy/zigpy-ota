@@ -8,4 +8,7 @@ release_notes: |-
 
   **Changes**
   - Add support for setting the water flow unit (liter, US gallon, or imperial gallon)
-disabled: true
+model_names:
+  - SWV-ZF2
+  - SWV-ZF2E
+  - SWV-ZF2U
