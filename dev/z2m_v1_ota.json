@@ -736,7 +736,9 @@
         "sha512": "7ab5d3cc6059166cc8080101090c1f53f4667a2f8a80da0e890687484182274932cb2061af24771c54f6ca6bcf1bb08d3402ad9c0e6fe0dc2a740d1ee45fb22c",
         "otaHeaderString": "test",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSNL02043Z_ZHA_086_20260512_064023.ota",
-        "releaseNotes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86."
+        "releaseNotes": "This updates the ThirdReality Multi-Function Night Light (3RSNL02043Z) to v1.00.86.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3AC-0000004A_20781c.ota",
@@ -748,7 +750,9 @@
         "sha512": "e1345eeebc564050469d3d1cf131c10f962c6a4cc3a83de1b3802ffc1f4d66010a40f726244a1a59c460e5a9b8f4d56b8b8ebe19db7ec132234e11d82bba1b98",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RCB01057Z_ZHA_074_20260512_075147.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74."
+        "releaseNotes": "This updates the ThirdReality Smart Color Bulb ZL1 (3RCB01057Z) to v1.00.74.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3AE-0000001A_9bcffe.ota",
@@ -760,7 +764,9 @@
         "sha512": "6e354dd723f1f175d92baef39ab634d247116552b88c7ec616433fe94b137e140c86fb74ad6779a0d349b685daa0b8671303392c1983847a65b1c57f957fc2e8",
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAP0149BZ_ZHA_026_20260720_091949.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.26."
+        "releaseNotes": "This updates the ThirdReality Smart Filter Sensor (3RAP0149BZ) to v1.00.26.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3AF-00000033_b7c5d2.ota",
@@ -821,7 +827,9 @@
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSPU01080Z_ZHA_047_20260512_075916.ota",
         "releaseNotes": "This updates the ThirdReality Smart Plug UZ1 (3RSPU01080Z) to v1.00.47.",
-        "modelId": "3RSPU01080Z"
+        "modelId": "3RSPU01080Z",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3B4-0000002F_749194.ota",
@@ -834,7 +842,9 @@
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_047_h0xD3B4_20260512_085143.ota",
         "releaseNotes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3B4) to v1.00.47.",
-        "modelId": "3RSP02064Z"
+        "modelId": "3RSP02064Z",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3B5-00000034_1d2971.ota",
@@ -846,7 +856,9 @@
         "sha512": "de2bc2ad5a9a8e275e188c17277518178d4ba2a8ebc600eb4373adbd050cf739721adb9b98ad017119f0da1054dd2e9a6c8345d029e5abbd74c027d326dbe9b1",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RDP01072Z_ZHA_052_20260629_064255.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52."
+        "releaseNotes": "This updates the ThirdReality Smart Dual Plug ZP1 (3RDP01072Z) to v1.00.52.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3B6-00000034_6cac97.ota",
@@ -858,7 +870,9 @@
         "sha512": "bb1777cff5fe2c4022d42e004f67abc8a54c99634f8ef8d15b2a543af245cc0fffb732c1425c04894d64128481644e4572db16dbabfeef899bd13569ff47876c",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWP01073Z_ZHA_052_20260629_064655.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52."
+        "releaseNotes": "This updates the ThirdReality Smart Wall Outlet ZW1 (3RWP01073Z) to v1.00.52.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3B9-00000014_44fad6.ota",
@@ -870,7 +884,9 @@
         "sha512": "9812a5d4152e44e44c7a1e7aac35c299838336ccd0a9c668b81632a1eaef98aba90eed0986d6d164f65bb60bde59940acc4c5337bf32b878f645ffb4cacb9517",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RPS01083Z_ZHA_020_20260512_070945.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20."
+        "releaseNotes": "This updates the ThirdReality Smart Presence Sensor R2 (3RPS01083Z) to v1.00.20.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3BD-00000038_c88d72.ota",
@@ -883,7 +899,9 @@
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_056_20260803_013340.ota",
         "releaseNotes": "This updates the ThirdReality Smart Plug Gen3 (3RSP02064Z, hardware revision 0xD3BD) to v1.00.56.\n\n**Changes**\n- Restore the configured LED brightness after a power cycle",
-        "modelId": "3RSP02064Z"
+        "modelId": "3RSP02064Z",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3BE-0000002F_0f77f7.ota",
@@ -895,7 +913,9 @@
         "sha512": "0a9390caadb57c153c7d26dbe85cae1f512b2eecfc3b687961008aafbeef4b53414354e90a15fcff831537c98946b4d72a7b66b03985a322e04d3a4f11783635",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSPE02065Z_ZHA_047_20260512_075639.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47."
+        "releaseNotes": "This updates the ThirdReality Smart Plug E3 (3RSPE02065Z) to v1.00.47.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3BF-00000015_265b3e.ota",
@@ -907,7 +927,9 @@
         "sha512": "8f9d157f200bc30e5bb541c350c4907bc633e1c731764c8de3afc20d9bfcb0b69abb3c4c699572c39d3569811b33ffb77729c531ecbde4e867196a83dd4d20b2",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RSM0347Z_ZHA_021_20260512_071259.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21."
+        "releaseNotes": "This updates the ThirdReality Smart Soil Moisture Sensor Gen2 (3RSM0347Z) to v1.00.21.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3C1-0000000F_dd668d.ota",
@@ -919,7 +941,9 @@
         "sha512": "49853bd00a77b27775b83ad7a121dd80187488b1c548f2eb922af74265950ccea7e777d4e21502923f06f9ea38a673fcdaca7d593342e9b87c53ca8abde0b447",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RTHS0324Z_ZHA_015_20260512_073649.ota",
-        "releaseNotes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15."
+        "releaseNotes": "This updates the ThirdReality T&H Sensor Lite Gen2 (3RTHS0324Z) to v1.00.15.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3C2-00000012_35e255.ota",
@@ -931,7 +955,9 @@
         "sha512": "95e6e7f32388f829ee892d153d6711e68c8747ced7522991ff1af82bc6c90cc3c9f90cc26c6aec1fde19485caaf143881e40ae51445ffbdb51e9f54182ffb146",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RWS0218Z_ZHA_018_20260804_090533.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.18.\n\n**Changes**\n- Improve the fast heartbeat behavior in the 30 seconds after the hub reconnects following an OTA update"
+        "releaseNotes": "This updates the ThirdReality Smart Water Leak Sensor WL2 (3RWS0218Z) to v1.00.18.\n\n**Changes**\n- Improve the fast heartbeat behavior in the 30 seconds after the hub reconnects following an OTA update",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D3C3-00000028_27e2e4.ota",
@@ -943,7 +969,9 @@
         "sha512": "7f8670e7411b83b2d41fccd551b03daa834707654344b015925a30a2d234538d3942dada616c2004d294da33cf4a1babc7c1866b93a8059984f4a7534de6d278",
         "otaHeaderString": "temp_humi_sensor",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RPL01084Z_ZHA_040_20260514_010312.ota",
-        "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40."
+        "releaseNotes": "This updates the ThirdReality Multi-Function Smart Presence Sensor R3 (3RPL01084Z) to v1.00.40.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D401-00000006_4db260.ota",
@@ -955,7 +983,9 @@
         "sha512": "396dfea0e27de3c4729cdf7f78af5cb608584cd8beda2d00e7b79076ff1cdeccbe272f4f7076782b323ffa9428b4440c9f5415840caaffcaa6fe5db13fe3b3e1",
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RMS26Z_ZHA_006_20260727_092110.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.06."
+        "releaseNotes": "This updates the ThirdReality Smart Motion Sensor Gen2 (3RMS26Z) to v1.00.06.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D403-00000004_e1e881.ota",
@@ -967,7 +997,9 @@
         "sha512": "3940f5cadf186ad60076be36b26f5282b18bcd491348f8c311b94374f18fa0ec2a6c20fa27806e825c45402964a8338edb3ce471f9d2901c534e2762fff31ef9",
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3ROR0194Z_ZHA_004_20260716_055414.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Outdoor Range Extender (3ROR0194Z) to v1.00.04."
+        "releaseNotes": "This updates the ThirdReality Smart Outdoor Range Extender (3ROR0194Z) to v1.00.04.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D405-00000011_0adecc.ota",
@@ -979,7 +1011,9 @@
         "sha512": "8431ac5cc986ad3fa3c2c4b44db34212eeb05b6fc50e448f3a8556a759b3748701787eecf2876ff80d18f5bd4034d24bc33563309654c43fa55a8b087538a676",
         "otaHeaderString": "test",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAQ1096Z_ZHA_017_20260703_032042.ota",
-        "releaseNotes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17."
+        "releaseNotes": "This updates the ThirdReality Air Quality Sensor (3RAQ1096Z) to v1.00.17.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D407-00000002_ee91ad.ota",
@@ -991,7 +1025,9 @@
         "sha512": "b4db4b76b12cbf2ce725577d0ada52fa77705c151f34abbb3fa332a493d5a90ca7f57ef4693c85f0cd3d7c414d832659dbb47da8800a0da41611ae105eda5d6d",
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAS1098Z_ZHA_002_20260715_013037.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02."
+        "releaseNotes": "This updates the ThirdReality Smart Alarm Siren (3RAS1098Z) to v1.00.02.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "1407-D408-00000002_6efd7e.ota",
@@ -1003,7 +1039,9 @@
         "sha512": "1de2302306e4de9d5fd0497f631040d35c5dd7b5998dbf0714e6d59bf70829f15d2b6ed14773d326b41ea495f824ca17429cdec117bdef504fd7d6a72682fb4a",
         "otaHeaderString": "thirdreality",
         "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RAK1099Z_ZHA_002_20260715_012849.ota",
-        "releaseNotes": "This updates the ThirdReality Smart Alarm Keypad (3RAK1099Z) to v1.00.02."
+        "releaseNotes": "This updates the ThirdReality Smart Alarm Keypad (3RAK1099Z) to v1.00.02.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
     },
     {
         "fileName": "10F2-7B2D-01810460_328d1a.ota",
@@ -1015,7 +1053,9 @@
         "sha512": "5e4ddf6b723571a6e569950f2097895d41599a7758f3065d674becf4007db337e6715798a56155181d272d88d292b1436e7ce41d650e16d56406cb3568411943",
         "otaHeaderString": "ubisys H1 1.8.1",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B2D-0000-0001-01810460-m7b-h1.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).\n\n**Changes**\n- An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial"
+        "releaseNotes": "This updates the ubisys Heating Regulator H1 to v1.8.1 (Stack 4.6.0).\n\n**Changes**\n- An attribute report is now generated when the occupied heating setpoint is adjusted using the rotary dial",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 1
     },
     {
         "fileName": "10F2-7B31-02600460_099597.ota",
@@ -1027,7 +1067,9 @@
         "sha512": "07613f4b1fc618069b5bc7a41d93d08c20b51dd586a65559710ea3ce977f1825ed0f14eb7ae218f9ee6a31dc3478a7cc943d75fc4691b9b4f17d73a44200b4bc",
         "otaHeaderString": "ubisys D1 2.6.0",
         "originalUrl": "https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02600460-spo-fmd.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Dimmer D1 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 6
     },
     {
         "fileName": "10F2-7B33-02600460_53ed4b.ota",
@@ -1039,7 +1081,9 @@
         "sha512": "cf54a8f0a0b46962c8d19a50cf26fa87dbf4422dd1637b072d2bc13576b2e16bd5d8de9e775fa513297126d1af884e4ad9e0c4e3f67ff75885086af74edb0944",
         "otaHeaderString": "ubisys S2 2.6.0",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B33-0000-0006-02600460-spo-fms2.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Switching Actuator S2 to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 6
     },
     {
         "fileName": "10F2-7B34-02600462_4293bb.ota",
@@ -1051,7 +1095,9 @@
         "sha512": "a8bdc96481e62b0dd100f64d753bbfbfc157a8791994cd7d2bcdf48dbd36f8d46934447cb010363b96594e5690fe3d863c2da238923f09500d922d0be09ca691",
         "otaHeaderString": "ubisys J1 2.6.0",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B34-0000-0007-02600462-spo-fmsh.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).\n\n**Changes**\n- Bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Shutter Actuator J1 to v2.6.0 (Stack 4.6.2).\n\n**Changes**\n- Bug fixes and improvements",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 7
     },
     {
         "fileName": "10F2-7B38-02600460_ea7e69.ota",
@@ -1063,7 +1109,9 @@
         "sha512": "334584f0986200600412c4f4111b8c5570bb471f961be8db0ec5e466fd63f8633258edd1bb9eb001030ae9020a8c93e5475e0ac5208ae8a9292a09530a6e96d1",
         "otaHeaderString": "ubisys D1-R 2.6.0",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B38-0000-0004-02600460-spo-rmd.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Dimmer D1-R to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Bug fixes and improvements",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 4
     },
     {
         "fileName": "10F2-7B45-02610463_459e97.ota",
@@ -1075,7 +1123,9 @@
         "sha512": "bf70835c764e3ed2fe8f9a4e92a5dc094310f5fe87f60622e2b02922851bbb5d3ccec10131a9f107efe8be00c296a572211f80c05d7e147ea366719532892d0b",
         "otaHeaderString": "ubisys S1-R 2.6.1",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B45-0100-0100-02610463-ubisys-s1r-qpg6105.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).\n\n**Changes**\n- Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W\n- Other bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Switching Actuator S1-R (Series 2) to v2.6.1 (Stack 4.6.3).\n\n**Changes**\n- Fix numeric overflow in metrology engine to support metering loads that exceed 3276.7W\n- Other bug fixes and improvements",
+        "hardwareVersionMin": 256,
+        "hardwareVersionMax": 256
     },
     {
         "fileName": "10F2-7B49-02610464_2faab5.ota",
@@ -1087,7 +1137,9 @@
         "sha512": "761fb11c1c3089b8418883053a55a8048a16ae038d5ffd2ed9f5559ec078c223d1a4a1360293dae053e3ca6314aaf9564da547a662b2a9b0e516bbc551aa8a0c",
         "otaHeaderString": "ubisys C4 2.6.1",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B49-0100-0100-02610464-ubisys-c4-qpg6105.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Control Unit C4 (Series 2) to v2.6.1 (Stack 4.6.4).\n\n**Changes**\n- OTA client cluster included in the simple descriptor of the management application endpoint #232\n- Support for Touch Link commissioning removed\n- Other bug fixes and improvements",
+        "hardwareVersionMin": 256,
+        "hardwareVersionMax": 256
     },
     {
         "fileName": "10F2-7B4A-02600460_67f6ba.ota",
@@ -1099,7 +1151,9 @@
         "sha512": "fb8f1ca7ad9b74e57f6bf1188ea128d462663b837e35e86b65ad64178dfe21882ab85d7f867e404b775b487ed7e73293d0d43611e5d1e32ca74a6adccbddf8af",
         "otaHeaderString": "ubisys R0 2.6.0",
         "originalUrl": "https://fwu.ubisys.de/smarthome/OTA/release/10F2-7B4A-0100-0100-02600460-ubisys-r0-qpg6105.ota.zigbee",
-        "releaseNotes": "This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Add all supported server clusters to the simple descriptor of the management application endpoint 232\n- Remove support for Touch Link commissioning\n- Other bug fixes and improvements"
+        "releaseNotes": "This updates the ubisys Router R0 (Series 2) to v2.6.0 (Stack 4.6.0).\n\n**Changes**\n- Add all supported server clusters to the simple descriptor of the management application endpoint 232\n- Remove support for Touch Link commissioning\n- Other bug fixes and improvements",
+        "hardwareVersionMin": 256,
+        "hardwareVersionMax": 256
     },
     {
         "fileName": "15BB-0064-00103005_e30b52.ota",
