@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1015-0258-00010804_29759b.ota
+source_file_name: SmokeUsAlarm_1.8.4.zigbee
+source_url: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmokeUsAlarm_1.8.4.zigbee
+release_notes: |-
+  This updates the frient A/S US Smoke & CO Alarm (SCAZB-141) to v1.8.4.
+
+  **Changes**
+  - Change the factory reset to use the tamper switch as input (5 quick presses)
