@@ -5,16 +5,16 @@
       "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.1.1/zigpy_v1_ota_beta.json"
     },
     "z2m_v1": {
-      "version": "2026.8.2",
-      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.2/z2m_v1_ota_beta.json"
+      "version": "2026.8.3",
+      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.3/z2m_v1_ota_beta.json"
     },
     "markdown_v1": {
-      "version": "2026.8.2",
-      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.2/markdown_v1_beta.md"
+      "version": "2026.8.3",
+      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.3/markdown_v1_beta.md"
     },
     "zigpy_v2": {
-      "version": "2026.8.2",
-      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.2/zigpy_v2_ota_beta.json"
+      "version": "2026.8.3",
+      "url": "https://github.com/zigpy/zigpy-ota/releases/download/2026.8.3/zigpy_v2_ota_beta.json"
     }
   }
 }
