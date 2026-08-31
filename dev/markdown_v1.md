@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 106
+**Total firmware images:** 107
 
 ## aeotec
 
@@ -184,6 +184,27 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Have a backup image ready in external flash
 > - Bug fixes
 - **Pull Request**: [#78](https://github.com/zigpy/zigpy-ota/pull/78)
+
+### `1015-0258-00010804_29759b.ota`
+
+- **Original File Name**: `SmokeUsAlarm_1.8.4.zigbee`
+- **Manufacturer ID**: `0x1015` (4117)
+- **Image Type**: `0x0258` (600)
+- **File Version**: `0x00010804` (67588)
+- **File Size**: 214,118 bytes
+- **Checksum SHA3-256**: `29759b31bfffdf817382f088ff1fa53cf04901d271a19a81c52ed012b2ac762d`
+- **Checksum SHA512**: `578080c7148482c731976ccd55ac2763a2bec0962312f2dc579d848d9af001eb68f64828f6d4e01cecf869c43221424445ebfec8f5747e05d9369a5886bd49dc`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0258-00010804_29759b.ota
+- **Source URL**: https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmokeUsAlarm_1.8.4.zigbee
+- **Header String**: `SmokeAlarm`
+
+**Release Notes:**
+
+> This updates the frient A/S US Smoke & CO Alarm (SCAZB-141) to v1.8.4.
+> 
+> **Changes**
+> - Change the factory reset to use the tamper switch as input (5 quick presses)
+- **Pull Request**: [#231](https://github.com/zigpy/zigpy-ota/pull/231)
 
 ### `1015-02E0-00030C10_c06f96.ota`
 

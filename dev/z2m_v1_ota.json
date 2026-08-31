@@ -108,6 +108,18 @@
         "releaseNotes": "This updates the frient A/S Intelligent Smoke Alarm (SMSZB-120) or Intelligent Heat Alarm (HESZB-120) to v4.0.9.\n\n**Changes**\n- Have a backup image ready in external flash\n- Bug fixes"
     },
     {
+        "fileName": "1015-0258-00010804_29759b.ota",
+        "fileVersion": 67588,
+        "fileSize": 214118,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/develco/1015-0258-00010804_29759b.ota",
+        "imageType": 600,
+        "manufacturerCode": 4117,
+        "sha512": "578080c7148482c731976ccd55ac2763a2bec0962312f2dc579d848d9af001eb68f64828f6d4e01cecf869c43221424445ebfec8f5747e05d9369a5886bd49dc",
+        "otaHeaderString": "SmokeAlarm",
+        "originalUrl": "https://raw.githubusercontent.com/Develco-Products/frient_upgrade_images/main/SmokeUsAlarm_1.8.4.zigbee",
+        "releaseNotes": "This updates the frient A/S US Smoke & CO Alarm (SCAZB-141) to v1.8.4.\n\n**Changes**\n- Change the factory reset to use the tamper switch as input (5 quick presses)"
+    },
+    {
         "fileName": "1015-02E0-00030C10_c06f96.ota",
         "fileVersion": 199696,
         "fileSize": 181164,
