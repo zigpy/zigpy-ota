@@ -1,0 +1,15 @@
+# OTA metadata
+file_name: 1286-0812-00001004_4019fb.ota
+source_file_name: snzb-06p24_v1.0.4.ota
+source_url: https://github.com/user-attachments/files/31357902/snzb-06p24_v1.0.4.ota.zip
+release_notes: |-
+  This updates the Sonoff Human Presence Sensor SNZB-06P24 to firmware version 1.0.4.
+
+  **Changes**
+  - Improve sensitivity adjustment and refine how sensitivity levels map to trigger thresholds
+  - Improve the spatial learning algorithm to reduce false triggers
+  - Change the default detection interval from 1 minute to 2 minutes
+manufacturer_names:
+  - SONOFF
+model_names:
+  - SNZB-06P24
