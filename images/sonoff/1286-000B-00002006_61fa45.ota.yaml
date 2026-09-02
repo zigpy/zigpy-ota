@@ -2,6 +2,7 @@
 file_name: 1286-000B-00002006_61fa45.ota
 source_file_name: SN-TLSR8656-S60-01-v2.0.6.ota
 source_url: https://github.com/user-attachments/files/31551609/SN-TLSR8656-S60-01-v2.0.6.zip
+pull_request: 255
 release_notes: |-
   This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.6.
 
