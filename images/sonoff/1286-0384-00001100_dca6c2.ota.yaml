@@ -2,5 +2,6 @@
 file_name: 1286-0384-00001100_dca6c2.ota
 source_file_name: ota_901z_8258_1.1.0.ota
 source_url: https://github.com/user-attachments/files/31953982/ota_901z_8258_1.1.0_upload.zip
+pull_request: 258
 release_notes: |-
   - Updates Sonoff TRV-ZBT to firmware version 1.1.0.
