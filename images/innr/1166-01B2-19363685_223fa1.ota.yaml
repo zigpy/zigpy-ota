@@ -2,6 +2,7 @@
 file_name: 1166-01B2-19363685_223fa1.ota
 source_file_name: 1166-01b2-19363685-rb252c-1.9.54.ota
 source_url: https://github.com/user-attachments/files/32198773/1166-01b2-19363685-rb252c-1.9.54.zip
+pull_request: 298
 release_notes: |-
   - Added support for color loop (Zigbee ColorLoopSet cmd) in all color lights
   - All color lights except ceiling lights now support color temperatures 1000K - 20000K
