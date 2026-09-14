@@ -1,0 +1,8 @@
+# OTA metadata
+file_name: 1166-0136-19363685_c69866.ota
+source_file_name: 1166-0136-19363685-rf271t-1.9.54.ota
+source_url: https://github.com/user-attachments/files/32198633/1166-0136-19363685-rf271t-1.9.54.zip
+release_notes: |-
+  - Improved color temperature accuracy
+  - Fixed issue of tunable white lamp flash at specific dim level and color temperature
+  - Several small fixes and stability improvements.
