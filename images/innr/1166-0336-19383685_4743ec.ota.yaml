@@ -2,5 +2,6 @@
 file_name: 1166-0336-19383685_4743ec.ota
 source_file_name: 1166-0336-19383685-sp244v2-1.9.56.ota
 source_url: https://github.com/user-attachments/files/32198964/1166-0336-19383685-sp244v2-1.9.56.zip
+pull_request: 320
 release_notes: |-
   - Several small fixes and stability improvements.
