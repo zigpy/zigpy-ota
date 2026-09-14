@@ -2,5 +2,6 @@
 file_name: 1166-0209-19363685_030bbf.ota
 source_file_name: 1166-0209-19363685-bb262-1.9.54.ota
 source_url: https://github.com/user-attachments/files/32198431/1166-0209-19363685-bb262-1.9.54.zip
+pull_request: 269
 release_notes: |-
   - Several small fixes and stability improvements.
