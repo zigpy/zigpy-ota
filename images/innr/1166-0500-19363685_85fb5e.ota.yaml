@@ -2,5 +2,6 @@
 file_name: 1166-0500-19363685_85fb5e.ota
 source_file_name: 1166-0500-19363685-rs240-1.9.54.ota
 source_url: https://github.com/user-attachments/files/32198693/1166-0500-19363685-rs240-1.9.54.zip
+pull_request: 291
 release_notes: |-
   - Several small fixes and stability improvements.
