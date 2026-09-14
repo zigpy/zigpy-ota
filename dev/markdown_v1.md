@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 107
+**Total firmware images:** 108
 
 ## aeotec
 
@@ -1054,7 +1054,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improve robustness of energy statistic updates in edge-case scenarios
 - **Pull Request**: [#165](https://github.com/zigpy/zigpy-ota/pull/165)
 
-### `1286-000B-00002005_efd644.ota`
+### `1286-000B-00002005_efd644.ota` **[stale]**
 
 - **Original File Name**: `SN-TLSR8656-S60-01-v2.0.5.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1076,6 +1076,29 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > **Changes**
 > - Add support for energy reporting accuracy down to 0.001 kWh
 - **Pull Request**: [#199](https://github.com/zigpy/zigpy-ota/pull/199)
+
+### `1286-000B-00002006_61fa45.ota`
+
+- **Original File Name**: `SN-TLSR8656-S60-01-v2.0.6.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x000B` (11)
+- **File Version**: `0x00002006` (8198)
+- **File Size**: 148,592 bytes
+- **Checksum SHA3-256**: `61fa45f62ce12106ef1cc433fa510ff7f68b39918c81b294456eadf54f1c27d7`
+- **Checksum SHA512**: `416defc85c1ab721c553796748d6afecf1f6a621eaa11f0e022f2b4812bc13cff0d057883576fe1ec528ab7c46275ba691f6004397c8af1d96cb0fd7f3018b6a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-000B-00002006_61fa45.ota
+- **Source URL**: https://github.com/user-attachments/files/31551609/SN-TLSR8656-S60-01-v2.0.6.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: S60ZBTPF, S60ZBTPG
+
+**Release Notes:**
+
+> This updates the Sonoff Plug S60ZBTPF/S60ZBTPG to firmware version 2.0.6.
+> 
+> **Changes**
+> - Fix the plug incorrectly reporting residual power consumption when no load is connected
+- **Pull Request**: [#255](https://github.com/zigpy/zigpy-ota/pull/255)
 
 ### `1286-0044-00001007_3524ca.ota`
 
