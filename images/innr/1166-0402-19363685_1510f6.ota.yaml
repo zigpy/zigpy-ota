@@ -2,5 +2,6 @@
 file_name: 1166-0402-19363685_1510f6.ota
 source_file_name: 1166-0402-19363685-ae264-1.9.54.ota
 source_url: https://github.com/user-attachments/files/32198376/1166-0402-19363685-ae264-1.9.54.zip
+pull_request: 267
 release_notes: |-
   - Several small fixes and stability improvements.
