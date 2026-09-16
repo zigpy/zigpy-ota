@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1166-0902-19443685_10941c.ota
+source_file_name: 1166-0902-19443685-rcl231t-1.9.68.ota
+source_url: https://github.com/user-attachments/files/32199283/1166-0902-19443685-rcl231t-1.9.68.zip
+pull_request: 346
+release_notes: |-
+  - Improved color temperature accuracy
+  - Fixed issue of tunable white lamp flash at specific dim level and color temperature
+  - Several small fixes and stability improvements.
