@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1166-04B1-19363685_0792c0.ota
+source_file_name: 1166-04b1-19363685-ae287c-1.9.54.ota
+source_url: https://github.com/user-attachments/files/32198880/1166-04b1-19363685-ae287c-1.9.54.zip
+pull_request: 311
+release_notes: |-
+  - Added support for color loop (Zigbee ColorLoopSet cmd) in all color lights
+  - All color lights except ceiling lights now support color temperatures 1000K - 20000K
+  - Improved color / color temperature accuracy for some lights
+  - Improved white purity (planckian/daylight) for all color lights
+  - Several small fixes and stability improvements.
