@@ -1019,6 +1019,18 @@
             "max_hardware_version": 65520
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3D1-00000009_61b243.ota",
+            "manufacturer_id": 5127,
+            "image_type": 54225,
+            "file_version": 9,
+            "file_size": 136182,
+            "checksum": "sha3-256:61b2431d39ebb39308a8f8c0cba77d80f23acc57d9a7123a5f8e42b82d9427d6",
+            "release_notes": "This updates the ThirdReality Smart Scale (3RKS030Z) to v1.00.09.",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/253",
+            "min_hardware_version": 0,
+            "max_hardware_version": 65520
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D401-00000002_f1e047.ota",
             "manufacturer_id": 5127,
             "image_type": 54273,

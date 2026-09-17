@@ -1077,6 +1077,20 @@
         "hardwareVersionMax": 65520
     },
     {
+        "fileName": "1407-D3D1-00000009_61b243.ota",
+        "fileVersion": 9,
+        "fileSize": 136182,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/third_reality/1407-D3D1-00000009_61b243.ota",
+        "imageType": 54225,
+        "manufacturerCode": 5127,
+        "sha512": "8c056b1fa0c5ac514acbb9df9e73fb003af2f08e7457eee0430d5ac4378cab559248068c2a6857d07f8627b2dd8163f88d9dd108260bd638b76fd2127762b4dd",
+        "otaHeaderString": "temp_humi_sensor",
+        "originalUrl": "https://s3.amazonaws.com/tr-ota-us-prod/3RKS030Z_ZHA_009_20260828_060111.ota",
+        "releaseNotes": "This updates the ThirdReality Smart Scale (3RKS030Z) to v1.00.09.",
+        "hardwareVersionMin": 0,
+        "hardwareVersionMax": 65520
+    },
+    {
         "fileName": "1407-D401-00000006_4db260.ota",
         "fileVersion": 6,
         "fileSize": 268822,
