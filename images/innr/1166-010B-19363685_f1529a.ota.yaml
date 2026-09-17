@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1166-010B-19363685_f1529a.ota
+source_file_name: 1166-010b-19363685-rb243-1.9.54.ota
+source_url: https://github.com/user-attachments/files/32198451/1166-010b-19363685-rb243-1.9.54.zip
+pull_request: 271
+release_notes: |-
+  - Several small fixes and stability improvements.
