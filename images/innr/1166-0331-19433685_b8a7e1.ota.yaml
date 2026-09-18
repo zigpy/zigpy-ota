@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1166-0331-19433685_b8a7e1.ota
+source_file_name: 1166-0331-19433685-sp240-1.9.67.ota
+source_url: https://github.com/user-attachments/files/32386758/1166-0331-19433685-sp240-1.9.67.zip
+pull_request: 351
+release_notes: |-
+  - Corrected divisor of CurrentSummationDelivered to 1000 (regression)
