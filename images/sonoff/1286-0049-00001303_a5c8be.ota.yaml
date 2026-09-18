@@ -1,0 +1,14 @@
+# OTA metadata
+file_name: 1286-0049-00001303_a5c8be.ota
+source_file_name: SN-TLSR8656-BASICZB1GSP-01-v1.3.3.ota
+source_url: https://github.com/user-attachments/files/32377907/SN-TLSR8656-BASICZB1GSP-01-v1.3.3.zip
+release_notes: |-
+  Extends `basic_zb1gsp.py` to expose additional SONOFF manufacturer-specific energy attributes:
+
+  - `0x7009` daily forward energy
+  - `0x700A` monthly forward energy
+  - `0x7018` daily reverse energy
+  - `0x7019` monthly reverse energy
+  - `0x701F` total reverse energy
+
+  It also updates power handling so that when the device is measuring reverse energy, power is shown as a negative value instead of an unsigned raw value.
