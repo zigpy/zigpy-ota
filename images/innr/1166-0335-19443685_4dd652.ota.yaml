@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1166-0335-19443685_4dd652.ota
+source_file_name: 1166-0335-19443685-sp242v2-1.9.68.ota
+source_url: https://github.com/user-attachments/files/32386862/1166-0335-19443685-sp242v2-1.9.68.zip
+pull_request: 357
+release_notes: |-
+  - Corrected divisor of CurrentSummationDelivered to 1000 (regression)
