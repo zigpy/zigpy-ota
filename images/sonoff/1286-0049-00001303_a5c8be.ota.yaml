@@ -2,6 +2,7 @@
 file_name: 1286-0049-00001303_a5c8be.ota
 source_file_name: SN-TLSR8656-BASICZB1GSP-01-v1.3.3.ota
 source_url: https://github.com/user-attachments/files/32377907/SN-TLSR8656-BASICZB1GSP-01-v1.3.3.zip
+pull_request: 348
 release_notes: |-
   Extends `basic_zb1gsp.py` to expose additional SONOFF manufacturer-specific energy attributes:
 
