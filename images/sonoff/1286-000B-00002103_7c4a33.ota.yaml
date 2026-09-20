@@ -2,5 +2,6 @@
 file_name: 1286-000B-00002103_7c4a33.ota
 source_file_name: SN-TLSR8656-S60-01-v2.1.3.ota
 source_url: https://github.com/user-attachments/files/32427287/SN-TLSR8656-S60-01-v2.1.3.zip
+pull_request: 364
 release_notes: |-
   Devices running older firmware may  show incorrect voltage, power, or metering values below `110 W`
