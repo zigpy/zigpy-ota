@@ -48,16 +48,16 @@
         "releaseNotes": "- Changed the Scene ID configuration for external switch S1/S2"
     },
     {
-        "fileName": "1105-A0A0-00990BF2_143d97.ota",
-        "fileVersion": 10030066,
-        "fileSize": 458443,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/bega/1105-A0A0-00990BF2_143d97.ota",
+        "fileName": "1105-A0A0-009D2ADF_55d404.ota",
+        "fileVersion": 10300127,
+        "fileSize": 460043,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/bega/1105-A0A0-009D2ADF_55d404.ota",
         "imageType": 41120,
         "manufacturerCode": 4357,
-        "sha512": "b0bf836e8fb75660f27603a1b75b93bc5164ccbb2f96ee2f1137b36c7cd4723dbe2d69cef1bc91bc5d1ded25cc31cfc98acc0671ca3871fb79a6151c1b893abe",
+        "sha512": "4ccbe13d07e56ff160ded8e7916d4802004536c6c38b182ace3c46680f711af61a713a2331255204d4d551f2fd1b2060a0a06149eed147f987b6b6e2363c3052",
         "otaHeaderString": "EBL Bega_SmartDimmableLight",
-        "originalUrl": "https://github.com/user-attachments/files/26263812/Smart-Dimmable-Light-10030066-20250513-Release-signed.zip",
-        "releaseNotes": "**Changes**\n- Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations\n- Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates"
+        "originalUrl": "https://github.com/user-attachments/files/32945521/fw_sdl_10300127_20260727_release_z.zip",
+        "releaseNotes": "**Changes**\n- Fix time-controlled events set up in the BEGA Smart app triggering unintentionally"
     },
     {
         "fileName": "1015-0182-00040008_43f6cf.ota",

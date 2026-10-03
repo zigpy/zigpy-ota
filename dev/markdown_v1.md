@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 109
+**Total firmware images:** 110
 
 ## aeotec
 
@@ -81,7 +81,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 ## bega
 
-### `1105-A0A0-00990BF2_143d97.ota`
+### `1105-A0A0-00990BF2_143d97.ota` **[stale]**
 
 - **Original File Name**: `Smart-Dimmable-Light-10030066-20250513-Release-signed.ota`
 - **Manufacturer ID**: `0x1105` (4357)
@@ -100,6 +100,25 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Increased Zigbee routing table capacity to improve network scalability, communication reliability, and overall performance in larger installations
 > - Improved OTA Bluetooth transfer speed, enabling faster and more efficient firmware updates
 - **Pull Request**: [#49](https://github.com/zigpy/zigpy-ota/pull/49)
+
+### `1105-A0A0-009D2ADF_55d404.ota`
+
+- **Original File Name**: `fw_sdl_10300127_20260727_release_z.ota`
+- **Manufacturer ID**: `0x1105` (4357)
+- **Image Type**: `0xA0A0` (41120)
+- **File Version**: `0x009D2ADF` (10300127)
+- **File Size**: 460,043 bytes
+- **Checksum SHA3-256**: `55d404cead20e579f6bf3233089e22320c1220d5e0bb86d4d80b71cac2775db4`
+- **Checksum SHA512**: `4ccbe13d07e56ff160ded8e7916d4802004536c6c38b182ace3c46680f711af61a713a2331255204d4d551f2fd1b2060a0a06149eed147f987b6b6e2363c3052`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/bega/1105-A0A0-009D2ADF_55d404.ota
+- **Source URL**: https://github.com/user-attachments/files/32945521/fw_sdl_10300127_20260727_release_z.zip
+- **Header String**: `EBL Bega_SmartDimmableLight`
+
+**Release Notes:**
+
+> **Changes**
+> - Fix time-controlled events set up in the BEGA Smart app triggering unintentionally
+- **Pull Request**: [#369](https://github.com/zigpy/zigpy-ota/pull/369)
 
 ## develco
 
