@@ -2,6 +2,7 @@
 file_name: 1105-A0A0-009D2ADF_55d404.ota
 source_file_name: fw_sdl_10300127_20260727_release_z.ota
 source_url: https://github.com/user-attachments/files/32945521/fw_sdl_10300127_20260727_release_z.zip
+pull_request: 369
 release_notes: |-
   **Changes**
   - Fix time-controlled events set up in the BEGA Smart app triggering unintentionally
