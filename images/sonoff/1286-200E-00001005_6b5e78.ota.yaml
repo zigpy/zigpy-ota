@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 1286-200E-00001005_6b5e78.ota
+source_file_name: SN-TLSR8258-TP-01-v1.0.5.ota
+source_url: https://github.com/user-attachments/files/33419353/SN-TLSR8258-TP-01-v1.0.5.ota.zip
+release_notes: |-
+  This updates the Sonoff TP-WGZBA thermostat to firmware version 1.0.5.
+
+  **Changes**
+  - Fix the setpoint falling back to 5 °C (the frost protection temperature) at midnight when a weekly schedule is active
+  - Improve temperature compensation so the reported temperature no longer jumps by 0.5–1.6 °C when the heating relay switches
