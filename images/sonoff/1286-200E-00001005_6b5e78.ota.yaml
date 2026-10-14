@@ -2,6 +2,7 @@
 file_name: 1286-200E-00001005_6b5e78.ota
 source_file_name: SN-TLSR8258-TP-01-v1.0.5.ota
 source_url: https://github.com/user-attachments/files/33419353/SN-TLSR8258-TP-01-v1.0.5.ota.zip
+pull_request: 377
 release_notes: |-
   This updates the Sonoff TP-WGZBA thermostat to firmware version 1.0.5.
 
