@@ -2,5 +2,6 @@
 file_name: 1286-0817-00001007_429ea1.ota
 source_file_name: SN-TLSR8656-02B-01-v1.0.7.ota
 source_url: https://github.com/user-attachments/files/33693979/SN-TLSR8656-02B-01-v1.0.7.ota.zip
+pull_request: 380
 release_notes: |-
   - Optimized device power consumption
