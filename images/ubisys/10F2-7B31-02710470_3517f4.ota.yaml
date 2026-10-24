@@ -1,0 +1,15 @@
+# OTA metadata
+file_name: 10F2-7B31-02710470_3517f4.ota
+source_file_name: 10F2-7B31-0000-0006-02710470-spo-fmd.ota.zigbee
+source_url: https://www.ubisys.de/wp-content/uploads/10F2-7B31-0000-0006-02710470-spo-fmd.ota.zigbee
+release_notes: |-
+  This updates the ubisys Dimmer D1 to v2.7.1 (Stack 4.7.0).
+
+  **Changes**
+  - Refine the transient behavior when an On, Off or Toggle command is received during a level transition, avoiding abrupt or unnatural output changes
+  - Rework the Electrical Measurement and Metering cluster implementations for improved accuracy and specification conformance
+  - Add support for the multiplier and divisor attributes in the Electrical Measurement cluster, so reported values can be scaled to the correct units
+  - Handle reportable attributes whose current value is invalid or unavailable when an attribute report is generated
+  - Other bug fixes and improvements
+
+  **More info:** https://www.ubisys.de/en/support/firmware/change-logs-d1/
