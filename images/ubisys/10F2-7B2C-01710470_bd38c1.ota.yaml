@@ -1,0 +1,13 @@
+# OTA metadata
+file_name: 10F2-7B2C-01710470_bd38c1.ota
+source_file_name: 10F2-7B2C-0000-0001-01710470-ld6.ota.zigbee
+source_url: https://www.ubisys.de/wp-content/uploads/10F2-7B2C-0000-0001-01710470-ld6.ota.zigbee
+release_notes: |-
+  This updates the ubisys LED Controller LD6 to v1.7.1 (Stack 4.7.0).
+
+  **Changes**
+  - Refine the transient behavior when an On, Off or Toggle command is received during a level transition, avoiding abrupt or unnatural output changes
+  - Handle reportable attributes whose current value is invalid or unavailable when an attribute report is generated
+  - Other bug fixes and improvements
+
+  **More info:** https://www.ubisys.de/en/support/firmware/change-logs-ld6/
