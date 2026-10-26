@@ -1,0 +1,10 @@
+# OTA metadata
+file_name: 1286-0817-00001007_429ea1.ota
+source_file_name: SN-TLSR8656-02B-01-v1.0.7.ota
+source_url: https://github.com/user-attachments/files/33693979/SN-TLSR8656-02B-01-v1.0.7.ota.zip
+release_notes: |-
+  This updates the Sonoff SNZB-02B temperature and humidity sensor to firmware version 1.0.7.
+
+  **Changes**
+  - Optimize power consumption to extend battery life
+  - Improve device stability
