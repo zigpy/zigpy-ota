@@ -1,0 +1,17 @@
+# OTA metadata
+file_name: 1286-0046-00001207_2e13de.ota
+source_file_name: SN-MG21-MINIZB1GSP-01_v1.2.7.ota
+source_url: https://github.com/user-attachments/files/33748955/SN-MG21-MINIZB1GSP-01_v1.2.7.ota.zip
+pull_request: 382
+release_notes: |-
+  - New features
+    - Support normally open / normally closed rebound external switches
+  - Bug fixes
+    - Relay separation & group control fixes
+      - Gateway offline: external switch can properly control bound devices
+      - Prevent device from responding to group commands when bound to a group but not joined in it
+    - Bluetooth & Zigbee state synchronization fixes
+      - Resolve inverted flip status for follow mode
+      - Ensure inching setting changes from Bluetooth sync to gateway in real time
+    - Fix rare hourly power consumption data loss issue
+    - Optimize LED indicator: resolve abnormal flash on power-up
