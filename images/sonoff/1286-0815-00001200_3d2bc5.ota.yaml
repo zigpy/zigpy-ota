@@ -1,0 +1,16 @@
+# OTA metadata
+file_name: 1286-0815-00001200_3d2bc5.ota
+source_file_name: SN-TLSR8656-09P-01-v1.2.0.ota
+source_url: https://github.com/user-attachments/files/33373056/SN-TLSR8656-09P-01-v1.2.0.ota.zip
+pull_request: 372
+release_notes: |-
+  This updates the Sonoff SNZB-09P SenseGuard Indoor Siren to firmware version 1.2.0.
+
+  **Changes**
+  - Add support for querying the current alarm status.
+  - Improve alarm state synchronization when a stop command is received while the alarm is already idle.
+  - Include five additional Chime sound presets, bringing the total number of selectable sounds to 15.
+manufacturer_names:
+  - SONOFF
+model_names:
+  - SNZB-09P
