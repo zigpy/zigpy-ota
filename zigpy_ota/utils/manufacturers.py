@@ -8,6 +8,7 @@ MANUFACTURER_ID_MAPPING: dict[int, str] = {
     0x100B: "Signify",
     0x1015: "Develco",
     0x1021: "Legrand",
+    0x105E: "Schneider Electric",
     0x10E0: "Chameleon",
     0x10F2: "Ubisys",
     0x1105: "Bega",
