@@ -1,0 +1,21 @@
+# OTA metadata
+file_name: 1286-0044-00001102_781fc0.ota
+source_file_name: mini-zb2gs_v1.1.2.ota
+source_url: https://github.com/user-attachments/files/34167826/mini-zb2gs_v1.1.2.zip
+pull_request: 389
+release_notes: |-
+  New Features
+  1. Added support for the following Zigbee features and commands:
+     - Scenes cluster
+     - Groups cluster
+     - On with Timed Off command
+  2. Improved Zigbee Binding functionality, enabling the device to act as both a binding target and a binding source, allowing it to be controlled by other devices and control other devices.
+  3. Added support for double-click and long-press event reporting in Pulse Switch mode when Relay Detach mode is enabled.
+  4. In Relay Detach mode, Follow mode now distinguishes between ON and OFF states and reports "Follow ON" and "Follow OFF" events for scene triggering. For example, when using a momentary switch, press and release actions can be distinguished, making this mode suitable for applications requiring fast event response.
+  Improvements
+  1. Reduced operation delays when both channels are activated simultaneously.
+  2. Fixed an issue where simultaneous external switch operations could cause one of the actions to be missed.
+  3. Improved connection stability.
+  4. Improved the external switch pairing mechanism. After the device has been offline for more than 2 minutes, pairing mode can be activated via the external switch:
+     - Pulse Switch: Press and hold for ≥10 seconds.
+     - Rocker Switch: Toggle the switch 6 times.
