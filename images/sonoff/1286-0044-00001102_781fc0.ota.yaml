@@ -2,6 +2,7 @@
 file_name: 1286-0044-00001102_781fc0.ota
 source_file_name: mini-zb2gs_v1.1.2.ota
 source_url: https://github.com/user-attachments/files/34167826/mini-zb2gs_v1.1.2.zip
+pull_request: 389
 release_notes: |-
   New Features
   1. Added support for the following Zigbee features and commands:
