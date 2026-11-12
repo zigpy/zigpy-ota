@@ -1,0 +1,23 @@
+# OTA metadata
+file_name: 1286-0046-00001207_2e13de.ota
+source_file_name: SN-MG21-MINIZB1GSP-01_v1.2.7.ota
+source_url: https://github.com/user-attachments/files/33748955/SN-MG21-MINIZB1GSP-01_v1.2.7.ota.zip
+release_notes: |-
+  This updates the Sonoff MINI-ZB1GSP to firmware version 1.2.7.
+
+  **Bug fixes**
+  - Fix the device responding to group commands for a group it is not a member of
+  - Fix the external switch not controlling bound devices in detached relay mode while the gateway is offline
+  - Fix inverted switch status in follow mode
+  - Fix inching setting changes made over Bluetooth not being synced to the gateway right away
+  - Fix a rare loss of hourly energy consumption data
+  - Fix the external switch type reverting to a factory test mode instead of edge mode after a factory reset
+  - Fix LED indicator display issues during power-up and calibration
+
+  **New features**
+  - Add support for normally open (NO) and normally closed (NC) momentary external switches
+  - Add a backup storage partition for license data to prevent data loss
+manufacturer_names:
+  - SONOFF
+model_names:
+  - MINI-ZB1GSP
