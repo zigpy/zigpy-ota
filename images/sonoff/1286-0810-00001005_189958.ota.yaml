@@ -2,6 +2,7 @@
 file_name: 1286-0810-00001005_189958.ota
 source_file_name: SN-TLSR8656-02DR2-01-v1.0.5.ota
 source_url: https://github.com/user-attachments/files/31951918/SN-TLSR8656-02DR2-01-v1.0.5.ota.zip
+pull_request: 260
 release_notes: |-
   This updates the Sonoff SNZB-02DR2 to firmware version 1.0.5.
 
