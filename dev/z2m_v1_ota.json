@@ -560,6 +560,18 @@
         "releaseNotes": "This updates the Sonoff TRV-ZBT to firmware version 1.1.3.\n\n**Changes**\n- Improve Zigbee reconnection to reduce waiting times after prolonged disconnections\n- Improve error recovery to enhance device stability"
     },
     {
+        "fileName": "1286-080D-00001101_30e206.ota",
+        "fileVersion": 4353,
+        "fileSize": 168368,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080D-00001101_30e206.ota",
+        "imageType": 2061,
+        "manufacturerCode": 4742,
+        "sha512": "cce0157eb64aebb24542beef9094221eeca84dd777273549075dc8ccf10e85b323b1f5a74fd827e7c64afea17cb0ef772e75bfc0ddcf775aa8165665e2ae5cfa",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://github.com/user-attachments/files/33416044/SN-TLSR8656-02LWD-01-v1.1.1.zip",
+        "releaseNotes": "This updates the Sonoff SNZB-02WD/SNZB-02LD to firmware version 1.1.1.\n\n**Changes**\n- Improve temperature measurement accuracy, and humidity measurement accuracy on the SNZB-02WD\n- Fix known issues to improve stability and performance"
+    },
+    {
         "fileName": "1286-080E-00001100_a91db8.ota",
         "fileVersion": 4352,
         "fileSize": 193632,

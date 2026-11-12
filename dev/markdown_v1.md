@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 121
+**Total firmware images:** 122
 
 ## aeotec
 
@@ -1334,6 +1334,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improve Zigbee reconnection to reduce waiting times after prolonged disconnections
 > - Improve error recovery to enhance device stability
 - **Pull Request**: [#391](https://github.com/zigpy/zigpy-ota/pull/391)
+
+### `1286-080D-00001101_30e206.ota`
+
+- **Original File Name**: `SN-TLSR8656-02LWD-01-v1.1.1.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x080D` (2061)
+- **File Version**: `0x00001101` (4353)
+- **File Size**: 168,368 bytes
+- **Checksum SHA3-256**: `30e20625f72a48d65c786bbedbfa1206076ddbda361938bc7a20088db5577b51`
+- **Checksum SHA512**: `cce0157eb64aebb24542beef9094221eeca84dd777273549075dc8ccf10e85b323b1f5a74fd827e7c64afea17cb0ef772e75bfc0ddcf775aa8165665e2ae5cfa`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080D-00001101_30e206.ota
+- **Source URL**: https://github.com/user-attachments/files/33416044/SN-TLSR8656-02LWD-01-v1.1.1.zip
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-02WD/SNZB-02LD to firmware version 1.1.1.
+> 
+> **Changes**
+> - Improve temperature measurement accuracy, and humidity measurement accuracy on the SNZB-02WD
+> - Fix known issues to improve stability and performance
+- **Pull Request**: [#375](https://github.com/zigpy/zigpy-ota/pull/375)
 
 ### `1286-080E-00001100_a91db8.ota`
 
