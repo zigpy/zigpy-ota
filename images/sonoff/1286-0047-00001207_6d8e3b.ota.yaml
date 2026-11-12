@@ -1,0 +1,14 @@
+# OTA metadata
+file_name: 1286-0047-00001207_6d8e3b.ota
+source_file_name: SN-MG21-MINIZB1GP-01_v1.2.7.ota
+source_url: https://github.com/user-attachments/files/33755111/SN-MG21-MINIZB1GP-01_v1.2.7.ota.zip
+release_notes: |-
+  This updates the Sonoff MINI-ZB1GP to firmware version 1.2.7.
+
+  **Changes**
+  - Change the Zigbee device type to Meter Interface (`0x0053`)
+  - Improve data storage reliability and fix a rare loss of hourly energy consumption data
+manufacturer_names:
+  - SONOFF
+model_names:
+  - MINI-ZB1GP
