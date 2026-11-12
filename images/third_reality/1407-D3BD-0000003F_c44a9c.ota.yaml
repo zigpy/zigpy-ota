@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1407-D3BD-0000003F_c44a9c.ota
+source_file_name: 3RSP02064Z_ZHA_063_20260928_085645.ota
+source_url: https://s3.amazonaws.com/tr-ota-us-prod/3RSP02064Z_ZHA_063_20260928_085645.ota
+pull_request: 367
+release_notes: |-
+  - BL0943 chip zero-crossing: uses an adaptive algorithm that automatically adjusts the zero-crossing delay time based on frequency.
+  - Distinguish the zero-crossing delay between the two chips.
+  - On power cycle, report current and power promptly.
+model_names:
+  - 3RSP02064Z
