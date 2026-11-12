@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 128B-0106-00030103_ab9562.ota
+source_file_name: NodOn_SIN-4-FP-21_Power_0x00030103.zigbee
+source_url: https://github.com/user-attachments/files/34741088/NodOn_SIN-4-FP-21_Power_0x00030103.zip
+release_notes: |-
+  - Official NodOn firmware for the SIN-4-FP-21 (pilot wire heating module) Power chip (no detailed changelog available).
