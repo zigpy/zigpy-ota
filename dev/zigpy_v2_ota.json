@@ -492,7 +492,7 @@
             "file_version": 4101,
             "file_size": 236032,
             "checksum": "sha3-256:ea654a09cdb2779d36b92a09ec227c7f85ececd586b006d99b5ff95d9c3d86d0",
-            "release_notes": "This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.\n\n**Bugfixes**\n- Calibration method set fail\n\n**New features**\n- NTC threshold value update to 115\u00b0C\n- Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level\n- Light dimming is supported when the key type is single touch key",
+            "release_notes": "This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.\n\n**Bug fixes**\n- Fix a failure when setting the calibration method\n\n**New features**\n- Add a manual calibration mode to set the minimum and maximum brightness directly, replacing the previous minimum brightness setting\n- Add long-press dimming for single-rebound (momentary) external buttons, and long-press brightness adjustment for double- and triple-rebound buttons\n\n**Changes**\n- Change the NTC temperature threshold to 115\u00b0C\n- Change the default dimming rate and transition time for the external switch",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/28",
             "manufacturer_names": [
                 "SONOFF"
