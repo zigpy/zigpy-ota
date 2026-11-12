@@ -2,6 +2,7 @@
 file_name: 1286-0047-00001207_6d8e3b.ota
 source_file_name: SN-MG21-MINIZB1GP-01_v1.2.7.ota
 source_url: https://github.com/user-attachments/files/33755111/SN-MG21-MINIZB1GP-01_v1.2.7.ota.zip
+pull_request: 392
 release_notes: |-
   This updates the Sonoff MINI-ZB1GP to firmware version 1.2.7.
 
