@@ -2,6 +2,7 @@
 file_name: 1286-080D-00001101_30e206.ota
 source_file_name: SN-TLSR8656-02LWD-01-v1.1.1.ota
 source_url: https://github.com/user-attachments/files/33416044/SN-TLSR8656-02LWD-01-v1.1.1.zip
+pull_request: 375
 release_notes: |-
   This updates the Sonoff SNZB-02WD/SNZB-02LD to firmware version 1.1.1.
 
