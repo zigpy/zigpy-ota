@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 122
+**Total firmware images:** 123
 
 ## aeotec
 
@@ -1193,7 +1193,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Light dimming is supported when the key type is single touch key
 - **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
 
-### `1286-0046-00001102_a07705.ota`
+### `1286-0046-00001102_a07705.ota` **[stale]**
 
 - **Original File Name**: `FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1220,6 +1220,39 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Add inching switch and scene threshold report
 > - Add voltage frequency attribute
 - **Pull Request**: [#169](https://github.com/zigpy/zigpy-ota/pull/169)
+
+### `1286-0046-00001207_2e13de.ota`
+
+- **Original File Name**: `SN-MG21-MINIZB1GSP-01_v1.2.7.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0046` (70)
+- **File Version**: `0x00001207` (4615)
+- **File Size**: 335,698 bytes
+- **Checksum SHA3-256**: `2e13de9584e3aae52186a1cdd0641200843f19dba3f0d727651162aea8537bd8`
+- **Checksum SHA512**: `9b34b8cac6c39f04a10c7929316871a7d5982da188e380cdc55b497bf9bd556f1f24096b87da368819cdb0d7d97055dd45290ba8f0d9e492d49aadbddea6f374`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001207_2e13de.ota
+- **Source URL**: https://github.com/user-attachments/files/33748955/SN-MG21-MINIZB1GSP-01_v1.2.7.ota.zip
+- **Header String**: `ota-file-test`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZB1GSP
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZB1GSP to firmware version 1.2.7.
+> 
+> **Bug fixes**
+> - Fix the device responding to group commands for a group it is not a member of
+> - Fix the external switch not controlling bound devices in detached relay mode while the gateway is offline
+> - Fix inverted switch status in follow mode
+> - Fix inching setting changes made over Bluetooth not being synced to the gateway right away
+> - Fix a rare loss of hourly energy consumption data
+> - Fix the external switch type reverting to a factory test mode instead of edge mode after a factory reset
+> - Fix LED indicator display issues during power-up and calibration
+> 
+> **New features**
+> - Add support for normally open (NO) and normally closed (NC) momentary external switches
+> - Add a backup storage partition for license data to prevent data loss
+- **Pull Request**: [#382](https://github.com/zigpy/zigpy-ota/pull/382)
 
 ### `1286-0047-00001102_33f69d.ota`
 

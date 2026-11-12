@@ -518,6 +518,22 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001207_2e13de.ota",
+            "manufacturer_id": 4742,
+            "image_type": 70,
+            "file_version": 4615,
+            "file_size": 335698,
+            "checksum": "sha3-256:2e13de9584e3aae52186a1cdd0641200843f19dba3f0d727651162aea8537bd8",
+            "release_notes": "This updates the Sonoff MINI-ZB1GSP to firmware version 1.2.7.\n\n**Bug fixes**\n- Fix the device responding to group commands for a group it is not a member of\n- Fix the external switch not controlling bound devices in detached relay mode while the gateway is offline\n- Fix inverted switch status in follow mode\n- Fix inching setting changes made over Bluetooth not being synced to the gateway right away\n- Fix a rare loss of hourly energy consumption data\n- Fix the external switch type reverting to a factory test mode instead of edge mode after a factory reset\n- Fix LED indicator display issues during power-up and calibration\n\n**New features**\n- Add support for normally open (NO) and normally closed (NC) momentary external switches\n- Add a backup storage partition for license data to prevent data loss",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/382",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "MINI-ZB1GSP"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0047-00001102_33f69d.ota",
             "manufacturer_id": 4742,
             "image_type": 71,

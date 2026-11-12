@@ -504,16 +504,16 @@
         "modelId": "MINI-ZBDIM"
     },
     {
-        "fileName": "1286-0046-00001102_a07705.ota",
-        "fileVersion": 4354,
-        "fileSize": 329538,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001102_a07705.ota",
+        "fileName": "1286-0046-00001207_2e13de.ota",
+        "fileVersion": 4615,
+        "fileSize": 335698,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0046-00001207_2e13de.ota",
         "imageType": 70,
         "manufacturerCode": 4742,
-        "sha512": "c217bfa6b83d0b186af326374613ce0fc8f9ae13d65e06924d1b22d728bbe04613c24e4321399c98b7308b3e4d2a0c88ba994ab7eb55f2e3dce61cca92eccced",
-        "otaHeaderString": "EBL FWPLUG_MINIZB1GSP_ELECTRICAL",
-        "originalUrl": "https://github.com/user-attachments/files/28790507/FWPLUG_MINIZB1GSP_ELECTRICAL_EFR32MG21.zip",
-        "releaseNotes": "This updates the Sonoff MINI-ZB1GSP to firmware version 1.1.2.\n\n**Bug fixes**\n- Fix synchronization issues between BLE and Zigbee\n- Fix storage and calculation issues with electricity consumption and price\n\n**New features**\n- Add inching switch and scene threshold report\n- Add voltage frequency attribute",
+        "sha512": "9b34b8cac6c39f04a10c7929316871a7d5982da188e380cdc55b497bf9bd556f1f24096b87da368819cdb0d7d97055dd45290ba8f0d9e492d49aadbddea6f374",
+        "otaHeaderString": "ota-file-test",
+        "originalUrl": "https://github.com/user-attachments/files/33748955/SN-MG21-MINIZB1GSP-01_v1.2.7.ota.zip",
+        "releaseNotes": "This updates the Sonoff MINI-ZB1GSP to firmware version 1.2.7.\n\n**Bug fixes**\n- Fix the device responding to group commands for a group it is not a member of\n- Fix the external switch not controlling bound devices in detached relay mode while the gateway is offline\n- Fix inverted switch status in follow mode\n- Fix inching setting changes made over Bluetooth not being synced to the gateway right away\n- Fix a rare loss of hourly energy consumption data\n- Fix the external switch type reverting to a factory test mode instead of edge mode after a factory reset\n- Fix LED indicator display issues during power-up and calibration\n\n**New features**\n- Add support for normally open (NO) and normally closed (NC) momentary external switches\n- Add a backup storage partition for license data to prevent data loss",
         "manufacturerName": [
             "SONOFF"
         ],
