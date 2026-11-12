@@ -1,18 +1,21 @@
 # OTA metadata
 file_name: 1286-0045-00001005_ea654a.ota
 source_file_name: mini-zbdim_v1.0.5.ota
-source_url: https://github.com/user-attachments/files/25672062/mini-zbdim_v1.0.5.zip
-pull_request: 28
+source_url: https://github.com/user-attachments/files/28939868/mini-zbdim_v1.0.5.zip
 release_notes: |-
   This updates the Sonoff MINI-ZBDIM to firmware version 1.0.5.
 
-  **Bugfixes**
-  - Calibration method set fail
+  **Bug fixes**
+  - Fix a failure when setting the calibration method
 
   **New features**
-  - NTC threshold value update to 115°C
-  - Firmware supports manual calibration mode to allow direct configuration of minimum and maximum level
-  - Light dimming is supported when the key type is single touch key
+  - Add a manual calibration mode to set the minimum and maximum brightness directly
+  - Add long-press dimming for single-rebound (momentary) external buttons, and long-press brightness adjustment for double- and triple-rebound buttons
+
+  **Changes**
+  - Change the NTC temperature threshold to 115°C
+  - Change the default dimming rate and transition time for the external switch
+  - Remove the minimum brightness setting
 manufacturer_names:
   - SONOFF
 model_names:
