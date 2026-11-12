@@ -554,6 +554,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/258"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0384-00001103_59cf59.ota",
+            "manufacturer_id": 4742,
+            "image_type": 900,
+            "file_version": 4355,
+            "file_size": 295856,
+            "checksum": "sha3-256:59cf59ed0be52b228952b06bd437812323175931c9cbaec8d54c55ebec715f9e",
+            "release_notes": "This updates the Sonoff TRV-ZBT to firmware version 1.1.3.\n\n**Changes**\n- Improve Zigbee reconnection to reduce waiting times after prolonged disconnections\n- Improve error recovery to enhance device stability",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/391"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-080E-00001100_a91db8.ota",
             "manufacturer_id": 4742,
             "image_type": 2062,
