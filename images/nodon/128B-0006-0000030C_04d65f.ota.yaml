@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 128B-0006-0000030C_04d65f.ota
+source_file_name: NodOn_SIN-4-FP-21_Antenna_0x0000030C.zigbee
+source_url: https://github.com/user-attachments/files/34740976/NodOn_SIN-4-FP-21_Antenna_0x0000030C.zip
+pull_request: 399
+release_notes: |-
+  - Official NodOn firmware for the SIN-4-FP-21 (pilot wire heating module) Antenna chip (no detailed changelog available).
