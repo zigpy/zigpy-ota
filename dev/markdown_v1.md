@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 118
+**Total firmware images:** 119
 
 ## aeotec
 
@@ -1335,6 +1335,30 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 >   - This is enabled by adding the `OnOff` cluster to endpoints 2, 3, and 4 (previously only available on endpoint 1)
 > - Performance improvements
 - **Pull Request**: [#51](https://github.com/zigpy/zigpy-ota/pull/51)
+
+### `1286-0810-00001005_189958.ota`
+
+- **Original File Name**: `SN-TLSR8656-02DR2-01-v1.0.5.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0810` (2064)
+- **File Version**: `0x00001005` (4101)
+- **File Size**: 212,400 bytes
+- **Checksum SHA3-256**: `1899586932b57a7e7702bf03f0bb4f603c47f9c725ab26b8f6cc9b86ccda6c6c`
+- **Checksum SHA512**: `a85f87b87ff388f9f0fe34ffb1e1419fb05c4d8864a44f9657ffd6ca565358f43ec96222fcaf4f26dcd9fb1e09ddde23773e924ce15caa548b0eec5ce0d0bf19`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0810-00001005_189958.ota
+- **Source URL**: https://github.com/user-attachments/files/31951918/SN-TLSR8656-02DR2-01-v1.0.5.ota.zip
+- **Header String**: `FIRMWARE`
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-02DR2 to firmware version 1.0.5.
+> 
+> **Changes**
+> - Add support for two remote temperature and humidity data sources
+> - Fix several known issues to improve stability
+> 
+> **Note:** Remote temperature and humidity sources configured before this update need to be configured again.
+- **Pull Request**: [#260](https://github.com/zigpy/zigpy-ota/pull/260)
 
 ### `1286-0817-00001007_429ea1.ota`
 

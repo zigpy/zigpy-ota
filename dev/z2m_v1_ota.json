@@ -576,6 +576,18 @@
         "modelId": "SNZB-01M"
     },
     {
+        "fileName": "1286-0810-00001005_189958.ota",
+        "fileVersion": 4101,
+        "fileSize": 212400,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0810-00001005_189958.ota",
+        "imageType": 2064,
+        "manufacturerCode": 4742,
+        "sha512": "a85f87b87ff388f9f0fe34ffb1e1419fb05c4d8864a44f9657ffd6ca565358f43ec96222fcaf4f26dcd9fb1e09ddde23773e924ce15caa548b0eec5ce0d0bf19",
+        "otaHeaderString": "FIRMWARE",
+        "originalUrl": "https://github.com/user-attachments/files/31951918/SN-TLSR8656-02DR2-01-v1.0.5.ota.zip",
+        "releaseNotes": "This updates the Sonoff SNZB-02DR2 to firmware version 1.0.5.\n\n**Changes**\n- Add support for two remote temperature and humidity data sources\n- Fix several known issues to improve stability\n\n**Note:** Remote temperature and humidity sources configured before this update need to be configured again."
+    },
+    {
         "fileName": "1286-0817-00001007_429ea1.ota",
         "fileVersion": 4103,
         "fileSize": 107344,
