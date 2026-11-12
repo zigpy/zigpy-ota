@@ -1160,7 +1160,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > This updates the Sonoff MINI-ZB2GS to firmware version 1.0.7.
 > 
 > **Changes**
-> - Add step function
+> - Add programmable step sequences, which let an external switch cycle the two relays through up to four preset on/off combinations
 > - Change the external switch pairing trigger: toggle the external switch 10 times after 2 minutes of Zigbee disconnection
 - **Pull Request**: [#179](https://github.com/zigpy/zigpy-ota/pull/179)
 
