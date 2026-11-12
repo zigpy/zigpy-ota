@@ -536,16 +536,16 @@
         "modelId": "MINI-ZB1GP"
     },
     {
-        "fileName": "1286-0049-00001005_a9ce60.ota",
-        "fileVersion": 4101,
-        "fileSize": 154512,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001005_a9ce60.ota",
+        "fileName": "1286-0049-00001303_a5c8be.ota",
+        "fileVersion": 4867,
+        "fileSize": 177616,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001303_a5c8be.ota",
         "imageType": 73,
         "manufacturerCode": 4742,
-        "sha512": "41d3a384612384ff0c9e4d4559f162b270973b8a983638b617b3a9a2ac9337dddc8cdd7ef51764e735794b0b715c5a8bac960c7ccc285152d5cc84dc4515f69d",
+        "sha512": "e876eb49659649e45af931fcd747eb2ee2f257593fe8e58b36fdb4e6ff7b90791632b6b3d1fdbdc18b2b44406a48a324e3251285a59d7c2c29c25adbfa54a3ec",
         "otaHeaderString": "Telink OTA Sample Usage",
-        "originalUrl": "https://github.com/user-attachments/files/29504444/SN-TLSR8656-BASICZB1GSP-01-v1.0.5.zip",
-        "releaseNotes": "This updates the Sonoff BASIC-ZB1GSP to firmware version 1.0.5."
+        "originalUrl": "https://github.com/user-attachments/files/32377907/SN-TLSR8656-BASICZB1GSP-01-v1.3.3.zip",
+        "releaseNotes": "This updates the Sonoff BASIC-ZB1GSP to firmware version 1.3.3.\n\n**Changes**\n- Add exported (reverse) energy measurement\n- Expand on-device energy data storage to up to 6 months of hourly, 12 months of daily, and 12 months of monthly data\n- Add the option to delete historical energy data\n- Improve energy data storage reliability"
     },
     {
         "fileName": "1286-0384-00001103_59cf59.ota",

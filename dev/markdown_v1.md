@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 119
+**Total firmware images:** 120
 
 ## aeotec
 
@@ -1249,7 +1249,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Add voltage frequency attribute
 - **Pull Request**: [#173](https://github.com/zigpy/zigpy-ota/pull/173)
 
-### `1286-0049-00001005_a9ce60.ota`
+### `1286-0049-00001005_a9ce60.ota` **[stale]**
 
 - **Original File Name**: `SN-TLSR8656-BASICZB1GSP-01-v1.0.5.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1266,6 +1266,30 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 
 > This updates the Sonoff BASIC-ZB1GSP to firmware version 1.0.5.
 - **Pull Request**: [#193](https://github.com/zigpy/zigpy-ota/pull/193)
+
+### `1286-0049-00001303_a5c8be.ota`
+
+- **Original File Name**: `SN-TLSR8656-BASICZB1GSP-01-v1.3.3.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0049` (73)
+- **File Version**: `0x00001303` (4867)
+- **File Size**: 177,616 bytes
+- **Checksum SHA3-256**: `a5c8be331a402803e7707de1028f070d449cd58e384455467990d07b616b93f2`
+- **Checksum SHA512**: `e876eb49659649e45af931fcd747eb2ee2f257593fe8e58b36fdb4e6ff7b90791632b6b3d1fdbdc18b2b44406a48a324e3251285a59d7c2c29c25adbfa54a3ec`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001303_a5c8be.ota
+- **Source URL**: https://github.com/user-attachments/files/32377907/SN-TLSR8656-BASICZB1GSP-01-v1.3.3.zip
+- **Header String**: `Telink OTA Sample Usage`
+
+**Release Notes:**
+
+> This updates the Sonoff BASIC-ZB1GSP to firmware version 1.3.3.
+> 
+> **Changes**
+> - Add exported (reverse) energy measurement
+> - Expand on-device energy data storage to up to 6 months of hourly, 12 months of daily, and 12 months of monthly data
+> - Add the option to delete historical energy data
+> - Improve energy data storage reliability
+- **Pull Request**: [#348](https://github.com/zigpy/zigpy-ota/pull/348)
 
 ### `1286-0384-00001100_dca6c2.ota` **[stale]**
 

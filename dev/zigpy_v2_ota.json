@@ -544,6 +544,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/193"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0049-00001303_a5c8be.ota",
+            "manufacturer_id": 4742,
+            "image_type": 73,
+            "file_version": 4867,
+            "file_size": 177616,
+            "checksum": "sha3-256:a5c8be331a402803e7707de1028f070d449cd58e384455467990d07b616b93f2",
+            "release_notes": "This updates the Sonoff BASIC-ZB1GSP to firmware version 1.3.3.\n\n**Changes**\n- Add exported (reverse) energy measurement\n- Expand on-device energy data storage to up to 6 months of hourly, 12 months of daily, and 12 months of monthly data\n- Add the option to delete historical energy data\n- Improve energy data storage reliability",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/348"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0384-00001100_dca6c2.ota",
             "manufacturer_id": 4742,
             "image_type": 900,
