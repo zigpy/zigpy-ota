@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 124
+**Total firmware images:** 125
 
 ## aeotec
 
@@ -1254,7 +1254,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Add a backup storage partition for license data to prevent data loss
 - **Pull Request**: [#382](https://github.com/zigpy/zigpy-ota/pull/382)
 
-### `1286-0047-00001102_33f69d.ota`
+### `1286-0047-00001102_33f69d.ota` **[stale]**
 
 - **Original File Name**: `FWPLUG_MINIZB1GP_ELECTRICAL_EFR32MG21.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1281,6 +1281,30 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Add scene threshold report
 > - Add voltage frequency attribute
 - **Pull Request**: [#173](https://github.com/zigpy/zigpy-ota/pull/173)
+
+### `1286-0047-00001207_6d8e3b.ota`
+
+- **Original File Name**: `SN-MG21-MINIZB1GP-01_v1.2.7.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0047` (71)
+- **File Version**: `0x00001207` (4615)
+- **File Size**: 329,266 bytes
+- **Checksum SHA3-256**: `6d8e3b0c2d28f1ad726260230fa31fec1888db2ba89947e50d369d7c510543fa`
+- **Checksum SHA512**: `142ac26bf02fc6baa3f9abb29c3e3af90b91900f5dcac6b88047af81139d36694f0c8ad85523fc91e0402c9704217943628f5556b7a9e7a7de5d00412b86d3c8`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0047-00001207_6d8e3b.ota
+- **Source URL**: https://github.com/user-attachments/files/33755111/SN-MG21-MINIZB1GP-01_v1.2.7.ota.zip
+- **Header String**: `ota-file-test`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZB1GP
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZB1GP to firmware version 1.2.7.
+> 
+> **Changes**
+> - Change the Zigbee device type to Meter Interface (`0x0053`)
+> - Improve data storage reliability and fix a rare loss of hourly energy consumption data
+- **Pull Request**: [#392](https://github.com/zigpy/zigpy-ota/pull/392)
 
 ### `1286-0049-00001005_a9ce60.ota` **[stale]**
 
