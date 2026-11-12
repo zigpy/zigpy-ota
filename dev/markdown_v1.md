@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 120
+**Total firmware images:** 121
 
 ## aeotec
 
@@ -1383,6 +1383,31 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note:** Remote temperature and humidity sources configured before this update need to be configured again.
 - **Pull Request**: [#260](https://github.com/zigpy/zigpy-ota/pull/260)
+
+### `1286-0815-00001200_3d2bc5.ota`
+
+- **Original File Name**: `SN-TLSR8656-09P-01-v1.2.0.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0815` (2069)
+- **File Version**: `0x00001200` (4608)
+- **File Size**: 110,592 bytes
+- **Checksum SHA3-256**: `3d2bc55302f736628ba09c13c3b53313b5387b2bccf1bb40a3b88c22ae6f1737`
+- **Checksum SHA512**: `4c5fceada857cf8e5062b9363d22a2752d41cfb92aede57f23ba5f3a28d0524f6badb556bc7f822b1134d208c19e8ea39cd57b2cf603641535cc067cba9c9c14`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0815-00001200_3d2bc5.ota
+- **Source URL**: https://github.com/user-attachments/files/33373056/SN-TLSR8656-09P-01-v1.2.0.ota.zip
+- **Header String**: `Telink OTA Sample Usage`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: SNZB-09P
+
+**Release Notes:**
+
+> This updates the Sonoff SNZB-09P SenseGuard Indoor Siren to firmware version 1.2.0.
+> 
+> **Changes**
+> - Add five chime sounds (Doorbell, Classic Clock, Electronic Clock, Bright, and Soft), for 15 selectable sounds in total
+> - Add support for querying the current alarm status
+> - Improve alarm state synchronization when a stop command is received while the alarm is already idle
+- **Pull Request**: [#372](https://github.com/zigpy/zigpy-ota/pull/372)
 
 ### `1286-0817-00001007_429ea1.ota`
 

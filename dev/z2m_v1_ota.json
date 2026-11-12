@@ -588,6 +588,22 @@
         "releaseNotes": "This updates the Sonoff SNZB-02DR2 to firmware version 1.0.5.\n\n**Changes**\n- Add support for two remote temperature and humidity data sources\n- Fix several known issues to improve stability\n\n**Note:** Remote temperature and humidity sources configured before this update need to be configured again."
     },
     {
+        "fileName": "1286-0815-00001200_3d2bc5.ota",
+        "fileVersion": 4608,
+        "fileSize": 110592,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0815-00001200_3d2bc5.ota",
+        "imageType": 2069,
+        "manufacturerCode": 4742,
+        "sha512": "4c5fceada857cf8e5062b9363d22a2752d41cfb92aede57f23ba5f3a28d0524f6badb556bc7f822b1134d208c19e8ea39cd57b2cf603641535cc067cba9c9c14",
+        "otaHeaderString": "Telink OTA Sample Usage",
+        "originalUrl": "https://github.com/user-attachments/files/33373056/SN-TLSR8656-09P-01-v1.2.0.ota.zip",
+        "releaseNotes": "This updates the Sonoff SNZB-09P SenseGuard Indoor Siren to firmware version 1.2.0.\n\n**Changes**\n- Add five chime sounds (Doorbell, Classic Clock, Electronic Clock, Bright, and Soft), for 15 selectable sounds in total\n- Add support for querying the current alarm status\n- Improve alarm state synchronization when a stop command is received while the alarm is already idle",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "SNZB-09P"
+    },
+    {
         "fileName": "1286-0817-00001007_429ea1.ota",
         "fileVersion": 4103,
         "fileSize": 107344,

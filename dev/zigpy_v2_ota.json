@@ -600,6 +600,22 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/260"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0815-00001200_3d2bc5.ota",
+            "manufacturer_id": 4742,
+            "image_type": 2069,
+            "file_version": 4608,
+            "file_size": 110592,
+            "checksum": "sha3-256:3d2bc55302f736628ba09c13c3b53313b5387b2bccf1bb40a3b88c22ae6f1737",
+            "release_notes": "This updates the Sonoff SNZB-09P SenseGuard Indoor Siren to firmware version 1.2.0.\n\n**Changes**\n- Add five chime sounds (Doorbell, Classic Clock, Electronic Clock, Bright, and Soft), for 15 selectable sounds in total\n- Add support for querying the current alarm status\n- Improve alarm state synchronization when a stop command is received while the alarm is already idle",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/372",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "SNZB-09P"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0817-00001007_429ea1.ota",
             "manufacturer_id": 4742,
             "image_type": 2071,
