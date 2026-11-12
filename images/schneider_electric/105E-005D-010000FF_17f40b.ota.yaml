@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 105E-005D-010000FF_17f40b.ota
+source_file_name: 105E-005D-010000FF-0100-0100.zigbee
+source_url: https://wiserheat-pkgs.se-ssl-cloud.com/Final/CLO/1.0.0/105E-005D-010000FF-0100-0100.zigbee
+min_hardware_version: 256
+max_hardware_version: 256

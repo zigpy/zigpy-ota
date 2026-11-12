@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 105E-0043-020706FF_cdfe13.ota
+source_file_name: 105E-0043-020706FF-0000-0000.zigbee
+source_url: https://wiserheat-pkgs.se-ssl-cloud.com/Final/SmokeAlarm/2.7.6/105E-0043-020706FF-0000-0000.zigbee
+min_hardware_version: 0
+max_hardware_version: 0
