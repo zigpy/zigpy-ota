@@ -626,6 +626,22 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/260"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0812-00001004_4019fb.ota",
+            "manufacturer_id": 4742,
+            "image_type": 2066,
+            "file_version": 4100,
+            "file_size": 244304,
+            "checksum": "sha3-256:4019fbf90ad1b7a2bac29214c01f1334052f3f57cee7b7c69b73b96a210d7238",
+            "release_notes": "This updates the Sonoff Human Presence Sensor SNZB-06P24 to firmware version 1.0.4.\n\n**Changes**\n- Improve sensitivity adjustment and refine how sensitivity levels map to trigger thresholds\n- Improve the spatial learning algorithm to reduce false triggers\n- Change the default detection interval from 1 minute to 2 minutes",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/251",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "SNZB-06P24"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0815-00001200_3d2bc5.ota",
             "manufacturer_id": 4742,
             "image_type": 2069,

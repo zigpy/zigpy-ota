@@ -600,6 +600,22 @@
         "releaseNotes": "This updates the Sonoff SNZB-02DR2 to firmware version 1.0.5.\n\n**Changes**\n- Add support for two remote temperature and humidity data sources\n- Fix several known issues to improve stability\n\n**Note:** Remote temperature and humidity sources configured before this update need to be configured again."
     },
     {
+        "fileName": "1286-0812-00001004_4019fb.ota",
+        "fileVersion": 4100,
+        "fileSize": 244304,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0812-00001004_4019fb.ota",
+        "imageType": 2066,
+        "manufacturerCode": 4742,
+        "sha512": "82d5f79965a501a2e67a052c39a5bbdd934596bfc76d820dfffd3f33af07016777226ee655a22a7edc4ce11d9ea07df8a97f23a9fb49db26a0df3601926a7d40",
+        "otaHeaderString": "FIRMWARE",
+        "originalUrl": "https://github.com/user-attachments/files/31357902/snzb-06p24_v1.0.4.ota.zip",
+        "releaseNotes": "This updates the Sonoff Human Presence Sensor SNZB-06P24 to firmware version 1.0.4.\n\n**Changes**\n- Improve sensitivity adjustment and refine how sensitivity levels map to trigger thresholds\n- Improve the spatial learning algorithm to reduce false triggers\n- Change the default detection interval from 1 minute to 2 minutes",
+        "manufacturerName": [
+            "SONOFF"
+        ],
+        "modelId": "SNZB-06P24"
+    },
+    {
         "fileName": "1286-0815-00001200_3d2bc5.ota",
         "fileVersion": 4608,
         "fileSize": 110592,

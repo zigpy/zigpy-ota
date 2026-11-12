@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 123
+**Total firmware images:** 124
 
 ## aeotec
 
@@ -1438,6 +1438,31 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note:** Remote temperature and humidity sources configured before this update need to be configured again.
 - **Pull Request**: [#260](https://github.com/zigpy/zigpy-ota/pull/260)
+
+### `1286-0812-00001004_4019fb.ota`
+
+- **Original File Name**: `snzb-06p24_v1.0.4.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0812` (2066)
+- **File Version**: `0x00001004` (4100)
+- **File Size**: 244,304 bytes
+- **Checksum SHA3-256**: `4019fbf90ad1b7a2bac29214c01f1334052f3f57cee7b7c69b73b96a210d7238`
+- **Checksum SHA512**: `82d5f79965a501a2e67a052c39a5bbdd934596bfc76d820dfffd3f33af07016777226ee655a22a7edc4ce11d9ea07df8a97f23a9fb49db26a0df3601926a7d40`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0812-00001004_4019fb.ota
+- **Source URL**: https://github.com/user-attachments/files/31357902/snzb-06p24_v1.0.4.ota.zip
+- **Header String**: `FIRMWARE`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: SNZB-06P24
+
+**Release Notes:**
+
+> This updates the Sonoff Human Presence Sensor SNZB-06P24 to firmware version 1.0.4.
+> 
+> **Changes**
+> - Improve sensitivity adjustment and refine how sensitivity levels map to trigger thresholds
+> - Improve the spatial learning algorithm to reduce false triggers
+> - Change the default detection interval from 1 minute to 2 minutes
+- **Pull Request**: [#251](https://github.com/zigpy/zigpy-ota/pull/251)
 
 ### `1286-0815-00001200_3d2bc5.ota`
 
