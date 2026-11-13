@@ -1,0 +1,9 @@
+# OTA metadata
+file_name: 1286-0004-00001102_7ef4ed.ota
+source_file_name: stand_ota-file.ota
+source_url: https://github.com/user-attachments/files/34740942/stand_ota-file.zip
+pull_request: 396
+release_notes: |-
+  - Improvements
+  1. Optimized Zigbee signal handling and connection management to reduce unexpected disconnections and network dropouts, while improving reconnection speed and success rate after going offline.
+  2. Added support for configuring the external switch mode via software.
