@@ -1,0 +1,17 @@
+# OTA metadata
+file_name: 1286-0045-00001007_ad80f2.ota
+source_file_name: mini-zbdim_v1.0.7.ota
+source_url: https://github.com/user-attachments/files/35134281/mini-zbdim_v1.0.7.zip
+release_notes: |-
+  Improvements
+  1. Optimized turn-on response speed for faster light activation.
+  2. Added the ability to switch to "Single Momentary Switch mode" via triple-clicking the device button, without requiring the app.
+  New Features
+  1. Added support for the following Zigbee features:
+     - Groups cluster
+     - On with Timed Off command
+  2. Added the ability to switch from Auto Calibration to Manual Calibration:
+     - During Auto Calibration, press the external switch once to interrupt the process and enter Manual Calibration. The brightness will remain at its current level.
+     - During Manual Calibration, brightness can be adjusted from 0% to 100% of the device's dimming duty cycle using the external switch or any compatible app (e.g., Amazon Alexa).
+     - Adjust the brightness to the maximum level using the external switch or any compatible app, then double-click the device button to save the setting. The light will breathe twice to confirm.
+     - Adjust the brightness to the minimum level using the external switch or any compatible app, then double-click the device button to save the setting. The light will breathe twice to confirm.
