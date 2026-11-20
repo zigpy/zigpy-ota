@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 1286-2007-00001409_990774.ota
+source_file_name: ota-file.ota
+source_url: https://github.com/user-attachments/files/35136924/TRVZB_v1.4.9.zip
+release_notes: |-
+  - Bug fixes: Fix the outdated MCU version issue on certain devices, which mainly affects temperature control.
