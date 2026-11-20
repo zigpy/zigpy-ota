@@ -1,0 +1,15 @@
+# OTA metadata
+file_name: 1286-200C-00001201_ec5012.ota
+source_file_name: mini-zbrbs_v1.2.1.ota
+source_url: https://github.com/user-attachments/files/35131808/mini-zbrbs_v1.2.1.ota.zip
+release_notes: |-
+  New Features & Improvements
+  1. Optimized the "Auto Calibration algorithm" to improve the calibration success rate.
+  2. Added support for "Single Momentary Switch mode".
+  3. Added a prerequisite for entering pairing mode via the external switch. After the device has been offline for more than "2 minutes", pairing mode can be activated through the external switch:
+     - "Edge Trigger mode:" Toggle the "UP" and "DOWN" keys back and forth at least "6 times within 6 seconds".
+     - "Pulse Trigger mode:" Press the "UP" key at least "6 times within 6 seconds".
+  4. Added support for triggering "Auto Calibration via the external switch in Pulse Trigger mode":
+     - Short press "UP" → short press "DOWN" → press and hold "UP" or "DOWN" for "10 seconds".
+  5. Optimized the "compensation time setting" for Manual Calibration.
+  6. Fixed known issues and improved overall system stability.
