@@ -700,6 +700,22 @@
             ]
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001409_990774.ota",
+            "manufacturer_id": 4742,
+            "image_type": 8199,
+            "file_version": 5129,
+            "file_size": 332220,
+            "checksum": "sha3-256:99077480c61eb2e01399d575ddfd0db54940dbe10582aa914457099f685e0ad8",
+            "release_notes": "This updates the Sonoff TRVZB to firmware version 1.4.9.\n\n**Changes**\n- Fix an outdated MCU firmware version on some devices, which mainly affected temperature control\n- Fix heating switching on or off at temperatures that did not match the configured temperature control accuracy\n- Fix the valve only switching between fully open and fully closed in Adaptive Mode",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/418",
+            "manufacturer_names": [
+                "SONOFF"
+            ],
+            "model_names": [
+                "TRVZB"
+            ]
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-200C-00001100_dfdd63.ota",
             "manufacturer_id": 4742,
             "image_type": 8204,

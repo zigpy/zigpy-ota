@@ -644,16 +644,16 @@
         "releaseNotes": "This updates the Sonoff SNZB-02B temperature and humidity sensor to firmware version 1.0.7.\n\n**Changes**\n- Optimize power consumption to extend battery life\n- Improve device stability"
     },
     {
-        "fileName": "1286-2007-00001404_fbc68d.ota",
-        "fileVersion": 5124,
+        "fileName": "1286-2007-00001409_990774.ota",
+        "fileVersion": 5129,
         "fileSize": 332220,
-        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001404_fbc68d.ota",
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001409_990774.ota",
         "imageType": 8199,
         "manufacturerCode": 4742,
-        "sha512": "c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3",
-        "otaHeaderString": "vers:00001404,00001301\n",
-        "originalUrl": "https://github.com/user-attachments/files/25085309/trvzb_v1.4.4.zip",
-        "releaseNotes": "This updates the Sonoff TRVZB to firmware version 1.4.4.\n\n**Changes**\n- Add Adaptive Mode, which minimizes temperature fluctuations by adjusting the valve opening based on temperature changes and the target temperature\n- Improve stability and fix minor issues\n\n**Note:** Enabling Adaptive Mode automatically disables the valve opening degree and temperature control accuracy settings.",
+        "sha512": "884ae0dfcc0404d8ffe1de107a52c78f6d6a9539588afc5a954ab587cd08fc6c912d1461d6ab35742315c9cfb8c9e2430f059b282446a46593e1efb7c460845a",
+        "otaHeaderString": "vers:00001409,00001301\n",
+        "originalUrl": "https://github.com/user-attachments/files/35136924/TRVZB_v1.4.9.zip",
+        "releaseNotes": "This updates the Sonoff TRVZB to firmware version 1.4.9.\n\n**Changes**\n- Fix an outdated MCU firmware version on some devices, which mainly affected temperature control\n- Fix heating switching on or off at temperatures that did not match the configured temperature control accuracy\n- Fix the valve only switching between fully open and fully closed in Adaptive Mode",
         "manufacturerName": [
             "SONOFF"
         ],

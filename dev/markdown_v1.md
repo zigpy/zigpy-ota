@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 125
+**Total firmware images:** 126
 
 ## aeotec
 
@@ -1538,7 +1538,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Improve device stability
 - **Pull Request**: [#380](https://github.com/zigpy/zigpy-ota/pull/380)
 
-### `1286-2007-00001404_fbc68d.ota`
+### `1286-2007-00001404_fbc68d.ota` **[stale]**
 
 - **Original File Name**: `trvzb_v1.4.4.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1564,6 +1564,32 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > 
 > **Note:** Enabling Adaptive Mode automatically disables the valve opening degree and temperature control accuracy settings.
 - **Pull Request**: [#24](https://github.com/zigpy/zigpy-ota/pull/24)
+
+### `1286-2007-00001409_990774.ota`
+
+- **Original File Name**: `ota-file.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x2007` (8199)
+- **File Version**: `0x00001409` (5129)
+- **File Size**: 332,220 bytes
+- **Checksum SHA3-256**: `99077480c61eb2e01399d575ddfd0db54940dbe10582aa914457099f685e0ad8`
+- **Checksum SHA512**: `884ae0dfcc0404d8ffe1de107a52c78f6d6a9539588afc5a954ab587cd08fc6c912d1461d6ab35742315c9cfb8c9e2430f059b282446a46593e1efb7c460845a`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-2007-00001409_990774.ota
+- **Source URL**: https://github.com/user-attachments/files/35136924/TRVZB_v1.4.9.zip
+- **Header String**: `vers:00001409,00001301
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: TRVZB
+
+**Release Notes:**
+
+> This updates the Sonoff TRVZB to firmware version 1.4.9.
+> 
+> **Changes**
+> - Fix an outdated MCU firmware version on some devices, which mainly affected temperature control
+> - Fix heating switching on or off at temperatures that did not match the configured temperature control accuracy
+> - Fix the valve only switching between fully open and fully closed in Adaptive Mode
+- **Pull Request**: [#418](https://github.com/zigpy/zigpy-ota/pull/418)
 
 ### `1286-200C-00001100_dfdd63.ota`
 
