@@ -1,0 +1,22 @@
+# OTA metadata
+file_name: 1286-0008-00001100_6c2989.ota
+source_file_name: SN-MG21-ZGMR2-01-v1.1.0-20260826.150520.000_Signature_Encrypted.ota
+source_url: https://github.com/user-attachments/files/33534338/SN-MG21-ZGMR2-01-v1.1.0-20260826.150520.000_Signature_Encrypted.zip
+pull_request: 373
+release_notes: |-
+  - New Features
+
+  1. Added support for double-click and long-press event reporting in Pulse Switch mode.
+  2. Added support for the Zigbee Scenes cluster.
+  3. Added support for the Zigbee On with Timed Off command.
+
+  - Improvements
+
+  1. Added a prerequisite for the External Switch to enter pairing mode: the device must have been offline for more than 2 minutes.
+  2. Updated the trigger method for the External Switch to enter pairing mode:
+  3. Pulse Switch: Press and hold for ≥10 seconds.
+  4. Rocker Switch: Toggle the switch 6 times.
+
+  - Bug Fixes
+
+  1. Fixed known bugs and improved overall system stability.
