@@ -1,0 +1,20 @@
+# OTA metadata
+file_name: 1286-0045-00001007_ad80f2.ota
+source_file_name: mini-zbdim_v1.0.7.ota
+source_url: https://github.com/user-attachments/files/35134281/mini-zbdim_v1.0.7.zip
+pull_request: 416
+release_notes: |-
+  This updates the Sonoff MINI-ZBDIM to firmware version 1.0.7.
+
+  **Changes**
+  - Improve the turn-on response time
+  - Add switching to single momentary switch mode by triple-clicking the device button
+  - Add support for the `Groups` cluster and the `On With Timed Off` command
+  - Add switching from auto calibration to manual calibration by pressing the external switch once during auto calibration; the brightness stays at its current level
+    - In manual calibration, the brightness can be adjusted across the full dimming range with the external switch or an app
+    - To save the maximum brightness, set the light to the desired level and double-click the device button (the light breathes twice to confirm)
+    - Save the minimum brightness the same way
+manufacturer_names:
+  - SONOFF
+model_names:
+  - MINI-ZBDIM
