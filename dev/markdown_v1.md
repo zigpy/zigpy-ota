@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 127
+**Total firmware images:** 128
 
 ## aeotec
 
@@ -1186,7 +1186,7 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Change the external switch pairing trigger: toggle the external switch 10 times after 2 minutes of Zigbee disconnection
 - **Pull Request**: [#179](https://github.com/zigpy/zigpy-ota/pull/179)
 
-### `1286-0045-00001005_ea654a.ota`
+### `1286-0045-00001005_ea654a.ota` **[stale]**
 
 - **Original File Name**: `mini-zbdim_v1.0.5.ota`
 - **Manufacturer ID**: `0x1286` (4742)
@@ -1217,6 +1217,36 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 > - Change the NTC temperature threshold to 115°C
 > - Change the default dimming rate and transition time for the external switch
 - **Pull Request**: [#28](https://github.com/zigpy/zigpy-ota/pull/28)
+
+### `1286-0045-00001007_ad80f2.ota`
+
+- **Original File Name**: `mini-zbdim_v1.0.7.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0045` (69)
+- **File Version**: `0x00001007` (4103)
+- **File Size**: 252,504 bytes
+- **Checksum SHA3-256**: `ad80f27a5dfeca3d6ab24e0b2a8368ca6eba6bd8f609f4594d47d2abc5c5661c`
+- **Checksum SHA512**: `b298ff9d8913027c42e68321afcb6af26caa015bf570dbb950ce007534c312da2544495084724de905656ef385d714a33f59d25b8571a0f7c22ced36cc455c67`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0045-00001007_ad80f2.ota
+- **Source URL**: https://github.com/user-attachments/files/35134281/mini-zbdim_v1.0.7.zip
+- **Header String**: `vers:00001007,00001104
+`
+- **Manufacturer Names**: SONOFF
+- **Model Names**: MINI-ZBDIM
+
+**Release Notes:**
+
+> This updates the Sonoff MINI-ZBDIM to firmware version 1.0.7.
+> 
+> **Changes**
+> - Improve the turn-on response time
+> - Add switching to single momentary switch mode by triple-clicking the device button
+> - Add support for the `Groups` cluster and the `On With Timed Off` command
+> - Add switching from auto calibration to manual calibration by pressing the external switch once during auto calibration; the brightness stays at its current level
+>   - In manual calibration, the brightness can be adjusted across the full dimming range with the external switch or an app
+>   - To save the maximum brightness, set the light to the desired level and double-click the device button (the light breathes twice to confirm)
+>   - Save the minimum brightness the same way
+- **Pull Request**: [#416](https://github.com/zigpy/zigpy-ota/pull/416)
 
 ### `1286-0046-00001102_a07705.ota` **[stale]**
 
