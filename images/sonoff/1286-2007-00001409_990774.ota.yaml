@@ -1,0 +1,16 @@
+# OTA metadata
+file_name: 1286-2007-00001409_990774.ota
+source_file_name: ota-file.ota
+source_url: https://github.com/user-attachments/files/35136924/TRVZB_v1.4.9.zip
+pull_request: 418
+release_notes: |-
+  This updates the Sonoff TRVZB to firmware version 1.4.9.
+
+  **Changes**
+  - Fix an outdated MCU firmware version on some devices, which mainly affected temperature control
+  - Fix heating switching on or off at temperatures that did not match the configured temperature control accuracy
+  - Fix the valve only switching between fully open and fully closed in Adaptive Mode
+manufacturer_names:
+  - SONOFF
+model_names:
+  - TRVZB
