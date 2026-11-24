@@ -690,7 +690,7 @@
             "file_version": 5124,
             "file_size": 332220,
             "checksum": "sha3-256:fbc68d9075d8ecf34d5b238396f0ee5dd165bd459e339e3d96878c775419c3f1",
-            "release_notes": "This updates the Sonoff TRVZB to firmware version 1.4.44.\n\n**Changes**\\\nThis release adds Adaptive Mode. It is a feature designed to minimize temperature fluctuations.\nWhen enabled, the device dynamically adjusts the valve opening based on the temperature changes and the target temperature to maintain a more stable environment.\n\n**Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.",
+            "release_notes": "This updates the Sonoff TRVZB to firmware version 1.4.4.\n\n**Changes**\n- Add Adaptive Mode, which minimizes temperature fluctuations by adjusting the valve opening based on temperature changes and the target temperature\n- Improve stability and fix minor issues\n\n**Note:** Enabling Adaptive Mode automatically disables the valve opening degree and temperature control accuracy settings.",
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/24",
             "manufacturer_names": [
                 "SONOFF"

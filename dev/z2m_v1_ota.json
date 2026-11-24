@@ -653,7 +653,7 @@
         "sha512": "c7640e2a238ab9807b77d36abc4b9e58d64c99a8fe8ac8d6246f48760bc85a2aec5c446630c94dd2e85fe3fe088011eccc992e543183b74ede7e061ae6f324b3",
         "otaHeaderString": "vers:00001404,00001301\n",
         "originalUrl": "https://github.com/user-attachments/files/25085309/trvzb_v1.4.4.zip",
-        "releaseNotes": "This updates the Sonoff TRVZB to firmware version 1.4.44.\n\n**Changes**\\\nThis release adds Adaptive Mode. It is a feature designed to minimize temperature fluctuations.\nWhen enabled, the device dynamically adjusts the valve opening based on the temperature changes and the target temperature to maintain a more stable environment.\n\n**Note**: Enabling Adaptive Mode will automatically disable Valve Opening Percentage and Temperature Accuracy.",
+        "releaseNotes": "This updates the Sonoff TRVZB to firmware version 1.4.4.\n\n**Changes**\n- Add Adaptive Mode, which minimizes temperature fluctuations by adjusting the valve opening based on temperature changes and the target temperature\n- Improve stability and fix minor issues\n\n**Note:** Enabling Adaptive Mode automatically disables the valve opening degree and temperature control accuracy settings.",
         "manufacturerName": [
             "SONOFF"
         ],
