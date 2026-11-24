@@ -2,6 +2,7 @@
 file_name: 1286-200C-00001201_ec5012.ota
 source_file_name: mini-zbrbs_v1.2.1.ota
 source_url: https://github.com/user-attachments/files/35131808/mini-zbrbs_v1.2.1.ota.zip
+pull_request: 414
 release_notes: |-
   This updates the Sonoff MINI-ZBRBS to firmware version 1.2.1.
 
