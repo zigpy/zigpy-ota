@@ -3,7 +3,7 @@
 This is a human-readable index of all OTA firmware images in the zigpy-ota repository.
 
 **Channel:** dev\
-**Total firmware images:** 126
+**Total firmware images:** 127
 
 ## aeotec
 
@@ -1002,6 +1002,28 @@ This is a human-readable index of all OTA firmware images in the zigpy-ota repos
 - **Pull Request**: [#163](https://github.com/zigpy/zigpy-ota/pull/163)
 
 ## sonoff
+
+### `1286-0004-00001102_7ef4ed.ota`
+
+- **Original File Name**: `stand_ota-file.ota`
+- **Manufacturer ID**: `0x1286` (4742)
+- **Image Type**: `0x0004` (4)
+- **File Version**: `0x00001102` (4354)
+- **File Size**: 278,426 bytes
+- **Checksum SHA3-256**: `7ef4edc2ee32b2508246c55f65ae832965a8dfe1c8067ee3e2209851869c7183`
+- **Checksum SHA512**: `3cee3d5eebf6e8eb8e38dcb44b42c2fb3090803c4a906705ac673607684ed0baf58c4cfbc2575abf7901cf1f93623f746d82881f489e867dbc06ec1705da78a4`
+- **Binary URL**: https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0004-00001102_7ef4ed.ota
+- **Source URL**: https://github.com/user-attachments/files/34740942/stand_ota-file.zip
+- **Header String**: `ota-file-test`
+
+**Release Notes:**
+
+> This updates the Sonoff ZBMINIL2 to firmware version 1.1.2.
+> 
+> **Changes**
+> - Improve Zigbee connection stability to reduce unexpected disconnections, and improve reconnection speed and success rate after going offline
+> - Add support for configuring the external switch trigger mode (edge or pulse) over Zigbee
+- **Pull Request**: [#396](https://github.com/zigpy/zigpy-ota/pull/396)
 
 ### `1286-0008-00001008_bf65da.ota`
 

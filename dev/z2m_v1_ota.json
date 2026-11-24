@@ -432,6 +432,18 @@
         "releaseNotes": "This updates the Inovelli VZM36 to v1.02.\n\n**Changes**\n- The dimming algorithm has been optimized.\n- If issues are observed in leading edge mode, please try trailing edge or full sine mode."
     },
     {
+        "fileName": "1286-0004-00001102_7ef4ed.ota",
+        "fileVersion": 4354,
+        "fileSize": 278426,
+        "url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0004-00001102_7ef4ed.ota",
+        "imageType": 4,
+        "manufacturerCode": 4742,
+        "sha512": "3cee3d5eebf6e8eb8e38dcb44b42c2fb3090803c4a906705ac673607684ed0baf58c4cfbc2575abf7901cf1f93623f746d82881f489e867dbc06ec1705da78a4",
+        "otaHeaderString": "ota-file-test",
+        "originalUrl": "https://github.com/user-attachments/files/34740942/stand_ota-file.zip",
+        "releaseNotes": "This updates the Sonoff ZBMINIL2 to firmware version 1.1.2.\n\n**Changes**\n- Improve Zigbee connection stability to reduce unexpected disconnections, and improve reconnection speed and success rate after going offline\n- Add support for configuring the external switch trigger mode (edge or pulse) over Zigbee"
+    },
+    {
         "fileName": "1286-0008-00001008_bf65da.ota",
         "fileVersion": 4104,
         "fileSize": 277180,

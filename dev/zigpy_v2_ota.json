@@ -381,6 +381,16 @@
             "release_url": "https://github.com/zigpy/zigpy-ota/pull/163"
         },
         {
+            "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0004-00001102_7ef4ed.ota",
+            "manufacturer_id": 4742,
+            "image_type": 4,
+            "file_version": 4354,
+            "file_size": 278426,
+            "checksum": "sha3-256:7ef4edc2ee32b2508246c55f65ae832965a8dfe1c8067ee3e2209851869c7183",
+            "release_notes": "This updates the Sonoff ZBMINIL2 to firmware version 1.1.2.\n\n**Changes**\n- Improve Zigbee connection stability to reduce unexpected disconnections, and improve reconnection speed and success rate after going offline\n- Add support for configuring the external switch trigger mode (edge or pulse) over Zigbee",
+            "release_url": "https://github.com/zigpy/zigpy-ota/pull/396"
+        },
+        {
             "binary_url": "https://raw.githubusercontent.com/zigpy/zigpy-ota/dev/images/sonoff/1286-0008-00001008_bf65da.ota",
             "manufacturer_id": 4742,
             "image_type": 8,
