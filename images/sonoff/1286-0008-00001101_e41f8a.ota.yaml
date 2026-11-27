@@ -1,0 +1,11 @@
+# OTA metadata
+file_name: 1286-0008-00001101_e41f8a.ota
+source_file_name: SN-MG21-ZGMR2-01-v1.1.1-20261117.090220.324_Signature_Encrypted.ota
+source_url: https://github.com/user-attachments/files/35490168/SN-MG21-ZGMR2-01-v1.1.1-20261117.090220.324_Signature_Encrypted.zip
+pull_request: 421
+release_notes: |-
+  Improvements
+  1. Optimized External Switch Event Handling in Relay Detach + Follow Mode:
+     - Gateway: The device now reports "ON" and "OFF" events to the gateway when the external switch is closed and opened, respectively. This supports momentary switches by distinguishing between press and release actions, enabling more responsive gateway automations.
+     - Binding: The device now sends a "Toggle command" directly to the bound target device as soon as the external switch is pressed, improving control responsiveness.
+  2. Optimized Event Queue: Improved event transmission speed for faster response.
