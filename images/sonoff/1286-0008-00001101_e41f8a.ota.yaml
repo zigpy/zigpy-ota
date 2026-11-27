@@ -2,6 +2,7 @@
 file_name: 1286-0008-00001101_e41f8a.ota
 source_file_name: SN-MG21-ZGMR2-01-v1.1.1-20261117.090220.324_Signature_Encrypted.ota
 source_url: https://github.com/user-attachments/files/35490168/SN-MG21-ZGMR2-01-v1.1.1-20261117.090220.324_Signature_Encrypted.zip
+pull_request: 421
 release_notes: |-
   Improvements
   1. Optimized External Switch Event Handling in Relay Detach + Follow Mode:
