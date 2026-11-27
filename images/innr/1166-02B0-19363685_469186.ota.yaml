@@ -1,0 +1,8 @@
+# OTA metadata
+file_name: 1166-02B0-19363685_469186.ota
+source_file_name: 1166-02b0-19363685-bb282c-1.9.54.ota
+source_url: https://github.com/user-attachments/files/34750292/1166-02b0-19363685-bb282c-1.9.54.zip
+pull_request: 412
+release_notes: |-
+  - Better color temperature reproduction than newer version 1.9.64 for certain BB 282 C batches
+  - We are working on a structural solution.
