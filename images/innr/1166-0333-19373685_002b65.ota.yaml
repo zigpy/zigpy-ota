@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1166-0333-19373685_002b65.ota
+source_file_name: 1166-0333-19373685-sp244-1.9.55.ota
+source_url: https://github.com/user-attachments/files/32198930/1166-0333-19373685-sp244-1.9.55.zip
+pull_request: 310
+release_notes: |-
+  - Several small fixes and stability improvements.
