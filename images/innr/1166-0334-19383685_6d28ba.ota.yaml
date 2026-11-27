@@ -1,0 +1,7 @@
+# OTA metadata
+file_name: 1166-0334-19383685_6d28ba.ota
+source_file_name: 1166-0334-19383685-sp240v2-1.9.56.ota
+source_url: https://github.com/user-attachments/files/32198938/1166-0334-19383685-sp240v2-1.9.56.zip
+pull_request: 314
+release_notes: |-
+  - Several small fixes and stability improvements.
