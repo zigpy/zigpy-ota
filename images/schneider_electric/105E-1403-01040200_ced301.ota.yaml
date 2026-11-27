@@ -1,0 +1,6 @@
+# OTA metadata
+file_name: 105E-1403-01040200_ced301.ota
+source_file_name: 105E-1403-01040200-020F-02FF.zigbee
+source_url: https://wiserheat-pkgs.se-ssl-cloud.com/Final/FIP/1.4.2/105E-1403-01040200-020F-02FF.zigbee
+min_hardware_version: 527
+max_hardware_version: 767
